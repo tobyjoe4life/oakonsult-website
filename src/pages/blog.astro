@@ -1,0 +1,38 @@
+﻿---
+import Layout from "../layouts/Layout.astro";
+import { featuredPosts } from "../data/site";
+---
+
+<Layout title="Blog (News & Stories) | OAKonsult" description="Latest news and updates from OAKonsult." path="/blog">
+	<section class="section">
+		<div class="container split">
+			<div class="reveal">
+				<p class="section-kicker">Stories & Insights</p>
+				<h1 class="section-title">Latest News & Update</h1>
+				<p class="muted-copy" style="margin-top: 0.9rem;">
+					Explore current OAKonsult news, stories, and updates from families, carers, and
+					communities.
+				</p>
+			</div>
+			<img class="reveal" style="--delay: 0.12s" src="/media/wp/2025/04/BlogPage-Hero.jpg" alt="Blog hero" />
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="card-grid">
+				{
+					featuredPosts.map((post, i) => (
+						<article class="card reveal" style={`--delay: ${0.12 + i * 0.08}s`}>
+							<p class="section-kicker">{post.date}</p>
+							<h2 style="font-size: 1.3rem;">{post.title}</h2>
+							<a class="inline-link" href={post.href} target="_blank" rel="noreferrer">
+								Read published story
+							</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</Layout>

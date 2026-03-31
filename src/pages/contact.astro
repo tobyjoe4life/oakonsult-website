@@ -1,0 +1,49 @@
+﻿---
+import Layout from "../layouts/Layout.astro";
+import { contact } from "../data/site";
+---
+
+<Layout title="Contact Us | OAKonsult" description="Get in touch with OAKonsult." path="/contact">
+	<section class="section">
+		<div class="container">
+			<p class="section-kicker reveal">Get In Touch</p>
+			<h1 class="section-title reveal" style="--delay: 0.05s">Get in Touch</h1>
+			<p class="reveal muted-copy" style="--delay: 0.1s;">
+				We'd love to hear from you. Whether you're a parent carer seeking support, a church
+				leader planning inclusion training, a donor with questions, or simply learning more
+				about OAKonsult's work, our team is here to help.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container contact-grid">
+			<article class="contact-card reveal">
+				<p class="section-kicker">Contact Details</p>
+				<h2>OAKonsult Disabilities Outreach</h2>
+				<p><strong>Phone:</strong> {contact.phones[0]} | {contact.phones[1]}</p>
+				<p><strong>Mail:</strong> <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+			</article>
+			<article class="contact-card reveal" style="--delay: 0.08s">
+				<h2>UK Address</h2>
+				<p>Church House</p>
+				<p>Rushet Road</p>
+				<p>Orpington, Kent BR5 2PT</p>
+				<p>United Kingdom</p>
+			</article>
+			<article class="contact-card reveal" style="--delay: 0.16s">
+				<h2>Nigerian Address</h2>
+				<p>OAK Centre, Oolo Town</p>
+				<p>Along Oyo/Ogbomoso Expressway, Oriire LGA</p>
+				<p>Ogbomoso, Oyo State, Nigeria</p>
+			</article>
+			<article class="contact-card reveal" style="--delay: 0.24s">
+				<h2>Complete the Form Below</h2>
+				<p>
+					Form integration is being rebuilt in the new platform. For now, email or call and we
+					will respond directly.
+				</p>
+			</article>
+		</div>
+	</section>
+</Layout>

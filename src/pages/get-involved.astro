@@ -1,0 +1,35 @@
+﻿---
+import Layout from "../layouts/Layout.astro";
+import { involvementPaths } from "../data/site";
+---
+
+<Layout
+	title="Get Involved | OAKonsult"
+	description="Volunteer, fundraise, partner, or join events with OAKonsult."
+	path="/get-involved"
+>
+	<section class="section">
+		<div class="container">
+			<p class="section-kicker reveal">Get Involved</p>
+			<h1 class="section-title reveal" style="--delay: 0.05s">Get Involved</h1>
+			<p class="reveal muted-copy" style="--delay: 0.1s;">
+				Join our growing network of donors, faith groups, professionals, and volunteers who are
+				transforming the lives of families with special needs.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container card-grid">
+			{
+				involvementPaths.map((pathway, i) => (
+					<article class="card reveal" style={`--delay: ${0.08 + i * 0.08}s`}>
+						<h2>{pathway.title}</h2>
+						<p>{pathway.description}</p>
+						<a class="inline-link" href={pathway.href}>{pathway.cta}</a>
+					</article>
+				))
+			}
+		</div>
+	</section>
+</Layout>

@@ -1,0 +1,70 @@
+---
+import { donationCta, navItems } from "../data/site";
+
+const currentPath = Astro.url.pathname === "" ? "/" : Astro.url.pathname;
+const normalize = (path: string) => (path === "/" ? "/" : path.replace(/\/$/, ""));
+const activePath = normalize(currentPath);
+const isActive = (href: string) =>
+	activePath === normalize(href) || (href !== "/" && activePath.startsWith(`${normalize(href)}/`));
+---
+
+<header class="site-header">
+	<div class="container nav-shell">
+		<a href="/" class="brand-link" aria-label="Go to homepage">
+			<img src="/media/logo-full.png" alt="OAKonsult logo" />
+		</a>
+
+		<nav class="desktop-nav" aria-label="Primary navigation">
+			<ul>
+				{
+					navItems.map((item) => (
+						<li class:list={["nav-item", item.children && "has-children"]}>
+							<a
+								href={item.href}
+								class:list={["nav-link", isActive(item.href) && "is-active"]}
+							>
+								{item.label}
+							</a>
+							{item.children && (
+								<ul class="subnav">
+									{item.children.map((child) => (
+										<li>
+											<a href={child.href}>{child.label}</a>
+										</li>
+									))}
+								</ul>
+							)}
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+
+		<a class="button button-primary donate-desktop" href={donationCta.href}>{donationCta.label}</a>
+
+		<details class="mobile-nav">
+			<summary aria-label="Open navigation menu">Menu</summary>
+			<div class="mobile-nav-panel">
+				<ul>
+					{
+						navItems.map((item) => (
+							<li>
+								<a href={item.href}>{item.label}</a>
+								{item.children && (
+									<ul class="mobile-subnav">
+										{item.children.map((child) => (
+											<li>
+												<a href={child.href}>{child.label}</a>
+											</li>
+										))}
+									</ul>
+								)}
+							</li>
+						))
+					}
+				</ul>
+				<a class="button button-primary mobile-donate" href={donationCta.href}>{donationCta.label}</a>
+			</div>
+		</details>
+	</div>
+</header>

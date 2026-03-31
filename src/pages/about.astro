@@ -1,0 +1,157 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { governanceTeam, impactTimeline, partnerGroups, values } from "../data/site";
+---
+
+<Layout
+	title="About Us | OAKonsult"
+	description="At OAKonsult, we empower families raising children with disabilities to live life abundantly through practical support, inclusive training, and community-led outreach."
+	path="/about"
+>
+	<!-- Hero -->
+	<section class="hero">
+		<div class="container hero-grid">
+			<div class="reveal">
+				<p class="section-kicker">About Us</p>
+				<h1>A Charity Championing Disability Inclusion</h1>
+				<p>
+					At OAKonsult, we empower families raising children with disabilities to live life
+					abundantly through practical support, inclusive training, and community-led outreach.
+				</p>
+			</div>
+			<div class="hero-media reveal" style="--delay: 0.1s">
+				<img src="/media/wp/2022/10/Fun-in-the-park-2017-576x1024.jpg" alt="Family in the park" />
+			</div>
+		</div>
+	</section>
+
+	<!-- Vision, Mission, Creed -->
+	<section class="section section-alt">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Our Foundation</p>
+			</div>
+			<div class="card-grid" style="margin-top: 0;">
+				<div class="callout callout--gold reveal">
+					<h2 style="font-size: 1.25rem;">Our Vision</h2>
+					<p>
+						We see families within the disability community empowered, flourishing, and living the
+						dominion life victoriously as people made in the image of God.
+					</p>
+				</div>
+				<div class="callout callout--gold reveal" style="--delay: 0.06s">
+					<h2 style="font-size: 1.25rem;">Our Mission</h2>
+					<p>
+						OAKonsult has the mandate to empower parent carers and families within the disability
+						community with biblical principles and truths that enable fulfilment and promote an
+						inclusive culture in diverse settings.
+					</p>
+				</div>
+				<div class="callout callout--gold reveal" style="--delay: 0.12s">
+					<h2 style="font-size: 1.25rem;">Our Creed</h2>
+					<p>
+						We believe in the sovereignty of God the Father, the Son, and the Holy Spirit in the
+						affairs of man. We hold on to the promise of life in abundance.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Values & Inclusion -->
+	<section class="section">
+		<div class="container split">
+			<div class="reveal">
+				<p class="section-kicker">Our Values</p>
+				<h2 class="section-title">What Guides Us</h2>
+				<div class="badge-list" style="margin-top: 1rem;">
+					{values.map((value) => <span class="badge">{value}</span>)}
+				</div>
+			</div>
+			<div class="callout reveal" style="--delay: 0.08s">
+				<h3>Our Commitment to Inclusion</h3>
+				<p>
+					While our faith shapes our ethos and inspires every programme we run, OAKonsult is not
+					faith-restrictive. We stand with every parent carer of a child or young person aged
+					0&ndash;25 who lives with additional needs or disabilities, whatever your religion, culture,
+					or background.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- History -->
+	<section class="section section-alt">
+		<div class="container">
+			<div class="section-header reveal">
+				<p class="section-kicker">Our History</p>
+				<h2 class="section-title" style="max-width: 24ch;">A Charity Born from Love, Loss, and Unshakable Hope</h2>
+			</div>
+			<div class="split">
+				<div class="reveal" style="--delay: 0.05s">
+					<p class="muted-copy">
+						In 2010, Olufunke Adeloye's world was rocked when their 18-month-old daughter,
+						Abigail, suffered catastrophic brain damage due to a preventable medical error in
+						Nigeria. The family relocated to the UK for life-saving care and turned their pain
+						into purpose so no family walks this path alone.
+					</p>
+				</div>
+				<ul class="timeline reveal" style="--delay: 0.1s">
+					{
+						impactTimeline.map((item) => (
+							<li>
+								<span class="year">{item.year}</span>
+								<p>{item.milestone}</p>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- Team -->
+	<section class="section">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Our Team</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">Leadership &amp; Governance</h2>
+			</div>
+			<div class="team-grid">
+				{
+					governanceTeam.map((member, i) => (
+						<a href={`/${member.slug}`} class="team-card reveal" style={`--delay: ${0.05 + i * 0.03}s; text-decoration: none;`}>
+							<img
+								src={member.image}
+								alt={member.name}
+								loading="lazy"
+							/>
+							<h3>{member.name}</h3>
+							<p>{member.role}</p>
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Partners -->
+	<section class="section section-alt">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Partners &amp; Supporters</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">Working Together for Inclusion</h2>
+			</div>
+			<div class="partner-grid">
+				{
+					partnerGroups.map((partner, i) => (
+						<div class="partner-card reveal" style={`--delay: ${0.08 + i * 0.04}s`}>
+							<img src={partner.logo} alt={partner.name} loading="lazy" />
+							<span>{partner.name}</span>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</Layout>

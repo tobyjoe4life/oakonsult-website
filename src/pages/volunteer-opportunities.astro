@@ -1,0 +1,102 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { governanceTeam } from "../data/site";
+---
+
+<Layout
+	title="Volunteer Opportunities | OAKonsult"
+	description="Join us in turning faith into action through volunteer opportunities that support families raising children with disabilities."
+	path="/volunteer-opportunities"
+>
+	<section class="section">
+		<div class="container split">
+			<div class="reveal">
+				<p class="section-kicker">Volunteer</p>
+				<h1 class="section-title">Volunteer Opportunities</h1>
+				<p class="muted-copy" style="margin-top: 0.9rem;">
+					Join us in turning faith into action. Use your time, talents, and compassion to
+					support families raising children with disabilities.
+				</p>
+			</div>
+			<img
+				class="reveal"
+				style="--delay: 0.12s"
+				src="/media/wp/2025/03/volunteer123456.jpg"
+				alt="Volunteer activity"
+			/>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<p class="section-kicker reveal">Where You Can Help</p>
+			<div class="card-grid">
+				<article class="card reveal">
+					<h3>Parent-Carer Buddy</h3>
+					<p>
+						Offer one-to-one companionship and practical support to a parent carer, helping
+						them navigate services, share resources, and find encouragement.
+					</p>
+				</article>
+				<article class="card reveal" style="--delay: 0.08s">
+					<h3>Workshop Assistant</h3>
+					<p>
+						Support Project ME and Inclusive Training sessions by preparing materials,
+						welcoming participants, and assisting small-group facilitation.
+					</p>
+				</article>
+				<article class="card reveal" style="--delay: 0.16s">
+					<h3>Community Connector</h3>
+					<p>
+						Help run local outreach events, awareness activities, inclusive play days, and
+						family-facing support initiatives.
+					</p>
+				</article>
+				<article class="card reveal" style="--delay: 0.24s">
+					<h3>Administrative Support</h3>
+					<p>
+						Contribute to donor follow-up, event planning, data management, and operational
+						coordination that keeps delivery efficient.
+					</p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container callout reveal">
+			<h2>Why Volunteer?</h2>
+			<p>
+				Volunteering with OAKonsult is more than giving back. It is stepping into a community
+				of hope, practical care, and lasting impact. Whether you have professional skills or
+				simply a heart to help, you can find purpose and friendship here.
+			</p>
+			<div class="callout-actions">
+				<a class="button button-primary" href="/contact-us">Volunteer Sign Up</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<p class="section-kicker reveal">Our Team</p>
+			<h2 class="section-title reveal" style="--delay: 0.05s">More People More Possibilities</h2>
+			<div class="card-grid">
+				{
+					governanceTeam.slice(0, 8).map((member, i) => (
+						<article class="card reveal" style={`--delay: ${0.1 + i * 0.05}s`}>
+							<img
+								src={member.image}
+								alt={member.name}
+								style="border-radius: 0.7rem; aspect-ratio: 4 / 5; object-fit: cover;"
+							/>
+							<h3 style="margin-top: 0.7rem">{member.name}</h3>
+							<p>{member.role}</p>
+							<a class="inline-link" href={`/${member.slug}`}>View profile</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</Layout>

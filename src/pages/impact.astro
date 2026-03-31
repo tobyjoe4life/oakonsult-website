@@ -1,0 +1,53 @@
+﻿---
+import Layout from "../layouts/Layout.astro";
+import { impactTimeline } from "../data/site";
+---
+
+<Layout
+	title="Annual Reports & Impact | OAKonsult"
+	description="We are called to uplift vulnerable families through practical support and inclusive long-term systems."
+	path="/impact"
+>
+	<section class="section">
+		<div class="container split">
+			<div class="reveal">
+				<p class="section-kicker">Our Impact</p>
+				<h1 class="section-title">We Are Called to Uplift Vulnerable Families</h1>
+				<p class="muted-copy" style="margin-top: 1rem;">
+					We walk with vulnerable families so no one walks alone. Through every programme,
+					training, and story shared, we are creating safe spaces where carers are heard,
+					children are included, and hope is restored.
+				</p>
+			</div>
+			<img
+				class="reveal"
+				style="--delay: 0.12s"
+				src="/media/wp/2025/04/ChatGPT-Image-Apr-14-2025-06_38_09-PM.png"
+				alt="OAKonsult impact"
+			/>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="callout reveal">
+				<p class="section-kicker">Timeline</p>
+				<h2>Milestones in Disability Inclusion Delivery</h2>
+				<p>
+					From charity registration to programme expansion and OAK Centre Prime groundbreaking,
+					this timeline tracks published milestones from the current OAKonsult website.
+				</p>
+			</div>
+			<ul class="timeline reveal" style="--delay: 0.08s">
+				{
+					impactTimeline.map((item) => (
+						<li>
+							<span class="year">{item.year}</span>
+							<p>{item.milestone}</p>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+</Layout>

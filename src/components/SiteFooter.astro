@@ -1,0 +1,48 @@
+---
+import { brand, contact, navItems, programs } from "../data/site";
+---
+
+<footer class="site-footer">
+	<div class="container footer-grid">
+		<div>
+			<a href="/" class="footer-logo" aria-label="Go to homepage">
+				<img src="/media/logo-full.png" alt="OAKonsult logo" />
+			</a>
+			<p>{brand.description}</p>
+			<p style="margin-top: 0.75rem; font-size: var(--text-small); opacity: 0.7;">
+				UK Charity Registration No. {contact.charityNumber}
+			</p>
+		</div>
+
+		<div>
+			<h3>Quick Links</h3>
+			<ul class="footer-links">
+				{navItems.filter(item => item.label !== "Home").map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+			</ul>
+		</div>
+
+		<div>
+			<h3>Programs</h3>
+			<ul class="footer-links">
+				{programs.slice(0, 5).map((prog) => <li><a href={`/${prog.slug}`}>{prog.title}</a></li>)}
+			</ul>
+		</div>
+
+		<div>
+			<h3>Contact</h3>
+			<p class="contact-line" style="margin-bottom: 0.25rem;">
+				<a href={`mailto:${contact.email}`}>{contact.email}</a>
+			</p>
+			<p class="contact-line" style="margin-bottom: 0.75rem;">
+				{contact.phones[0]}
+			</p>
+			<p style="font-size: var(--text-small);"><strong>United Kingdom</strong></p>
+			<p style="font-size: var(--text-small); opacity: 0.8;">{contact.ukAddress.join(", ")}</p>
+			<p style="font-size: var(--text-small); margin-top: 0.5rem;"><strong>Nigeria</strong></p>
+			<p style="font-size: var(--text-small); opacity: 0.8;">{contact.ngAddress.join(", ")}</p>
+		</div>
+	</div>
+	<div class="container footer-base">
+		<p>&copy; {new Date().getFullYear()} OAKonsult Disabilities Outreach. All rights reserved.</p>
+	</div>
+</footer>

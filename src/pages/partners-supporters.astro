@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { partnerGroups } from "../data/site";
+---
+
+<Layout
+	title="Partners & Supporters | OAKonsult"
+	description="Our partner institutions and supporters helping drive disability inclusion across communities."
+	path="/partners-supporters"
+>
+	<section class="hero">
+		<div class="container">
+			<p class="section-kicker reveal">Partners &amp; Supporters</p>
+			<h1 class="reveal" style="--delay: 0.05s; max-width: 20ch;">Working Together for Inclusion</h1>
+			<p class="muted-copy reveal" style="--delay: 0.08s;">
+				We collaborate with churches, schools, professionals, and community organisations to
+				build practical systems of support for children with disabilities and their families.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Our Partners</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">Institutions &amp; Organisations</h2>
+			</div>
+			<div class="partner-grid">
+				{
+					partnerGroups.map((partner, i) => (
+						<div class="partner-card reveal" style={`--delay: ${0.08 + i * 0.04}s`}>
+							<img src={partner.logo} alt={partner.name} loading="lazy" />
+							<span>{partner.name}</span>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container">
+			<div class="callout reveal">
+				<p class="section-kicker">Collaborate</p>
+				<h2>Become a Partner</h2>
+				<p>
+					Partner with OAKonsult through funding, training, venue support, technical expertise, or
+					joint campaigns that expand access and inclusion.
+				</p>
+				<div class="callout-actions">
+					<a class="button button-primary" href="/partnerships">Start a Partnership</a>
+					<a class="button button-ghost" href="/contact-us">Contact the Team</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

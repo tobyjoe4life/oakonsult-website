@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { values } from "../data/site";
+---
+
+<Layout
+	title="Vision & Mission | OAKonsult"
+	description="Our vision, mission, creed, and values shape how OAKonsult serves families raising children with disabilities."
+	path="/vision-mission"
+>
+	<section class="section">
+		<div class="container split">
+			<div class="reveal">
+				<p class="section-kicker">Vision & Mission</p>
+				<h1 class="section-title">Living Life Abundantly</h1>
+				<p class="muted-copy" style="margin-top: 1rem;">
+					We empower families raising children with disabilities through faith-rooted support,
+					inclusive training, and community-based rehabilitation.
+				</p>
+			</div>
+			<img
+				class="reveal"
+				style="--delay: 0.12s"
+				src="/media/wp/2022/10/Fun-in-the-park-2017-576x1024.jpg"
+				alt="OAKonsult family support"
+			/>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container card-grid">
+			<article class="card reveal">
+				<h2 style="font-size: 1.35rem;">Our Vision</h2>
+				<p>
+					We see families within the disability community empowered, flourishing, and living
+					victoriously as people made in the image of God.
+				</p>
+			</article>
+			<article class="card reveal" style="--delay: 0.08s">
+				<h2 style="font-size: 1.35rem;">Our Mission</h2>
+				<p>
+					We empower parent carers and families with practical support, biblical principles, and
+					inclusive pathways that promote dignity across church, home, school, and society.
+				</p>
+			</article>
+			<article class="card reveal" style="--delay: 0.16s">
+				<h2 style="font-size: 1.35rem;">Our Creed</h2>
+				<p>
+					We believe in the sovereignty of God the Father, the Son, and the Holy Spirit in the
+					affairs of man, and we hold on to the promise of life in abundance.
+				</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container split">
+			<div class="callout reveal">
+				<p class="section-kicker">Values</p>
+				<h2>Faith, Joy, Resilience, Kindness, Friendship</h2>
+				<div class="list-grid" style="margin-top: 0.7rem;">
+					{values.map((value) => <span class="list-chip">{value}</span>)}
+				</div>
+			</div>
+			<div class="callout reveal" style="--delay: 0.12s">
+				<p class="section-kicker">Inclusion Commitment</p>
+				<p>
+					While our faith shapes our ethos and inspires every programme we run, OAKonsult is not
+					faith-restrictive. If you care for a child with disabilities, you belong here.
+				</p>
+			</div>
+		</div>
+	</section>
+</Layout>

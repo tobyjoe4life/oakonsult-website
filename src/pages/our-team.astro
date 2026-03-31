@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { governanceTeam } from "../data/site";
+
+const trustees = governanceTeam.filter(m =>
+	m.role.includes("Trustee") || m.role.includes("Chief Responsibility") || m.role.includes("Co-Founder")
+);
+const staff = governanceTeam.filter(m =>
+	m.role.includes("Director") || m.role.includes("Manager") || m.role.includes("Head of")
+);
+const advisory = governanceTeam.filter(m => m.role.includes("Advisory Board"));
+---
+
+<Layout
+	title="Our Team | OAKonsult"
+	description="Meet the trustees, leaders, and advisory board guiding OAKonsult's disability inclusion mission."
+	path="/our-team"
+>
+	<section class="hero">
+		<div class="container hero-grid">
+			<div class="reveal">
+				<p class="section-kicker">Our Team</p>
+				<h1>Leadership &amp; Governance</h1>
+				<p>
+					Our trustees, leadership team, and advisors work across the UK and Nigeria to deliver
+					practical, compassionate support for families raising children with disabilities.
+				</p>
+			</div>
+			<div class="hero-media reveal" style="--delay: 0.1s">
+				<img src="/media/wp/2025/08/Revd-Aji.jpg" alt="OAKonsult leadership" />
+			</div>
+		</div>
+	</section>
+
+	{trustees.length > 0 && (
+		<section class="section">
+			<div class="container">
+				<div class="section-header">
+					<p class="section-kicker reveal">Governance</p>
+					<h2 class="section-title reveal" style="--delay: 0.05s">Trustees &amp; Founders</h2>
+				</div>
+				<div class="team-grid">
+					{trustees.map((member, i) => (
+						<a href={`/${member.slug}`} class="team-card reveal" style={`--delay: ${0.05 + i * 0.03}s; text-decoration: none;`}>
+							<img src={member.image} alt={member.name} loading="lazy" />
+							<h3>{member.name}</h3>
+							<p>{member.role}</p>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+	)}
+
+	{staff.length > 0 && (
+		<section class="section section-alt">
+			<div class="container">
+				<div class="section-header">
+					<p class="section-kicker reveal">Leadership</p>
+					<h2 class="section-title reveal" style="--delay: 0.05s">Staff &amp; Programme Leads</h2>
+				</div>
+				<div class="team-grid">
+					{staff.map((member, i) => (
+						<a href={`/${member.slug}`} class="team-card reveal" style={`--delay: ${0.05 + i * 0.03}s; text-decoration: none;`}>
+							<img src={member.image} alt={member.name} loading="lazy" />
+							<h3>{member.name}</h3>
+							<p>{member.role}</p>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+	)}
+
+	{advisory.length > 0 && (
+		<section class="section">
+			<div class="container">
+				<div class="section-header">
+					<p class="section-kicker reveal">Advisory Board</p>
+					<h2 class="section-title reveal" style="--delay: 0.05s">OAK Centre Advisory Board</h2>
+				</div>
+				<div class="team-grid">
+					{advisory.map((member, i) => (
+						<a href={`/${member.slug}`} class="team-card reveal" style={`--delay: ${0.05 + i * 0.03}s; text-decoration: none;`}>
+							<img src={member.image} alt={member.name} loading="lazy" />
+							<h3>{member.name}</h3>
+							<p>{member.role}</p>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+	)}
+</Layout>

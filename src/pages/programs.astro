@@ -1,0 +1,76 @@
+﻿---
+import Layout from "../layouts/Layout.astro";
+import { programs } from "../data/site";
+---
+
+<Layout
+	title="Services & Initiatives | OAKonsult"
+	description="We walk alongside parents and carers of children with disabilities, equipping them with practical support, inclusive training and community-led outreach so every family can flourish."
+	path="/programs"
+>
+	<section class="section">
+		<div class="container">
+			<p class="section-kicker reveal">Services & Initiatives</p>
+			<h1 class="section-title reveal" style="--delay: 0.05s">Our Services & Initiatives</h1>
+			<p class="reveal muted-copy" style="--delay: 0.1s;">
+				We walk alongside parents and carers of children with disabilities, equipping them with
+				practical support, inclusive training and community-led outreach so every family can
+				flourish.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container callout reveal">
+			<p class="section-kicker">What We Do</p>
+			<h2>Turning Compassion Into Action</h2>
+			<p>
+				We bring compassion and Christ-like care to families affected by disability. While our
+				faith shapes our ethos, OAKonsult is not faith-restrictive and stands with every parent
+				carer of a child or young person aged 0-25 living with additional needs.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container card-grid">
+			{
+				programs.slice(0, 5).map((program, i) => (
+					<article class="card reveal" style={`--delay: ${0.08 + i * 0.06}s`}>
+						<img
+							src={program.image}
+							alt={program.title}
+							style="border-radius: 0.7rem; aspect-ratio: 16 / 10; object-fit: cover;"
+						/>
+						<h2 style="margin-top: 0.8rem; font-size: 1.4rem;">{program.title}</h2>
+						<p>{program.summary}</p>
+						<a class="inline-link" href={`/${program.slug}`}>Read More</a>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container split">
+			<img
+				class="reveal"
+				style="--delay: 0.05s"
+				src="/media/wp/2025/04/ChatGPT-Image-Apr-14-2025-06_38_09-PM.png"
+				alt="OAKonsult impact"
+			/>
+			<div class="callout reveal" style="--delay: 0.12s">
+				<p class="section-kicker">Our Impact</p>
+				<h2>We Are Called to Uplift Vulnerable Families</h2>
+				<p>
+					We walk with vulnerable families so no one walks alone. Through every programme,
+					training, and story shared, we are creating safe spaces where carers are heard,
+					children are included, and hope is restored.
+				</p>
+				<div class="callout-actions">
+					<a class="button button-primary" href="/donate">Donate Now</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

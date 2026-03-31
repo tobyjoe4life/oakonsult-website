@@ -1,0 +1,184 @@
+---
+interface InstagramPost {
+	id: string;
+	image: string;
+	permalink: string;
+	caption: string;
+	isVideo: boolean;
+	dateLabel: string;
+}
+
+const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/oakonsult/";
+const WORDPRESS_HOME_URL = "https://oakonsult.org/";
+const POSTS_TO_SHOW = 6;
+
+const decodeHtml = (value: string) =>
+	value
+		.replace(/&quot;/g, '"')
+		.replace(/&#034;/g, '"')
+		.replace(/&#039;/g, "'")
+		.replace(/&#x27;/g, "'")
+		.replace(/&#038;/g, "&")
+		.replace(/&amp;/g, "&")
+		.replace(/&lt;/g, "<")
+		.replace(/&gt;/g, ">");
+
+const normaliseText = (value: string) => value.replace(/\s+/g, " ").trim();
+
+const formatDate = (iso: string) => {
+	const date = new Date(iso);
+	if (Number.isNaN(date.getTime())) {
+		return "";
+	}
+	return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+};
+
+let posts: InstagramPost[] = [];
+let loadError = false;
+
+try {
+	const homeResponse = await fetch(WORDPRESS_HOME_URL);
+	if (!homeResponse.ok) {
+		throw new Error(`Homepage request failed with ${homeResponse.status}`);
+	}
+
+	const homepageHtml = await homeResponse.text();
+	const tokenMatch = homepageHtml.match(/"authToken":"([^"]+)"/);
+	const optionsMatch =
+		homepageHtml.match(/id="sli__f__[^"]+" data-json='([^']+)'/) ??
+		homepageHtml.match(/data-json='([^']+)'/);
+
+	if (!tokenMatch || !optionsMatch) {
+		throw new Error("Could not find Spotlight Instagram feed config on WordPress homepage.");
+	}
+
+	const authToken = tokenMatch[1];
+	const feedOptions = JSON.parse(decodeHtml(optionsMatch[1]));
+
+	const feedResponse = await fetch("https://oakonsult.org/wp-json/sl-insta/media/feed", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			"X-Sli-Auth-Token": authToken,
+		},
+		body: JSON.stringify({
+			options: feedOptions,
+			from: 0,
+			num: 9,
+		}),
+	});
+
+	if (!feedResponse.ok) {
+		throw new Error(`Feed request failed with ${feedResponse.status}`);
+	}
+
+	const feedData = await feedResponse.json();
+	const mediaList = Array.isArray(feedData?.media) ? feedData.media : [];
+
+	posts = mediaList
+		.map((item: any) => {
+			const image =
+				item?.thumbnails?.m ??
+				item?.thumbnails?.s ??
+				item?.thumbnail ??
+				(typeof item?.url === "string" ? item.url : "");
+			const permalink = typeof item?.permalink === "string" ? item.permalink : "";
+
+			if (!image || !permalink) {
+				return null;
+			}
+
+			const caption = normaliseText(typeof item?.caption === "string" ? item.caption : "").slice(0, 145);
+			const isVideo = item?.type === "VIDEO";
+			const timestamp = typeof item?.timestamp === "string" ? item.timestamp : "";
+
+			return {
+				id: String(item?.id ?? permalink),
+				image,
+				permalink,
+				caption,
+				isVideo,
+				dateLabel: formatDate(timestamp),
+			} satisfies InstagramPost;
+		})
+		.filter(Boolean)
+		.slice(0, POSTS_TO_SHOW) as InstagramPost[];
+} catch (error) {
+	loadError = true;
+}
+---
+
+<section class="section instagram-section">
+	<div class="container">
+		<p class="section-kicker reveal">Instagram</p>
+		<div class="instagram-head reveal" style="--delay: 0.05s">
+			<h2 class="section-title">Latest from @oakonsult</h2>
+			<a
+				class="button button-ghost instagram-cta"
+				href={INSTAGRAM_PROFILE_URL}
+				target="_blank"
+				rel="noreferrer"
+			>
+				Follow on Instagram
+			</a>
+		</div>
+
+		{
+			posts.length > 0 ? (
+				<div class="instagram-grid">
+					{
+						posts.map((post, i) => (
+							<a
+								class="instagram-card reveal"
+								style={`--delay: ${0.1 + i * 0.05}s`}
+								href={post.permalink}
+								target="_blank"
+								rel="noreferrer"
+								aria-label="Open Instagram post"
+							>
+								<div class="instagram-media-wrap">
+									<img
+										src={post.image}
+										alt={post.caption ? post.caption : "OAKonsult Instagram post"}
+										loading="lazy"
+										decoding="async"
+									/>
+									<span class="instagram-tag">{post.isVideo ? "Video" : "Post"}</span>
+								</div>
+								<p>{post.caption || "View this post on Instagram."}</p>
+								{post.dateLabel && <span class="instagram-date">{post.dateLabel}</span>}
+							</a>
+						))
+					}
+				</div>
+			) : (
+				<div class="callout reveal" style="--delay: 0.1s">
+					<p class="section-kicker">Instagram Feed</p>
+					<h3>Latest posts are temporarily unavailable.</h3>
+					<p>
+						You can still view all updates directly on Instagram while we refresh the feed
+						connection.
+					</p>
+					<div class="callout-actions">
+						<a
+							class="button button-primary"
+							href={INSTAGRAM_PROFILE_URL}
+							target="_blank"
+							rel="noreferrer"
+						>
+							Open Instagram
+						</a>
+					</div>
+				</div>
+			)
+		}
+
+		{
+			loadError && posts.length > 0 && (
+				<p class="instagram-note">
+					Some feed metadata is unavailable right now. Posts are still linked to Instagram.
+				</p>
+			)
+		}
+	</div>
+</section>

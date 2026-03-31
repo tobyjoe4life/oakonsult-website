@@ -1,0 +1,55 @@
+﻿---
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import { brand } from "../data/site";
+import "../styles/global.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+	path?: string;
+}
+
+const {
+	title = `${brand.name} | ${brand.tagline}`,
+	description = brand.description,
+	path = "/",
+} = Astro.props;
+
+const canonicalBase = Astro.site ?? new URL("https://dev.oakonsult.org");
+const canonicalPath = Astro.url?.pathname || path;
+const canonical = new URL(canonicalPath, canonicalBase).toString();
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<link rel="icon" href="/media/icon-32.png" sizes="32x32" />
+		<link rel="icon" href="/media/icon-192.png" sizes="192x192" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/media/wp/2025/04/slider-2-FILEminimizer.png" />
+		<meta property="og:url" content={canonical} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<a class="skip-link" href="#content">Skip to content</a>
+		<SiteHeader />
+		<main id="content" class="page-shell">
+			<slot />
+		</main>
+		<SiteFooter />
+	</body>
+</html>

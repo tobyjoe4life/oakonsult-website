@@ -1,0 +1,234 @@
+---
+import Layout from "../layouts/Layout.astro";
+import InstagramFeed from "../components/InstagramFeed.astro";
+import {
+	campaignPreviews,
+	corePillars,
+	donationCta,
+	featuredPosts,
+	impactTimeline,
+	partnerGroups,
+	programs,
+} from "../data/site";
+---
+
+<Layout
+	title="OAKonsult | Living Life Abundantly"
+	description="Empowering special needs families to live abundantly through practical support, inclusive training, and community-led outreach."
+	path="/"
+>
+	<!-- Hero -->
+	<section class="hero">
+		<div class="container hero-grid">
+			<div class="reveal" style="--delay: 0.05s">
+				<p class="section-kicker">Disability Inclusion Charity</p>
+				<h1>Empowering Special Needs Families to Live Abundantly</h1>
+				<p>
+					We walk alongside families raising children with disabilities, offering care,
+					community, and courage to thrive &mdash; not just survive.
+				</p>
+				<div class="hero-actions">
+					<a class="button button-primary" href="https://www.youtube.com/watch?v=UFT7JUt_4AI" target="_blank" rel="noreferrer">
+						Watch Our Story
+					</a>
+					<a class="button button-ghost" href={donationCta.href}>Make a Difference</a>
+				</div>
+			</div>
+			<div class="hero-media reveal" style="--delay: 0.12s">
+				<img src="/media/wp/2025/04/slider-2-FILEminimizer.png" alt="OAKonsult family support" />
+			</div>
+		</div>
+	</section>
+
+	<!-- Impact Stats Bar -->
+	<section class="stats-bar">
+		<div class="container">
+			<div class="stat-item reveal" style="--delay: 0.05s">
+				<strong>5+</strong>
+				<span>Core Programmes</span>
+			</div>
+			<div class="stat-item reveal" style="--delay: 0.1s">
+				<strong>2</strong>
+				<span>Countries (UK & Nigeria)</span>
+			</div>
+			<div class="stat-item reveal" style="--delay: 0.15s">
+				<strong>1,000+</strong>
+				<span>Families Reached</span>
+			</div>
+			<div class="stat-item reveal" style="--delay: 0.2s">
+				<strong>2021</strong>
+				<span>Founded</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Core Programs -->
+	<section class="section">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">What We Do</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">Our Programmes &amp; Services</h2>
+			</div>
+			<div class="card-grid">
+				{
+					programs.map((program, i) => (
+						<article class="card reveal" style={`--delay: ${0.08 + i * 0.06}s`}>
+							<img
+								src={program.image}
+								alt={program.title}
+								style="border-radius: var(--radius); aspect-ratio: 16/10; object-fit: cover; margin-bottom: 1rem;"
+								loading="lazy"
+							/>
+							<h3>{program.title}</h3>
+							<p>{program.summary}</p>
+							<a class="inline-link" href={`/${program.slug}`}>Learn more &rarr;</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Our Story -->
+	<section class="section section-alt">
+		<div class="container split">
+			<div class="reveal">
+				<p class="section-kicker">Our Story</p>
+				<h2 class="section-title" style="max-width: 20ch;">From Crisis to Calling</h2>
+				<p class="muted-copy" style="margin-top: 0.75rem;">
+					In 2010, one family's world changed forever when a medical error led to their
+					18-month-old daughter's brain injury. Abigail's courage became the foundation
+					of OAKonsult &mdash; a charity born from lived experience and driven by faith,
+					love, and an unwavering commitment to disability inclusion.
+				</p>
+				<p style="margin-top: 0.75rem; color: var(--oak-muted); line-height: 1.75;">
+					While our faith shapes our ethos, OAKonsult is not faith-restrictive. If you
+					love and care for a child with disabilities, you belong here.
+				</p>
+				<div style="margin-top: 1.5rem;">
+					<a class="button button-primary" href="/about-us">About OAKonsult</a>
+				</div>
+			</div>
+			<img
+				class="reveal"
+				style="--delay: 0.1s"
+				src="/media/wp/2025/04/4211940_1920x1080_f985cc-1.jpg"
+				alt="OAKonsult founder story"
+				loading="lazy"
+			/>
+		</div>
+	</section>
+
+	<!-- Campaigns -->
+	<section class="section">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Support Our Work</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s; max-width: 26ch;">
+					Your Gift Is More Than Support. It's Hope Made Real.
+				</h2>
+			</div>
+			<div class="card-grid">
+				{
+					campaignPreviews.map((campaign, i) => (
+						<article class="card reveal" style={`--delay: ${0.08 + i * 0.06}s`}>
+							<h3>{campaign.title}</h3>
+							<p>{campaign.description}</p>
+							<a class="inline-link" href={campaign.href}>Learn more &rarr;</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Impact Timeline -->
+	<section class="section section-alt">
+		<div class="container split">
+			<div class="reveal">
+				<p class="section-kicker">Our Journey</p>
+				<h2 class="section-title" style="max-width: 20ch;">Key Milestones</h2>
+				<ul class="timeline">
+					{
+						impactTimeline.map((item) => (
+							<li>
+								<span class="year">{item.year}</span>
+								<p>{item.milestone}</p>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div>
+				<img
+					class="reveal"
+					style="--delay: 0.1s"
+					src="/media/wp/2025/04/ChatGPT-Image-Apr-14-2025-06_38_09-PM.png"
+					alt="OAKonsult impact"
+					loading="lazy"
+				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- Partners -->
+	<section class="section">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Partners &amp; Supporters</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">Working Together for Inclusion</h2>
+			</div>
+			<div class="partner-grid">
+				{
+					partnerGroups.map((partner, i) => (
+						<div class="partner-card reveal" style={`--delay: ${0.08 + i * 0.04}s`}>
+							<img src={partner.logo} alt={partner.name} loading="lazy" />
+							<span>{partner.name}</span>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Latest News -->
+	<section class="section section-alt">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">News &amp; Updates</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">Latest from OAKonsult</h2>
+			</div>
+			<div class="card-grid">
+				{
+					featuredPosts.slice(0, 4).map((post, i) => (
+						<article class="card reveal" style={`--delay: ${0.08 + i * 0.06}s`}>
+							<p style="font-size: var(--text-small); color: var(--oak-teal); font-weight: 600; margin-bottom: 0.5rem;">{post.date}</p>
+							<h3 style="font-size: 1.0625rem;">{post.title}</h3>
+							<a class="inline-link" href={post.href} target="_blank" rel="noreferrer">
+								Read article &rarr;
+							</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="section">
+		<div class="container">
+			<div class="callout reveal">
+				<p class="section-kicker">Get Involved</p>
+				<h2>Partner With Us to Create Lasting Impact</h2>
+				<p>
+					Join our growing network of donors, faith groups, professionals, and volunteers
+					who are transforming the lives of families with special needs.
+				</p>
+				<div class="callout-actions">
+					<a class="button button-primary" href="/get-involved">Get Involved</a>
+					<a class="button button-ghost" href="/contact-us">Contact Us</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

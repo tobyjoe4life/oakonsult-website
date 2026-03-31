@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { campaignPreviews, contact, donorPriorities } from "../data/site";
+---
+
+<Layout
+	title="Donate | OAKonsult"
+	description="Every family facing disability deserves support, hope and practical solutions."
+	path="/donate"
+>
+	<!-- Hero -->
+	<section class="hero">
+		<div class="container hero-grid">
+			<div class="reveal">
+				<p class="section-kicker">Donate</p>
+				<h1>Every Family Facing Disability Deserves Support, Hope and Practical Solutions</h1>
+				<p>Your gift makes this possible across the UK and Nigeria.</p>
+				<div class="hero-actions">
+					<a class="button button-primary" href="/contact-us">Give Today</a>
+				</div>
+			</div>
+			<div class="hero-media reveal" style="--delay: 0.1s">
+				<img src="/media/wp/2025/04/ChatGPT-Image-Apr-14-2025-06_38_09-PM.png" alt="Donate to OAKonsult" />
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Give -->
+	<section class="section section-alt">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Why Your Gift Matters</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s; max-width: 24ch;">
+					Partner With Us to Create Lasting Impact
+				</h2>
+			</div>
+			<div class="split">
+				<div class="reveal" style="--delay: 0.08s">
+					<p class="muted-copy">
+						Every day, parent carers juggle appointments, therapies and endless to-do lists, often
+						at the expense of their own wellbeing. Your donation ensures they receive coaching,
+						peer community and practical resources to thrive.
+					</p>
+				</div>
+				<div class="reveal" style="--delay: 0.12s">
+					<ul class="simple-list">
+						{donorPriorities.map((priority) => <li>{priority}</li>)}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Campaigns -->
+	<section class="section">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Active Campaigns</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">Where Your Gift Goes</h2>
+			</div>
+			<div class="card-grid">
+				{
+					campaignPreviews.map((campaign, i) => (
+						<article class="card reveal" style={`--delay: ${0.08 + i * 0.06}s`}>
+							<h3>{campaign.title}</h3>
+							<p>{campaign.description}</p>
+							<a class="inline-link" href={campaign.href}>Learn more &rarr;</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Trust & CTA -->
+	<section class="section section-alt">
+		<div class="container">
+			<div class="callout reveal">
+				<p class="section-kicker">Give Today</p>
+				<h2>Ready to Make a Difference?</h2>
+				<p>
+					Our donation platform is being set up. In the meantime, please contact our team
+					and we will route you to the correct campaign securely.
+				</p>
+				<p style="margin-top: 0.75rem; font-size: var(--text-small); color: var(--oak-muted);">
+					OAKonsult Disabilities Outreach &mdash; UK Charity Registration No. {contact.charityNumber}
+				</p>
+				<div class="callout-actions">
+					<a class="button button-primary" href="/contact-us">Contact Donation Team</a>
+					<a class="button button-ghost" href="/annual-reports-impact">View Our Impact</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

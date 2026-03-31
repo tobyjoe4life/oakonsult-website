@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="Learning Platform | OAKonsult"
+	description="Access OAKonsult learning and course resources."
+	path="/learning-platform"
+>
+	<script is:inline>
+		if (typeof window !== "undefined") {
+			window.location.replace("https://courses.oakonsult.org");
+		}
+	</script>
+	<section class="section">
+		<div class="container callout reveal">
+			<p class="section-kicker">Learning Platform</p>
+			<h1>Redirecting to courses.oakonsult.org</h1>
+			<p>
+				Our learning resources are hosted on a dedicated platform. If you are not redirected,
+				use the button below.
+			</p>
+			<div class="callout-actions">
+				<a class="button button-primary" href="https://courses.oakonsult.org" target="_blank" rel="noreferrer">
+					Open Learning Platform
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>

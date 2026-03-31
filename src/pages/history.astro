@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { impactTimeline } from "../data/site";
+---
+
+<Layout
+	title="History | OAKonsult"
+	description="From one family's journey to a cross-border nonprofit movement for disability inclusion."
+	path="/history"
+>
+	<section class="section">
+		<div class="container split">
+			<div class="reveal">
+				<p class="section-kicker">History</p>
+				<h1 class="section-title">From Crisis to Calling</h1>
+				<p class="muted-copy" style="margin-top: 1rem;">
+					In 2010, the Adeloye family entered a life-changing season after their daughter
+					Abigail suffered a preventable brain injury. Their journey through intensive care,
+					long-term support, and advocacy became the seed for OAKonsult Disabilities Outreach.
+				</p>
+			</div>
+			<img
+				class="reveal"
+				style="--delay: 0.12s"
+				src="/media/wp/2022/10/The-Adeloye-family.jpg"
+				alt="Adeloye family"
+			/>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container callout reveal">
+			<h2>Abigail's Legacy</h2>
+			<p>
+				Faced with difficult prognoses, the family relocated to the UK for life-saving care and
+				found purpose in service. From this experience, OAKonsult was founded so that no parent
+				carer has to face disability care in isolation.
+			</p>
+			<p style="margin-top: 0.7rem;">
+				Though Abigail passed into glory in 2024, her courage and legacy continue through every
+				family we support.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<p class="section-kicker reveal">Timeline</p>
+			<h2 class="section-title reveal" style="--delay: 0.05s">Milestones</h2>
+			<ul class="timeline reveal" style="--delay: 0.08s">
+				{
+					impactTimeline.map((item) => (
+						<li>
+							<span class="year">{item.year}</span>
+							<p>{item.milestone}</p>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+</Layout>

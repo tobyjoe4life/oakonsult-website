@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const communityImages = [
+	{ src: "/media/wp/2025/04/slider-2-FILEminimizer.png", alt: "OAKonsult community gathering" },
+	{ src: "/media/wp/2025/04/TVC-pictures-scaled-1.jpg", alt: "OAKonsult outreach event" },
+	{ src: "/media/wp/2022/11/oak-images-18.png", alt: "Training activity" },
+	{ src: "/media/wp/2022/11/WhatsApp-Image-2022-11-19-at-12.24.21.jpeg", alt: "Community workshop" },
+	{ src: "/media/wp/2025/08/volunteer-event-scaled.jpg", alt: "Volunteer event" },
+	{ src: "/media/wp/2025/06/OAKonsult-Team-1-FILEminimizer.jpg", alt: "OAKonsult team" },
+	{ src: "/media/wp/2025/06/OAKonsult-Team-2-FILEminimizer.jpg", alt: "OAKonsult team gathering" },
+	{ src: "/media/wp/2025/06/OAKonsult-Team-3-FILEminimizer.jpg", alt: "OAKonsult team event" },
+];
+
+const programImages = [
+	{ src: "/media/wp/2023/10/IMG-20221020-WA0023-Project-Me.jpg", alt: "Project ME session" },
+	{ src: "/media/wp/2024/01/SP20-768x627.jpg", alt: "Support programme" },
+	{ src: "/media/wp/2024/01/BF17-768x583.jpg", alt: "Church training session" },
+	{ src: "/media/wp/2025/08/AdobeStock_1341395159-scaled.jpeg", alt: "Parent carer support" },
+	{ src: "/media/wp/2025/08/AdobeStock_1105364354-scaled.jpeg", alt: "Inclusive training" },
+];
+
+const familyImages = [
+	{ src: "/media/wp/2022/10/The-Adeloye-family.jpg", alt: "The Adeloye family" },
+	{ src: "/media/wp/2022/10/Fun-in-the-park-2017-576x1024.jpg", alt: "Family day out" },
+	{ src: "/media/wp/2025/04/4211940_1920x1080_f985cc-1.jpg", alt: "OAK Centre Prime vision" },
+	{ src: "/media/wp/2025/04/ChatGPT-Image-Apr-14-2025-06_38_09-PM.png", alt: "Impact visual" },
+];
+---
+
+<Layout
+	title="Media Gallery | OAKonsult"
+	description="Photos from OAKonsult programmes, community events, and disability inclusion work across the UK and Nigeria."
+	path="/media"
+>
+	<section class="hero">
+		<div class="container">
+			<p class="section-kicker reveal">Media</p>
+			<h1 class="reveal" style="--delay: 0.05s; max-width: 20ch;">Media Gallery</h1>
+			<p class="muted-copy reveal" style="--delay: 0.08s;">
+				Photos from our programmes, community events, and disability inclusion work
+				across the UK and Nigeria.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Community &amp; Events</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">Gatherings &amp; Outreach</h2>
+			</div>
+			<div class="gallery">
+				{
+					communityImages.map((item, i) => (
+						<img
+							class="reveal"
+							style={`--delay: ${0.08 + i * 0.05}s`}
+							src={item.src}
+							alt={item.alt}
+							loading="lazy"
+						/>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Programmes</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">Project ME, Training &amp; Support</h2>
+			</div>
+			<div class="gallery">
+				{
+					programImages.map((item, i) => (
+						<img
+							class="reveal"
+							style={`--delay: ${0.08 + i * 0.05}s`}
+							src={item.src}
+							alt={item.alt}
+							loading="lazy"
+						/>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Family &amp; Legacy</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">The Heart Behind Our Work</h2>
+			</div>
+			<div class="gallery">
+				{
+					familyImages.map((item, i) => (
+						<img
+							class="reveal"
+							style={`--delay: ${0.08 + i * 0.05}s`}
+							src={item.src}
+							alt={item.alt}
+							loading="lazy"
+						/>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container">
+			<div class="callout reveal">
+				<p class="section-kicker">Share Your Photos</p>
+				<h2>Have Photos from an OAKonsult Event?</h2>
+				<p>
+					We'd love to feature photos from our community events, training sessions, and
+					programme activities. Get in touch to share your images with us.
+				</p>
+				<div class="callout-actions">
+					<a class="button button-primary" href="/contact-us">Contact Us</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
