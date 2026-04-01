@@ -73,7 +73,7 @@ export const programs = [
 		title: "Support for Parent Carers",
 		summary:
 			"One-to-one coaching, wellbeing workshops and safe spaces to connect and recharge. Caring for a child with additional needs can feel overwhelming, so we combine practical tools with encouragement to help carers thrive.",
-		image: "/media/wp/2022/10/2nd-Pic-for-Support-for-Parent-page-scaled-1.jpg",
+		image: "/media/wp/2022/09/oak-images-3.png",
 	},
 	{
 		id: "churches",
@@ -89,7 +89,7 @@ export const programs = [
 		title: "Community-Based Rehabilitation",
 		summary:
 			"Through awareness campaigns, support groups and outreach, we build inclusive communities one family at a time in the UK, Nigeria, and online.",
-		image: "/media/wp/2025/04/Community-Based-Rehabilitation-FILEminimizer.png",
+		image: "/media/wp/2022/09/oak-images-6.png",
 	},
 	{
 		id: "project-me",
