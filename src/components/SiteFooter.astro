@@ -1,5 +1,5 @@
 ---
-import { brand, contact, navItems, programs } from "../data/site";
+import { brand, contact, navItems, programs, socialLinks } from "../data/site";
 ---
 
 <footer class="site-footer">
@@ -9,7 +9,20 @@ import { brand, contact, navItems, programs } from "../data/site";
 				<img src="/media/logo-full.png" alt="OAKonsult logo" />
 			</a>
 			<p>{brand.description}</p>
-			<p style="margin-top: 0.75rem; font-size: var(--text-small); opacity: 0.7;">
+			<div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+				{socialLinks.map((link) => (
+					<a
+						href={link.href}
+						target="_blank"
+						rel="noreferrer"
+						aria-label={link.label}
+						style="color: rgba(255,255,255,0.7); transition: color 0.12s;"
+					>
+						{link.label}
+					</a>
+				))}
+			</div>
+			<p style="margin-top: 0.75rem; font-size: var(--text-small); opacity: 0.6;">
 				UK Charity Registration No. {contact.charityNumber}
 			</p>
 		</div>
@@ -43,6 +56,12 @@ import { brand, contact, navItems, programs } from "../data/site";
 		</div>
 	</div>
 	<div class="container footer-base">
-		<p>&copy; {new Date().getFullYear()} OAKonsult Disabilities Outreach. All rights reserved.</p>
+		<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+			<p>&copy; {new Date().getFullYear()} OAKonsult Disabilities Outreach. All rights reserved.</p>
+			<div style="display: flex; gap: 1rem;">
+				<a href="/privacy-policy" style="color: rgba(255,255,255,0.5);">Privacy Policy</a>
+				<a href="/accessibility" style="color: rgba(255,255,255,0.5);">Accessibility</a>
+			</div>
+		</div>
 	</div>
 </footer>

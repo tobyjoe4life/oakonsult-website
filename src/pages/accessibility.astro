@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { contact } from "../data/site";
+---
+
+<Layout
+	title="Accessibility | OAKonsult"
+	description="Our commitment to making the OAKonsult website accessible to everyone."
+	path="/accessibility"
+>
+	<section class="hero">
+		<div class="container">
+			<p class="section-kicker reveal">Accessibility</p>
+			<h1 class="reveal" style="--delay: 0.05s;">Accessibility Statement</h1>
+			<p class="muted-copy reveal" style="--delay: 0.08s;">
+				Our commitment to making this website accessible to everyone.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container" style="max-width: 780px;">
+			<div class="reveal">
+				<h2 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Our Commitment</h2>
+				<p style="color: var(--oak-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+					OAKonsult Disabilities Outreach is committed to ensuring digital accessibility
+					for people of all abilities. As an organisation that champions disability inclusion,
+					we believe our website must be usable by everyone. We aim to conform to the
+					Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA.
+				</p>
+
+				<h2 style="font-size: 1.25rem; margin-bottom: 0.5rem;">What We've Done</h2>
+				<ul class="simple-list" style="margin-bottom: 1.5rem;">
+					<li>Semantic HTML structure with proper heading hierarchy</li>
+					<li>Skip-to-content navigation link on every page</li>
+					<li>ARIA labels on navigation, buttons, and interactive elements</li>
+					<li>Keyboard-navigable menus and interactive components</li>
+					<li>Sufficient colour contrast ratios across the site</li>
+					<li>Responsive design that works across all screen sizes</li>
+					<li>Reduced motion support for users who prefer minimal animation</li>
+					<li>Alt text on all meaningful images</li>
+				</ul>
+
+				<h2 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Known Limitations</h2>
+				<p style="color: var(--oak-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+					We are continuously working to improve accessibility. Some third-party content
+					(such as embedded videos) may not fully meet all accessibility standards. We are
+					working to provide alternatives where possible.
+				</p>
+
+				<h2 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Feedback</h2>
+				<p style="color: var(--oak-muted); line-height: 1.8;">
+					If you encounter any accessibility barriers on this website, please let us know.
+					We welcome your feedback and will do our best to address any issues promptly.
+					Contact us at <a href={`mailto:${contact.email}`} style="color: var(--oak-teal);">{contact.email}</a>
+					or call {contact.phones[0]}.
+				</p>
+
+				<p style="margin-top: 1.5rem; font-size: var(--text-small); color: var(--oak-muted);">
+					Last updated: April 2026
+				</p>
+			</div>
+		</div>
+	</section>
+</Layout>

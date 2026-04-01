@@ -418,6 +418,34 @@ export const partnerGroups = [
 	},
 ];
 
+export const socialLinks = [
+	{ label: "Instagram", href: "https://www.instagram.com/oakonsult/", icon: "instagram" },
+	{ label: "YouTube", href: "https://www.youtube.com/@ThePrayingCarerChannel", icon: "youtube" },
+	{ label: "Facebook", href: "https://www.facebook.com/oakonsult", icon: "facebook" },
+	{ label: "LinkedIn", href: "https://www.linkedin.com/company/oakonsult", icon: "linkedin" },
+];
+
+export const testimonials = [
+	{
+		quote: "OAKonsult gave me a community where I finally felt understood. The coaching helped me see that I'm not just a carer — I'm a person with my own needs and dreams.",
+		name: "Amy",
+		location: "Bromley, UK",
+		context: "Parent Carer",
+	},
+	{
+		quote: "The inclusive training transformed how our church welcomes families with disabilities. We went from good intentions to real, practical inclusion.",
+		name: "Clement",
+		location: "Ibadan, Nigeria",
+		context: "Church Leader",
+	},
+	{
+		quote: "Project ME helped me rediscover my identity beyond caregiving. The workshops gave me tools I use every single day.",
+		name: "Sarah",
+		location: "London, UK",
+		context: "Project ME Participant",
+	},
+];
+
 export const contact = {
 	email: "info@oakonsult.org",
 	phones: ["+44 (0) 7479 436 823", "+234 814 683 4903"],

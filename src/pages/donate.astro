@@ -1,62 +1,116 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { campaignPreviews, contact, donorPriorities } from "../data/site";
+import { campaignPreviews, contact, donorPriorities, testimonials } from "../data/site";
 ---
 
 <Layout
 	title="Donate | OAKonsult"
-	description="Every family facing disability deserves support, hope and practical solutions."
+	description="Every family facing disability deserves support, hope and practical solutions. Your gift makes this possible."
 	path="/donate"
 >
 	<!-- Hero -->
 	<section class="hero">
 		<div class="container hero-grid">
 			<div class="reveal">
-				<p class="section-kicker">Donate</p>
-				<h1>Every Family Facing Disability Deserves Support, Hope and Practical Solutions</h1>
-				<p>Your gift makes this possible across the UK and Nigeria.</p>
+				<p class="section-kicker">UK Charity No. {contact.charityNumber}</p>
+				<h1>Give Hope to Families Living with Disability</h1>
+				<p>
+					Your donation funds coaching, training, and community programmes that help
+					parent carers thrive and children with disabilities flourish.
+				</p>
 				<div class="hero-actions">
-					<a class="button button-primary" href="/contact-us">Give Today</a>
+					<a class="button button-primary" href="https://crm.oakonsult.org/donate" target="_blank" rel="noreferrer" style="font-size: 1rem; padding: 0.75rem 2rem;">
+						Donate Now
+					</a>
 				</div>
 			</div>
 			<div class="hero-media reveal" style="--delay: 0.1s">
-				<img src="/media/wp/2025/04/ChatGPT-Image-Apr-14-2025-06_38_09-PM.png" alt="Donate to OAKonsult" />
+				<img src="/media/wp/2025/04/ChatGPT-Image-Apr-14-2025-06_38_09-PM.png" alt="Support families with disabilities" />
 			</div>
 		</div>
 	</section>
 
-	<!-- Why Give -->
-	<section class="section section-alt">
+	<!-- Gift Aid -->
+	<section class="stats-bar">
+		<div class="container" style="grid-template-columns: 1fr 1fr 1fr;">
+			<div class="stat-item reveal" style="--delay: 0.05s">
+				<strong>25%</strong>
+				<span>Extra with Gift Aid</span>
+			</div>
+			<div class="stat-item reveal" style="--delay: 0.1s">
+				<strong>100%</strong>
+				<span>Goes to Programmes</span>
+			</div>
+			<div class="stat-item reveal" style="--delay: 0.15s">
+				<strong>1,000+</strong>
+				<span>Families Supported</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- What Your Gift Does -->
+	<section class="section">
 		<div class="container">
 			<div class="section-header">
 				<p class="section-kicker reveal">Why Your Gift Matters</p>
 				<h2 class="section-title reveal" style="--delay: 0.05s; max-width: 24ch;">
-					Partner With Us to Create Lasting Impact
+					Every Pound Creates Real Impact
 				</h2>
 			</div>
-			<div class="split">
-				<div class="reveal" style="--delay: 0.08s">
-					<p class="muted-copy">
-						Every day, parent carers juggle appointments, therapies and endless to-do lists, often
-						at the expense of their own wellbeing. Your donation ensures they receive coaching,
-						peer community and practical resources to thrive.
-					</p>
+			<div class="card-grid">
+				<div class="card reveal" style="--delay: 0.08s; border-left: 3px solid var(--oak-teal);">
+					<h3 style="font-size: 1.125rem;">Fund Project ME Workshops</h3>
+					<p>Where carers gain life skills, resilience and hope through holistic training programmes.</p>
 				</div>
-				<div class="reveal" style="--delay: 0.12s">
-					<ul class="simple-list">
-						{donorPriorities.map((priority) => <li>{priority}</li>)}
-					</ul>
+				<div class="card reveal" style="--delay: 0.14s; border-left: 3px solid var(--oak-teal);">
+					<h3 style="font-size: 1.125rem;">Enable Inclusive Training</h3>
+					<p>So faith and community groups can welcome families of all abilities with practical tools.</p>
+				</div>
+				<div class="card reveal" style="--delay: 0.2s; border-left: 3px solid var(--oak-teal);">
+					<h3 style="font-size: 1.125rem;">Drive Community Rehabilitation</h3>
+					<p>From mobile therapy days to assistive-device clinics in communities that need it most.</p>
+				</div>
+				<div class="card reveal" style="--delay: 0.26s; border-left: 3px solid var(--oak-teal);">
+					<h3 style="font-size: 1.125rem;">Build OAK Centre Prime</h3>
+					<p>Nigeria's first holistic disability campus, serving 1,000+ children each year in memory of Abigail.</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Campaigns -->
+	<!-- Gift Aid -->
+	<section class="section section-alt">
+		<div class="container split">
+			<div class="callout callout--gold reveal">
+				<h2 style="font-size: 1.375rem;">Gift Aid: Make Your Donation Go Further</h2>
+				<p>
+					If you are a UK taxpayer, we can claim an extra 25p for every &pound;1 you donate
+					through Gift Aid &mdash; at no extra cost to you. A &pound;100 donation becomes &pound;125.
+				</p>
+				<p style="margin-top: 0.5rem;">
+					Simply tick the Gift Aid box when you donate through our platform.
+				</p>
+			</div>
+			<div class="reveal" style="--delay: 0.1s; text-align: center; padding: 2rem;">
+				<p style="font-size: var(--text-small); color: var(--oak-muted); margin-bottom: 1rem;">
+					Ready to make a difference?
+				</p>
+				<a class="button button-primary" href="https://crm.oakonsult.org/donate" target="_blank" rel="noreferrer" style="font-size: 1.0625rem; padding: 0.875rem 2.5rem;">
+					Donate Now
+				</a>
+				<p style="margin-top: 0.75rem; font-size: var(--text-small); color: var(--oak-muted);">
+					Secure donations via our CRM platform
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Active Campaigns -->
 	<section class="section">
 		<div class="container">
 			<div class="section-header">
 				<p class="section-kicker reveal">Active Campaigns</p>
-				<h2 class="section-title reveal" style="--delay: 0.05s">Where Your Gift Goes</h2>
+				<h2 class="section-title reveal" style="--delay: 0.05s">Choose Where Your Gift Goes</h2>
 			</div>
 			<div class="card-grid">
 				{
@@ -72,23 +126,38 @@ import { campaignPreviews, contact, donorPriorities } from "../data/site";
 		</div>
 	</section>
 
-	<!-- Trust & CTA -->
+	<!-- Testimonial -->
 	<section class="section section-alt">
-		<div class="container">
-			<div class="callout reveal">
-				<p class="section-kicker">Give Today</p>
-				<h2>Ready to Make a Difference?</h2>
-				<p>
-					Our donation platform is being set up. In the meantime, please contact our team
-					and we will route you to the correct campaign securely.
+		<div class="container" style="max-width: 700px; text-align: center;">
+			<div class="reveal">
+				<blockquote style="margin: 0; font-style: italic; font-size: var(--text-lead); color: var(--oak-muted); line-height: 1.8;">
+					&ldquo;{testimonials[0].quote}&rdquo;
+				</blockquote>
+				<p style="margin-top: 1rem; font-weight: 600; color: var(--oak-forest);">
+					{testimonials[0].name}, {testimonials[0].location}
 				</p>
-				<p style="margin-top: 0.75rem; font-size: var(--text-small); color: var(--oak-muted);">
+				<p style="font-size: var(--text-small); color: var(--oak-teal);">{testimonials[0].context}</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Trust & Other Ways -->
+	<section class="section">
+		<div class="container">
+			<div class="callout reveal" style="text-align: center;">
+				<p class="section-kicker">Other Ways to Give</p>
+				<h2>Beyond Financial Donations</h2>
+				<p style="max-width: 52ch; margin: 0.5rem auto 0;">
+					You can also support OAKonsult by volunteering your time, sharing our work,
+					organising a fundraiser, or partnering with us professionally.
+				</p>
+				<div class="callout-actions" style="justify-content: center;">
+					<a class="button button-primary" href="/get-involved">Get Involved</a>
+					<a class="button button-ghost" href="/contact-us">Contact Us</a>
+				</div>
+				<p style="margin-top: 1rem; font-size: var(--text-small); color: var(--oak-muted);">
 					OAKonsult Disabilities Outreach &mdash; UK Charity Registration No. {contact.charityNumber}
 				</p>
-				<div class="callout-actions">
-					<a class="button button-primary" href="/contact-us">Contact Donation Team</a>
-					<a class="button button-ghost" href="/annual-reports-impact">View Our Impact</a>
-				</div>
 			</div>
 		</div>
 	</section>

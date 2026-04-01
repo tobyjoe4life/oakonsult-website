@@ -1,14 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import InstagramFeed from "../components/InstagramFeed.astro";
 import {
 	campaignPreviews,
-	corePillars,
+	contact,
 	donationCta,
 	featuredPosts,
 	impactTimeline,
 	partnerGroups,
 	programs,
+	testimonials,
 } from "../data/site";
 ---
 
@@ -21,17 +21,15 @@ import {
 	<section class="hero">
 		<div class="container hero-grid">
 			<div class="reveal" style="--delay: 0.05s">
-				<p class="section-kicker">Disability Inclusion Charity</p>
+				<p class="section-kicker">UK Registered Charity No. {contact.charityNumber}</p>
 				<h1>Empowering Special Needs Families to Live Abundantly</h1>
 				<p>
 					We walk alongside families raising children with disabilities, offering care,
 					community, and courage to thrive &mdash; not just survive.
 				</p>
 				<div class="hero-actions">
-					<a class="button button-primary" href="https://www.youtube.com/watch?v=UFT7JUt_4AI" target="_blank" rel="noreferrer">
-						Watch Our Story
-					</a>
-					<a class="button button-ghost" href={donationCta.href}>Make a Difference</a>
+					<a class="button button-primary" href={donationCta.href}>Donate Now</a>
+					<a class="button button-ghost" href="#our-story">Watch Our Story</a>
 				</div>
 			</div>
 			<div class="hero-media reveal" style="--delay: 0.12s">
@@ -49,7 +47,7 @@ import {
 			</div>
 			<div class="stat-item reveal" style="--delay: 0.1s">
 				<strong>2</strong>
-				<span>Countries (UK & Nigeria)</span>
+				<span>Countries (UK &amp; Nigeria)</span>
 			</div>
 			<div class="stat-item reveal" style="--delay: 0.15s">
 				<strong>1,000+</strong>
@@ -89,8 +87,8 @@ import {
 		</div>
 	</section>
 
-	<!-- Our Story -->
-	<section class="section section-alt">
+	<!-- Our Story + Video -->
+	<section class="section section-alt" id="our-story">
 		<div class="container split">
 			<div class="reveal">
 				<p class="section-kicker">Our Story</p>
@@ -109,18 +107,48 @@ import {
 					<a class="button button-primary" href="/about-us">About OAKonsult</a>
 				</div>
 			</div>
-			<img
-				class="reveal"
-				style="--delay: 0.1s"
-				src="/media/wp/2025/04/4211940_1920x1080_f985cc-1.jpg"
-				alt="OAKonsult founder story"
-				loading="lazy"
-			/>
+			<div class="reveal" style="--delay: 0.1s">
+				<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius);">
+					<iframe
+						src="https://www.youtube.com/embed/UFT7JUt_4AI"
+						title="OAKonsult Story"
+						style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+						loading="lazy"
+					></iframe>
+				</div>
+			</div>
 		</div>
 	</section>
 
-	<!-- Campaigns -->
+	<!-- Testimonials -->
 	<section class="section">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Voices of Impact</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">What Families Say</h2>
+			</div>
+			<div class="card-grid">
+				{
+					testimonials.map((t, i) => (
+						<article class="card reveal" style={`--delay: ${0.08 + i * 0.06}s; border-left: 3px solid var(--oak-gold);`}>
+							<blockquote style="margin: 0; font-style: italic; color: var(--oak-muted); line-height: 1.75;">
+								&ldquo;{t.quote}&rdquo;
+							</blockquote>
+							<p style="margin-top: 0.75rem; font-weight: 600; color: var(--oak-forest);">
+								{t.name}, {t.location}
+							</p>
+							<p style="font-size: var(--text-small); color: var(--oak-teal);">{t.context}</p>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Campaigns / Donate -->
+	<section class="section section-alt">
 		<div class="container">
 			<div class="section-header">
 				<p class="section-kicker reveal">Support Our Work</p>
@@ -139,11 +167,19 @@ import {
 					))
 				}
 			</div>
+			<div class="reveal" style="--delay: 0.3s; margin-top: 1.5rem; text-align: center;">
+				<a class="button button-primary" href="/donate" style="font-size: 1rem; padding: 0.75rem 2rem;">
+					Donate Now
+				</a>
+				<p style="margin-top: 0.5rem; font-size: var(--text-small); color: var(--oak-muted);">
+					UK taxpayers: your donation goes 25% further with Gift Aid
+				</p>
+			</div>
 		</div>
 	</section>
 
 	<!-- Impact Timeline -->
-	<section class="section section-alt">
+	<section class="section">
 		<div class="container split">
 			<div class="reveal">
 				<p class="section-kicker">Our Journey</p>
@@ -172,7 +208,7 @@ import {
 	</section>
 
 	<!-- Partners -->
-	<section class="section">
+	<section class="section section-alt">
 		<div class="container">
 			<div class="section-header">
 				<p class="section-kicker reveal">Partners &amp; Supporters</p>
@@ -192,7 +228,7 @@ import {
 	</section>
 
 	<!-- Latest News -->
-	<section class="section section-alt">
+	<section class="section">
 		<div class="container">
 			<div class="section-header">
 				<p class="section-kicker reveal">News &amp; Updates</p>
@@ -214,17 +250,17 @@ import {
 		</div>
 	</section>
 
-	<!-- CTA -->
-	<section class="section">
+	<!-- Newsletter + CTA -->
+	<section class="section section-alt">
 		<div class="container">
-			<div class="callout reveal">
-				<p class="section-kicker">Get Involved</p>
-				<h2>Partner With Us to Create Lasting Impact</h2>
-				<p>
-					Join our growing network of donors, faith groups, professionals, and volunteers
-					who are transforming the lives of families with special needs.
+			<div class="callout reveal" style="text-align: center;">
+				<p class="section-kicker">Stay Connected</p>
+				<h2>Join Our Community</h2>
+				<p style="max-width: 48ch; margin: 0.5rem auto 0;">
+					Get updates on our programmes, impact stories, and ways to support families
+					raising children with disabilities.
 				</p>
-				<div class="callout-actions">
+				<div class="callout-actions" style="justify-content: center;">
 					<a class="button button-primary" href="/get-involved">Get Involved</a>
 					<a class="button button-ghost" href="/contact-us">Contact Us</a>
 				</div>
