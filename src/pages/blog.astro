@@ -1,20 +1,22 @@
-﻿---
+---
 import Layout from "../layouts/Layout.astro";
 import { featuredPosts } from "../data/site";
 ---
 
-<Layout title="Blog (News & Stories) | OAKonsult" description="Latest news and updates from OAKonsult." path="/blog">
-	<section class="section">
-		<div class="container split">
+<Layout title="Blog (News & Stories) | OAKonsult" description="Stories, insights and updates from OAKonsult's work with families raising children with disabilities." path="/blog">
+	<section class="hero">
+		<div class="container hero-grid">
 			<div class="reveal">
-				<p class="section-kicker">Stories & Insights</p>
-				<h1 class="section-title">Latest News & Update</h1>
-				<p class="muted-copy" style="margin-top: 0.9rem;">
-					Explore current OAKonsult news, stories, and updates from families, carers, and
-					communities.
+				<p class="section-kicker">Stories &amp; Insights</p>
+				<h1>News &amp; Updates</h1>
+				<p>
+					Stories from our community, insights for parent carers, and updates on our
+					programmes across the UK and Nigeria.
 				</p>
 			</div>
-			<img class="reveal" style="--delay: 0.12s" src="/media/wp/2025/04/BlogPage-Hero.jpg" alt="Blog hero" />
+			<div class="hero-media reveal" style="--delay: 0.1s">
+				<img src="/media/wp/2025/04/BlogPage-Hero.jpg" alt="OAKonsult stories and news" />
+			</div>
 		</div>
 	</section>
 
@@ -22,16 +24,49 @@ import { featuredPosts } from "../data/site";
 		<div class="container">
 			<div class="card-grid">
 				{
-					featuredPosts.map((post, i) => (
-						<article class="card reveal" style={`--delay: ${0.12 + i * 0.08}s`}>
-							<p class="section-kicker">{post.date}</p>
-							<h2 style="font-size: 1.3rem;">{post.title}</h2>
-							<a class="inline-link" href={post.href} target="_blank" rel="noreferrer">
-								Read published story
-							</a>
-						</article>
-					))
+					featuredPosts.map((post, i) => {
+						const isExternal = post.href.startsWith("http");
+						return (
+							<article class="card reveal" style={`--delay: ${0.08 + i * 0.06}s`}>
+								<p style="font-size: var(--text-small); color: var(--oak-teal); font-weight: 600; margin-bottom: 0.5rem;">
+									{post.date}
+								</p>
+								<h2 style="font-size: 1.1875rem;">{post.title}</h2>
+								{post.excerpt && (
+									<p style="margin-top: 0.5rem; color: var(--oak-muted); font-size: 0.9375rem; line-height: 1.7;">
+										{post.excerpt}
+									</p>
+								)}
+								<a
+									class="inline-link"
+									href={post.href}
+									target={isExternal ? "_blank" : undefined}
+									rel={isExternal ? "noreferrer" : undefined}
+								>
+									Read article &rarr;
+								</a>
+							</article>
+						);
+					})
 				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container">
+			<div class="callout reveal" style="text-align: center;">
+				<p class="section-kicker">Follow Us</p>
+				<h2>More Stories on Instagram</h2>
+				<p style="max-width: 48ch; margin: 0.5rem auto 0;">
+					Follow @oakonsult on Instagram for daily encouragement, programme updates,
+					and stories from our community of parent carers.
+				</p>
+				<div class="callout-actions" style="justify-content: center;">
+					<a class="button button-primary" href="https://www.instagram.com/oakonsult/" target="_blank" rel="noreferrer">
+						Follow @oakonsult
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>

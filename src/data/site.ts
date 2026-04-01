@@ -222,25 +222,46 @@ export const impactTimeline = [
 
 export const featuredPosts = [
 	{
+		title: "From Surviving to Living: A Free Webinar for Parent Carers",
+		date: "February 20, 2026",
+		href: "/blog/from-surviving-to-living",
+		excerpt:
+			"For many parent carers, life feels like survival. This free webinar is a roadmap to healing, clarity, and strength.",
+	},
+	{
+		title: "Burnout Is Not Failure: A Letter to Every Parent Carer",
+		date: "February 16, 2026",
+		href: "/blog/burnout-is-not-failure",
+		excerpt:
+			"You didn't burn out because you are weak. You burned out because you have been carrying more than most people can see.",
+	},
+	{
+		title: "Disability Does Not Limit Kindness",
+		date: "February 12, 2026",
+		href: "/blog/disability-does-not-limit-kindness",
+		excerpt:
+			"A boy with cerebral palsy stood so a mother carrying her baby could sit. Behind children like him are parent carers raising world-changers.",
+	},
+	{
 		title: "Three New Trustees for OAKonsult Disabilities Outreach",
 		date: "August 1, 2025",
 		href: "https://oakonsult.org/three-new-trustees-for-oakonsult-disabilities-outreach/",
-	},
-	{
-		title:
-			"Raising Our Voices: How OAKonsult is Igniting National Awareness on Disability in Nigeria.",
-		date: "April 9, 2025",
-		href: "https://oakonsult.org/raising-our-voices-how-oakonsult-is-igniting-national-awareness-on-disability-in-nigeria-leading-up-to-the-groundbreaking-of-oak-centre-prime/",
+		excerpt:
+			"We welcome Lucky Aigbefoh, Hadiza Daura, and Rev. Ajisola Adeloye to our Board of Trustees.",
 	},
 	{
 		title: "Why Children with Disabilities in Nigeria Are Being Left Behind",
 		date: "April 9, 2025",
 		href: "https://oakonsult.org/why-children-with-disabilities-in-nigeria-are-being-left-behind/",
+		excerpt:
+			"Millions of children face exclusion from education, healthcare, and community life. Here's what we're doing about it.",
 	},
 	{
 		title: "A Legacy of Hope: Help Us Build OAK Centre Prime in Memory of Abigail",
 		date: "April 9, 2025",
 		href: "https://oakonsult.org/a-legacy-of-hope-help-us-build-oak-centre-prime-in-memory-of-abigail/",
+		excerpt:
+			"Nigeria's first holistic disability campus is being built in loving memory of Abigail Adeloye.",
 	},
 ];
 

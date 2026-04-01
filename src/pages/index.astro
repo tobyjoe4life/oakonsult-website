@@ -242,15 +242,19 @@ import {
 			</div>
 			<div class="card-grid">
 				{
-					featuredPosts.slice(0, 4).map((post, i) => (
-						<article class="card reveal" style={`--delay: ${0.08 + i * 0.06}s`}>
-							<p style="font-size: var(--text-small); color: var(--oak-teal); font-weight: 600; margin-bottom: 0.5rem;">{post.date}</p>
-							<h3 style="font-size: 1.0625rem;">{post.title}</h3>
-							<a class="inline-link" href={post.href} target="_blank" rel="noreferrer">
-								Read article &rarr;
-							</a>
-						</article>
-					))
+					featuredPosts.slice(0, 4).map((post, i) => {
+						const isExternal = post.href.startsWith("http");
+						return (
+							<article class="card reveal" style={`--delay: ${0.08 + i * 0.06}s`}>
+								<p style="font-size: var(--text-small); color: var(--oak-teal); font-weight: 600; margin-bottom: 0.5rem;">{post.date}</p>
+								<h3 style="font-size: 1.0625rem;">{post.title}</h3>
+								{post.excerpt && <p style="margin-top: 0.375rem; font-size: 0.9375rem; color: var(--oak-muted); line-height: 1.65;">{post.excerpt}</p>}
+								<a class="inline-link" href={post.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined}>
+									Read article &rarr;
+								</a>
+							</article>
+						);
+					})
 				}
 			</div>
 		</div>

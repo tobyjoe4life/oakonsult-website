@@ -4,20 +4,105 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout
 	title="Events | OAKonsult"
-	description="Upcoming events and gatherings from OAKonsult."
+	description="Upcoming events, webinars, and gatherings from OAKonsult Disabilities Outreach."
 	path="/events"
 >
-	<section class="section">
-		<div class="container callout reveal">
-			<p class="section-kicker">Events</p>
-			<h1>Events</h1>
-			<p>
+	<section class="hero">
+		<div class="container">
+			<p class="section-kicker reveal">Events</p>
+			<h1 class="reveal" style="--delay: 0.05s; max-width: 22ch;">Upcoming Events &amp; Webinars</h1>
+			<p class="muted-copy reveal" style="--delay: 0.08s;">
 				Learn, connect, and contribute to a more inclusive world through OAKonsult events,
 				campaign gatherings, and training sessions.
 			</p>
-			<div class="callout-actions">
-				<a class="button button-primary" href="/contact-us">Ask About Upcoming Events</a>
-				<a class="button button-ghost" href="/get-involved">Get Involved</a>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">Featured Event</p>
+			</div>
+			<div class="card reveal" style="border-left: 4px solid var(--oak-teal); padding: 2rem;">
+				<p style="font-size: var(--text-small); color: var(--oak-teal); font-weight: 600;">FREE WEBINAR</p>
+				<h2 style="margin-top: 0.25rem;">From Surviving to Living: A Parent Carer's Roadmap to Healing, Clarity &amp; Strength</h2>
+				<p style="margin-top: 0.75rem; color: var(--oak-muted); line-height: 1.8;">
+					For many parent carers, life feels like survival &mdash; waking up tired, carrying
+					responsibilities that never pause, putting yourself last. This webinar is a safe space
+					to begin moving from surviving to living again.
+				</p>
+				<div style="margin-top: 1rem; display: grid; gap: 0.5rem;">
+					<p style="font-weight: 600; color: var(--oak-forest);">Hosted by Mrs Olufunke Adeloye</p>
+				</div>
+				<ul class="simple-list" style="margin-top: 0.75rem;">
+					<li>Why burnout happens (and why it's not your fault)</li>
+					<li>How to reconnect with yourself without guilt</li>
+					<li>What it means to move from surviving to living</li>
+					<li>How healing, clarity, and strength are still possible</li>
+				</ul>
+				<div class="callout-actions" style="margin-top: 1.25rem;">
+					<a class="button button-primary" href="/contact-us">Register Your Interest</a>
+					<a class="button button-ghost" href="/blog/from-surviving-to-living">Read More</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container">
+			<div class="section-header">
+				<p class="section-kicker reveal">More Events</p>
+				<h2 class="section-title reveal" style="--delay: 0.05s">Ongoing &amp; Upcoming</h2>
+			</div>
+			<div class="card-grid">
+				<article class="card reveal" style="--delay: 0.08s">
+					<p style="font-size: var(--text-small); color: var(--oak-teal); font-weight: 600;">ONGOING</p>
+					<h3>Project ME Training (UK)</h3>
+					<p>
+						An intensive personal-development workshop for parent carers of children and
+						young people with disabilities. Based in Bromley with online access.
+					</p>
+					<a class="inline-link" href="/projectme">Learn more &rarr;</a>
+				</article>
+
+				<article class="card reveal" style="--delay: 0.14s">
+					<p style="font-size: var(--text-small); color: var(--oak-teal); font-weight: 600;">2025</p>
+					<h3>OAK Centre Prime Groundbreaking (Nigeria)</h3>
+					<p>
+						Groundbreaking for Nigeria's first holistic disability centre in Oolo Town,
+						Ogbomoso. Raising funds for Phase 2 construction, staffing, and programme rollout.
+					</p>
+					<a class="inline-link" href="/oak-centre-prime">Learn more &rarr;</a>
+				</article>
+
+				<article class="card reveal" style="--delay: 0.2s">
+					<p style="font-size: var(--text-small); color: var(--oak-teal); font-weight: 600;">RECURRING</p>
+					<h3>Inclusive Church Training</h3>
+					<p>
+						Practical training helping churches, schools, and communities welcome and include
+						families with disabilities. Available in Nigeria and online.
+					</p>
+					<a class="inline-link" href="/support-for-churches">Learn more &rarr;</a>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="callout reveal" style="text-align: center;">
+				<p class="section-kicker">Stay Updated</p>
+				<h2>Don't Miss Our Next Event</h2>
+				<p style="max-width: 48ch; margin: 0.5rem auto 0;">
+					Follow us on Instagram for event announcements, or contact us to be added
+					to our mailing list.
+				</p>
+				<div class="callout-actions" style="justify-content: center;">
+					<a class="button button-primary" href="https://www.instagram.com/oakonsult/" target="_blank" rel="noreferrer">
+						Follow @oakonsult
+					</a>
+					<a class="button button-ghost" href="/contact-us">Contact Us</a>
+				</div>
 			</div>
 		</div>
 	</section>
