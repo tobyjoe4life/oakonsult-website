@@ -73,7 +73,7 @@ export const programs = [
 		title: "Support for Parent Carers",
 		summary:
 			"One-to-one coaching, wellbeing workshops and safe spaces to connect and recharge. Caring for a child with additional needs can feel overwhelming, so we combine practical tools with encouragement to help carers thrive.",
-		image: "/media/wp/2025/08/AdobeStock_1341395159-scaled.jpeg",
+		image: "/media/wp/2022/10/2nd-Pic-for-Support-for-Parent-page-scaled-1.jpg",
 	},
 	{
 		id: "churches",
@@ -81,7 +81,7 @@ export const programs = [
 		title: "Support for Churches",
 		summary:
 			"We equip churches, schools, and communities to welcome and include families with disabilities through practical inclusion training, theology of dignity, and follow-through implementation.",
-		image: "/media/wp/2025/08/AdobeStock_1105364354-scaled.jpeg",
+		image: "/media/wp/2023/10/Church-Foto.jpg",
 	},
 	{
 		id: "community-rehab",
@@ -89,7 +89,7 @@ export const programs = [
 		title: "Community-Based Rehabilitation",
 		summary:
 			"Through awareness campaigns, support groups and outreach, we build inclusive communities one family at a time in the UK, Nigeria, and online.",
-		image: "/media/wp/2025/04/TVC-pictures-scaled-1.jpg",
+		image: "/media/wp/2025/04/Community-Based-Rehabilitation-FILEminimizer.png",
 	},
 	{
 		id: "project-me",
