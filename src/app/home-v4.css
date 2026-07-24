@@ -446,7 +446,7 @@ a:hover .oak-arrow { transform: translateX(8px); }
   .oak-actions { align-items: stretch; flex-direction: column; }
   .oak-pill, .oak-editorial-link { width: 100%; justify-content: center; text-align: center; }
   .oak-hero { min-height: 780px; }
-  .oak-hero-content { padding-top: 350px; }
+  .oak-hero-content { padding-top: 290px; }
   .oak-hero-content h1 { font-size: 3.75rem; }
   .oak-proof-photo { min-height: 405px; }
   .oak-action-list strong { font-size: 1.2rem; }
