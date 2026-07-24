@@ -1,5 +1,16 @@
 import type { ContactRequest, DonationRequest } from "./schemas";
 
+const approvedCheckoutHosts = new Set(["checkout.stripe.com", "checkout.paystack.com"]);
+
+export function isApprovedCheckoutUrl(value: string) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && approvedCheckoutHosts.has(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
 export type CrmResult =
   | { ok: true; message?: string; reference?: string; url?: string }
   | { ok: false; status: 502 | 503; message: string };
@@ -66,10 +77,7 @@ async function send(
     };
 
     if (data.url) {
-      const checkoutUrl = new URL(data.url);
-      if (checkoutUrl.protocol !== "https:") {
-        throw new Error("Checkout URL must use HTTPS");
-      }
+      if (!isApprovedCheckoutUrl(data.url)) throw new Error("Checkout URL is not approved");
     }
 
     return {

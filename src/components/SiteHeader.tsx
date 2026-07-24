@@ -7,8 +7,11 @@ import { useEffect, useRef, useState } from "react";
 
 const mainNavigation = [
   { label: "Find support", href: "/find-support" },
-  { label: "Our work", href: "/what-we-do" },
-  { label: "Stories", href: "/stories" },
+  { label: "Programmes", href: "/what-we-do" },
+  { label: "Stories & impact", href: "/impact" },
+  { label: "Media gallery", href: "/media-gallery" },
+  { label: "Events", href: "/events" },
+  { label: "Funders & partners", href: "/funders-partners" },
   { label: "Get involved", href: "/get-involved" },
   { label: "About us", href: "/about" },
 ] as const;
@@ -93,8 +96,9 @@ export function SiteHeader() {
         <div className="header-v4-inner">
           <Link className="brand brand-v4" href="/" aria-label="OAKonsult Disabilities Outreach, home">
             <span className="brand-v4-logo-shell">
-              <Image src="/logos/oakonsult-logo.png" width={124} height={94} alt="" priority />
+              <Image src="/logos/oakonsult-mark.png" width={76} height={76} alt="" priority />
             </span>
+            <span className="brand-v4-wordmark"><strong>OAKonsult</strong><small>Disabilities Outreach</small></span>
           </Link>
 
           <p className="header-v4-descriptor">Parent-carer support and disability inclusion</p>
@@ -110,11 +114,13 @@ export function SiteHeader() {
         <nav className="header-v4-nav" aria-label="Primary navigation">
           <div className="header-v4-nav-inner">
             <div className="header-v4-main-links">
-              <span>Our work</span>
+              <span>Explore</span>
               <Link className={pathname === "/what-we-do" ? "is-active" : undefined} href="/what-we-do">Programmes</Link>
-              <Link className={pathname === "/stories" ? "is-active" : undefined} href="/stories">Stories</Link>
+              <Link className={pathname.startsWith("/impact") || pathname.startsWith("/stories") ? "is-active" : undefined} href="/impact">Stories &amp; impact</Link>
+              <Link className={pathname.startsWith("/media-gallery") ? "is-active" : undefined} href="/media-gallery">Gallery</Link>
+              <Link className={pathname.startsWith("/events") ? "is-active" : undefined} href="/events">Events</Link>
               <Link className={pathname === "/get-involved" ? "is-active" : undefined} href="/get-involved">Get involved</Link>
-              <Link className={pathname === "/about" ? "is-active" : undefined} href="/about">About us</Link>
+              <Link className={pathname === "/about" ? "is-active" : undefined} href="/about">About</Link>
             </div>
             <div className="header-v4-region-links" aria-label="Where we work">
               <span>Where we work</span>

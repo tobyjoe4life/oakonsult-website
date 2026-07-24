@@ -7,6 +7,8 @@ export type RegionService = {
   title: string;
   text: string;
   details: string[];
+  href: string;
+  linkLabel: string;
 };
 
 export type RegionPartner = {
@@ -66,6 +68,7 @@ export function RegionPage({ data }: { data: RegionPageData }) {
           <a className="is-active" href="#overview" aria-current="location">Overview</a>
           <a href="#programmes">Programmes</a>
           <a href="#partners">Funders &amp; partners</a>
+          <Link href={`/media-gallery/${data.slug}`}>Gallery</Link>
           <a href="#contact">Contact</a>
           <Link href={data.otherRegion.href}>Switch to {data.otherRegion.label} →</Link>
         </div>
@@ -98,6 +101,7 @@ export function RegionPage({ data }: { data: RegionPageData }) {
               <h3>{service.title}</h3>
               <p>{service.text}</p>
               <ul>{service.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>
+              <Link href={service.href}>{service.linkLabel} <span aria-hidden="true">→</span></Link>
             </article>
           ))}
         </div>
@@ -116,6 +120,19 @@ export function RegionPage({ data }: { data: RegionPageData }) {
               <span>{partner.name}</span>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="region-gallery-bridge" aria-labelledby={`${data.slug}-gallery-title`}>
+        <div className="region-gallery-copy" data-reveal>
+          <p className="oak-kicker dark">Media gallery</p>
+          <h2 id={`${data.slug}-gallery-title`}>See OAKonsult {data.country} in action.</h2>
+          <p>Browse selected public photographs from programmes, outreach, community activity and partnership work.</p>
+          <Link className="oak-editorial-link dark-link" href={`/media-gallery/${data.slug}`}><span>Open the {data.country} gallery</span><i aria-hidden="true">→</i></Link>
+        </div>
+        <div className="region-gallery-images" data-reveal>
+          <div><Image src={data.slug === "uk" ? "/images/gallery/uk-project-me-session.webp" : "/images/gallery/nigeria-knowledge-radio.webp"} alt={data.slug === "uk" ? "Parent carers taking part in a Project ME session" : "OAKonsult disability-awareness engagement at Knowledge Radio"} fill sizes="(max-width:800px) 100vw,34vw" /></div>
+          <div><Image src={data.slug === "uk" ? "/images/gallery/uk-project-me-group.webp" : "/images/gallery/nigeria-press-conference.webp"} alt={data.slug === "uk" ? "A group presentation during an OAKonsult Project ME event" : "OAKonsult representatives at a public press conference"} fill sizes="(max-width:800px) 100vw,28vw" /></div>
         </div>
       </section>
 

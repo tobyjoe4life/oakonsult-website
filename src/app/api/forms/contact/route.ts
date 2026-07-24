@@ -1,9 +1,24 @@
 import { crm } from "@/lib/crm/client";
 import { contactSchema } from "@/lib/crm/schemas";
+import { isReviewSite } from "@/lib/site/review-mode";
 import { validatePublicRequest } from "@/lib/security/public-request";
 import { checkRateLimit, getClientAddress } from "@/lib/security/rate-limit";
 
 export async function POST(request: Request) {
+  if (isReviewSite()) {
+    return Response.json(
+      {
+        ok: false,
+        preview: true,
+        message: "Online enquiries are disabled on this review site. No details were processed, delivered or stored.",
+      },
+      {
+        status: 503,
+        headers: { "Cache-Control": "no-store" },
+      },
+    );
+  }
+
   const requestCheck = validatePublicRequest(request);
   if (!requestCheck.ok) {
     return Response.json(

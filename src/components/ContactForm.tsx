@@ -1,6 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { isReviewSite } from "@/lib/site/review-mode";
+
+const contactPreviewMode = isReviewSite();
 
 export function ContactForm() {
   const [status, setStatus] = useState("");
@@ -9,6 +12,14 @@ export function ContactForm() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (contactPreviewMode) {
+      setBusy(false);
+      setIsError(false);
+      setStatus("Preview complete. No personal details were sent, delivered or stored.");
+      return;
+    }
+
     const form = event.currentTarget;
     const fields = new FormData(form);
     setBusy(true);
@@ -54,7 +65,8 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={submit}>
+    <form className="contact-form" onSubmit={submit} autoComplete={contactPreviewMode ? "off" : "on"}>
+      {contactPreviewMode && <p className="staging-form-note"><strong>Development preview</strong>Use non-personal placeholder details only. This form completes in your browser and sends nothing.</p>}
       <label>
         What can we help with?
         <select name="enquiryType" required defaultValue="">
@@ -69,12 +81,12 @@ export function ContactForm() {
       </label>
 
       <div className="two-cols">
-        <label>First name<input name="firstName" maxLength={80} required /></label>
-        <label>Last name<input name="lastName" maxLength={80} required /></label>
+        <label>First name<input name="firstName" autoComplete={contactPreviewMode ? "off" : "given-name"} maxLength={80} required /></label>
+        <label>Last name<input name="lastName" autoComplete={contactPreviewMode ? "off" : "family-name"} maxLength={80} required /></label>
       </div>
       <div className="two-cols">
-        <label>Email address<input name="email" type="email" maxLength={254} required /></label>
-        <label>Phone (optional)<input name="phone" type="tel" maxLength={30} /></label>
+        <label>Email address<input name="email" autoComplete={contactPreviewMode ? "off" : "email"} type="email" maxLength={254} required /></label>
+        <label>Phone (optional)<input name="phone" autoComplete={contactPreviewMode ? "off" : "tel"} type="tel" maxLength={30} /></label>
       </div>
       <label>Organisation (optional)<input name="organisation" maxLength={120} /></label>
       <label>
@@ -94,10 +106,10 @@ export function ContactForm() {
           <option value="phone">Phone</option>
         </select>
       </label>
-      <label className="check"><input name="privacy" type="checkbox" required /> I have read the privacy information and understand that OAKonsult will use these details to respond to this enquiry.</label>
-      <label className="check"><input name="marketing" type="checkbox" /> I would also like to receive occasional OAKonsult news and updates. This is optional.</label>
+      <label className="check"><input name="privacy" type="checkbox" required /> {contactPreviewMode ? "I understand this is a browser-only preview and no details will be submitted." : "I have read the privacy information and understand that OAKonsult will use these details to respond to this enquiry."}</label>
+      <label className="check"><input name="marketing" type="checkbox" /> {contactPreviewMode ? "In a live form, I would like to receive occasional OAKonsult news and updates." : "I would also like to receive occasional OAKonsult news and updates. This is optional."}</label>
       <label className="honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
-      <button className="button" type="submit" disabled={busy}>{busy ? "Sending…" : "Send enquiry"}</button>
+      <button className="button" type="submit" disabled={busy}>{busy ? "Sending…" : contactPreviewMode ? "Complete form preview" : "Send enquiry"}</button>
       {status && <p className={`form-status${isError ? " error" : ""}`} role={isError ? "alert" : "status"} aria-live="polite">{status}</p>}
     </form>
   );

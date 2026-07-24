@@ -40,3 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 !.env.example
+
+# local website audit and visual-QA evidence
+/docs/qa-*.png
+/docs/*qa-report*.json
+/docs/oak-current-site-content-inventory.json
+/docs/oak-gallery-contact-sheet.png
+/docs/oak-gallery-source-manifest.json

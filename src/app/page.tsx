@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HomeMotion } from "@/components/HomeMotion";
 import { siteContent } from "@/lib/content";
+import { homepageGallery } from "@/lib/gallery";
 
 const Arrow = () => <span className="oak-arrow" aria-hidden="true">→</span>;
 
@@ -124,11 +125,11 @@ export default function Home() {
         </div>
         <div className="oak-editorial-canvas">
           <div className="oak-action-list" data-reveal>
-            <Link href="/what-we-do"><span>Project ME</span><strong>Identity, wellbeing and confidence for parent carers</strong><Arrow /></Link>
-            <Link href="/uk"><span>Wellbeing</span><strong>Movement, connection and a reason to keep showing up</strong><Arrow /></Link>
+            <Link href="/programmes/project-me"><span>Project ME</span><strong>Identity, wellbeing and confidence for parent carers</strong><Arrow /></Link>
+            <Link href="/programmes/parent-carer-support"><span>Wellbeing</span><strong>Movement, connection and a reason to keep showing up</strong><Arrow /></Link>
             <Link href="/nigeria"><span>Community outreach</span><strong>Disability inclusion built with local communities</strong><Arrow /></Link>
           </div>
-          <Link className="oak-poster-tile oak-poster-project" href="/what-we-do" data-reveal>
+          <Link className="oak-poster-tile oak-poster-project" href="/programmes/project-me" data-reveal>
             <Image src="/images/sharepoint/project-me-workshop.webp" alt="A facilitator leading an OAKonsult Project ME workshop" fill sizes="(max-width: 760px) 92vw, 52vw" />
             <div><span>Featured programme</span><h3>Project ME puts the parent carer back in the picture.</h3><b>Discover Project ME <Arrow /></b></div>
           </Link>
@@ -136,7 +137,7 @@ export default function Home() {
             <Image src="/images/sharepoint/stronger-carers-funding.webp" alt="OAKonsult Stronger Carers Stronger Families funding announcement" fill sizes="(max-width: 760px) 82vw, 30vw" />
             <span>Stronger carers. Stronger families.</span>
           </Link>
-          <Link className="oak-poster-tile oak-poster-tv" href="/stories" data-reveal>
+          <Link className="oak-poster-tile oak-poster-tv" href="/impact" data-reveal>
             <Image src="/images/current-site-tv-advocacy.webp" alt="OAKonsult taking part in a television discussion" fill sizes="(max-width: 760px) 82vw, 34vw" />
             <div><span>Advocacy</span><h3>Making parent carer voices visible.</h3><b>See stories and insight <Arrow /></b></div>
           </Link>
@@ -155,7 +156,7 @@ export default function Home() {
           <h2>Time to remember the person behind the caring role.</h2>
           <p>Project ME creates a supportive space for identity, wellbeing, confidence and connection. Parent carers can reflect, learn and move forward alongside people who understand.</p>
           <ul><li>Room to focus on your own wellbeing</li><li>Tools for confidence and self-advocacy</li><li>A community rooted in shared understanding</li></ul>
-          <Link className="oak-pill oak-pill-gold" href="/what-we-do">Explore the programme</Link>
+          <Link className="oak-pill oak-pill-gold" href="/programmes/project-me">Explore the programme</Link>
         </div>
         <GrowthRings className="oak-project-rings" />
       </section>
@@ -194,6 +195,29 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="oak-gallery-preview" aria-labelledby="home-gallery-title">
+        <div className="oak-gallery-preview-heading" data-reveal>
+          <div><p className="oak-kicker dark">Media gallery</p><h2 id="home-gallery-title">Real moments. More of the story.</h2></div>
+          <div><p>Selected photographs from OAKonsult’s current public UK and Nigeria galleries, arranged as a living record of programmes, outreach and community connection.</p><Link className="oak-editorial-link dark-link" href="/media-gallery"><span>Open the full gallery</span><Arrow /></Link></div>
+        </div>
+        <div className="oak-gallery-preview-grid">
+          {homepageGallery.map((item, index) => (
+            <Link className={`oak-gallery-preview-item item-${index + 1}`} href={item.region === "UK" ? "/media-gallery/uk" : "/media-gallery/nigeria"} key={item.slug} data-reveal>
+              <Image src={item.src} alt={item.alt} fill sizes="(max-width: 760px) 92vw, (max-width: 1100px) 50vw, 33vw" />
+              <div><span>{item.region} / {item.theme}</span><strong>{item.title}</strong><i aria-hidden="true">→</i></div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <nav className="oak-home-directory" aria-label="More OAKonsult destinations">
+        <span>Explore more</span>
+        <Link href="/impact"><small>01</small><strong>Stories &amp; impact</strong><Arrow /></Link>
+        <Link href="/events"><small>02</small><strong>Events</strong><Arrow /></Link>
+        <Link href="/funders-partners"><small>03</small><strong>Funders &amp; partners</strong><Arrow /></Link>
+        <Link href="/get-involved"><small>04</small><strong>Get involved</strong><Arrow /></Link>
+      </nav>
+
       <section className="oak-stories" id="latest-stories" aria-labelledby="stories-title">
         <div className="oak-stories-heading" data-reveal>
           <p className="oak-kicker dark">Stories, ideas and lived experience</p>
@@ -217,8 +241,9 @@ export default function Home() {
       </section>
 
       <section className="oak-partners" aria-labelledby="partners-title">
-        <div className="oak-partners-intro"><p className="oak-kicker">Working alongside</p><h2 id="partners-title">Change grows through partnership.</h2></div>
-        <div className="oak-logo-window">
+        <div className="oak-partners-intro"><p className="oak-kicker">Working alongside</p><h2 id="partners-title">Change grows through partnership.</h2><Link className="oak-editorial-link" href="/funders-partners"><span>See funders and partners by region</span><Arrow /></Link></div>
+        <p className="oak-logo-swipe-hint">Swipe to see more partners <span aria-hidden="true">→</span></p>
+        <div className="oak-logo-window" role="region" aria-label="Funders and partners logo list" tabIndex={0}>
           <div className="oak-logo-track">
             {[...partnerLogos, ...partnerLogos].map(([name, logo], index) => (
               <div className="oak-logo-card" key={`${name}-${index}`} aria-hidden={index >= partnerLogos.length ? "true" : undefined}>
