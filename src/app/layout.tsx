@@ -3,6 +3,7 @@ import { DM_Sans, Nunito } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
+import "./home-v4.css";
 
 const body = DM_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const display = Nunito({ subsets: ["latin"], variable: "--font-display", display: "swap" });

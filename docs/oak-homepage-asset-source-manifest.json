@@ -1,0 +1,73 @@
+{
+  "source": "OAKonsult Microsoft 365 SharePoint/OneDrive and current public website",
+  "reviewed": "2026-07-24",
+  "publication_basis": "Selected SharePoint images were already placed in OAKonsult public-newsletter/event folders or are public-event imagery. Final production publication still requires OAKonsult consent/rights confirmation.",
+  "sharepoint": [
+    {
+      "file": "zumba-action.webp",
+      "source": "OAKonsult Microsoft 365 / OAKonsult 2025 Newsletter / Zumba Class UK"
+    },
+    {
+      "file": "zumba-group.webp",
+      "source": "OAKonsult Microsoft 365 / OAKonsult 2025 Newsletter / Zumba Class UK"
+    },
+    {
+      "file": "project-me-workshop.webp",
+      "source": "OAKonsult Microsoft 365 / OAKonsult 2025 Newsletter / Project Me Stories of Impact"
+    },
+    {
+      "file": "project-me-session-wide.webp",
+      "source": "OAKonsult Microsoft 365 / OAKonsult 2025 Newsletter / Project Me Stories of Impact"
+    },
+    {
+      "file": "project-me-graduation.webp",
+      "source": "OAKonsult Microsoft 365 / OAKonsult 2025 Newsletter / Project Me Stories of Impact"
+    },
+    {
+      "file": "press-conference.webp",
+      "source": "OAKonsult Microsoft 365 / OAKonsult 2025 Newsletter / Press Conference"
+    },
+    {
+      "file": "oak-centre-dignitaries.webp",
+      "source": "OAKonsult Microsoft 365 / public OAK Centre groundbreaking image"
+    },
+    {
+      "file": "stronger-carers-funding.webp",
+      "source": "Organisation SharePoint / Stronger Carers Stronger Families current review graphic"
+    }
+  ],
+  "currentWebsite": [
+    {
+      "file": "current-site-tv-advocacy.webp",
+      "url": "https://oakonsult.org/wp-content/uploads/2025/04/TVC-pictures-scaled-1.jpg"
+    },
+    {
+      "file": "current-site-community-partnership.webp",
+      "url": "https://oakonsult.org/wp-content/uploads/2026/05/oakonsult-impact-real-event-photo.jpeg"
+    }
+  ],
+  "partnerLogos": {
+    "source": "Current public OAKonsult website partner and supporter rail",
+    "baseUrl": "https://oakonsult.org/wp-content/uploads/",
+    "files": [
+      "national-lottery.png",
+      "bromley.png",
+      "mayor-of-london.jpg",
+      "stubs.png",
+      "yvhsc.png",
+      "joni-and-friends.jpg",
+      "just-sow.png",
+      "agbedare-foundation.png",
+      "albert-hunt.png",
+      "big-give.png",
+      "bishop-radford.svg",
+      "bowen-medical.jpeg",
+      "christ-church.webp",
+      "flour-mills.png",
+      "funmi-adewole.png",
+      "laumsa.jpg",
+      "sen-parenting.webp",
+      "stanbic.png"
+    ]
+  }
+}

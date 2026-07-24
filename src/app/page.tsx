@@ -1,124 +1,234 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HomeMotion } from "@/components/HomeMotion";
 import { siteContent } from "@/lib/content";
 
-const Arrow = () => <span aria-hidden="true">→</span>;
+const Arrow = () => <span className="oak-arrow" aria-hidden="true">→</span>;
+
+function GrowthRings({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 420 420" aria-hidden="true">
+      <path d="M210 31c97 0 176 79 176 176S307 383 210 383 34 304 34 207 113 31 210 31Z" />
+      <path d="M210 74c74 0 134 60 134 134s-60 134-134 134S76 282 76 208 136 74 210 74Z" />
+      <path d="M210 116c51 0 92 41 92 92s-41 92-92 92-92-41-92-92 41-92 92-92Z" />
+      <path d="M210 157c28 0 51 23 51 51s-23 51-51 51-51-23-51-51 23-51 51-51Z" />
+      <path d="M208 31c-17 36-26 72-26 108 0 58 29 84 29 139 0 36-10 71-29 105" />
+    </svg>
+  );
+}
+
+function OakLeaf({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 360 480" aria-hidden="true">
+      <path className="leaf-fill" d="M181 449c-9-61-7-112 6-155-46 27-100 12-122-30 35-8 52-26 58-52-43-3-75-32-78-70 35 9 62 2 82-22-23-28-22-64 3-89 18 24 41 36 69 36 7-29 29-51 58-60 1 31 13 55 37 71 24-13 48-13 70-1-10 29-29 48-56 57 16 23 19 48 10 75-24-14-48-17-73-7 7 28-1 53-24 75-18-18-39-27-64-25 23 48 36 104 40 167h-46Z" />
+      <path className="leaf-line" d="M181 449c-4-118 19-220 71-306M182 292l-59-79M205 245l92-69M162 342l-63-73M218 205l-25-122" />
+    </svg>
+  );
+}
+
+const partnerLogos = [
+  ["The National Lottery Community Fund", "/partners/national-lottery.png"],
+  ["Bromley Council", "/partners/bromley.png"],
+  ["Mayor of London", "/partners/mayor-of-london.jpg"],
+  ["Just Sow", "/partners/just-sow.png"],
+  ["The Big Give", "/partners/big-give.png"],
+  ["Bishop Radford Trust", "/partners/bishop-radford.svg"],
+  ["The Albert Hunt Trust", "/partners/albert-hunt.png"],
+  ["Christ Church Orpington", "/partners/christ-church.webp"],
+  ["Joni and Friends", "/partners/joni-and-friends.jpg"],
+  ["SEN Parenting", "/partners/sen-parenting.webp"],
+  ["Stanbic IBTC", "/partners/stanbic.png"],
+  ["Flour Mills of Nigeria", "/partners/flour-mills.png"],
+] as const;
 
 export default function Home() {
   return (
-    <>
-      <section className="hero">
-        <div className="hero-copy">
-          <p className="eyebrow">Support that starts with listening</p>
-          <h1>No parent carer should walk alone.</h1>
-          <p className="hero-intro">We create space for parent carers to feel seen, build confidence and find practical support, while advancing disability inclusion in communities.</p>
-          <div className="button-row">
-            <Link className="button button-gold" href="/find-support">Find support</Link>
-            <Link className="text-link light" href="/donate">Help make this possible <Arrow /></Link>
-          </div>
-          <div className="hero-trust" aria-label="OAKonsult at a glance">
-            <span>Parent carer-led</span>
-            <span>UK, Nigeria and online</span>
-            <span>Inclusive by design</span>
+    <div className="oak-home">
+      <HomeMotion />
+
+      <section className="oak-hero" aria-labelledby="home-title">
+        <div className="oak-hero-photo">
+          <Image
+            src="/images/sharepoint/zumba-action.webp"
+            alt="Parent carers taking part in an OAKonsult Zumba wellbeing session"
+            fill
+            priority
+            sizes="100vw"
+          />
+        </div>
+        <div className="oak-hero-scrim" aria-hidden="true" />
+        <GrowthRings className="oak-hero-rings" />
+        <OakLeaf className="oak-hero-leaf" />
+        <div className="oak-hero-field" aria-hidden="true" />
+        <div className="oak-hero-content" data-reveal>
+          <p className="oak-kicker">Support that starts with listening</p>
+          <h1 id="home-title">No parent carer<br />should walk<br />alone.</h1>
+          <p>We make space for parent carers to feel seen, build confidence and find practical support, while advancing disability inclusion in communities.</p>
+          <div className="oak-actions">
+            <Link className="oak-pill oak-pill-dark" href="/find-support">Get support</Link>
+            <Link className="oak-editorial-link" href="/donate">Help make this possible <Arrow /></Link>
           </div>
         </div>
-        <div className="hero-image">
-          <Image src="/images/hero-parent-carers.jpg" alt="Parent carers taking part in an OAKonsult wellbeing session" fill priority sizes="(max-width: 800px) 100vw, 50vw" />
+        <div className="oak-hero-note" data-reveal>
+          <span>Parent carer-led</span>
+          <strong>UK, Nigeria and online</strong>
+        </div>
+        <a className="oak-scroll-cue" href="#welcome"><span>Scroll</span><i aria-hidden="true">↓</i></a>
+      </section>
+
+      <section className="oak-proof" id="welcome">
+        <div className="oak-proof-shell">
+          <div className="oak-proof-photo" data-reveal>
+            <Image src="/images/current-site-community-partnership.webp" alt="OAKonsult representatives with community partners at a public event" fill sizes="(max-width: 760px) 78vw, 38vw" />
+            <OakLeaf className="oak-proof-leaf" />
+          </div>
+          <blockquote data-reveal>
+            <span className="oak-quote-marks" aria-hidden="true">“</span>
+            <p>Being understood can be the beginning of something new.</p>
+            <footer>Belonging, practical support and room to breathe.</footer>
+          </blockquote>
         </div>
       </section>
 
-      <section className="section shell">
-        <div className="section-heading">
-          <div><p className="eyebrow dark">Start where you are</p><h2>There is a place for you here.</h2></div>
-          <p>Whether you need support, want to strengthen your practice or help sustain the work, choose the route that feels right.</p>
+      <section className="oak-pathways" id="support-pathways">
+        <GrowthRings className="oak-pathway-rings" />
+        <OakLeaf className="oak-pathway-leaf" />
+        <div className="oak-wide-grid">
+          <div className="oak-pathway-statement" data-reveal>
+            <p className="oak-kicker dark">Every family is different</p>
+            <h2>Through change, challenge and everyday life, there is a place for you here.</h2>
+            <p>Choose the route that feels right today.</p>
+          </div>
+          <div className="oak-route-list" data-reveal>
+            <Link href="/find-support"><span>01</span><h3>Do you need support?</h3><p>Find connection, wellbeing support and practical routes forward.</p><b>Get support <Arrow /></b></Link>
+            <Link href="/get-involved"><span>02</span><h3>Can you give support?</h3><p>Donate, volunteer, fundraise or build something with us.</p><b>Give support <Arrow /></b></Link>
+            <Link href="/what-we-do"><span>03</span><h3>Are you a professional or partner?</h3><p>Explore referrals, inclusion training and partnership opportunities.</p><b>Work with us <Arrow /></b></Link>
+          </div>
         </div>
-        <div className="path-grid">
-          {[
-            ["Support", "I am a parent or carer", "Find connection, wellbeing support and practical routes forward.", "/find-support"],
-            ["Partnership", "I am a professional or organisation", "Explore programmes, referrals and ways to work in partnership.", "/what-we-do"],
-            ["Take part", "I want to support the work", "Give time, fundraise, partner with us or make a donation.", "/get-involved"],
-          ].map(([number, title, description, href]) => (
-            <Link className="path-card" href={href} key={number}>
-              <span>{number}</span><h3>{title}</h3><p>{description}</p><b>Explore this route <Arrow /></b>
-            </Link>
+      </section>
+
+      <section className="oak-editorial" id="oak-in-action" aria-labelledby="action-title">
+        <div className="oak-editorial-intro" data-reveal>
+          <p className="oak-kicker dark">OAKonsult in action</p>
+          <h2 id="action-title">Support is not one thing. It is a circle.</h2>
+        </div>
+        <div className="oak-editorial-canvas">
+          <div className="oak-action-list" data-reveal>
+            <Link href="/what-we-do"><span>Project ME</span><strong>Identity, wellbeing and confidence for parent carers</strong><Arrow /></Link>
+            <Link href="/uk"><span>Wellbeing</span><strong>Movement, connection and a reason to keep showing up</strong><Arrow /></Link>
+            <Link href="/nigeria"><span>Community outreach</span><strong>Disability inclusion built with local communities</strong><Arrow /></Link>
+          </div>
+          <Link className="oak-poster-tile oak-poster-project" href="/what-we-do" data-reveal>
+            <Image src="/images/sharepoint/project-me-workshop.webp" alt="A facilitator leading an OAKonsult Project ME workshop" fill sizes="(max-width: 760px) 92vw, 52vw" />
+            <div><span>Featured programme</span><h3>Project ME puts the parent carer back in the picture.</h3><b>Discover Project ME <Arrow /></b></div>
+          </Link>
+          <Link className="oak-poster-tile oak-poster-funding" href="/stories" data-reveal>
+            <Image src="/images/sharepoint/stronger-carers-funding.webp" alt="OAKonsult Stronger Carers Stronger Families funding announcement" fill sizes="(max-width: 760px) 82vw, 30vw" />
+            <span>Stronger carers. Stronger families.</span>
+          </Link>
+          <Link className="oak-poster-tile oak-poster-tv" href="/stories" data-reveal>
+            <Image src="/images/current-site-tv-advocacy.webp" alt="OAKonsult taking part in a television discussion" fill sizes="(max-width: 760px) 82vw, 34vw" />
+            <div><span>Advocacy</span><h3>Making parent carer voices visible.</h3><b>See stories and insight <Arrow /></b></div>
+          </Link>
+        </div>
+      </section>
+
+      <section className="oak-project-band" id="project-me">
+        <div className="oak-project-collage" data-reveal>
+          <div className="oak-collage-main"><Image src="/images/sharepoint/project-me-graduation.webp" alt="Project ME participants at a programme celebration" fill sizes="(max-width: 760px) 88vw, 46vw" /></div>
+          <div className="oak-collage-small top"><Image src="/images/sharepoint/project-me-session-wide.webp" alt="Parent carers taking part in a facilitated Project ME session" fill sizes="(max-width: 760px) 42vw, 20vw" /></div>
+          <div className="oak-collage-small bottom"><Image src="/images/sharepoint/zumba-group.webp" alt="OAKonsult Zumba participants moving together in a wellbeing session" fill sizes="(max-width: 760px) 42vw, 20vw" /></div>
+          <span className="oak-collage-sticker">Real people.<br />Shared courage.</span>
+        </div>
+        <div className="oak-project-copy" data-reveal>
+          <p className="oak-kicker">Project ME</p>
+          <h2>Time to remember the person behind the caring role.</h2>
+          <p>Project ME creates a supportive space for identity, wellbeing, confidence and connection. Parent carers can reflect, learn and move forward alongside people who understand.</p>
+          <ul><li>Room to focus on your own wellbeing</li><li>Tools for confidence and self-advocacy</li><li>A community rooted in shared understanding</li></ul>
+          <Link className="oak-pill oak-pill-gold" href="/what-we-do">Explore the programme</Link>
+        </div>
+        <GrowthRings className="oak-project-rings" />
+      </section>
+
+      <section className="oak-impact" aria-labelledby="impact-title">
+        <OakLeaf className="oak-impact-leaf" />
+        <div className="oak-impact-top" data-reveal>
+          <div><p className="oak-kicker dark">Participant feedback</p><h2 id="impact-title">What parent carers told us.</h2></div>
+          <p>These figures are presented as participant feedback, not as universal outcomes.</p>
+        </div>
+        <div className="oak-impact-grid">
+          {siteContent.impact.map((item, index) => (
+            <div key={item.value} className={`oak-impact-stat stat-${index + 1}`} data-reveal>
+              <GrowthRings className="oak-stat-rings" />
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="feature section">
-        <div className="shell split-feature">
-          <div className="feature-image"><Image src="/images/project-me-session.jpg" alt="Parent carers taking part in a Project ME workshop" fill sizes="(max-width: 800px) 100vw, 50vw" /></div>
-          <div className="feature-copy">
-            <p className="eyebrow">Featured programme</p>
-            <h2>Project ME puts the parent carer back in the picture.</h2>
-            <p>A supportive programme focused on identity, wellbeing and confidence. It gives parent carers time to reflect, connect and move forward alongside people who understand.</p>
-            <ul className="tick-list"><li>Space to focus on your own wellbeing</li><li>Tools for confidence and self-advocacy</li><li>A community rooted in shared understanding</li></ul>
-            <Link className="button button-cream" href="/what-we-do">Discover Project ME</Link>
-          </div>
+      <section className="oak-regions" aria-labelledby="regions-title">
+        <div className="oak-regions-heading" data-reveal>
+          <p className="oak-kicker dark">Local roots, shared purpose</p>
+          <h2 id="regions-title">Across the UK and Nigeria.</h2>
         </div>
-      </section>
-
-      <section className="story-band">
-        <div className="shell story-layout">
-          <div>
-            <p className="eyebrow dark">Belonging changes things</p>
-            <h2>Being understood can be the beginning of something new.</h2>
-            <p>Our communities make room for honest conversations, mutual encouragement and the knowledge that nobody has to carry everything alone.</p>
-            <Link className="text-link" href="/stories">Read stories and reflections <Arrow /></Link>
-          </div>
-          <div className="story-photo"><Image src="/images/parent-carer-community.jpg" alt="Parent carers connecting in an OAKonsult community setting" fill sizes="(max-width: 800px) 100vw, 45vw" /></div>
-        </div>
-      </section>
-
-      <section className="impact section">
-        <div className="shell">
-          <div className="impact-heading">
-            <div><p className="eyebrow">Participant feedback</p><h2>What parent carers told us.</h2></div>
-            <p>Figures currently published by OAKonsult, presented as participant feedback rather than universal outcomes.</p>
-          </div>
-          <div className="impact-grid">{siteContent.impact.map((item) => <div key={item.value}><strong>{item.value}</strong><span>{item.label}</span></div>)}</div>
-        </div>
-      </section>
-
-      <section className="section shell">
-        <div className="section-heading"><div><p className="eyebrow dark">Local roots, shared purpose</p><h2>Our work in the UK and Nigeria.</h2></div></div>
-        <div className="region-grid">
-          <Link href="/uk" className="region-card">
-            <Image src="/images/project-me-graduants.jpg" alt="Project ME participants and supporters at a programme celebration" fill sizes="(max-width: 800px) 100vw, 50vw" />
-            <div><span>United Kingdom</span><h3>Support that strengthens parent carers</h3><b>Explore our UK work <Arrow /></b></div>
+        <div className="oak-region-cards">
+          <Link href="/uk" className="oak-region-card oak-region-uk" data-reveal>
+            <Image src="/images/sharepoint/zumba-group.webp" alt="Parent carers taking part in an OAKonsult wellbeing activity in the UK" fill sizes="(max-width: 760px) 94vw, 50vw" />
+            <div><span>United Kingdom</span><h3>Support that strengthens parent carers.</h3><b>Explore our UK work <Arrow /></b></div>
           </Link>
-          <Link href="/nigeria" className="region-card">
-            <Image src="/images/nigeria-outreach.jpg" alt="OAKonsult community outreach volunteers, health workers and community members in Nigeria" fill sizes="(max-width: 800px) 100vw, 50vw" />
-            <div><span>Nigeria</span><h3>Community-led disability inclusion</h3><b>Explore our Nigeria work <Arrow /></b></div>
+          <Link href="/nigeria" className="oak-region-card oak-region-ng" data-reveal>
+            <Image src="/images/sharepoint/oak-centre-dignitaries.webp" alt="OAKonsult representatives and guests at the OAK Centre groundbreaking event" fill sizes="(max-width: 760px) 94vw, 50vw" />
+            <div><span>Nigeria</span><h3>Community-led disability inclusion.</h3><b>Explore our Nigeria work <Arrow /></b></div>
           </Link>
         </div>
       </section>
 
-      <section className="stories-section section">
-        <div className="shell">
-          <div className="section-heading"><div><p className="eyebrow dark">Ideas and lived experience</p><h2>Stories worth making room for.</h2></div></div>
-          <div className="story-cards">
-            {siteContent.stories.map((story) => (
-              <article key={story.title}><span>{story.tag}</span><h3>{story.title}</h3><p>{story.summary}</p><Link href="/stories">Read more <Arrow /></Link></article>
+      <section className="oak-stories" id="latest-stories" aria-labelledby="stories-title">
+        <div className="oak-stories-heading" data-reveal>
+          <p className="oak-kicker dark">Stories, ideas and lived experience</p>
+          <h2 id="stories-title">Stories worth making room for.</h2>
+          <Link className="oak-editorial-link dark-link" href="/stories">View all stories <Arrow /></Link>
+        </div>
+        <div className="oak-story-collage">
+          <article className="oak-story oak-story-large" data-reveal>
+            <div className="oak-story-image"><Image src="/images/parent-carer-community.jpg" alt="Parent carers connecting during an OAKonsult community activity" fill sizes="(max-width: 760px) 92vw, 52vw" /></div>
+            <span>{siteContent.stories[0].tag}</span><h3>{siteContent.stories[0].title}</h3><p>{siteContent.stories[0].summary}</p><Link href="/stories">Read the story <Arrow /></Link>
+          </article>
+          <article className="oak-story oak-story-small clay" data-reveal>
+            <div className="oak-story-image"><Image src="/images/sharepoint/press-conference.webp" alt="OAKonsult representatives at a public press event" fill sizes="(max-width: 760px) 78vw, 32vw" /></div>
+            <span>{siteContent.stories[1].tag}</span><h3>{siteContent.stories[1].title}</h3><Link href="/stories">Read the story <Arrow /></Link>
+          </article>
+          <article className="oak-story oak-story-small teal" data-reveal>
+            <div className="oak-story-image"><Image src="/images/care-in-action.jpeg" alt="A community member sharing a warm moment at an OAKonsult event" fill sizes="(max-width: 760px) 78vw, 30vw" /></div>
+            <span>{siteContent.stories[2].tag}</span><h3>{siteContent.stories[2].title}</h3><Link href="/stories">Read the story <Arrow /></Link>
+          </article>
+        </div>
+      </section>
+
+      <section className="oak-partners" aria-labelledby="partners-title">
+        <div className="oak-partners-intro"><p className="oak-kicker">Working alongside</p><h2 id="partners-title">Change grows through partnership.</h2></div>
+        <div className="oak-logo-window">
+          <div className="oak-logo-track">
+            {[...partnerLogos, ...partnerLogos].map(([name, logo], index) => (
+              <div className="oak-logo-card" key={`${name}-${index}`} aria-hidden={index >= partnerLogos.length ? "true" : undefined}>
+                <Image src={logo} alt={index < partnerLogos.length ? name : ""} width={160} height={78} sizes="160px" loading="eager" />
+                <span>{name}</span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="partner-rail" aria-labelledby="partners-heading">
-        <div className="shell">
-          <p id="partners-heading">Working alongside</p>
-          <div>{siteContent.partners.map((partner) => <span key={partner}>{partner}</span>)}</div>
-        </div>
-      </section>
-
-      <section className="final-cta">
-        <div className="shell">
-          <p className="eyebrow">One circle. Many ways to help.</p>
+      <section className="oak-final-cta">
+        <GrowthRings className="oak-final-rings" />
+        <OakLeaf className="oak-final-leaf" />
+        <div data-reveal>
+          <p className="oak-kicker">One circle. Many ways to help.</p>
           <h2>Your support can help someone feel less alone.</h2>
-          <div className="button-row centered"><Link className="button button-gold" href="/donate">Make a donation</Link><Link className="button button-cream" href="/find-support">I need support</Link></div>
+          <div className="oak-actions centered"><Link className="oak-pill oak-pill-gold" href="/donate">Make a donation</Link><Link className="oak-pill oak-pill-light" href="/find-support">I need support</Link></div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

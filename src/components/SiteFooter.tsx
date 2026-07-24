@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const groups = [
@@ -9,17 +10,18 @@ const groups = [
 
 export function SiteFooter() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer footer-v4">
+      <div className="footer-v4-rings" aria-hidden="true"><i /><i /><i /><i /></div>
       <div className="shell footer-lead">
         <div>
           <p className="eyebrow">A stronger circle of support</p>
-          <h2>Stay close to the work</h2>
+          <h2>Stay close to the work.</h2>
         </div>
         <Link className="button button-gold" href="/contact">Keep in touch</Link>
       </div>
       <div className="shell footer-grid">
         <div className="footer-brand">
-          <strong>OAKonsult</strong>
+          <Link className="footer-v4-logo" href="/" aria-label="OAKonsult home"><Image src="/logos/oakonsult-mark.png" width={82} height={64} alt="" /><span><strong>OAKonsult</strong><small>Disabilities Outreach</small></span></Link>
           <p>Supporting parent carers and advancing disability inclusion through practical, community-rooted work.</p>
           <p>Registered charity in England and Wales, 1204553.</p>
         </div>
