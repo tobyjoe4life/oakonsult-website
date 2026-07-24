@@ -2,10 +2,35 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { siteContent } from "@/lib/content";
+
+const mainNavigation = [
+  { label: "Find support", href: "/find-support" },
+  { label: "Our work", href: "/what-we-do" },
+  { label: "Stories", href: "/stories" },
+  { label: "Get involved", href: "/get-involved" },
+  { label: "About us", href: "/about" },
+] as const;
+
+const regions = [
+  {
+    label: "OAKonsult UK",
+    shortLabel: "UK",
+    href: "/uk",
+    description: "Parent-carer programmes, UK funders, support and partnerships.",
+  },
+  {
+    label: "OAKonsult Nigeria",
+    shortLabel: "Nigeria",
+    href: "/nigeria",
+    description: "Nigeria outreach, local funders, partnerships and the planned OAK Centre Prime.",
+  },
+] as const;
 
 export function SiteHeader() {
+  const pathname = usePathname();
+  const currentRegion = regions.find((region) => pathname.startsWith(region.href));
   const [open, setOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -53,6 +78,7 @@ export function SiteHeader() {
         first.focus();
       }
     };
+
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.classList.remove("menu-open");
@@ -66,14 +92,13 @@ export function SiteHeader() {
       <header className="site-header header-v4">
         <div className="header-v4-inner">
           <Link className="brand brand-v4" href="/" aria-label="OAKonsult Disabilities Outreach, home">
-            <span className="brand-v4-mark"><Image src="/logos/oakonsult-mark.png" width={66} height={54} alt="" priority /></span>
-            <span className="brand-v4-copy"><strong>OAKonsult</strong><small>Disabilities Outreach</small></span>
+            <span className="brand-v4-logo-shell">
+              <Image src="/logos/oakonsult-logo.png" width={124} height={94} alt="" priority />
+            </span>
           </Link>
 
-          <Link className="support-canopy" href="/find-support">
-            <span>Need support?</span>
-            <strong>Start with us</strong>
-          </Link>
+          <p className="header-v4-descriptor">Parent-carer support and disability inclusion</p>
+          {currentRegion && <Link className="header-v4-region-current" href={currentRegion.href} aria-label={`Current regional hub: ${currentRegion.label}`}>{currentRegion.shortLabel}</Link>}
 
           <div className="header-actions header-v4-actions">
             <Link className="header-support-link" href="/find-support">Find support</Link>
@@ -81,26 +106,61 @@ export function SiteHeader() {
             <button ref={menuButtonRef} className="menu-button menu-button-v4" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(true)}><span>Menu</span><i aria-hidden="true"><b /><b /><b /></i></button>
           </div>
         </div>
+
+        <nav className="header-v4-nav" aria-label="Primary navigation">
+          <div className="header-v4-nav-inner">
+            <div className="header-v4-main-links">
+              <span>Our work</span>
+              <Link className={pathname === "/what-we-do" ? "is-active" : undefined} href="/what-we-do">Programmes</Link>
+              <Link className={pathname === "/stories" ? "is-active" : undefined} href="/stories">Stories</Link>
+              <Link className={pathname === "/get-involved" ? "is-active" : undefined} href="/get-involved">Get involved</Link>
+              <Link className={pathname === "/about" ? "is-active" : undefined} href="/about">About us</Link>
+            </div>
+            <div className="header-v4-region-links" aria-label="Where we work">
+              <span>Where we work</span>
+              {regions.map((region) => <Link className={pathname.startsWith(region.href) ? "is-active" : undefined} key={region.href} href={region.href}>{region.shortLabel}</Link>)}
+            </div>
+          </div>
+        </nav>
       </header>
 
       {open && (
         <div className="mobile-menu menu-v4" id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu">
           <div className="menu-v4-decoration" aria-hidden="true" />
           <div className="mobile-menu-top menu-v4-top">
-            <Link className="menu-v4-brand" href="/" onClick={() => setOpen(false)}>OAKonsult</Link>
+            <Link className="menu-v4-brand" href="/" onClick={() => setOpen(false)} aria-label="OAKonsult home">
+              <Image src="/logos/oakonsult-logo.png" width={118} height={90} alt="" />
+            </Link>
             <button ref={closeButtonRef} onClick={() => setOpen(false)}>Close <span aria-hidden="true">×</span></button>
           </div>
           <div className="menu-v4-grid">
-            <nav aria-label="Main navigation">
-              {siteContent.navigation.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}<i aria-hidden="true">↗</i></Link>)}
-            </nav>
-            <div className="menu-v4-aside">
-              <p>Parent carer-led support and disability inclusion across the UK, Nigeria and online.</p>
-              <Link href="/find-support" onClick={() => setOpen(false)}>I need support <span aria-hidden="true">→</span></Link>
-              <Link href="/donate" onClick={() => setOpen(false)}>I want to help <span aria-hidden="true">→</span></Link>
-              <Link href="/accessibility" onClick={() => setOpen(false)}>Accessibility</Link>
-              <small>Registered charity 1204553</small>
+            <div className="menu-v4-primary">
+              <p className="menu-v4-label">Explore OAKonsult</p>
+              <nav aria-label="Main navigation">
+                {mainNavigation.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}<i aria-hidden="true">↗</i></Link>)}
+              </nav>
             </div>
+
+            <aside className="menu-v4-regions" aria-labelledby="where-we-work-title">
+              <p className="menu-v4-label" id="where-we-work-title">Where we work</p>
+              <div className="menu-v4-region-cards">
+                {regions.map((region, index) => (
+                  <Link key={region.href} href={region.href} className={`menu-v4-region-card region-${index + 1}${pathname.startsWith(region.href) ? " is-active" : ""}`} aria-current={pathname.startsWith(region.href) ? "page" : undefined} onClick={() => setOpen(false)}>
+                    <span>{region.shortLabel}</span>
+                    <strong>{region.label}</strong>
+                    <small>{region.description}</small>
+                    <i aria-hidden="true">→</i>
+                  </Link>
+                ))}
+              </div>
+              <p className="menu-v4-shared-note"><strong>One OAKonsult.</strong> Shared purpose, with country-specific programmes, funding and contact routes.</p>
+              <div className="menu-v4-utility">
+                <Link href="/contact" onClick={() => setOpen(false)}>Contact us</Link>
+                <Link href="/accessibility" onClick={() => setOpen(false)}>Accessibility</Link>
+                <Link href="/privacy" onClick={() => setOpen(false)}>Privacy</Link>
+              </div>
+              <small className="menu-v4-registration">Registered charity in England and Wales, 1204553.</small>
+            </aside>
           </div>
         </div>
       )}

@@ -49,11 +49,20 @@ export default function Home() {
       <section className="oak-hero" aria-labelledby="home-title">
         <div className="oak-hero-photo">
           <Image
+            className="oak-hero-image-desktop"
             src="/images/sharepoint/zumba-action.webp"
             alt="Parent carers taking part in an OAKonsult Zumba wellbeing session"
             fill
             priority
-            sizes="100vw"
+            sizes="(max-width: 800px) 1px, 100vw"
+          />
+          <Image
+            className="oak-hero-image-mobile"
+            src="/images/sharepoint/zumba-group-mobile.webp"
+            alt="Parent carers taking part in an OAKonsult Zumba wellbeing session"
+            fill
+            priority
+            sizes="(max-width: 800px) 100vw, 1px"
           />
         </div>
         <div className="oak-hero-scrim" aria-hidden="true" />
@@ -66,13 +75,14 @@ export default function Home() {
           <p>We make space for parent carers to feel seen, build confidence and find practical support, while advancing disability inclusion in communities.</p>
           <div className="oak-actions">
             <Link className="oak-pill oak-pill-dark" href="/find-support">Get support</Link>
-            <Link className="oak-editorial-link" href="/donate">Help make this possible <Arrow /></Link>
+            <Link className="oak-editorial-link" href="/donate"><span>Help make this possible</span><Arrow /></Link>
           </div>
         </div>
-        <div className="oak-hero-note" data-reveal>
-          <span>Parent carer-led</span>
-          <strong>UK, Nigeria and online</strong>
-        </div>
+        <nav className="oak-hero-note" aria-label="Explore OAKonsult by region" data-reveal>
+          <span>Where we work</span>
+          <Link href="/uk">United Kingdom <Arrow /></Link>
+          <Link href="/nigeria">Nigeria <Arrow /></Link>
+        </nav>
         <a className="oak-scroll-cue" href="#welcome"><span>Scroll</span><i aria-hidden="true">↓</i></a>
       </section>
 
@@ -188,7 +198,7 @@ export default function Home() {
         <div className="oak-stories-heading" data-reveal>
           <p className="oak-kicker dark">Stories, ideas and lived experience</p>
           <h2 id="stories-title">Stories worth making room for.</h2>
-          <Link className="oak-editorial-link dark-link" href="/stories">View all stories <Arrow /></Link>
+          <Link className="oak-editorial-link dark-link" href="/stories"><span>View all stories</span><Arrow /></Link>
         </div>
         <div className="oak-story-collage">
           <article className="oak-story oak-story-large" data-reveal>

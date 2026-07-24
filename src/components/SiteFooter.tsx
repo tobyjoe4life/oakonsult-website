@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const groups = [
   { title: "Support", links: [["Find support", "/find-support"], ["Contact us", "/contact"], ["Safeguarding", "/contact"]] },
-  { title: "Our work", links: [["What we do", "/what-we-do"], ["UK", "/uk"], ["Nigeria", "/nigeria"], ["Stories", "/stories"]] },
-  { title: "Take part", links: [["Get involved", "/get-involved"], ["Donate", "/donate"], ["About us", "/about"]] },
-  { title: "Information", links: [["Governance", "/about"], ["Privacy", "/privacy"], ["Accessibility", "/accessibility"]] },
+  { title: "Our work", links: [["What we do", "/what-we-do"], ["Stories", "/stories"]] },
+  { title: "Where we work", links: [["OAKonsult UK", "/uk"], ["OAKonsult Nigeria", "/nigeria"]] },
+  { title: "More", links: [["Get involved", "/get-involved"], ["Donate", "/donate"], ["About us", "/about"], ["Privacy", "/privacy"], ["Accessibility", "/accessibility"]] },
 ];
 
 export function SiteFooter() {
@@ -21,8 +21,8 @@ export function SiteFooter() {
       </div>
       <div className="shell footer-grid">
         <div className="footer-brand">
-          <Link className="footer-v4-logo" href="/" aria-label="OAKonsult home"><Image src="/logos/oakonsult-mark.png" width={82} height={64} alt="" /><span><strong>OAKonsult</strong><small>Disabilities Outreach</small></span></Link>
-          <p>Supporting parent carers and advancing disability inclusion through practical, community-rooted work.</p>
+          <Link className="footer-v4-logo" href="/" aria-label="OAKonsult home"><Image src="/logos/oakonsult-logo.png" width={142} height={108} alt="" loading="eager" /></Link>
+          <p>One OAKonsult, supporting parent carers and advancing disability inclusion through practical, community-rooted work.</p>
           <p>Registered charity in England and Wales, 1204553.</p>
         </div>
         {groups.map((group) => (
@@ -33,12 +33,12 @@ export function SiteFooter() {
         ))}
       </div>
       <div className="shell region-footer">
-        <div><strong>United Kingdom</strong><span>Parent-carer support, programmes and online connection</span></div>
-        <div><strong>Nigeria</strong><span>Community outreach and partnerships</span></div>
+        <Link href="/uk"><span>UK hub</span><strong>OAKonsult UK</strong><small>Parent-carer programmes, UK funders and support →</small></Link>
+        <Link href="/nigeria"><span>Nigeria hub</span><strong>OAKonsult Nigeria</strong><small>Community outreach, local funders and the planned OAK Centre Prime →</small></Link>
       </div>
       <div className="shell footer-bottom">
         <span>&copy; {new Date().getFullYear()} OAKonsult Disabilities Outreach</span>
-        <span>Living life abundantly</span>
+        <span>One purpose, with country-specific programmes and funding</span>
       </div>
     </footer>
   );
