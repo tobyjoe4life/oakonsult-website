@@ -1,46 +1,42 @@
-# Astro Starter Kit: Basics
+# OAKonsult Website V3
 
-```sh
-npm create astro@latest -- --template basics
+Fresh development website for OAKonsult Disabilities Outreach.
+
+- Development URL: `https://dev.oakonsult.org`
+- Framework: Next.js App Router, React and TypeScript
+- Deployment: Docker on OAKonsult Coolify
+- Operational data: OAKonsult CRM through server-only website integration routes
+- Editorial content: local typed content source for the first design milestone, with a future Payload CMS adapter
+
+## Safety boundary
+
+This repository does not contain production CRM credentials, donor data, form submissions or payment credentials. Stripe and Paystack own payment-card handling. When the CRM integration variables are absent, public form routes return a clear preview-mode response and do not make network requests.
+
+The development deployment is explicitly `noindex, nofollow, noarchive`.
+
+## Local development
+
+```bash
+npm ci
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Open `http://localhost:3000`.
 
-## 🚀 Project Structure
+## Quality checks
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+npm test
+npm run lint
+npm run build
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Environment variables
 
-## 🧞 Commands
+Copy `.env.example` to `.env.local` for local development. Never commit values.
 
-All commands are run from the root of the project, from a terminal:
+- `NEXT_PUBLIC_SITE_URL`
+- `CRM_BASE_URL`
+- `CRM_WEBSITE_API_KEY`
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+See `ARCHITECTURE.md` for ownership and integration boundaries.
