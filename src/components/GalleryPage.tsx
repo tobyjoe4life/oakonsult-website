@@ -11,6 +11,14 @@ const Arrow = () => <span aria-hidden="true">→</span>;
 
 export function GalleryPage({ region }: GalleryPageProps) {
   const items = region ? galleryItems.filter((item) => item.region === region) : galleryItems;
+  const collectionExclusions = new Set(
+    region === "UK"
+      ? ["uk-project-me-session"]
+      : region === "Nigeria"
+        ? ["nigeria-knowledge-radio"]
+        : ["uk-project-me-session", "uk-parent-carer-community", "nigeria-press-conference"],
+  );
+  const collectionItems = items.filter((item) => !collectionExclusions.has(item.slug));
   const title = region ? `${region} media gallery` : "Media gallery";
   const intro = region
     ? `Selected photographs from OAKonsult ${region} programmes, outreach, community activity and public engagement.`
@@ -46,11 +54,11 @@ export function GalleryPage({ region }: GalleryPageProps) {
         <section className="gallery-region-split" aria-labelledby="choose-gallery">
           <div className="gallery-region-heading" data-reveal><p className="oak-kicker dark">Where the work happens</p><h2 id="choose-gallery">One mission, locally rooted.</h2><p>Choose a regional collection or continue into the mixed highlights below.</p></div>
           <Link className="gallery-region-route route-uk" href="/media-gallery/uk" data-reveal>
-            <div className="gallery-route-image"><Image src="/images/gallery/uk-project-me-session.webp" alt="Parent carers taking part in a Project ME session" fill sizes="(max-width: 800px) 100vw, 50vw" /></div>
+            <div className="gallery-route-image"><Image src="/images/gallery/uk-parent-carer-community.webp" alt="Parent carers connecting during an OAKonsult community activity" fill sizes="(max-width: 800px) 100vw, 50vw" /></div>
             <div><span>United Kingdom</span><h3>Parent-carer support, Project ME and community wellbeing.</h3><b>View UK media <Arrow /></b></div>
           </Link>
           <Link className="gallery-region-route route-ng" href="/media-gallery/nigeria" data-reveal>
-            <div className="gallery-route-image"><Image src="/images/gallery/nigeria-knowledge-radio.webp" alt="OAKonsult disability-awareness engagement at Knowledge Radio" fill sizes="(max-width: 800px) 100vw, 50vw" /></div>
+            <div className="gallery-route-image"><Image src="/images/gallery/nigeria-press-conference.webp" alt="OAKonsult representatives at a public press conference" fill sizes="(max-width: 800px) 100vw, 50vw" /></div>
             <div><span>Nigeria</span><h3>Outreach, public awareness and community partnership.</h3><b>View Nigeria media <Arrow /></b></div>
           </Link>
         </section>
@@ -63,7 +71,7 @@ export function GalleryPage({ region }: GalleryPageProps) {
           <p>This is a curated public showcase, not a complete media archive.</p>
         </div>
         <div className="gallery-grid">
-          {items.map((item, index) => (
+          {collectionItems.map((item, index) => (
             <figure className={`gallery-figure figure-${(index % 4) + 1}`} key={item.slug} data-reveal>
               <div className="gallery-image"><Image src={item.src} alt={item.alt} fill sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 33vw" /></div>
               <figcaption><span>{item.region} / {item.theme}</span><h3>{item.title}</h3><p>{item.context}</p></figcaption>

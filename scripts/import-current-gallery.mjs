@@ -8,7 +8,7 @@ const destination = join(project, "public/images/gallery");
 const manifestPath = join(project, "docs/oak-gallery-source-manifest.json");
 
 const assets = [
-  ["uk-community-stand", "UK", "https://oakonsult.org/wp-content/uploads/2026/05/oakonsult-uk-services-display-stand.jpeg", "OAKonsult information stand at a UK community activity"],
+
   ["uk-project-me-session", "UK", "https://oakonsult.org/wp-content/uploads/2024/05/ENR-1026.jpg", "Parent carers taking part in a Project ME session"],
   ["uk-parent-carer-community", "UK", "https://oakonsult.org/wp-content/uploads/2024/05/ENR-1058.jpg", "Parent carers connecting during an OAKonsult community activity"],
   ["uk-project-me-group", "UK", "https://oakonsult.org/wp-content/uploads/2024/05/ENR-1127C.jpg", "A group activity during an OAKonsult Project ME session"],

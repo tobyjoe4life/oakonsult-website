@@ -29,15 +29,7 @@ export const galleryItems: GalleryItem[] = [
     context: "Community moments that celebrate commitment, confidence and connection.",
     theme: "Community",
   },
-  {
-    slug: "uk-community-stand",
-    region: "UK",
-    src: "/images/gallery/uk-community-stand.webp",
-    alt: "OAKonsult information stand at a UK community activity",
-    title: "Meeting families where they are",
-    context: "Sharing practical information and programme routes at community activities.",
-    theme: "Outreach",
-  },
+
   {
     slug: "uk-parent-carer-community",
     region: "UK",
@@ -98,7 +90,7 @@ export const homepageGallery = [
   galleryItems[0],
   galleryItems[1],
   galleryItems[2],
+  galleryItems[3],
   galleryItems[4],
   galleryItems[5],
-  galleryItems[6],
 ];
