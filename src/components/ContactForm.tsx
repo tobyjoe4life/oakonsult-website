@@ -107,7 +107,7 @@ export function ContactForm() {
         </select>
       </label>
       <label className="check"><input name="privacy" type="checkbox" required /> {contactPreviewMode ? "I understand that this preview does not send or store my details." : "I have read the privacy information and understand that OAKonsult will use these details to respond to this enquiry."}</label>
-      <label className="check"><input name="marketing" type="checkbox" /> I would like to receive occasional OAKonsult news and updates. This is optional.</label>
+      <label className="check"><input name="marketing" type="checkbox" /> {contactPreviewMode ? "Preview the optional OAKonsult news and updates choice. This does not subscribe you." : "I would like to receive occasional OAKonsult news and updates. This is optional."}</label>
       <label className="honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
       <button className="button" type="submit" disabled={busy}>{busy ? "Sending…" : contactPreviewMode ? "Check form without sending" : "Send enquiry"}</button>
       {status && <p className={`form-status${isError ? " error" : ""}`} role={isError ? "alert" : "status"} aria-live="polite">{status}</p>}

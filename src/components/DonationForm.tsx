@@ -214,7 +214,7 @@ export function DonationForm() {
           )}
 
           <label className="check"><input type="checkbox" checked={details.privacy} onChange={(event) => updateDetails("privacy", event.target.checked)} required /> {donationPreviewMode ? "I understand that this preview does not send or store my details." : "I have read the privacy information and understand that my details will be used to process this donation."}</label>
-          <label className="check"><input type="checkbox" checked={details.marketing} onChange={(event) => updateDetails("marketing", event.target.checked)} /> I would like to receive occasional OAKonsult news and supporter updates. This is optional.</label>
+          <label className="check"><input type="checkbox" checked={details.marketing} onChange={(event) => updateDetails("marketing", event.target.checked)} /> {donationPreviewMode ? "Preview the optional OAKonsult news and supporter updates choice. This does not subscribe you." : "I would like to receive occasional OAKonsult news and supporter updates. This is optional."}</label>
           <label className="honeypot" aria-hidden="true">Website<input tabIndex={-1} autoComplete="off" value={details.website} onChange={(event) => updateDetails("website", event.target.value)} /></label>
 
           <div className="step-actions">
