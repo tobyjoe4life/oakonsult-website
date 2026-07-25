@@ -15,13 +15,13 @@ await page.getByLabel("First name").fill("Preview");
 await page.getByLabel("Last name").fill("Visitor");
 await page.getByLabel("Email address").fill("preview@example.invalid");
 await page.locator('select[name="region"]').selectOption("Elsewhere / online");
-await page.getByLabel("Your message").fill("Placeholder message for the browser-only staging preview.");
-await page.getByLabel(/browser-only preview/).check();
-await page.getByRole("button", { name: "Complete form preview" }).click();
+await page.getByLabel("Your message").fill("Placeholder message for the form preview.");
+await page.getByLabel(/preview does not send or store my details/).check();
+await page.getByRole("button", { name: "Check form without sending" }).click();
 
 const status = await page.getByRole("status").textContent();
 if (contactRequests !== 0) throw new Error(`Preview made ${contactRequests} contact request(s)`);
-if (!status?.includes("No personal details were sent") || !status.includes("delivered or stored")) {
+if (!status?.includes("Nothing was sent or stored")) {
   throw new Error(`Unexpected preview status: ${status}`);
 }
 

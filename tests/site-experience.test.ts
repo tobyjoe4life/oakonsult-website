@@ -57,8 +57,8 @@ test("donation choice controls expose state and a dynamic impact explanation", (
   const form = read("src/components/DonationForm.tsx");
   assert.match(form, /aria-pressed=/);
   assert.match(form, /impact/i);
-  assert.match(form, /Preview details for/);
-  assert.match(form, /Development preview/);
+  assert.match(form, /Continue preview with/);
+  assert.match(form, /Preview only/);
   assert.match(form, /No payment has been taken/);
 });
 

@@ -44,7 +44,7 @@ async function send(
       ok: false,
       status: 503,
       message:
-        "This review site is not sending information yet. Please use the contact details on the live OAKonsult website if your enquiry is time-sensitive.",
+        "Online submissions are not active yet. Please use the published contact details if your enquiry is time-sensitive.",
     };
   }
 

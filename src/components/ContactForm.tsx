@@ -16,7 +16,7 @@ export function ContactForm() {
     if (contactPreviewMode) {
       setBusy(false);
       setIsError(false);
-      setStatus("Preview complete. No personal details were sent, delivered or stored.");
+      setStatus("Form check complete. Nothing was sent or stored.");
       return;
     }
 
@@ -66,7 +66,7 @@ export function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={submit} autoComplete={contactPreviewMode ? "off" : "on"}>
-      {contactPreviewMode && <p className="staging-form-note"><strong>Development preview</strong>Use non-personal placeholder details only. This form completes in your browser and sends nothing.</p>}
+      {contactPreviewMode && <p className="staging-form-note"><strong>Preview only</strong>Use placeholder details. Nothing is sent or stored. All fields are required unless marked optional.</p>}
       <label>
         What can we help with?
         <select name="enquiryType" required defaultValue="">
@@ -106,10 +106,10 @@ export function ContactForm() {
           <option value="phone">Phone</option>
         </select>
       </label>
-      <label className="check"><input name="privacy" type="checkbox" required /> {contactPreviewMode ? "I understand this is a browser-only preview and no details will be submitted." : "I have read the privacy information and understand that OAKonsult will use these details to respond to this enquiry."}</label>
-      <label className="check"><input name="marketing" type="checkbox" /> {contactPreviewMode ? "In a live form, I would like to receive occasional OAKonsult news and updates." : "I would also like to receive occasional OAKonsult news and updates. This is optional."}</label>
+      <label className="check"><input name="privacy" type="checkbox" required /> {contactPreviewMode ? "I understand that this preview does not send or store my details." : "I have read the privacy information and understand that OAKonsult will use these details to respond to this enquiry."}</label>
+      <label className="check"><input name="marketing" type="checkbox" /> I would like to receive occasional OAKonsult news and updates. This is optional.</label>
       <label className="honeypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
-      <button className="button" type="submit" disabled={busy}>{busy ? "Sending…" : contactPreviewMode ? "Complete form preview" : "Send enquiry"}</button>
+      <button className="button" type="submit" disabled={busy}>{busy ? "Sending…" : contactPreviewMode ? "Check form without sending" : "Send enquiry"}</button>
       {status && <p className={`form-status${isError ? " error" : ""}`} role={isError ? "alert" : "status"} aria-live="polite">{status}</p>}
     </form>
   );

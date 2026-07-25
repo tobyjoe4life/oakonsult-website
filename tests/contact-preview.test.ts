@@ -35,6 +35,6 @@ test("staging contact preview returns before FormData, fetch and CRM delivery", 
   assert.ok(guard >= 0);
   assert.ok(guard < form.indexOf("new FormData(form)"));
   assert.ok(guard < form.indexOf('fetch("/api/forms/contact"'));
-  assert.match(form, /No personal details were sent, delivered or stored/);
-  assert.match(form, /Complete form preview/);
+  assert.match(form, /Nothing was sent or stored/);
+  assert.match(form, /Check form without sending/);
 });

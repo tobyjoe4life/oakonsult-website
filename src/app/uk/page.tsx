@@ -3,10 +3,10 @@ import { RegionPage, type RegionPageData } from "@/components/RegionPage";
 const data: RegionPageData = {
   slug: "uk",
   country: "UK",
-  eyebrow: "Our primary UK charity home",
-  title: "Parent-carer support, rooted in London and available online.",
-  intro: "OAKonsult UK supports parent carers through practical guidance, wellbeing, confidence-building and connection. In‑person delivery is rooted in London, with online routes available more widely.",
-  context: "OAKonsult is registered in the UK and Nigeria. The UK is our primary charity home, so London-based delivery, online support, UK funders and contact routes are presented here while the wider OAKonsult story remains connected.",
+  eyebrow: "Parent-carer support in the UK",
+  title: "Support in London and online.",
+  intro: "OAKonsult UK offers practical guidance, wellbeing programmes and peer connection for parent carers. In-person activities are based in London, with some support available online.",
+  context: "The UK team runs parent-carer programmes, community activities and disability-inclusion work. Contact the team to ask what is currently available.",
   image: "/images/sharepoint/project-me-graduation.webp",
   imageAlt: "Project ME participants celebrating together in the United Kingdom",
   primaryCta: { label: "Find UK support", href: "/find-support" },
@@ -22,7 +22,7 @@ const data: RegionPageData = {
     {
       label: "UK programme",
       title: "Project ME",
-      text: "A holistic programme that helps parent carers rebuild wellbeing, confidence, identity and connection.",
+      text: "A programme that helps parent carers make time for wellbeing, rebuild confidence and reconnect with their identity.",
       details: ["Facilitated workshops", "Practical learning", "Shared lived experience"],
       href: "/programmes/project-me",
       linkLabel: "Discover Project ME",
@@ -45,7 +45,7 @@ const data: RegionPageData = {
     },
   ],
   partnersTitle: "UK Funders & Partners",
-  partnersIntro: "These organisations are connected specifically with OAKonsult’s UK delivery, parent-carer programmes and local partnerships.",
+  partnersIntro: "These organisations fund, support or work alongside OAKonsult UK.",
   partners: [
     { name: "The National Lottery Community Fund", logo: "/partners/national-lottery.png" },
     { name: "Mayor of London", logo: "/partners/mayor-of-london.jpg" },

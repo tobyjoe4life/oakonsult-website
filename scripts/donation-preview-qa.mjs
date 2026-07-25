@@ -10,17 +10,17 @@ page.on("request", (request) => {
 });
 
 await page.goto(`${base}/donate`, { waitUntil: "networkidle" });
-await page.getByRole("button", { name: /Preview details for/ }).click();
+await page.getByRole("button", { name: /Continue preview with/ }).click();
 await page.getByLabel("First name").fill("Preview");
 await page.getByLabel("Last name").fill("Donor");
 await page.getByLabel("Email address").fill("preview@example.invalid");
-await page.getByLabel(/browser-only preview/).check();
+await page.getByLabel(/preview does not send or store my details/).check();
 await page.getByRole("button", { name: "Review gift" }).click();
-await page.getByRole("button", { name: "Complete staging preview" }).click();
+await page.getByRole("button", { name: "Finish preview" }).click();
 
 const status = await page.getByRole("status").textContent();
 if (checkoutRequests !== 0) throw new Error(`Preview made ${checkoutRequests} checkout request(s)`);
-if (!status?.includes("No personal details were sent") || !status.includes("no payment was taken")) {
+if (!status?.includes("Nothing was sent") || !status.includes("no payment was taken")) {
   throw new Error(`Unexpected preview status: ${status}`);
 }
 

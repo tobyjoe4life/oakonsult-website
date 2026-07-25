@@ -47,7 +47,7 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
       </div>
 
       <section className="detail-photo-journal" aria-labelledby="photo-journal-title">
-        <div className="detail-journal-heading" data-reveal><p className="oak-kicker dark">From the work</p><h2 id="photo-journal-title">People, place and participation.</h2><Link href="/media-gallery">Open the full media gallery <Arrow /></Link></div>
+        <div className="detail-journal-heading" data-reveal><p className="oak-kicker dark">In pictures</p><h2 id="photo-journal-title">{data.photosTitle}</h2><Link href="/media-gallery">View the media gallery <Arrow /></Link></div>
         <div className="detail-photo-row">
           {data.photos.map((photo, index) => (
             <figure className={`detail-journal-photo photo-${index + 1}`} key={photo.src} data-reveal>
@@ -59,7 +59,7 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
       </section>
 
       <section className="detail-related" aria-labelledby="related-title">
-        <div data-reveal><p className="oak-kicker dark">Keep exploring</p><h2 id="related-title">Related routes</h2></div>
+        <div data-reveal><p className="oak-kicker dark">More information</p><h2 id="related-title">Related pages</h2></div>
         <div className="detail-related-list">
           {data.related.map((item, index) => (
             <Link href={item.href} key={item.href} data-reveal>
@@ -70,7 +70,7 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
       </section>
 
       <section className="editorial-action-band">
-        <div data-reveal><p className="oak-kicker">Take the next step</p><h2>{data.ctaTitle}</h2><p>{data.ctaText}</p></div>
+        <div data-reveal><p className="oak-kicker">Contact OAKonsult</p><h2>{data.ctaTitle}</h2><p>{data.ctaText}</p></div>
         <div className="editorial-route-links light-links" data-reveal><Link href={data.ctaHref}>{data.ctaLabel} <Arrow /></Link><Link href="/donate">Support the work <Arrow /></Link></div>
       </section>
     </article>

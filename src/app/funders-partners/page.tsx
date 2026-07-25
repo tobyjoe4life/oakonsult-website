@@ -6,7 +6,7 @@ const groups = [
   {
     region: "United Kingdom",
     title: "UK funders",
-    note: "Confirmed funders and supporters connected with OAKonsult’s UK work and Project ME.",
+    note: "Funders and supporters connected with OAKonsult’s UK work and Project ME.",
     organisations: [
       ["Mayor of London", "/partners/mayor-of-london.jpg"],
       ["The National Lottery Community Fund", "/partners/national-lottery.png"],
@@ -69,18 +69,18 @@ export default function Page() {
       <header className="editorial-masthead partners-masthead">
         <div className="editorial-masthead-copy" data-reveal>
           <nav className="editorial-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><span>Funders &amp; partners</span></nav>
-          <p className="oak-kicker">Partnership and accountability</p>
+          <p className="oak-kicker">Working together</p>
           <h1>Funders &amp; partners</h1>
-          <p>Recognising the organisations that help strengthen programmes, outreach and routes to support across the UK and Nigeria.</p>
+          <p>These organisations fund, support or work alongside OAKonsult in the UK and Nigeria.</p>
           <div className="editorial-route-links"><Link href="/contact">Partner with OAKonsult <span aria-hidden="true">→</span></Link><Link href="/impact">See impact and accountability <span aria-hidden="true">→</span></Link></div>
         </div>
         <div className="partners-hero-photo" data-reveal><Image src="/images/current-site-community-partnership.webp" alt="People gathering at an OAKonsult partnership event" fill priority sizes="(max-width: 800px) 100vw, 52vw" /></div>
       </header>
 
       <section className="partners-introduction">
-        <p className="oak-kicker dark">One OAKonsult, regional relationships</p>
-        <h2>Partnerships are shown where they belong.</h2>
-        <p>Funding and programme relationships are presented by region, so the work they support stays clear.</p>
+        <p className="oak-kicker dark">Funders and partners</p>
+        <h2>Organisations supporting our work.</h2>
+        <p>Our partners include charitable funders, public bodies, specialist organisations, schools and faith communities.</p>
       </section>
 
       <div className="partner-groups">
@@ -107,13 +107,13 @@ export default function Page() {
         </section>
 
         <section className="partner-endorsement">
-          <div data-reveal><span>International endorsement</span><h2>Joni and Friends</h2><p>OAKonsult is a Joni and Friends endorsed organisation, reflecting a shared commitment to disability inclusion and family support.</p></div>
+          <div data-reveal><span>International endorsement</span><h2>Joni and Friends</h2><p>Joni and Friends endorses OAKonsult’s disability outreach and family support work.</p></div>
           <Image src="/partners/joni-and-friends.jpg" alt="Joni and Friends" width={240} height={120} />
         </section>
       </div>
 
       <section className="editorial-action-band">
-        <div data-reveal><p className="oak-kicker">Work with us</p><h2>Build a clear, useful route for families.</h2><p>Talk to OAKonsult about funding, referrals, training, programme delivery or professional support.</p></div>
+        <div data-reveal><p className="oak-kicker">Work with us</p><h2>Talk to us about working together.</h2><p>Contact OAKonsult about funding, referrals, training, programme delivery or professional support.</p></div>
         <div className="editorial-route-links light-links" data-reveal><Link href="/contact">Start a conversation <span aria-hidden="true">→</span></Link><Link href="/get-involved">Other ways to help <span aria-hidden="true">→</span></Link></div>
       </section>
     </div>

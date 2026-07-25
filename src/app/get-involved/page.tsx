@@ -1,1 +1,38 @@
-import {InteriorPage} from "@/components/InteriorPage";export default function Page(){return <InteriorPage data={{eyebrow:"Get involved",title:"Bring your time, voice or resources into the circle.",intro:"Sustainable change is collective. There are thoughtful ways for individuals, communities and organisations to stand alongside this work.",image:"/images/care-in-action.jpeg",imageAlt:"People taking part in community work",cta:"Start a conversation",ctaHref:"/contact",items:[{title:"Volunteer",text:"Offer your skills and time in ways that fit current needs and safeguard the people we serve.",href:"/contact"},{title:"Partner with us",text:"Explore programme, community or funding partnerships grounded in shared purpose.",href:"/funders-partners"},{title:"Give",text:"Make a one-time or monthly donation to help sustain support and outreach.",href:"/donate"}]}}/>}
+import { InteriorPage } from "@/components/InteriorPage";
+
+export default function Page() {
+  return (
+    <InteriorPage
+      data={{
+        eyebrow: "Get involved",
+        title: "Ways to support OAKonsult",
+        intro: "You can volunteer, work with us as a partner or make a donation.",
+        image: "/images/care-in-action.jpeg",
+        imageAlt: "People taking part in community work",
+        cta: "Contact OAKonsult",
+        ctaHref: "/contact",
+        ctaText: "Tell us how you would like to help and what experience or support you can offer.",
+        sectionEyebrow: "Ways to help",
+        sectionTitle: "Choose how you would like to contribute.",
+        sectionText: "Volunteer, discuss a partnership or support the work with a donation.",
+        items: [
+          {
+            title: "Volunteer",
+            text: "Offer your time and skills in a role that matches current needs and safeguarding requirements.",
+            href: "/contact",
+          },
+          {
+            title: "Partner with us",
+            text: "Talk to us about programme delivery, referrals, professional support or funding.",
+            href: "/funders-partners",
+          },
+          {
+            title: "Donate",
+            text: "Make a one-time or monthly gift to support programmes and outreach.",
+            href: "/donate",
+          },
+        ],
+      }}
+    />
+  );
+}

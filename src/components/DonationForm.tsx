@@ -24,6 +24,7 @@ const purposeLabels = {
 } as const;
 
 const donationPreviewMode = isReviewSite();
+const displayedSteps = donationPreviewMode ? ["Gift", "Placeholder details", "Review"] : steps;
 
 const initialDetails: DonationDetails = {
   firstName: "",
@@ -60,8 +61,8 @@ export function DonationForm() {
   }).format(Number(amount) || 0);
 
   const impactCopy = frequency === "monthly"
-    ? `${formattedAmount} each month will contribute steady support towards ${purposeLabels[purpose].toLowerCase()} alongside other donations.`
-    : `${formattedAmount} will contribute to ${purposeLabels[purpose].toLowerCase()} alongside other donations.`;
+    ? `Amount: ${formattedAmount} each month. Preferred area: ${purposeLabels[purpose]}.`
+    : `Amount: ${formattedAmount}. Preferred area: ${purposeLabels[purpose]}.`;
 
   function updateDetails<K extends keyof DonationDetails>(key: K, value: DonationDetails[K]) {
     setDetails((current) => ({ ...current, [key]: value }));
@@ -91,7 +92,7 @@ export function DonationForm() {
     if (donationPreviewMode) {
       setBusy(false);
       setIsError(false);
-      setStatus("Preview complete. No personal details were sent and no payment was taken.");
+      setStatus("Preview complete. Nothing was sent and no payment was taken.");
       return;
     }
 
@@ -135,9 +136,9 @@ export function DonationForm() {
 
   return (
     <form className="journey" onSubmit={submit} ref={formRef} autoComplete={donationPreviewMode ? "off" : "on"}>
-      <p className="donation-step-count">Step {step + 1} of {steps.length}</p>
-      <ol className="steps" aria-label="Donation steps">
-        {steps.map((label, index) => (
+      <p className="donation-step-count">{donationPreviewMode ? "Preview step" : "Step"} {step + 1} of {displayedSteps.length}</p>
+      <ol className="steps" aria-label={donationPreviewMode ? "Donation preview steps" : "Donation steps"}>
+        {displayedSteps.map((label, index) => (
           <li className={index === step ? "active" : ""} key={label} aria-current={index === step ? "step" : undefined}>
             <span>{index + 1}</span>
             {label}
@@ -148,7 +149,7 @@ export function DonationForm() {
       {step === 0 && (
         <fieldset>
           <legend>Choose your gift</legend>
-          <p className="field-help">Your gift helps sustain parent carer support and disability inclusion work.</p>
+          <p className="field-help">Your gift helps sustain parent-carer support and disability inclusion work.</p>
 
           <span className="field-label">How often would you like to give?</span>
           <div className="choice-row">
@@ -174,22 +175,24 @@ export function DonationForm() {
           </div>
 
           <label>
-            Current amount in {currency} (edit to change)
+            Current amount in {currency} ({currency === "GBP" ? "£" : "₦"}, edit to change)
             <input min="1" inputMode="decimal" type="number" value={amount} onChange={(event) => setAmount(event.target.value)} required />
           </label>
 
           <label>
-            What would you like your gift to support?
+            Which area would you prefer your gift to support?
             <select value={purpose} onChange={(event) => setPurpose(event.target.value as keyof typeof purposeLabels)}>
               {Object.entries(purposeLabels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}
             </select>
           </label>
 
+          <p className="field-help">This choice is a preference. Donations are pooled with other funding and are not tied to a guaranteed outcome.</p>
+
           <p className="donation-impact-copy" aria-live="polite"><strong>Your chosen gift</strong>{impactCopy}</p>
-          {donationPreviewMode && <p className="staging-form-note"><strong>Development preview</strong>This staging form cannot take payment or card details. Continue to review the next step only.</p>}
+          {donationPreviewMode && <p className="staging-form-note"><strong>Preview only</strong>This form does not accept payment or personal details.</p>}
 
           <div className="step-actions end">
-            <button className="button" type="button" onClick={() => continueTo(1)}>{donationPreviewMode ? "Preview details for" : "Continue with"} {formattedAmount}{frequency === "monthly" ? " monthly" : ""}</button>
+            <button className="button" type="button" onClick={() => continueTo(1)}>{donationPreviewMode ? "Continue preview with" : "Continue with"} {formattedAmount}{frequency === "monthly" ? " monthly" : ""}</button>
           </div>
         </fieldset>
       )}
@@ -197,21 +200,21 @@ export function DonationForm() {
       {step === 1 && (
         <fieldset>
           <legend>About you</legend>
-          <p className="field-help">{donationPreviewMode ? "Use non-personal placeholder details to preview this step. They stay in your browser and are not submitted." : "We need these details to prepare the payment and send an appropriate receipt."}</p>
+          <p className="field-help">{donationPreviewMode ? "Use placeholder details. Nothing entered on this page is sent." : "We need these details to prepare the payment and send a receipt."}</p>
           <div className="two-cols">
             <label>First name<input autoComplete={donationPreviewMode ? "off" : "given-name"} value={details.firstName} onChange={(event) => updateDetails("firstName", event.target.value)} required /></label>
             <label>Last name<input autoComplete={donationPreviewMode ? "off" : "family-name"} value={details.lastName} onChange={(event) => updateDetails("lastName", event.target.value)} required /></label>
           </div>
           <label>Email address<input autoComplete={donationPreviewMode ? "off" : "email"} type="email" value={details.email} onChange={(event) => updateDetails("email", event.target.value)} required /></label>
           <label>Message with your gift (optional)<textarea rows={4} maxLength={500} value={details.message} onChange={(event) => updateDetails("message", event.target.value)} /></label>
-          <label className="check"><input type="checkbox" checked={details.anonymous} onChange={(event) => updateDetails("anonymous", event.target.checked)} /> {donationPreviewMode ? "In a live checkout, please do not publish my name in supporter recognition." : "Please do not publish my name in supporter recognition."}</label>
+          <label className="check"><input type="checkbox" checked={details.anonymous} onChange={(event) => updateDetails("anonymous", event.target.checked)} /> Keep my name private in supporter acknowledgements.</label>
 
           {currency === "GBP" && (
-            <label className="check"><input type="checkbox" checked={details.giftAid} onChange={(event) => updateDetails("giftAid", event.target.checked)} /> {donationPreviewMode ? "Preview the UK Gift Aid declaration option. No declaration is submitted." : "I am a UK taxpayer and want OAKonsult to claim Gift Aid on this donation. I understand that I must have paid enough UK Income Tax or Capital Gains Tax to cover the Gift Aid claimed."}</label>
+            <label className="check"><input type="checkbox" checked={details.giftAid} onChange={(event) => updateDetails("giftAid", event.target.checked)} /> {donationPreviewMode ? "Add Gift Aid (not submitted in preview)." : "I am a UK taxpayer and want OAKonsult to claim Gift Aid on this donation. I understand that I must have paid enough UK Income Tax or Capital Gains Tax to cover the Gift Aid claimed."}</label>
           )}
 
-          <label className="check"><input type="checkbox" checked={details.privacy} onChange={(event) => updateDetails("privacy", event.target.checked)} required /> {donationPreviewMode ? "I understand this is a browser-only preview and no details will be submitted." : "I have read the privacy information and understand that my details will be used to process this donation."}</label>
-          <label className="check"><input type="checkbox" checked={details.marketing} onChange={(event) => updateDetails("marketing", event.target.checked)} /> {donationPreviewMode ? "In a live checkout, I would like to receive occasional OAKonsult news and supporter updates." : "I would also like to receive occasional OAKonsult news and supporter updates. This is optional."}</label>
+          <label className="check"><input type="checkbox" checked={details.privacy} onChange={(event) => updateDetails("privacy", event.target.checked)} required /> {donationPreviewMode ? "I understand that this preview does not send or store my details." : "I have read the privacy information and understand that my details will be used to process this donation."}</label>
+          <label className="check"><input type="checkbox" checked={details.marketing} onChange={(event) => updateDetails("marketing", event.target.checked)} /> I would like to receive occasional OAKonsult news and supporter updates. This is optional.</label>
           <label className="honeypot" aria-hidden="true">Website<input tabIndex={-1} autoComplete="off" value={details.website} onChange={(event) => updateDetails("website", event.target.value)} /></label>
 
           <div className="step-actions">
@@ -234,11 +237,11 @@ export function DonationForm() {
               <div><dt>Gift Aid</dt><dd>{details.giftAid ? "Declaration selected" : "Not selected"}</dd></div>
               <div><dt>Updates</dt><dd>{details.marketing ? "Opted in" : "Not opted in"}</dd></div>
             </dl>
-            <p className="secure-note">{donationPreviewMode ? `In a live checkout, secure payment would take place with ${currency === "GBP" ? "Stripe" : "Paystack"}. This staging preview does not accept card details.` : `Secure payment will take place with ${currency === "GBP" ? "Stripe" : "Paystack"}. OAKonsult will not receive your card details.`}</p>
+            <p className="secure-note">{donationPreviewMode ? `Payment would be handled by ${currency === "GBP" ? "Stripe" : "Paystack"} on the live website. This preview does not accept card details.` : `Secure payment will take place with ${currency === "GBP" ? "Stripe" : "Paystack"}. OAKonsult will not receive your card details.`}</p>
           </div>
           <div className="step-actions">
             <button className="button button-muted" type="button" onClick={() => setStep(1)}>Back</button>
-            <button className="button" type="submit" disabled={busy}>{busy ? "Preparing…" : donationPreviewMode ? "Complete staging preview" : "Continue to secure payment"}</button>
+            <button className="button" type="submit" disabled={busy}>{busy ? "Preparing…" : donationPreviewMode ? "Finish preview" : "Continue to secure payment"}</button>
           </div>
         </fieldset>
       )}

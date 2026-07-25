@@ -141,7 +141,7 @@ export function SiteHeader() {
           </div>
           <div className="menu-v4-grid">
             <div className="menu-v4-primary">
-              <p className="menu-v4-label">Explore OAKonsult</p>
+              <p className="menu-v4-label">Main pages</p>
               <nav aria-label="Main navigation">
                 {mainNavigation.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}<i aria-hidden="true">↗</i></Link>)}
               </nav>
@@ -159,7 +159,7 @@ export function SiteHeader() {
                   </Link>
                 ))}
               </div>
-              <p className="menu-v4-shared-note"><strong>One OAKonsult.</strong> Shared purpose, with country-specific programmes, funding and contact routes.</p>
+              <p className="menu-v4-shared-note">OAKonsult works with parent carers and communities in the UK and Nigeria.</p>
               <div className="menu-v4-utility">
                 <Link href="/contact" onClick={() => setOpen(false)}>Contact us</Link>
                 <Link href="/accessibility" onClick={() => setOpen(false)}>Accessibility</Link>

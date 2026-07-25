@@ -64,7 +64,7 @@ export function RegionPage({ data }: { data: RegionPageData }) {
 
       <nav className="region-jump" aria-label={`${data.country} page sections`}>
         <div className="region-jump-inner">
-          <span>{data.country} hub</span>
+          <span>OAKonsult {data.country}</span>
           <a className="is-active" href="#overview" aria-current="location">Overview</a>
           <a href="#programmes">Programmes</a>
           <a href="#partners">Funders &amp; partners</a>
@@ -77,22 +77,22 @@ export function RegionPage({ data }: { data: RegionPageData }) {
       <section className="region-overview" id="overview">
         <div className="region-overview-grid">
           <div data-reveal>
-            <p className="oak-kicker dark">Local focus, shared mission</p>
+            <p className="oak-kicker dark">OAKonsult {data.country}</p>
             <h2>{data.title}</h2>
           </div>
           <div className="region-context-card" data-reveal>
-            <span>How the structure works</span>
+            <span>About our work in {data.country}</span>
             <p>{data.context}</p>
-            <strong>One organisation. Country-specific programmes, funding and contact routes.</strong>
+            <strong>Contact the {data.country} team for programme, funding or partnership enquiries.</strong>
           </div>
         </div>
       </section>
 
       <section className="region-programmes" id="programmes" aria-labelledby="region-programmes-title">
         <div className="region-section-heading" data-reveal>
-          <p className="oak-kicker dark">Our {data.country} work</p>
-          <h2 id="region-programmes-title">Everything in one clear place.</h2>
-          <p>Explore the programmes and support connected specifically with OAKonsult {data.country}.</p>
+          <p className="oak-kicker dark">Support and programmes</p>
+          <h2 id="region-programmes-title">Our work in {data.country}.</h2>
+          <p>Choose a programme or service to find out what is available.</p>
         </div>
         <div className="region-service-grid">
           {data.services.map((service, index) => (
@@ -109,7 +109,7 @@ export function RegionPage({ data }: { data: RegionPageData }) {
 
       <section className="region-partners" id="partners" aria-labelledby="region-partners-title">
         <div className="region-partners-heading" data-reveal>
-          <p className="oak-kicker">Funding is presented by region</p>
+          <p className="oak-kicker">Funders and partners</p>
           <h2 id="region-partners-title">{data.partnersTitle}</h2>
           <p>{data.partnersIntro}</p>
         </div>
@@ -126,9 +126,9 @@ export function RegionPage({ data }: { data: RegionPageData }) {
       <section className="region-gallery-bridge" aria-labelledby={`${data.slug}-gallery-title`}>
         <div className="region-gallery-copy" data-reveal>
           <p className="oak-kicker dark">Media gallery</p>
-          <h2 id={`${data.slug}-gallery-title`}>See OAKonsult {data.country} in action.</h2>
-          <p>Browse selected public photographs from programmes, outreach, community activity and partnership work.</p>
-          <Link className="oak-editorial-link dark-link" href={`/media-gallery/${data.slug}`}><span>Open the {data.country} gallery</span><i aria-hidden="true">→</i></Link>
+          <h2 id={`${data.slug}-gallery-title`}>Our work in pictures.</h2>
+          <p>See photographs from programmes, outreach and community activities in {data.country}.</p>
+          <Link className="oak-editorial-link dark-link" href={`/media-gallery/${data.slug}`}><span>View the {data.country} gallery</span><i aria-hidden="true">→</i></Link>
         </div>
         <div className="region-gallery-images" data-reveal>
           <div><Image src={data.slug === "uk" ? "/images/gallery/uk-project-me-session.webp" : "/images/gallery/nigeria-knowledge-radio.webp"} alt={data.slug === "uk" ? "Parent carers taking part in a Project ME session" : "OAKonsult disability-awareness engagement at Knowledge Radio"} fill sizes="(max-width:800px) 100vw,34vw" /></div>
@@ -153,7 +153,7 @@ export function RegionPage({ data }: { data: RegionPageData }) {
 
       <section className="region-switch">
         <div data-reveal>
-          <p className="oak-kicker">The wider OAKonsult family</p>
+          <p className="oak-kicker">OAKonsult in another region</p>
           <h2>{data.otherRegion.text}</h2>
           <Link className="oak-pill oak-pill-gold" href={data.otherRegion.href}>Explore {data.otherRegion.label}</Link>
         </div>

@@ -52,7 +52,7 @@ export function GalleryPage({ region }: GalleryPageProps) {
 
       {!region && (
         <section className="gallery-region-split" aria-labelledby="choose-gallery">
-          <div className="gallery-region-heading" data-reveal><p className="oak-kicker dark">Where the work happens</p><h2 id="choose-gallery">One mission, locally rooted.</h2><p>Choose a regional collection or continue into the mixed highlights below.</p></div>
+          <div className="gallery-region-heading" data-reveal><p className="oak-kicker dark">UK and Nigeria</p><h2 id="choose-gallery">Choose a gallery.</h2><p>See photographs from each region or browse highlights from both.</p></div>
           <Link className="gallery-region-route route-uk" href="/media-gallery/uk" data-reveal>
             <div className="gallery-route-image"><Image src="/images/gallery/uk-parent-carer-community.webp" alt="Parent carers connecting during an OAKonsult community activity" fill sizes="(max-width: 800px) 100vw, 50vw" /></div>
             <div><span>United Kingdom</span><h3>Parent-carer support, Project ME and community wellbeing.</h3><b>View UK media <Arrow /></b></div>
@@ -66,9 +66,9 @@ export function GalleryPage({ region }: GalleryPageProps) {
 
       <section className="gallery-collection" aria-labelledby="gallery-collection-title">
         <div className="gallery-collection-heading" data-reveal>
-          <p className="oak-kicker dark">{region ? `${region} highlights` : "Curated highlights"}</p>
-          <h2 id="gallery-collection-title">Real moments from the work.</h2>
-          <p>This is a curated public showcase, not a complete media archive.</p>
+          <p className="oak-kicker dark">{region ? `${region} highlights` : "Gallery highlights"}</p>
+          <h2 id="gallery-collection-title">The work in pictures.</h2>
+          <p>{region ? `Programmes, outreach and community activity in ${region}.` : "Programmes, outreach and community activity in the UK and Nigeria."}</p>
         </div>
         <div className="gallery-grid">
           {collectionItems.map((item, index) => (
@@ -81,7 +81,7 @@ export function GalleryPage({ region }: GalleryPageProps) {
       </section>
 
       <section className="editorial-action-band">
-        <div data-reveal><p className="oak-kicker">Keep the circle growing</p><h2>Help create more moments of support, confidence and belonging.</h2></div>
+        <div data-reveal><p className="oak-kicker">Support OAKonsult</p><h2>{region === "UK" ? "Support parent carers in the UK." : region === "Nigeria" ? "Support disability inclusion in Nigeria." : "Help more parent carers find support."}</h2></div>
         <div className="editorial-route-links light-links" data-reveal><Link href="/donate">Make a donation <Arrow /></Link><Link href="/get-involved">Volunteer or partner <Arrow /></Link></div>
       </section>
     </div>

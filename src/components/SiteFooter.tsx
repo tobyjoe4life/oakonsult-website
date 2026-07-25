@@ -43,8 +43,8 @@ export function SiteFooter() {
       <div className="footer-v4-top">
         <div className="footer-v4-identity">
           <Image src="/logos/oakonsult-mark.png" alt="OAKonsult Disabilities Outreach" width={94} height={94} />
-          <h2>Every family deserves room to flourish.</h2>
-          <p>Practical support, inclusion and community for families raising disabled children and young people.</p>
+          <h2>Parent-carer support and disability inclusion.</h2>
+          <p>Programmes, practical guidance and community partnerships in the UK and Nigeria.</p>
           <Link className="footer-v4-donate" href="/donate">Donate to OAKonsult <span aria-hidden="true">→</span></Link>
         </div>
 

@@ -10,6 +10,10 @@ export type InteriorPageData = {
   imageAlt: string;
   cta: string;
   ctaHref: string;
+  ctaText: string;
+  sectionEyebrow: string;
+  sectionTitle: string;
+  sectionText: string;
   items: {
     title: string;
     text: string;
@@ -33,9 +37,9 @@ export function InteriorPage({ data }: { data: InteriorPageData }) {
 
       <section className="interior-flow" aria-labelledby="interior-section-title">
         <div className="interior-flow-heading" data-reveal>
-          <p className="oak-kicker dark">Explore OAKonsult</p>
-          <h2 id="interior-section-title">Choose where to go next.</h2>
-          <p>Open a route for more detail, practical information and a clear next step.</p>
+          <p className="oak-kicker dark">{data.sectionEyebrow}</p>
+          <h2 id="interior-section-title">{data.sectionTitle}</h2>
+          <p>{data.sectionText}</p>
         </div>
         <div className="interior-list">
           {data.items.map((item, index) => (
@@ -43,17 +47,17 @@ export function InteriorPage({ data }: { data: InteriorPageData }) {
               <span className="interior-index">{String(index + 1).padStart(2, "0")}</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
-              <Link href={item.href ?? data.ctaHref}>Explore <span aria-hidden="true">→</span></Link>
+              <Link href={item.href ?? data.ctaHref}>Learn more <span aria-hidden="true">→</span></Link>
             </article>
           ))}
         </div>
       </section>
 
       <section className="editorial-action-band">
-        <div data-reveal><p className="oak-kicker">Next step</p><h2>{data.cta}</h2><p>Contact OAKonsult if you need help choosing the right route or want to discuss the work in more detail.</p></div>
+        <div data-reveal><p className="oak-kicker">Contact us</p><h2>{data.cta}</h2><p>{data.ctaText}</p></div>
         <div className="editorial-route-links light-links" data-reveal>
           <Link href={data.ctaHref}>{data.cta} <span aria-hidden="true">→</span></Link>
-          <Link href="/media-gallery">View the media gallery <span aria-hidden="true">→</span></Link>
+          <Link href="/media-gallery">See our work in pictures <span aria-hidden="true">→</span></Link>
         </div>
       </section>
     </div>

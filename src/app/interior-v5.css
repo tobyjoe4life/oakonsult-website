@@ -442,7 +442,7 @@
 .editorial-action-band p:not(.oak-kicker) {
   max-width: 720px;
   margin: 0;
-  color: rgba(255,255,255,.86);
+  color: rgba(255,255,255,.94);
   font-size: 18px;
   line-height: 1.65;
 }

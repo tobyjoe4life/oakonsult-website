@@ -276,7 +276,7 @@ a:hover .oak-arrow { transform: translateX(8px); }
 .oak-impact-grid { position: relative; z-index: 2; width: min(1240px, 100%); margin: 72px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .oak-impact-stat { position: relative; min-height: 260px; padding: 34px; display: flex; flex-direction: column; justify-content: end; overflow: hidden; color: #fff; background: var(--oak-forest); border-radius: 50% 50% 12px 12px / 32% 32% 12px 12px; }
 .oak-impact-stat.stat-2 { color: var(--oak-forest); background: var(--oak-gold); border-radius: 12px 50% 50% 12px / 12px 32% 32% 12px; }
-.oak-impact-stat.stat-3 { background: var(--oak-clay); border-radius: 12px 12px 50% 50% / 12px 12px 32% 32%; }
+.oak-impact-stat.stat-3 { color: var(--oak-forest); background: var(--oak-clay); border-radius: 12px 12px 50% 50% / 12px 12px 32% 32%; }
 .oak-impact-stat strong { position: relative; z-index: 2; font: 900 clamp(4.2rem, 7vw, 8rem)/.82 var(--font-display), sans-serif; letter-spacing: -.07em; }
 .oak-impact-stat span { position: relative; z-index: 2; max-width: 18ch; margin-top: 18px; font-weight: 800; }
 .oak-stat-rings { position: absolute; right: -25%; top: -34%; width: 112%; fill: none; stroke: currentColor; stroke-width: 2.5; opacity: .14; transition: transform .8s ease; }
@@ -673,7 +673,7 @@ a:hover .oak-arrow { transform: translateX(8px); }
   gap: 5px 18px;
 }
 .oak-gallery-preview-item.item-5 > div { left:max(76px,10%); }
-.oak-gallery-preview-item span { grid-column:1/-1; color:var(--oak-growth); font-size:.65rem; font-weight:900; letter-spacing:.11em; text-transform:uppercase; }
+.oak-gallery-preview-item span { grid-column:1/-1; color:var(--oak-growth); font-size:.72rem; font-weight:900; letter-spacing:.09em; text-transform:uppercase; text-shadow:0 2px 12px rgba(0,0,0,.86); }
 .oak-gallery-preview-item strong { max-width:24ch; font:900 clamp(1.15rem,1.8vw,1.75rem)/1.08 var(--font-display),sans-serif; text-shadow:0 2px 18px rgba(0,0,0,.76); }
 .oak-gallery-preview-item i { font-size:1.7rem; font-style:normal; }
 

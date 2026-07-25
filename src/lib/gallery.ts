@@ -17,7 +17,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/gallery/uk-project-me-session.webp",
     alt: "Parent carers taking part in a Project ME session",
     title: "Project ME in community",
-    context: "A facilitated space for reflection, wellbeing and shared learning.",
+    context: "Parent carers taking part in a facilitated Project ME session.",
     theme: "Project ME",
   },
   {
@@ -26,7 +26,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/gallery/uk-project-me-group.webp",
     alt: "A group presentation during an OAKonsult Project ME event",
     title: "Recognising shared progress",
-    context: "Community moments that celebrate commitment, confidence and connection.",
+    context: "A Project ME event marking the group’s progress.",
     theme: "Community",
   },
 
@@ -36,7 +36,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/gallery/uk-parent-carer-community.webp",
     alt: "Parent carers connecting during an OAKonsult community activity",
     title: "Connection around the table",
-    context: "Informal spaces where lived experience is understood and people can talk openly.",
+    context: "Parent carers meeting and talking during a community activity.",
     theme: "Parent carers",
   },
   {
@@ -45,7 +45,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/gallery/nigeria-knowledge-radio.webp",
     alt: "OAKonsult disability-awareness engagement at Knowledge Radio",
     title: "Taking inclusion into public conversation",
-    context: "Media engagement helps disability inclusion reach wider communities.",
+    context: "An OAKonsult discussion about disability inclusion on Knowledge Radio.",
     theme: "Public awareness",
   },
   {
@@ -54,7 +54,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/gallery/nigeria-press-conference.webp",
     alt: "OAKonsult representatives at a public press conference",
     title: "Building awareness together",
-    context: "Partners and advocates gathering around a shared message of dignity and inclusion.",
+    context: "OAKonsult representatives and partners at a public press event.",
     theme: "Advocacy",
   },
   {
@@ -63,7 +63,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/gallery/nigeria-oolo-palace.webp",
     alt: "OAKonsult representatives during a community engagement visit to Oolo Palace",
     title: "Community-rooted relationships",
-    context: "Listening, partnership and local leadership shape sustainable outreach.",
+    context: "OAKonsult meeting local leaders during a community visit.",
     theme: "Community engagement",
   },
   {
@@ -72,7 +72,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/current-site-community-partnership.webp",
     alt: "Five adults together at an indoor community event with information displays behind them",
     title: "Here to help in community spaces",
-    context: "Public events create practical opportunities to listen, share information and build relationships.",
+    context: "OAKonsult representatives at an indoor community event.",
     theme: "Outreach",
   },
   {
@@ -81,7 +81,7 @@ export const galleryItems: GalleryItem[] = [
     src: "/images/current-site-tv-advocacy.webp",
     alt: "Two adults in conversation during a television studio interview",
     title: "Inclusion in public conversation",
-    context: "Broadcast conversations help disability inclusion and family support reach wider audiences.",
+    context: "A television interview about disability inclusion and family support.",
     theme: "Public awareness",
   },
 ];
