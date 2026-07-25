@@ -11,7 +11,7 @@ const cssRule = (css: string, selector: string) => {
   return css.slice(start, css.indexOf("}", start) + 1);
 };
 
-test("global navigation preserves the approved identity and exposes expanded journeys", () => {
+test("global navigation preserves the approved identity without promoting individual forms or activities", () => {
   const header = read("src/components/SiteHeader.tsx");
   for (const href of [
     "/what-we-do",
@@ -19,8 +19,6 @@ test("global navigation preserves the approved identity and exposes expanded jou
     "/impact",
     "/media-gallery",
     "/events",
-    "/zumba-class",
-    "/forms",
     "/funders-partners",
     "/get-involved",
     "/about",
@@ -32,8 +30,9 @@ test("global navigation preserves the approved identity and exposes expanded jou
   assert.match(header, /oakonsult-logo\.png/);
   assert.match(header, />Our work</);
   assert.match(header, />Where we work</);
-  assert.match(header, />Zumba</);
-  assert.match(header, /Forms & registrations/);
+  assert.doesNotMatch(header, />Zumba</);
+  assert.doesNotMatch(header, /Forms & registrations/);
+  assert.doesNotMatch(header, /href:\s*\?*"\/forms"|href="\/forms"/);
   assert.match(header, /String\(index \+ 1\)\.padStart\(2, "0"\)/);
 });
 

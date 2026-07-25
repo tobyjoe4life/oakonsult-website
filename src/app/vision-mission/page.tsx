@@ -13,7 +13,7 @@ export default function Page() {
     items: [
       { title: "Our vision", text: "Families within the disability community empowered, flourishing and living the dominion life victoriously as people made in the image of God.", href: "/about" },
       { title: "Our mission", text: "Empower parent carers and families with biblical principles, practical support and inclusive cultures in which they can flourish.", href: "/find-support" },
-      { title: "Our creed", text: "We believe in the sovereignty of God the Father, Son and Holy Spirit in the affairs of humanity.", href: "/talking-faith-for-parent-carers" },
+      { title: "Our creed", text: "We believe in the sovereignty of God the Father, Son and Holy Spirit in the affairs of humanity.", href: "/stories" },
       { title: "Our values", text: "Faith. Joy. Resilience. Kindness. Friendship.", href: "/our-story" },
       { title: "Our inclusion commitment", text: "Faith shapes our ethos but does not restrict who can receive support. Families of disabled children and young people aged 0-25 are welcome.", href: "/find-support" },
     ],

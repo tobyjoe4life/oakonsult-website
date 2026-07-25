@@ -120,25 +120,40 @@ test("programme directory follows the regional UK and Nigeria journeys", () => {
   assert.match(uk, /href: "\/zumba-class"/);
 });
 
-test("forms and registrations are discoverable from one first-party directory", () => {
+test("forms stay with their relevant programme, support and participation journeys", () => {
   const formsPath = path.join(root, "src/app/forms/page.tsx");
-  assert.equal(existsSync(formsPath), true);
-  const forms = read("src/app/forms/page.tsx");
-  for (const href of [
-    "/contact",
-    "/volunteer-opportunities",
-    "/partnerships",
-    "/projectme",
-    "/zumba-class",
-    "/zumba-wellbeing",
-    "/jobs/zumba-group-coordinator",
-    "/donate",
-  ]) assert.match(forms, new RegExp(href.replaceAll("/", "\\/")));
+  assert.equal(existsSync(formsPath), false);
 
   const involved = read("src/app/get-involved/page.tsx");
   assert.match(involved, /href: "\/volunteer-opportunities"/);
   assert.match(involved, /href: "\/partnerships"/);
-  assert.match(involved, /href: "\/forms"/);
+  assert.match(involved, /href: "\/donate"/);
+  assert.match(involved, /href: "\/jobs\/zumba-group-coordinator"/);
+  assert.doesNotMatch(involved, /href: "\/forms"/);
+
+  const programmes = read("src/app/what-we-do/page.tsx");
+  const footer = read("src/components/SiteFooter.tsx");
+  const editorialPages = read("src/lib/editorial-pages.ts");
+  const oakCentre = read("src/app/programmes/oak-centre-prime/page.tsx");
+  const events = read("src/app/events/page.tsx");
+  const zumba = read("src/app/zumba-class/page.tsx");
+  assert.doesNotMatch(programmes, /\/forms|Forms and registrations/);
+  assert.doesNotMatch(footer, /\/forms|Forms & registrations|\["Zumba", "\/zumba-class"\]/);
+  assert.match(editorialPages, /ctaHref: "\/projectme"/);
+  assert.match(editorialPages, /ctaHref: "\/partnerships"/);
+  assert.match(oakCentre, /\/donate\?purpose=oak-centre/);
+  assert.match(events, /\/zumba-class/);
+  assert.match(events, /\/zumba-wellbeing/);
+  assert.match(zumba, /\/zumba-wellbeing/);
+});
+
+test("internal programme and story links use first-party routes without avoidable redirect hops", () => {
+  const history = read("src/app/history/page.tsx");
+  const vision = read("src/app/vision-mission/page.tsx");
+  assert.match(history, /href: "\/programmes\/support-for-churches"/);
+  assert.doesNotMatch(history, /href: "\/programmes\/churches"/);
+  assert.match(vision, /href: "\/stories"/);
+  assert.doesNotMatch(vision, /href: "\/talking-faith-for-parent-carers"/);
 });
 
 test("legacy donation campaigns retain their intended purpose", () => {

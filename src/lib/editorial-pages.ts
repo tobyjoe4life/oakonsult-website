@@ -79,8 +79,8 @@ export const editorialPages = {
     photosTitle: "Project ME in pictures.",
     ctaTitle: "Interested in Project ME?",
     ctaText: "Contact the UK team to ask about the programme, eligibility and the next available route.",
-    ctaLabel: "Contact the UK team",
-    ctaHref: "/contact",
+    ctaLabel: "Register interest in Project ME",
+    ctaHref: "/projectme",
   },
   parentCarerSupport: {
     eyebrow: "UK / Family support",
@@ -182,7 +182,7 @@ export const editorialPages = {
     ctaTitle: "Build a more welcoming church pathway.",
     ctaText: "Tell OAKonsult about your church, your current provision and the people you want to serve better.",
     ctaLabel: "Discuss church training",
-    ctaHref: "/contact",
+    ctaHref: "/partnerships",
   },
   oakCentrePrime: {
     eyebrow: "Nigeria / Future development",

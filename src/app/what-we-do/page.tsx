@@ -56,7 +56,6 @@ export default function Page() {
         <a href="#uk-programmes">UK programmes</a>
         <a href="#nigeria-programmes">Nigeria programmes</a>
         <a href="#shared-support">Shared and online support</a>
-        <Link href="/forms">Forms and registrations</Link>
       </nav>
 
       {regions.map((region) => (
@@ -98,8 +97,8 @@ export default function Page() {
       </section>
 
       <section className="editorial-action-band">
-        <div data-reveal><p className="oak-kicker">Forms and registrations</p><h2>Take the right next step.</h2><p>Find programme registrations, referrals, volunteering, partnership and donation journeys in one place.</p></div>
-        <div className="editorial-route-links light-links" data-reveal><Link href="/forms">Open forms and registrations <span aria-hidden="true">→</span></Link><Link href="/find-support">Find support <span aria-hidden="true">→</span></Link></div>
+        <div data-reveal><p className="oak-kicker">Your next step</p><h2>Start with the journey that fits.</h2><p>Ask for support through the relevant programme, or choose how you would like to volunteer, partner or give.</p></div>
+        <div className="editorial-route-links light-links" data-reveal><Link href="/find-support">Find support <span aria-hidden="true">→</span></Link><Link href="/get-involved">Get involved <span aria-hidden="true">→</span></Link></div>
       </section>
     </div>
   );

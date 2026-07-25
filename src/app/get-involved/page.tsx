@@ -27,14 +27,14 @@ export default function Page() {
             href: "/partnerships",
           },
           {
+            title: "Current opportunity: Zumba Group Coordinator",
+            text: "Paid part-time role in Bromley coordinating welcoming monthly wellbeing sessions for parent carers.",
+            href: "/jobs/zumba-group-coordinator",
+          },
+          {
             title: "Donate",
             text: "Make a one-time or monthly gift to support programmes and outreach.",
             href: "/donate",
-          },
-          {
-            title: "Forms and registrations",
-            text: "Find programme registrations, referrals, applications and participation forms in one place.",
-            href: "/forms",
           },
         ],
       }}

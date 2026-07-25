@@ -11,11 +11,9 @@ const mainNavigation = [
   { label: "Stories & impact", href: "/impact" },
   { label: "Social media", href: "/social" },
   { label: "Media gallery", href: "/media-gallery" },
-  { label: "Zumba", href: "/zumba-class" },
   { label: "Events", href: "/events" },
   { label: "Funders & partners", href: "/funders-partners" },
   { label: "Get involved", href: "/get-involved" },
-  { label: "Forms & registrations", href: "/forms" },
   { label: "About us", href: "/about" },
 ] as const;
 
@@ -118,7 +116,6 @@ export function SiteHeader() {
             <div className="header-v4-main-links">
               <span>Our work</span>
               <Link className={pathname === "/what-we-do" || pathname.startsWith("/programmes/") ? "is-active" : undefined} href="/what-we-do">Programmes</Link>
-              <Link className={pathname.startsWith("/zumba") ? "is-active" : undefined} href="/zumba-class">Zumba</Link>
               <Link className={pathname.startsWith("/stories") || pathname === "/impact" ? "is-active" : undefined} href="/stories">Stories</Link>
               <Link className={pathname === "/social" ? "is-active" : undefined} href="/social">Social</Link>
               <Link className={pathname.startsWith("/media-gallery") ? "is-active" : undefined} href="/media-gallery">Gallery</Link>
