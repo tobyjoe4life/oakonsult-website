@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
 const mainNavigation = [
   { label: "Find support", href: "/find-support" },
-  { label: "Programmes", href: "/what-we-do" },
+  { label: "Our work", href: "/what-we-do" },
   { label: "Stories & impact", href: "/impact" },
   { label: "Media gallery", href: "/media-gallery" },
   { label: "Events", href: "/events" },
@@ -96,9 +96,8 @@ export function SiteHeader() {
         <div className="header-v4-inner">
           <Link className="brand brand-v4" href="/" aria-label="OAKonsult Disabilities Outreach, home">
             <span className="brand-v4-logo-shell">
-              <Image src="/logos/oakonsult-mark.png" width={76} height={76} alt="" priority />
+              <Image src="/logos/oakonsult-logo.png" width={124} height={94} alt="" priority />
             </span>
-            <span className="brand-v4-wordmark"><strong>OAKonsult</strong><small>Disabilities Outreach</small></span>
           </Link>
 
           <p className="header-v4-descriptor">Parent-carer support and disability inclusion</p>
@@ -114,13 +113,13 @@ export function SiteHeader() {
         <nav className="header-v4-nav" aria-label="Primary navigation">
           <div className="header-v4-nav-inner">
             <div className="header-v4-main-links">
-              <span>Explore</span>
+              <span>Our work</span>
               <Link className={pathname === "/what-we-do" ? "is-active" : undefined} href="/what-we-do">Programmes</Link>
-              <Link className={pathname.startsWith("/impact") || pathname.startsWith("/stories") ? "is-active" : undefined} href="/impact">Stories &amp; impact</Link>
+              <Link className={pathname.startsWith("/stories") || pathname === "/impact" ? "is-active" : undefined} href="/stories">Stories</Link>
               <Link className={pathname.startsWith("/media-gallery") ? "is-active" : undefined} href="/media-gallery">Gallery</Link>
-              <Link className={pathname.startsWith("/events") ? "is-active" : undefined} href="/events">Events</Link>
+              <Link className={pathname === "/events" ? "is-active" : undefined} href="/events">Events</Link>
               <Link className={pathname === "/get-involved" ? "is-active" : undefined} href="/get-involved">Get involved</Link>
-              <Link className={pathname === "/about" ? "is-active" : undefined} href="/about">About</Link>
+              <Link className={pathname === "/about" ? "is-active" : undefined} href="/about">About us</Link>
             </div>
             <div className="header-v4-region-links" aria-label="Where we work">
               <span>Where we work</span>
@@ -141,7 +140,7 @@ export function SiteHeader() {
           </div>
           <div className="menu-v4-grid">
             <div className="menu-v4-primary">
-              <p className="menu-v4-label">Main pages</p>
+              <p className="menu-v4-label">Explore OAKonsult</p>
               <nav aria-label="Main navigation">
                 {mainNavigation.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}<i aria-hidden="true">↗</i></Link>)}
               </nav>
@@ -159,7 +158,7 @@ export function SiteHeader() {
                   </Link>
                 ))}
               </div>
-              <p className="menu-v4-shared-note">OAKonsult works with parent carers and communities in the UK and Nigeria.</p>
+              <p className="menu-v4-shared-note"><strong>One OAKonsult.</strong> Shared purpose, with country-specific programmes, funding and contact routes.</p>
               <div className="menu-v4-utility">
                 <Link href="/contact" onClick={() => setOpen(false)}>Contact us</Link>
                 <Link href="/accessibility" onClick={() => setOpen(false)}>Accessibility</Link>

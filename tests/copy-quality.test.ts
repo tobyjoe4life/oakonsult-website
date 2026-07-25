@@ -35,7 +35,6 @@ const leakedEditorialLanguage = [
   "arranged as a living record",
   "approved public photographs",
   "approved stories",
-  "Explore OAKonsult",
   "Choose where to go next",
   "Keep exploring",
   "Continue exploring",

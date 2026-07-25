@@ -190,7 +190,7 @@ export default function Home() {
           </Link>
           <Link href="/nigeria" className="oak-region-card oak-region-ng" data-reveal>
             <Image src="/images/sharepoint/oak-centre-dignitaries.webp" alt="OAKonsult representatives and guests at the OAK Centre groundbreaking event" fill sizes="(max-width: 760px) 94vw, 50vw" />
-            <div><span>Nigeria</span><h3>Community‑led disability inclusion.</h3><b>Explore our Nigeria work <Arrow /></b></div>
+            <div><span>Nigeria</span><h3>Community-led disability inclusion.</h3><b>Explore our Nigeria work <Arrow /></b></div>
           </Link>
         </div>
       </section>
