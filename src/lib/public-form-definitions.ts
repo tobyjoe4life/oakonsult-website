@@ -80,7 +80,7 @@ export const publicFormDefinitions: Record<PublicFormDefinition["id"], PublicFor
       { name: "fullName", label: "Full name", type: "text", required: true },
       { name: "email", label: "Email address", type: "email", required: true },
       { name: "phone", label: "Phone number", type: "tel", required: true },
-      { name: "preferredSession", label: "Preferred session", type: "radio", options: ["Third Monday, 6:30 pm to 7:30 pm", "Fourth Friday, 12:00 pm to 1:00 pm", "Either session"], required: true },
+      { name: "preferredSession", label: "Preferred session", type: "radio", options: ["Morning session: 3rd Mondays, 11:45am to 12:45pm (Chapel Hall)", "Evening session: 3rd Thursdays, 7:30pm to 8:30pm (Verrall Hall)", "Either session"], required: true },
       { name: "numberOfAttendees", label: "Number attending", type: "number", required: true },
       { name: "accessSupportNeeds", label: "Light access or support needs", type: "textarea", help: "Do not include detailed medical information here." },
       { name: "message", label: "Other question or message", type: "textarea" },

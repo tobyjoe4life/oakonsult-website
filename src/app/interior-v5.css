@@ -1980,10 +1980,222 @@
   .programme-directory-jump a:nth-child(odd) { border-right: 0; }
 }
 
+/* Zumba class page: bespoke editorial sections within the V4 system. */
+.zumba-funding-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+  gap: clamp(36px, 5vw, 90px);
+  align-items: center;
+  padding: clamp(72px, 8vw, 110px) max(28px, calc((100vw - 1260px) / 2));
+  background: var(--editorial-paper);
+}
+
+.zumba-funding-band h2 {
+  margin: 0 0 22px;
+  color: var(--editorial-deep);
+  font-size: clamp(34px, 4.2vw, 60px);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.zumba-funding-band p:not(.oak-kicker) {
+  max-width: 640px;
+  margin: 0 0 16px;
+  color: #3d5c57;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.zumba-funding-band .zumba-funded-note {
+  color: var(--editorial-deep);
+  font-weight: 900;
+}
+
+.zumba-funder-logo {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+  margin: 0;
+  padding: clamp(34px, 4vw, 56px);
+  background: #fff;
+  border: 1px solid var(--editorial-line);
+  border-radius: 36px 36px 55px 12px;
+  box-shadow: 0 18px 38px rgba(7,57,47,.12);
+}
+
+.zumba-funder-logo img {
+  width: min(100%, 300px);
+  height: auto;
+}
+
+.zumba-funder-logo figcaption {
+  color: var(--editorial-deep);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.zumba-sessions {
+  padding: clamp(72px, 8vw, 110px) max(28px, calc((100vw - 1260px) / 2));
+}
+
+.zumba-page .detail-section {
+  grid-template-columns: minmax(0, .95fr) minmax(330px, .75fr);
+}
+
+.zumba-page .detail-photo-row {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+}
+
+.zumba-sessions-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+  gap: 24px clamp(30px, 5vw, 80px);
+  align-items: end;
+  margin-bottom: clamp(44px, 5vw, 70px);
+}
+
+.zumba-sessions-heading .oak-kicker {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+.zumba-sessions-heading h2 {
+  margin: 0;
+  color: var(--editorial-deep);
+  font-size: clamp(38px, 4.8vw, 72px);
+  line-height: .98;
+  letter-spacing: -.045em;
+}
+
+.zumba-sessions-heading > p {
+  margin: 0;
+  color: #3d5c57;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.zumba-session-list {
+  border-top: 2px solid var(--editorial-deep);
+}
+
+.zumba-session-list article {
+  display: grid;
+  grid-template-columns: minmax(110px, .5fr) minmax(0, .95fr) minmax(0, .95fr) minmax(0, .8fr);
+  gap: 12px clamp(18px, 3vw, 44px);
+  align-items: baseline;
+  padding: clamp(28px, 4vw, 44px) 0;
+  border-bottom: 1px solid var(--editorial-line);
+}
+
+.zumba-session-list article > span {
+  color: var(--editorial-teal);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.zumba-session-list h3 {
+  margin: 0;
+  color: var(--editorial-deep);
+  font-size: clamp(26px, 2.8vw, 42px);
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+.zumba-session-list .zumba-session-time {
+  margin: 0;
+  color: var(--editorial-deep);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(21px, 2.2vw, 32px);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.zumba-session-list .zumba-session-detail {
+  margin: 0;
+  color: #3d5c57;
+  line-height: 1.6;
+}
+
+.zumba-session-list .zumba-session-detail strong {
+  display: block;
+  color: var(--editorial-deep);
+}
+
+.zumba-venue {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
+  gap: clamp(30px, 5vw, 60px);
+  align-items: end;
+  padding: clamp(64px, 7vw, 96px) max(28px, calc((100vw - 1260px) / 2));
+  background: var(--editorial-deep);
+  color: #fff;
+}
+
+.zumba-venue h2 {
+  margin: 0 0 14px;
+  color: #fff;
+  font-size: clamp(34px, 4.4vw, 64px);
+  line-height: .99;
+  letter-spacing: -.045em;
+}
+
+.zumba-venue p:not(.oak-kicker) {
+  max-width: 640px;
+  margin: 0;
+  color: rgba(255,255,255,.9);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.zumba-page .form-section a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 1100px) {
+  .zumba-funding-band,
+  .zumba-sessions-heading,
+  .zumba-venue {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .zumba-session-list article {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .zumba-page .detail-section {
+    grid-template-columns: 1fr;
+  }
+
+  .zumba-page .detail-point-list {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .zumba-funding-band,
+  .zumba-sessions,
+  .zumba-venue {
+    padding: 72px 22px;
+  }
+
+  .zumba-session-list article {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .editorial-page *,
-  .editorial-page *::before,
-  .editorial-page *::after {
+  .zumba-page *,
+  .zumba-page *::before,
+  .zumba-page *::after {
     scroll-behavior: auto !important;
     transition-duration: .01ms !important;
     animation-duration: .01ms !important;
