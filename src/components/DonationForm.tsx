@@ -92,7 +92,7 @@ export function DonationForm() {
     if (donationPreviewMode) {
       setBusy(false);
       setIsError(false);
-      setStatus("Preview complete. Nothing was sent and no payment was taken.");
+      setStatus("Preview complete. Nothing was sent or stored and no payment was taken.");
       return;
     }
 
@@ -189,7 +189,7 @@ export function DonationForm() {
           <p className="field-help">This choice is a preference. Donations are pooled with other funding and are not tied to a guaranteed outcome.</p>
 
           <p className="donation-impact-copy" aria-live="polite"><strong>Your chosen gift</strong>{impactCopy}</p>
-          {donationPreviewMode && <p className="staging-form-note"><strong>Preview only</strong>This form does not accept payment or personal details.</p>}
+          {donationPreviewMode && <p className="staging-form-note"><strong>Preview only</strong>No payment or personal details are sent or stored.</p>}
 
           <div className="step-actions end">
             <button className="button" type="button" onClick={() => continueTo(1)}>{donationPreviewMode ? "Continue preview with" : "Continue with"} {formattedAmount}{frequency === "monthly" ? " monthly" : ""}</button>

@@ -16,8 +16,8 @@ export default function Page() {
           <div className="donation-assurance">
             <div><strong>Currency</strong>Give in GBP or NGN.</div>
             <div><strong>Frequency</strong>One-time or monthly.</div>
-            <div><strong>Preview only</strong>No payment or personal details are accepted.</div>
-            <div><strong>Your choice</strong>Marketing consent is optional.</div>
+            <div><strong>Preview only</strong>No payment or personal details are sent or stored.</div>
+            <div><strong>News updates</strong>Preview choices do not subscribe you.</div>
           </div>
         </div>
         <div className="donation-form-stage" data-reveal>
@@ -53,7 +53,7 @@ export default function Page() {
           <div data-reveal><span>01</span><div><h3>Choose currency and purpose</h3><p>Select GBP or NGN, then choose the area of work you would like to support.</p></div></div>
           <div data-reveal><span>02</span><div><h3>Marketing is optional</h3><p>You can donate without signing up for news or supporter updates.</p></div></div>
           <div data-reveal><span>03</span><div><h3>Payment is handled securely</h3><p>When donations go live, Stripe or Paystack will handle card details. OAKonsult will not store them.</p></div></div>
-          <div data-reveal><span>04</span><div><h3>This is a preview</h3><p>No payment or personal information is sent from this preview.</p></div></div>
+          <div data-reveal><span>04</span><div><h3>This is a preview</h3><p>No payment or personal information is sent or stored in this preview.</p></div></div>
         </div>
       </section>
 

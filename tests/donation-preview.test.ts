@@ -35,6 +35,6 @@ test("staging form completes locally before any checkout request or redirect", (
   assert.ok(guard >= 0);
   assert.ok(guard < form.indexOf('fetch("/api/donations/checkout"'));
   assert.ok(guard < form.indexOf("window.location.assign(data.url)"));
-  assert.match(form, /Nothing was sent and no payment was taken/);
+  assert.match(form, /Nothing was sent or stored and no payment was taken/);
   assert.match(form, /Finish preview/);
 });
