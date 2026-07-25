@@ -1,0 +1,295 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "A warm, image-led and community-rooted system with strong editorial rhythm, organic asymmetry and accessible public-service clarity.",
+  "color": {
+    "$type": "color",
+    "primary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.024,
+          0.173,
+          0.133
+        ],
+        "hex": "#062c22"
+      }
+    },
+    "deep": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.039,
+          0.227,
+          0.173
+        ],
+        "hex": "#0a3a2c"
+      }
+    },
+    "green": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.071,
+          0.314,
+          0.243
+        ],
+        "hex": "#12503e"
+      }
+    },
+    "leaf": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.169,
+          0.49,
+          0.471
+        ],
+        "hex": "#2b7d78"
+      }
+    },
+    "secondary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.843,
+          0.929,
+          0.435
+        ],
+        "hex": "#d7ed6f"
+      }
+    },
+    "tertiary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.941,
+          0.808,
+          0.525
+        ],
+        "hex": "#f0ce86"
+      }
+    },
+    "clay": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.914,
+          0.541,
+          0.412
+        ],
+        "hex": "#e98a69"
+      }
+    },
+    "sky": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.624,
+          0.796,
+          0.816
+        ],
+        "hex": "#9fcbd0"
+      }
+    },
+    "cream": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.969,
+          0.945,
+          0.906
+        ],
+        "hex": "#f7f1e7"
+      }
+    },
+    "neutral": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          0.98,
+          0.949
+        ],
+        "hex": "#fffaf2"
+      }
+    },
+    "ink": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.09,
+          0.208,
+          0.173
+        ],
+        "hex": "#17352c"
+      }
+    },
+    "white": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "hex": "#ffffff"
+      }
+    }
+  },
+  "spacing": {
+    "$type": "dimension",
+    "xs": {
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "sm": {
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "md": {
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "lg": {
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      }
+    },
+    "xl": {
+      "$value": {
+        "value": 90,
+        "unit": "px"
+      }
+    },
+    "section": {
+      "$value": {
+        "value": 110,
+        "unit": "px"
+      }
+    }
+  },
+  "rounded": {
+    "$type": "dimension",
+    "none": {
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      }
+    },
+    "subtle": {
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "organic": {
+      "$value": {
+        "value": 36,
+        "unit": "px"
+      }
+    },
+    "organic-lg": {
+      "$value": {
+        "value": 55,
+        "unit": "px"
+      }
+    },
+    "circle": {
+      "$value": {
+        "value": 999,
+        "unit": "px"
+      }
+    }
+  },
+  "typography": {
+    "display-hero": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Nunito",
+        "fontSize": {
+          "value": 7.6,
+          "unit": "rem"
+        },
+        "fontWeight": 900,
+        "letterSpacing": {
+          "value": -0.058,
+          "unit": "em"
+        }
+      }
+    },
+    "display-section": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Nunito",
+        "fontSize": {
+          "value": 5.7,
+          "unit": "rem"
+        },
+        "fontWeight": 900,
+        "letterSpacing": {
+          "value": -0.055,
+          "unit": "em"
+        }
+      }
+    },
+    "heading-card": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Nunito",
+        "fontSize": {
+          "value": 2.7,
+          "unit": "rem"
+        },
+        "fontWeight": 900,
+        "letterSpacing": {
+          "value": -0.04,
+          "unit": "em"
+        }
+      }
+    },
+    "body-lg": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "DM Sans",
+        "fontSize": {
+          "value": 1.25,
+          "unit": "rem"
+        },
+        "fontWeight": 700
+      }
+    },
+    "body-md": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "DM Sans",
+        "fontSize": {
+          "value": 1,
+          "unit": "rem"
+        },
+        "fontWeight": 400
+      }
+    },
+    "label": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "DM Sans",
+        "fontSize": {
+          "value": 0.74,
+          "unit": "rem"
+        },
+        "fontWeight": 900,
+        "letterSpacing": {
+          "value": 0.13,
+          "unit": "em"
+        }
+      }
+    }
+  }
+}

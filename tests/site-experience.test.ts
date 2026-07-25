@@ -88,6 +88,24 @@ test("approved visual identity keeps the original logo tile without floating kic
   assert.match(css, /\.header-v4-region-links/);
 });
 
+test("design system is model-readable, recoverable and anchored to the canonical V4 tag", () => {
+  const design = read("DESIGN.md");
+  const agents = read("AGENTS.md");
+  const manifest = JSON.parse(read("docs/design-baseline/manifest.json")) as { gitTag: string; commit: string; captures: Array<{ name: string }> };
+  const canonicalCommit = "d43128ac3c9e9895a9f4225453a210bae358b709";
+  const canonicalTag = "design-v4-canonical-2026-07-25";
+  assert.match(design, new RegExp(canonicalCommit));
+  assert.match(design, new RegExp(canonicalTag));
+  assert.match(design, /Never use the generic AI pattern/i);
+  assert.match(agents, new RegExp(canonicalCommit));
+  assert.equal(manifest.commit, canonicalCommit);
+  assert.equal(manifest.gitTag, canonicalTag);
+  for (const name of ["home-desktop.jpg", "home-mobile.jpg", "about-desktop.jpg", "about-mobile.jpg", "menu-mobile.jpg"]) {
+    assert.ok(manifest.captures.some((capture) => capture.name === name), `baseline manifest missing ${name}`);
+    assert.ok(existsSync(join(root, "docs/design-baseline", name)), `baseline image missing ${name}`);
+  }
+});
+
 test("interior mastheads keep accessible foreground colours over the dark hero", () => {
   const css = read("src/app/interior-v5.css");
   assert.match(css, /\.interior-v5 \.interior-hero \.interior-hero-copy > \.oak-kicker\s*\{[^}]*color:\s*var\(--editorial-lime\)/);
