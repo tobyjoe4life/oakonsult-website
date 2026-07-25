@@ -9,6 +9,7 @@ const mainNavigation = [
   { label: "Find support", href: "/find-support" },
   { label: "Our work", href: "/what-we-do" },
   { label: "Stories & impact", href: "/impact" },
+  { label: "Social media", href: "/social" },
   { label: "Media gallery", href: "/media-gallery" },
   { label: "Events", href: "/events" },
   { label: "Funders & partners", href: "/funders-partners" },
@@ -116,10 +117,11 @@ export function SiteHeader() {
               <span>Our work</span>
               <Link className={pathname === "/what-we-do" ? "is-active" : undefined} href="/what-we-do">Programmes</Link>
               <Link className={pathname.startsWith("/stories") || pathname === "/impact" ? "is-active" : undefined} href="/stories">Stories</Link>
+              <Link className={pathname === "/social" ? "is-active" : undefined} href="/social">Social</Link>
               <Link className={pathname.startsWith("/media-gallery") ? "is-active" : undefined} href="/media-gallery">Gallery</Link>
               <Link className={pathname === "/events" ? "is-active" : undefined} href="/events">Events</Link>
               <Link className={pathname === "/get-involved" ? "is-active" : undefined} href="/get-involved">Get involved</Link>
-              <Link className={pathname === "/about" ? "is-active" : undefined} href="/about">About us</Link>
+              <Link className={["/about", "/our-story", "/abigail", "/history", "/our-team", "/vision-mission"].some((route) => pathname === route) ? "is-active" : undefined} href="/about">About us</Link>
             </div>
             <div className="header-v4-region-links" aria-label="Where we work">
               <span>Where we work</span>

@@ -41,6 +41,7 @@ const leakedEditorialLanguage = [
   "A clearer donation journey",
   "current public events information",
   "latest approved project information",
+  "verified during this staging rebuild",
   "confirmed relationships by region",
   "current programme route",
   "Preview option:",

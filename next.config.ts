@@ -1,8 +1,12 @@
 import type { NextConfig } from "next";
+import { legacyRedirects } from "./src/lib/legacy-route-contract";
 
 const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
+  async redirects() {
+    return legacyRedirects;
+  },
   async headers() {
     return [
       {

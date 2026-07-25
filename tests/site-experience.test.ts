@@ -106,10 +106,20 @@ test("design system is model-readable, recoverable and anchored to the canonical
   }
 });
 
+test("layout loads the canonical editorial stylesheet", () => {
+  const layout = read("src/app/layout.tsx");
+  assert.match(layout, /import\s+"\.\/interior-v5\.css"/);
+});
+
 test("interior mastheads keep accessible foreground colours over the dark hero", () => {
   const css = read("src/app/interior-v5.css");
   assert.match(css, /\.interior-v5 \.interior-hero \.interior-hero-copy > \.oak-kicker\s*\{[^}]*color:\s*var\(--editorial-lime\)/);
   assert.match(css, /\.interior-v5 \.interior-hero \.interior-hero-copy > p:not\(\.oak-kicker\)\s*\{[^}]*color:\s*rgba\(255,255,255,\.88\)/);
+});
+
+test("form and light-panel kickers keep accessible contrast", () => {
+  const css = read("src/app/interior-v5.css");
+  assert.match(css, /\.interior-v5 \.interior-split \.oak-kicker,\s*\.interior-v5 \.form-layout \.oak-kicker\s*\{[^}]*color:\s*var\(--editorial-deep\)/);
 });
 
 test("regional, interior and footer journeys retain editorial depth and gallery discoverability", () => {

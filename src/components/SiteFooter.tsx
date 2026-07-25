@@ -8,7 +8,7 @@ const groups = [
   },
   {
     title: "Stories and activity",
-    links: [["Stories & impact", "/impact"], ["Media gallery", "/media-gallery"], ["Events", "/events"]],
+    links: [["Our story", "/our-story"], ["Abigail’s tribute", "/abigail"], ["Stories & impact", "/impact"], ["Social media", "/social"], ["Media gallery", "/media-gallery"], ["Events", "/events"]],
   },
   {
     title: "Where we work",
@@ -16,7 +16,7 @@ const groups = [
   },
   {
     title: "Take part",
-    links: [["Get involved", "/get-involved"], ["Donate", "/donate"], ["Funders & partners", "/funders-partners"], ["Contact", "/contact"], ["About us", "/about"], ["Privacy", "/privacy"], ["Accessibility", "/accessibility"]],
+    links: [["Get involved", "/get-involved"], ["Volunteer", "/volunteer-opportunities"], ["Zumba", "/zumba-class"], ["Donate", "/donate"], ["Funders & partners", "/funders-partners"], ["Contact", "/contact"], ["About us", "/about"], ["History", "/history"], ["Privacy", "/privacy"], ["Accessibility", "/accessibility"]],
   },
 ];
 
