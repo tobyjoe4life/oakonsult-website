@@ -126,7 +126,7 @@ export default function Home() {
         <div className="oak-editorial-canvas">
           <div className="oak-action-list" data-reveal>
             <Link href="/programmes/project-me"><span>Project ME</span><strong>Identity, wellbeing and confidence for parent carers</strong><Arrow /></Link>
-            <Link href="/programmes/parent-carer-support"><span>Wellbeing</span><strong>Movement, connection and a reason to keep showing up</strong><Arrow /></Link>
+            <Link href="/zumba-class"><span>Zumba wellbeing</span><strong>Movement, connection and a reason to keep showing up</strong><Arrow /></Link>
             <Link href="/nigeria"><span>Community outreach</span><strong>Disability inclusion built with local communities</strong><Arrow /></Link>
           </div>
           <Link className="oak-poster-tile oak-poster-project" href="/programmes/project-me" data-reveal>

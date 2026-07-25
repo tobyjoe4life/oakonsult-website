@@ -2,6 +2,7 @@
 
 import { FormEvent, useRef, useState } from "react";
 import { isReviewSite } from "@/lib/site/review-mode";
+import { donationPurposeLabels, type DonationPurpose } from "@/lib/donation-options";
 
 type DonationDetails = {
   firstName: string;
@@ -16,13 +17,6 @@ type DonationDetails = {
 };
 
 const steps = ["Gift", "Details", "Review"];
-const purposeLabels = {
-  general: "Where it is needed most",
-  "project-me": "Project ME",
-  "oak-centre": "OAK Centre Prime",
-  "community-outreach": "Community outreach",
-} as const;
-
 const donationPreviewMode = isReviewSite();
 const displayedSteps = donationPreviewMode ? ["Gift", "Placeholder details", "Review"] : steps;
 
@@ -38,13 +32,13 @@ const initialDetails: DonationDetails = {
   website: "",
 };
 
-export function DonationForm() {
+export function DonationForm({ initialPurpose = "general" }: { initialPurpose?: DonationPurpose }) {
   const formRef = useRef<HTMLFormElement>(null);
   const [step, setStep] = useState(0);
   const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
   const [currency, setCurrency] = useState<"GBP" | "NGN">("GBP");
   const [amount, setAmount] = useState("25");
-  const [purpose, setPurpose] = useState<keyof typeof purposeLabels>("general");
+  const [purpose, setPurpose] = useState<DonationPurpose>(initialPurpose);
   const [details, setDetails] = useState(initialDetails);
   const [status, setStatus] = useState("");
   const [isError, setIsError] = useState(false);
@@ -61,8 +55,8 @@ export function DonationForm() {
   }).format(Number(amount) || 0);
 
   const impactCopy = frequency === "monthly"
-    ? `Amount: ${formattedAmount} each month. Preferred area: ${purposeLabels[purpose]}.`
-    : `Amount: ${formattedAmount}. Preferred area: ${purposeLabels[purpose]}.`;
+    ? `Amount: ${formattedAmount} each month. Preferred area: ${donationPurposeLabels[purpose]}.`
+    : `Amount: ${formattedAmount}. Preferred area: ${donationPurposeLabels[purpose]}.`;
 
   function updateDetails<K extends keyof DonationDetails>(key: K, value: DonationDetails[K]) {
     setDetails((current) => ({ ...current, [key]: value }));
@@ -181,8 +175,8 @@ export function DonationForm() {
 
           <label>
             Which area would you prefer your gift to support?
-            <select value={purpose} onChange={(event) => setPurpose(event.target.value as keyof typeof purposeLabels)}>
-              {Object.entries(purposeLabels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}
+            <select value={purpose} onChange={(event) => setPurpose(event.target.value as DonationPurpose)}>
+              {Object.entries(donationPurposeLabels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}
             </select>
           </label>
 
@@ -230,7 +224,7 @@ export function DonationForm() {
           <div className="review">
             <span>{frequency === "monthly" ? "Monthly gift" : "One-time gift"}</span>
             <strong>{formattedAmount}</strong>
-            <p>For {purposeLabels[purpose]}</p>
+            <p>For {donationPurposeLabels[purpose]}</p>
             <dl>
               <div><dt>Donor</dt><dd>{details.firstName} {details.lastName}</dd></div>
               <div><dt>Email</dt><dd>{details.email}</dd></div>

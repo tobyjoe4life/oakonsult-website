@@ -11,9 +11,11 @@ const mainNavigation = [
   { label: "Stories & impact", href: "/impact" },
   { label: "Social media", href: "/social" },
   { label: "Media gallery", href: "/media-gallery" },
+  { label: "Zumba", href: "/zumba-class" },
   { label: "Events", href: "/events" },
   { label: "Funders & partners", href: "/funders-partners" },
   { label: "Get involved", href: "/get-involved" },
+  { label: "Forms & registrations", href: "/forms" },
   { label: "About us", href: "/about" },
 ] as const;
 
@@ -115,7 +117,8 @@ export function SiteHeader() {
           <div className="header-v4-nav-inner">
             <div className="header-v4-main-links">
               <span>Our work</span>
-              <Link className={pathname === "/what-we-do" ? "is-active" : undefined} href="/what-we-do">Programmes</Link>
+              <Link className={pathname === "/what-we-do" || pathname.startsWith("/programmes/") ? "is-active" : undefined} href="/what-we-do">Programmes</Link>
+              <Link className={pathname.startsWith("/zumba") ? "is-active" : undefined} href="/zumba-class">Zumba</Link>
               <Link className={pathname.startsWith("/stories") || pathname === "/impact" ? "is-active" : undefined} href="/stories">Stories</Link>
               <Link className={pathname === "/social" ? "is-active" : undefined} href="/social">Social</Link>
               <Link className={pathname.startsWith("/media-gallery") ? "is-active" : undefined} href="/media-gallery">Gallery</Link>
@@ -144,7 +147,7 @@ export function SiteHeader() {
             <div className="menu-v4-primary">
               <p className="menu-v4-label">Explore OAKonsult</p>
               <nav aria-label="Main navigation">
-                {mainNavigation.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{item.label}<i aria-hidden="true">↗</i></Link>)}
+                {mainNavigation.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>{String(index + 1).padStart(2, "0")}</span>{item.label}<i aria-hidden="true">↗</i></Link>)}
               </nav>
             </div>
 

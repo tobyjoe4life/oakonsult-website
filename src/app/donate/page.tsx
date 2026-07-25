@@ -2,8 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { DonationForm } from "@/components/DonationForm";
 import { HomeMotion } from "@/components/HomeMotion";
+import { normaliseDonationPurpose } from "@/lib/donation-options";
 
-export default function Page() {
+type PageProps = { searchParams: Promise<{ purpose?: string | string[] }> };
+
+export default async function Page({ searchParams }: PageProps) {
+  const parameters = await searchParams;
+  const requestedPurpose = Array.isArray(parameters.purpose) ? parameters.purpose[0] : parameters.purpose;
+  const initialPurpose = normaliseDonationPurpose(requestedPurpose);
   return (
     <div className="oak-home editorial-page donation-page">
       <HomeMotion />
@@ -21,7 +27,7 @@ export default function Page() {
           </div>
         </div>
         <div className="donation-form-stage" data-reveal>
-          <DonationForm />
+          <DonationForm initialPurpose={initialPurpose} />
         </div>
       </section>
 

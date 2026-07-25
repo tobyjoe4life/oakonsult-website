@@ -4,7 +4,7 @@ const donationBaseSchema = z.object({
   frequency: z.enum(["one-time", "monthly"]),
   currency: z.enum(["GBP", "NGN"]),
   amount: z.coerce.number().finite().positive(),
-  purpose: z.enum(["general", "project-me", "oak-centre", "community-outreach"]),
+  purpose: z.enum(["general", "parent-carer", "project-me", "oak-centre", "community-outreach"]),
   firstName: z.string().trim().min(1).max(80),
   lastName: z.string().trim().min(1).max(80),
   email: z.string().trim().toLowerCase().email().max(254),

@@ -102,3 +102,52 @@ test("events point to dedicated Zumba registration and wellbeing pages", () => {
   assert.match(events, /\/zumba-class/);
   assert.match(events, /\/zumba-wellbeing/);
 });
+
+test("programme directory follows the regional UK and Nigeria journeys", () => {
+  const programmes = read("src/app/what-we-do/page.tsx");
+  const uk = read("src/app/uk/page.tsx");
+  for (const phrase of ["UK programmes", "Nigeria programmes", "Shared and online support"])
+    assert.match(programmes, new RegExp(phrase, "i"));
+  for (const href of [
+    "/programmes/parent-carer-support",
+    "/programmes/project-me",
+    "/zumba-class",
+    "/programmes/support-for-churches",
+    "/programmes/oak-centre-prime",
+    "/media-gallery/nigeria",
+  ]) assert.match(programmes, new RegExp(href.replaceAll("/", "\\/")));
+  assert.match(uk, /title: "Zumba wellbeing"/i);
+  assert.match(uk, /href: "\/zumba-class"/);
+});
+
+test("forms and registrations are discoverable from one first-party directory", () => {
+  const formsPath = path.join(root, "src/app/forms/page.tsx");
+  assert.equal(existsSync(formsPath), true);
+  const forms = read("src/app/forms/page.tsx");
+  for (const href of [
+    "/contact",
+    "/volunteer-opportunities",
+    "/partnerships",
+    "/projectme",
+    "/zumba-class",
+    "/zumba-wellbeing",
+    "/jobs/zumba-group-coordinator",
+    "/donate",
+  ]) assert.match(forms, new RegExp(href.replaceAll("/", "\\/")));
+
+  const involved = read("src/app/get-involved/page.tsx");
+  assert.match(involved, /href: "\/volunteer-opportunities"/);
+  assert.match(involved, /href: "\/partnerships"/);
+  assert.match(involved, /href: "\/forms"/);
+});
+
+test("legacy donation campaigns retain their intended purpose", () => {
+  const contract = read("src/lib/legacy-route-contract.ts");
+  const form = read("src/components/DonationForm.tsx");
+  const options = read("src/lib/donation-options.ts");
+  assert.match(contract, /\/donate\?purpose=oak-centre/);
+  assert.match(contract, /\/donate\?purpose=parent-carer/);
+  assert.match(contract, /\/donate\?purpose=project-me/);
+  assert.match(options, /"parent-carer": "Parent-carer support"/);
+  assert.match(form, /initialPurpose/);
+});

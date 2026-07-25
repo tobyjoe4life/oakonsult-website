@@ -19,17 +19,22 @@ export default function Page() {
           {
             title: "Volunteer",
             text: "Offer your time and skills in a role that matches current needs and safeguarding requirements.",
-            href: "/contact",
+            href: "/volunteer-opportunities",
           },
           {
             title: "Partner with us",
             text: "Talk to us about programme delivery, referrals, professional support or funding.",
-            href: "/funders-partners",
+            href: "/partnerships",
           },
           {
             title: "Donate",
             text: "Make a one-time or monthly gift to support programmes and outreach.",
             href: "/donate",
+          },
+          {
+            title: "Forms and registrations",
+            text: "Find programme registrations, referrals, applications and participation forms in one place.",
+            href: "/forms",
           },
         ],
       }}

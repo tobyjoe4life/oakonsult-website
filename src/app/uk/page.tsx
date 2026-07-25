@@ -28,12 +28,12 @@ const data: RegionPageData = {
       linkLabel: "Discover Project ME",
     },
     {
-      label: "UK community",
-      title: "Community Wellbeing",
-      text: "Inclusive activity and connection that bring parent carers, families and local communities together.",
+      label: "UK wellbeing",
+      title: "Zumba wellbeing",
+      text: "Free movement and connection sessions for parent carers in Bromley, with a dedicated registration journey.",
       details: ["Zumba and movement", "Community connection", "Spaces to recharge"],
-      href: "/events",
-      linkLabel: "See events and activities",
+      href: "/zumba-class",
+      linkLabel: "See Zumba sessions and register",
     },
     {
       label: "UK inclusion",

@@ -19,6 +19,8 @@ test("global navigation preserves the approved identity and exposes expanded jou
     "/impact",
     "/media-gallery",
     "/events",
+    "/zumba-class",
+    "/forms",
     "/funders-partners",
     "/get-involved",
     "/about",
@@ -30,6 +32,9 @@ test("global navigation preserves the approved identity and exposes expanded jou
   assert.match(header, /oakonsult-logo\.png/);
   assert.match(header, />Our work</);
   assert.match(header, />Where we work</);
+  assert.match(header, />Zumba</);
+  assert.match(header, /Forms & registrations/);
+  assert.match(header, /String\(index \+ 1\)\.padStart\(2, "0"\)/);
 });
 
 test("homepage preserves the approved editorial sequence and adds a real media gallery", () => {
@@ -43,6 +48,8 @@ test("homepage preserves the approved editorial sequence and adds a real media g
     cursor = next;
   }
   assert.match(homepage, /zumba-action\.webp/);
+  assert.match(homepage, /href=\"\/zumba-class\"/);
+  assert.match(homepage, /Zumba wellbeing/);
   assert.match(homepage, /project-me-workshop\.webp/);
   assert.match(homepage, /homepageGallery/);
   assert.match(homepage, /href=\"\/media-gallery\"/);

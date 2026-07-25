@@ -16,7 +16,7 @@ const groups = [
   },
   {
     title: "Take part",
-    links: [["Get involved", "/get-involved"], ["Volunteer", "/volunteer-opportunities"], ["Zumba", "/zumba-class"], ["Donate", "/donate"], ["Funders & partners", "/funders-partners"], ["Contact", "/contact"], ["About us", "/about"], ["History", "/history"], ["Privacy", "/privacy"], ["Accessibility", "/accessibility"]],
+    links: [["Get involved", "/get-involved"], ["Forms & registrations", "/forms"], ["Volunteer", "/volunteer-opportunities"], ["Zumba", "/zumba-class"], ["Donate", "/donate"], ["Funders & partners", "/funders-partners"], ["Contact", "/contact"], ["About us", "/about"], ["History", "/history"], ["Privacy", "/privacy"], ["Accessibility", "/accessibility"]],
   },
 ];
 
