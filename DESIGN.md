@@ -106,11 +106,30 @@ components:
 
 ## Overview
 
-This is the permanent visual contract for the OAKonsult website. The canonical rendered baseline is Git tag `design-v4-canonical-2026-07-25`, commit `d43128ac3c9e9895a9f4225453a210bae358b709`, deployed for review at `https://dev.oakonsult.org` on 25 July 2026.
+This is the permanent visual contract for the OAKonsult website. The approved premium rendered baseline is Git tag `design-premium-v6-approved-2026-07-26`, commit `ec6359e9b5eab85f00bb15fa6d2ef97a9460c4bd`, with comparison captures under `docs/design-baseline/premium-v6/`. The earlier Organic Editorial V4 tag `design-v4-canonical-2026-07-25` remains the historical foundation and recovery reference.
 
-Future work must preserve this system and improve it deliberately. A new model, agent or developer must not replace it with a fresh theme, generic charity template, generic SaaS layout or fashionable AI-generated card system. If visual drift occurs, compare against the canonical tag and the screenshots under `docs/design-baseline/` before changing anything else.
+Future work must preserve the V6 premium system and improve it deliberately. A new model, agent or developer must not replace it with a fresh theme, generic charity template, generic SaaS layout or fashionable AI-generated card system. If visual drift occurs, compare against the approved premium tag and screenshots before changing anything else.
 
 The design is informed by the warmth, confidence, navigational depth and editorial pacing admired on Family Action, but it is OAKonsult-owned. Do not copy another organisation's proprietary text, artwork, source code or exact page composition.
+
+## Approved premium living-site direction (non-negotiable)
+
+Contract marker: `OAK-PREMIUM-LIVING-SITE-CONTRACT-2026-07`
+
+The approved direction is OAKonsult's own premium living-site system: a premium, colourful, animated corporate-charity website that is warm, emotionally intelligent and editorial. It is defined by full-width visual rhythm, route-specific colour moods (`data-mood` on every page family), organic geometry, authentic consent-cleared photography and purposeful motion that makes the site feel alive while always honouring `prefers-reduced-motion`.
+
+This direction is non-negotiable and governs every new route, every new page family, every redesign and every site-wide change, whoever or whatever implements it:
+
+1. New pages must join the route mood system and reuse the shared premium page families (InteriorPage, EditorialDetailPage, GalleryPage, RegionPage, UtilityPage, PublicFormPage) instead of inventing one-off layouts.
+2. Composition must stay varied: editorial rhythm, split layouts, organic shapes and authentic photography. No repetitive rounded-card grids and no generic SaaS patterns.
+3. No capsule or pill kicker decoration. Pills remain reserved for genuine buttons and controls.
+4. No third-party source code, assets, fonts or copied layouts.
+5. No internal process language, model names, prompts or review language in public copy, and no em dashes.
+6. Accessible semantics, keyboard operation, visible focus, strong contrast and full content visibility without JavaScript.
+7. Forms and payments stay preview-only and fail closed on staging; staging stays noindex.
+8. Curated photography sets, such as the Abigail tribute gallery, use bespoke editorial treatments with per-image focal points and accessible viewers, never flat template galleries.
+
+`tests/design-contract.test.ts` enforces this section structurally. Extend the contract and its tests together; never weaken one without the other.
 
 ## Colors
 

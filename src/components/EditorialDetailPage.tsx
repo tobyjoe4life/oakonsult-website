@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HomeMotion } from "@/components/HomeMotion";
+import { TributeGallery } from "@/components/TributeGallery";
 import type { EditorialPageData } from "@/lib/editorial-pages";
 
 const Arrow = () => <span aria-hidden="true">→</span>;
 
 export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
-  const supportingPhotos = data.photos.filter((photo) => photo.src !== data.heroImage);
+  const supportingPhotos = (data.photos ?? []).filter((photo) => photo.src !== data.heroImage);
 
   return (
     <article className="oak-home editorial-page detail-page" data-mood={data.mood ?? "growth"}>
@@ -20,7 +21,7 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
           <div className="editorial-location"><span aria-hidden="true">⌖</span><strong>{data.location}</strong></div>
         </div>
         <div className="detail-hero-photo" data-reveal="zoom">
-          <Image src={data.heroImage} alt={data.heroAlt} fill priority sizes="(max-width: 800px) 100vw, 54vw" />
+          <Image src={data.heroImage} alt={data.heroAlt} fill priority sizes="(max-width: 800px) 100vw, 54vw" style={data.heroPosition ? { objectPosition: data.heroPosition } : undefined} />
           <span className="detail-photo-shape" aria-hidden="true" data-drift="18" />
         </div>
       </header>
@@ -48,17 +49,21 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
         ))}
       </div>
 
-      <section className="detail-photo-journal" aria-labelledby="photo-journal-title">
-        <div className="detail-journal-heading" data-reveal><p className="oak-kicker dark">In pictures</p><h2 id="photo-journal-title">{data.photosTitle}</h2><Link href="/media-gallery">View the media gallery <Arrow /></Link></div>
-        <div className="detail-photo-row" data-reveal-group>
-          {supportingPhotos.map((photo, index) => (
-            <figure className={`detail-journal-photo photo-${index + 1}`} key={photo.src} data-reveal-child="unfold">
-              <div><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 760px) 90vw, 33vw" /></div>
-              <figcaption>{photo.caption}</figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
+      {data.gallery ? (
+        <TributeGallery title={data.gallery.title} intro={data.gallery.intro} images={data.gallery.images} />
+      ) : data.photos && data.photos.length > 0 ? (
+        <section className="detail-photo-journal" aria-labelledby="photo-journal-title">
+          <div className="detail-journal-heading" data-reveal><p className="oak-kicker dark">In pictures</p><h2 id="photo-journal-title">{data.photosTitle}</h2><Link href="/media-gallery">View the media gallery <Arrow /></Link></div>
+          <div className="detail-photo-row" data-reveal-group>
+            {supportingPhotos.map((photo, index) => (
+              <figure className={`detail-journal-photo photo-${index + 1}`} key={photo.src} data-reveal-child="unfold">
+                <div><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 760px) 90vw, 33vw" /></div>
+                <figcaption>{photo.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="detail-related" aria-labelledby="related-title">
         <div data-reveal><p className="oak-kicker dark">More information</p><h2 id="related-title">Related pages</h2></div>

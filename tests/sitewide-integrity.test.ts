@@ -15,7 +15,8 @@ test("events use the verified Zumba schedule", () => {
 });
 
 test("detail pages do not repeat the hero in their photo journal", () => {
-  assert.match(detail, /supportingPhotos = data\.photos\.filter/);
+  assert.match(detail, /supportingPhotos = \(data\.photos \?\? \[\]\)\.filter/);
+  assert.match(detail, /photo\.src !== data\.heroImage/);
   assert.match(detail, /supportingPhotos\.map/);
   assert.doesNotMatch(detail, /data\.photos\.map/);
 });

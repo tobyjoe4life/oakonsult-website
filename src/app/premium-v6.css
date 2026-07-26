@@ -492,6 +492,311 @@
 }
 
 /* --------------------------------------------------------------------------
+   9. Tribute memory gallery: editorial mosaic with an accessible viewer.
+   Used where a route carries a curated set of photographs (data.gallery on
+   EditorialDetailPage). Varied spans and aspect ratios keep the composition
+   editorial; per-image object-position focal points protect faces in crops.
+   -------------------------------------------------------------------------- */
+.tribute-gallery {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding: 110px max(24px, calc((100vw - 1340px) / 2));
+  background: var(--mood-soft, #f8f3e8);
+}
+
+.tribute-gallery::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -150px;
+  left: -170px;
+  width: 400px;
+  aspect-ratio: 1;
+  border: 48px solid var(--mood-pop, #9fcbd0);
+  border-radius: 50%;
+  opacity: .14;
+}
+
+.tribute-gallery::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -140px;
+  bottom: -120px;
+  width: 340px;
+  aspect-ratio: 1;
+  background: var(--mood-accent, #0b7771);
+  border-radius: 42% 58% 61% 39% / 45% 42% 58% 55%;
+  opacity: .07;
+}
+
+.tribute-gallery-heading {
+  max-width: 720px;
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.tribute-gallery-heading h2 {
+  margin: 0 0 16px;
+  color: var(--mood-deep, #07392f);
+  font-family: var(--font-display), sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+}
+
+.tribute-gallery-heading > p:not(.oak-kicker) {
+  margin: 0;
+  max-width: 56ch;
+  color: #335048;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.tribute-mosaic {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: clamp(16px, 2.4vw, 32px);
+  align-items: start;
+}
+
+.tribute-tile {
+  margin: 0;
+}
+
+.tribute-tile.tile-1 { grid-column: span 7; }
+.tribute-tile.tile-2 { grid-column: span 5; }
+.tribute-tile.tile-3 { grid-column: span 4; }
+.tribute-tile.tile-4 { grid-column: span 4; }
+.tribute-tile.tile-5 { grid-column: span 4; }
+.tribute-tile.tile-6 { grid-column: span 8; }
+.tribute-tile.tile-7 { grid-column: span 4; }
+.tribute-tile.tile-8 { grid-column: span 4; }
+.tribute-tile.tile-9 { grid-column: span 8; }
+.tribute-tile.tile-10 { grid-column: 2 / span 10; }
+
+.tribute-tile-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.tribute-tile-button:focus-visible {
+  outline: 3px solid var(--mood-accent, #0b7771);
+  outline-offset: 5px;
+  border-radius: 6px;
+}
+
+.tribute-tile-frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 18px 44px -24px rgba(7, 57, 47, .45);
+}
+
+.tile-1 .tribute-tile-frame { aspect-ratio: 3 / 2; }
+.tile-2 .tribute-tile-frame { aspect-ratio: 4 / 5; }
+.tile-3 .tribute-tile-frame { aspect-ratio: 4 / 3; }
+.tile-4 .tribute-tile-frame { aspect-ratio: 4 / 5; }
+.tile-5 .tribute-tile-frame { aspect-ratio: 4 / 5; }
+.tile-6 .tribute-tile-frame { aspect-ratio: 16 / 9; }
+.tile-7 .tribute-tile-frame { aspect-ratio: 4 / 5; }
+.tile-8 .tribute-tile-frame { aspect-ratio: 3 / 4; }
+.tile-9 .tribute-tile-frame { aspect-ratio: 3 / 2; }
+.tile-10 .tribute-tile-frame { aspect-ratio: 16 / 10; }
+
+.tribute-tile-frame img {
+  object-fit: cover;
+  transition: transform .7s ease;
+}
+
+.tribute-tile-button:hover .tribute-tile-frame img,
+.tribute-tile-button:focus-visible .tribute-tile-frame img {
+  transform: scale(1.035);
+}
+
+.tribute-tile-open {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #fffdf7;
+  color: var(--mood-accent, #0b7771);
+  border-radius: 12px 0 0 0;
+  font-weight: 800;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .94;
+}
+
+.tribute-tile-button:hover .tribute-tile-open,
+.tribute-tile-button:focus-visible .tribute-tile-open {
+  opacity: 1;
+}
+
+.tribute-tile figcaption {
+  padding: 12px 2px 0;
+  color: #335048;
+  font-size: .95rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.tribute-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  justify-items: center;
+  padding: clamp(14px, 3vh, 40px) clamp(14px, 3.5vw, 56px);
+  background: rgba(7, 43, 36, .96);
+  animation: tribute-lightbox-in .3s ease both;
+}
+
+@keyframes tribute-lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tribute-lightbox-stage {
+  position: relative;
+  align-self: stretch;
+  justify-self: center;
+  width: min(1180px, 94vw);
+  animation: tribute-stage-in .4s ease both;
+}
+
+@keyframes tribute-stage-in {
+  from { opacity: 0; transform: scale(.985); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.tribute-lightbox-stage img {
+  object-fit: contain;
+}
+
+.tribute-lightbox-count {
+  margin: 18px 0 6px;
+  color: var(--mood-warm, #d7f45b);
+  font-weight: 900;
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.tribute-lightbox-caption {
+  margin: 0;
+  max-width: 60ch;
+  color: rgba(255, 255, 255, .92);
+  font-size: 1.02rem;
+  text-align: center;
+}
+
+.tribute-lightbox button {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 1.5px solid rgba(255, 255, 255, .45);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.tribute-lightbox button:hover {
+  background: rgba(255, 255, 255, .2);
+  border-color: #fff;
+}
+
+.tribute-lightbox button:focus-visible {
+  outline: 3px solid var(--mood-warm, #d7f45b);
+  outline-offset: 3px;
+}
+
+.tribute-lightbox-close {
+  top: 18px;
+  right: 18px;
+}
+
+.tribute-lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tribute-lightbox-prev { left: 18px; }
+.tribute-lightbox-next { right: 18px; }
+
+@media (max-width: 1100px) {
+  .tribute-mosaic {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .tribute-tile.tile-1 { grid-column: span 6; }
+  .tribute-tile.tile-2 { grid-column: span 3; }
+  .tribute-tile.tile-3 { grid-column: span 3; }
+  .tribute-tile.tile-4 { grid-column: span 2; }
+  .tribute-tile.tile-5 { grid-column: span 2; }
+  .tribute-tile.tile-6 { grid-column: span 2; }
+  .tribute-tile.tile-7 { grid-column: span 3; }
+  .tribute-tile.tile-8 { grid-column: span 3; }
+  .tribute-tile.tile-9 { grid-column: span 6; }
+  .tribute-tile.tile-10 { grid-column: span 6; }
+}
+
+@media (max-width: 760px) {
+  .tribute-gallery {
+    padding: 72px 20px;
+  }
+
+  .tribute-tile[class*="tile-"] {
+    grid-column: 1 / -1;
+  }
+
+  .tribute-tile-open {
+    padding: 9px 12px;
+    font-size: .68rem;
+  }
+
+  .tribute-lightbox button {
+    width: 46px;
+    height: 46px;
+    font-size: 21px;
+  }
+
+  .tribute-lightbox-prev { left: 8px; }
+  .tribute-lightbox-next { right: 8px; }
+
+  .tribute-lightbox-stage img {
+    object-position: center bottom;
+  }
+
+  .tribute-lightbox-count {
+    margin-top: 10px;
+  }
+
+  .tribute-lightbox-caption {
+    font-size: .95rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
    8. Reduced motion: everything decorative stops, all content stays visible.
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
@@ -521,5 +826,14 @@
   .interior-v5 .detail-hero-photo img,
   .interior-v5 .gallery-masthead-photo img {
     animation: none !important;
+  }
+
+  .tribute-lightbox,
+  .tribute-lightbox-stage {
+    animation: none !important;
+  }
+
+  .tribute-tile-frame img {
+    transition: none;
   }
 }

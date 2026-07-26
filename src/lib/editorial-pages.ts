@@ -13,17 +13,35 @@ export type EditorialLink = {
   description: string;
 };
 
+export type TributeImage = {
+  src: string;
+  alt: string;
+  caption: string;
+  /** Per-image focal point, applied as object-position so faces survive editorial crops. */
+  position?: string;
+};
+
+export type TributeGalleryData = {
+  title: string;
+  intro: string;
+  images: TributeImage[];
+};
+
 export type EditorialPageData = {
   eyebrow: string;
   title: string;
   intro: string;
   heroImage: string;
   heroAlt: string;
+  /** Optional focal point for the hero photograph, applied as object-position. */
+  heroPosition?: string;
   location: string;
   sections: EditorialSection[];
   related: EditorialLink[];
-  photos: { src: string; alt: string; caption: string }[];
-  photosTitle: string;
+  photos?: { src: string; alt: string; caption: string }[];
+  photosTitle?: string;
+  /** Optional editorial memory gallery; replaces the shared three-image journal when present. */
+  gallery?: TributeGalleryData;
   ctaTitle: string;
   ctaText: string;
   ctaLabel: string;

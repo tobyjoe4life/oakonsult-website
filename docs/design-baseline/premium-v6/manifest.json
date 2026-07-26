@@ -1,0 +1,55 @@
+{
+  "design": "OAKonsult Premium Living Site V6",
+  "contractMarker": "OAK-PREMIUM-LIVING-SITE-CONTRACT-2026-07",
+  "gitTag": "design-premium-v6-approved-2026-07-26",
+  "commit": "ec6359e9b5eab85f00bb15fa6d2ef97a9460c4bd",
+  "source": "https://dev.oakonsult.org",
+  "capturedAt": "2026-07-26",
+  "captureMethod": "Full-page Playwright capture after scrolling all reveal regions into view and returning to the top",
+  "captures": [
+    {
+      "route": "/",
+      "name": "home-desktop.jpg",
+      "viewportWidth": 1440,
+      "viewportHeight": 1000,
+      "imageWidth": 1440,
+      "imageHeight": 13697,
+      "reducedMotion": false,
+      "sha256": "38c1dfe9049adb09ab814eaaef3a452195d49607d37633bf5a891c378578e5db",
+      "bytes": 1586947
+    },
+    {
+      "route": "/",
+      "name": "home-mobile.jpg",
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "imageWidth": 390,
+      "imageHeight": 20310,
+      "reducedMotion": true,
+      "sha256": "b6a59a6c388d68802b91616b678c07332adf3411bafeeaf162956cce2e9a9d88",
+      "bytes": 990835
+    },
+    {
+      "route": "/about",
+      "name": "about-desktop.jpg",
+      "viewportWidth": 1440,
+      "viewportHeight": 1000,
+      "imageWidth": 1440,
+      "imageHeight": 4665,
+      "reducedMotion": false,
+      "sha256": "380bb9c63db292c63148f805f2d86d4f3580cdb10767360405d5eb18940ba99c",
+      "bytes": 471605
+    },
+    {
+      "route": "/about",
+      "name": "about-mobile.jpg",
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "imageWidth": 390,
+      "imageHeight": 7412,
+      "reducedMotion": true,
+      "sha256": "8741b2bbaa80f87d164654a9c4f5db6024fdb6a8b024f881555c768acd983c63",
+      "bytes": 324750
+    }
+  ]
+}

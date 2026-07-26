@@ -2,14 +2,31 @@
 
 Read `DESIGN.md` before changing any UI, route, content structure, photography, navigation or CSS.
 
-## Immutable baseline
+## Immutable premium baseline
 
-- Canonical visual tag: `design-v4-canonical-2026-07-25`
-- Canonical commit: `d43128ac3c9e9895a9f4225453a210bae358b709`
-- Reference screenshots: `docs/design-baseline/`
-- Implementation foundations: `src/app/home-v4.css` and `src/app/interior-v5.css`
+- Approved premium visual tag: `design-premium-v6-approved-2026-07-26`
+- Approved premium commit: `ec6359e9b5eab85f00bb15fa6d2ef97a9460c4bd`
+- Premium reference screenshots: `docs/design-baseline/premium-v6/`
+- Implementation foundations: `src/app/home-v4.css`, `src/app/interior-v5.css` and `src/app/premium-v6.css`
+- Historical V4 foundation: `design-v4-canonical-2026-07-25` and `docs/design-baseline/`
 
-The colourful, organic, image-led V4 system is approved. Preserve it across models and sessions. Improve it only through small, evidenced changes that pass visual comparison, responsive QA and accessibility checks. If drift is suspected, compare with the baseline tag and screenshots before editing.
+The premium, colourful, organic, image-led and animated V6 system is approved. Preserve it across models and sessions. Improve it only through small, evidenced changes that pass visual comparison, responsive QA and accessibility checks. If drift is suspected, compare with the premium baseline tag and screenshots before editing. The earlier V4 baseline remains available as the historical foundation, but it does not supersede the approved V6 premium layer.
+
+## Premium contract lock
+
+Contract marker: `OAK-PREMIUM-LIVING-SITE-CONTRACT-2026-07`
+
+The premium, colourful, animated living-site direction recorded in `DESIGN.md` is approved and non-negotiable. It governs every new route, every new page family, every redesign and every site-wide change. Before any UI work, confirm the change preserves:
+
+- the route mood system and the shared premium page families
+- editorial, varied composition (no repetitive rounded-card grids, no generic SaaS patterns, no capsule/pill kickers)
+- authentic, consent-cleared photography with safeguarding-safe captions
+- purposeful motion with complete `prefers-reduced-motion` support and no-JS content visibility
+- accessible semantics, keyboard operation, visible focus and strong contrast
+- copy free of internal process language, model names, prompts, review language and em dashes
+- preview-only forms and payments, and staging noindex
+
+`tests/design-contract.test.ts` must keep passing. When you add a page family or change the system, update `DESIGN.md`, this file and the structural tests in the same change.
 
 ## Non-negotiable design rules
 
@@ -37,7 +54,13 @@ The colourful, organic, image-led V4 system is approved. Preserve it across mode
 
 ## Recovery
 
-To inspect the canonical design without altering the working branch:
+To inspect the approved premium design without altering the working branch:
+
+```bash
+git worktree add ../oakonsult-premium-v6-recovery design-premium-v6-approved-2026-07-26
+```
+
+To compare against the earlier V4 foundation when needed:
 
 ```bash
 git worktree add ../oakonsult-v4-recovery design-v4-canonical-2026-07-25
@@ -46,8 +69,8 @@ git worktree add ../oakonsult-v4-recovery design-v4-canonical-2026-07-25
 To restore an individual drifted file, compare first and then restore deliberately:
 
 ```bash
-git diff design-v4-canonical-2026-07-25 -- src/app/home-v4.css
-git restore --source design-v4-canonical-2026-07-25 -- src/app/home-v4.css
+git diff design-premium-v6-approved-2026-07-26 -- src/app/premium-v6.css
+git restore --source design-premium-v6-approved-2026-07-26 -- src/app/premium-v6.css
 ```
 
 Do not hard-reset a branch containing later verified content work.
