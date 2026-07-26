@@ -10,9 +10,24 @@ export const siteContent: SiteContent = {
     { label: "About us", href: "/about" },
   ],
   impact: [
-    { value: "250+", label: "parent carers supported" },
-    { value: "95%", label: "reported improved wellbeing" },
-    { value: "75%", label: "reported increased confidence" },
+    {
+      value: "36",
+      label: "parent carers supported through Project ME",
+      source: "Project ME programme records",
+      period: "To 18 May 2026",
+    },
+    {
+      value: "95%",
+      label: "reported improved mental wellbeing",
+      source: "Project ME participant feedback",
+      period: "To 18 May 2026",
+    },
+    {
+      value: "100+",
+      label: "children and young people received free medical care",
+      source: "OAKonsult Nigeria outreach records",
+      period: "January to June 2026",
+    },
   ],
   stories: [
     { tag: "Parent carer wellbeing", title: "From surviving to living", summary: "Why parent carers need spaces for their own wellbeing, connection and growth." },

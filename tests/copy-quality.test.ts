@@ -45,6 +45,12 @@ const leakedEditorialLanguage = [
   "confirmed relationships by region",
   "current programme route",
   "Preview option:",
+  "website rebuild",
+  "reviewed during",
+  "approved organisational",
+  "current public website",
+  "publicly verified",
+  "regional team has approved",
 ];
 
 test("public copy does not expose editorial instructions or template language", () => {

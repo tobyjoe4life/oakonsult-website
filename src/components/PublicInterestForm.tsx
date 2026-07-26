@@ -35,7 +35,7 @@ export function PublicInterestForm({ definition }: { definition: PublicFormDefin
     if (!event.currentTarget.reportValidity()) return;
     setStatus(review
       ? "Preview complete. Nothing was sent or stored."
-      : "This form is being connected to OAKonsult’s reviewed submission service. Please contact the team while that connection is completed.");
+      : "This form is not available online yet. Please contact the OAKonsult team.");
   }
 
   return (
@@ -43,7 +43,7 @@ export function PublicInterestForm({ definition }: { definition: PublicFormDefin
       <fieldset>
         <legend>{definition.title}</legend>
         <p className="field-help">{definition.intro}</p>
-        {review && <p className="staging-form-note"><strong>Private staging preview</strong>Nothing entered here is sent or stored.</p>}
+        {review && <p className="staging-form-note"><strong>Preview only</strong>Nothing entered here is sent or stored.</p>}
         {definition.fields.map((field) => field.type === "checkbox" || field.type === "radio" ? (
           <div className="field-group" key={field.name}>
             {field.options && <span className="field-label">{field.label}{field.required ? " *" : ""}</span>}

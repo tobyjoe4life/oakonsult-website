@@ -268,11 +268,13 @@ a:hover .oak-arrow { transform: translateX(8px); }
 .oak-impact-top h2 { max-width: 12ch; margin: 0; color: var(--oak-forest); font-size: clamp(3.2rem, 5.5vw, 6.3rem); line-height: .93; letter-spacing: -.06em; }
 .oak-impact-top > p { max-width: 40ch; color: var(--oak-forest); font-size: 1.06rem; font-weight: 700; }
 .oak-impact-grid { position: relative; z-index: 2; width: min(1240px, 100%); margin: 72px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.oak-impact-stat { position: relative; min-height: 260px; padding: 34px; display: flex; flex-direction: column; justify-content: end; overflow: hidden; color: #fff; background: var(--oak-forest); border-radius: 50% 50% 12px 12px / 32% 32% 12px 12px; }
+.oak-impact-stat { position: relative; min-height: 330px; padding: 34px; display: flex; flex-direction: column; justify-content: end; overflow: hidden; color: #fff; background: var(--oak-forest); border-radius: 50% 50% 12px 12px / 32% 32% 12px 12px; }
 .oak-impact-stat.stat-2 { color: var(--oak-forest); background: var(--oak-gold); border-radius: 12px 50% 50% 12px / 12px 32% 32% 12px; }
-.oak-impact-stat.stat-3 { background: var(--oak-clay); border-radius: 12px 12px 50% 50% / 12px 12px 32% 32%; }
+.oak-impact-stat.stat-3 { color: var(--oak-forest); background: var(--oak-clay); border-radius: 12px 12px 50% 50% / 12px 12px 32% 32%; }
 .oak-impact-stat strong { position: relative; z-index: 2; font: 900 clamp(4.2rem, 7vw, 8rem)/.82 var(--font-display), sans-serif; letter-spacing: -.07em; }
 .oak-impact-stat span { position: relative; z-index: 2; max-width: 18ch; margin-top: 18px; font-weight: 800; }
+.oak-impact-stat small { position:relative; z-index:2; display:grid; gap:3px; max-width:25ch; margin-top:18px; padding-top:14px; border-top:1px solid currentColor; font-size:.69rem; line-height:1.35; opacity:.88; }
+.oak-impact-stat small b { font-size:.61rem; letter-spacing:.09em; text-transform:uppercase; }
 .oak-stat-rings { position: absolute; right: -25%; top: -34%; width: 112%; fill: none; stroke: currentColor; stroke-width: 2.5; opacity: .14; transition: transform .8s ease; }
 .oak-impact-stat:hover .oak-stat-rings { transform: rotate(18deg) scale(1.04); }
 .oak-impact-leaf { position: absolute; left: -9%; bottom: -36%; width: min(440px, 35vw); color: rgba(255,250,242,.38); transform: rotate(31deg); }
@@ -539,7 +541,7 @@ a:hover .oak-arrow { transform: translateX(8px); }
   .oak-impact-top { grid-template-columns: 1fr; gap: 24px; }
   .oak-impact-top h2 { font-size: clamp(3rem, 13vw, 5rem); }
   .oak-impact-grid { grid-template-columns: 1fr; }
-  .oak-impact-stat { min-height: 240px; }
+  .oak-impact-stat { min-height: 300px; }
   .oak-impact-leaf { width: 80vw; }
 
   .oak-regions { padding: 95px 20px 110px; }

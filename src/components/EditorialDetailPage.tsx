@@ -6,12 +6,14 @@ import type { EditorialPageData } from "@/lib/editorial-pages";
 const Arrow = () => <span aria-hidden="true">→</span>;
 
 export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
+  const supportingPhotos = data.photos.filter((photo) => photo.src !== data.heroImage);
+
   return (
     <article className="oak-home editorial-page detail-page">
       <HomeMotion />
       <header className="editorial-masthead detail-masthead">
         <div className="editorial-masthead-copy" data-reveal>
-          <nav className="editorial-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/what-we-do">Our work</Link><span>/</span><span>{data.title}</span></nav>
+          <nav className="editorial-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/what-we-do">Our work</Link><span aria-hidden="true">/</span><span aria-current="page">{data.title}</span></nav>
           <p className="oak-kicker">{data.eyebrow}</p>
           <h1>{data.title}</h1>
           <p>{data.intro}</p>
@@ -49,7 +51,7 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
       <section className="detail-photo-journal" aria-labelledby="photo-journal-title">
         <div className="detail-journal-heading" data-reveal><p className="oak-kicker dark">In pictures</p><h2 id="photo-journal-title">{data.photosTitle}</h2><Link href="/media-gallery">View the media gallery <Arrow /></Link></div>
         <div className="detail-photo-row">
-          {data.photos.map((photo, index) => (
+          {supportingPhotos.map((photo, index) => (
             <figure className={`detail-journal-photo photo-${index + 1}`} key={photo.src} data-reveal>
               <div><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 760px) 90vw, 33vw" /></div>
               <figcaption>{photo.caption}</figcaption>

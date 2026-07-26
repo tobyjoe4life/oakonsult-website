@@ -67,6 +67,15 @@ export const galleryItems: GalleryItem[] = [
     theme: "Community engagement",
   },
   {
+    slug: "nigeria-community-session",
+    region: "Nigeria",
+    src: "/images/impact/nigeria-community-session.jpeg",
+    alt: "Adults taking part in a facilitated OAKonsult community session in Nigeria",
+    title: "Learning through shared conversation",
+    context: "Adults taking part in a facilitated OAKonsult community session in Nigeria.",
+    theme: "Community learning",
+  },
+  {
     slug: "nigeria-community-outreach",
     region: "Nigeria",
     src: "/images/current-site-community-partnership.webp",
@@ -90,7 +99,7 @@ export const homepageGallery = [
   galleryItems[0],
   galleryItems[1],
   galleryItems[2],
-  galleryItems[3],
   galleryItems[4],
   galleryItems[5],
+  galleryItems[6],
 ];

@@ -27,7 +27,7 @@ export function InteriorPage({ data }: { data: InteriorPageData }) {
       <HomeMotion />
       <section className="interior-hero" aria-labelledby="interior-title">
         <div className="interior-hero-copy" data-reveal>
-          <nav className="editorial-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><span>{data.title}</span></nav>
+          <nav className="editorial-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><span aria-current="page">{data.title}</span></nav>
           <p className="oak-kicker">{data.eyebrow}</p>
           <h1 id="interior-title">{data.title}</h1>
           <p>{data.intro}</p>

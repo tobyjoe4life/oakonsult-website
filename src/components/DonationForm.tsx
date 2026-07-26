@@ -231,7 +231,7 @@ export function DonationForm({ initialPurpose = "general" }: { initialPurpose?: 
               <div><dt>Gift Aid</dt><dd>{details.giftAid ? "Declaration selected" : "Not selected"}</dd></div>
               <div><dt>Updates</dt><dd>{details.marketing ? "Opted in" : "Not opted in"}</dd></div>
             </dl>
-            <p className="secure-note">{donationPreviewMode ? `Payment would be handled by ${currency === "GBP" ? "Stripe" : "Paystack"} on the live website. This preview does not accept card details.` : `Secure payment will take place with ${currency === "GBP" ? "Stripe" : "Paystack"}. OAKonsult will not receive your card details.`}</p>
+            <p className="secure-note">{donationPreviewMode ? `When donations are enabled, payment will be handled by ${currency === "GBP" ? "Stripe" : "Paystack"}. This preview does not accept card details.` : `Secure payment will take place with ${currency === "GBP" ? "Stripe" : "Paystack"}. OAKonsult will not receive your card details.`}</p>
           </div>
           <div className="step-actions">
             <button className="button button-muted" type="button" onClick={() => setStep(1)}>Back</button>

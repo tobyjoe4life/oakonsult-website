@@ -164,8 +164,8 @@ export default function Home() {
       <section className="oak-impact" aria-labelledby="impact-title">
         <OakLeaf className="oak-impact-leaf" />
         <div className="oak-impact-top" data-reveal>
-          <div><p className="oak-kicker dark">Participant feedback</p><h2 id="impact-title">What parent carers told us.</h2></div>
-          <p>Feedback from Project ME participants. Results vary between people and cohorts.</p>
+          <div><p className="oak-kicker dark">Evidence snapshot</p><h2 id="impact-title">What our records show.</h2></div>
+          <p>Figures from Project ME participant feedback and OAKonsult Nigeria outreach records. Each figure shows its date and source.</p>
         </div>
         <div className="oak-impact-grid">
           {siteContent.impact.map((item, index) => (
@@ -173,6 +173,7 @@ export default function Home() {
               <GrowthRings className="oak-stat-rings" />
               <strong>{item.value}</strong>
               <span>{item.label}</span>
+              <small><b>{item.period}</b>{item.source}</small>
             </div>
           ))}
         </div>
@@ -185,7 +186,7 @@ export default function Home() {
         </div>
         <div className="oak-region-cards">
           <Link href="/uk" className="oak-region-card oak-region-uk" data-reveal>
-            <Image src="/images/sharepoint/zumba-group.webp" alt="Parent carers taking part in an OAKonsult wellbeing activity in the UK" fill sizes="(max-width: 760px) 94vw, 50vw" />
+            <Image src="/images/sharepoint/zumba-class-2.webp" alt="Parent carers taking part in an OAKonsult Zumba activity in the UK" fill sizes="(max-width: 760px) 94vw, 50vw" />
             <div><span>United Kingdom</span><h3>Support that strengthens parent carers.</h3><b>Explore our UK work <Arrow /></b></div>
           </Link>
           <Link href="/nigeria" className="oak-region-card oak-region-ng" data-reveal>

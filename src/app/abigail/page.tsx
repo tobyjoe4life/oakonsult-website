@@ -17,7 +17,7 @@ const tribute: EditorialPageData = {
   related: [
     { label: "Read OAKonsult’s founding story", href: "/our-story", description: "Follow the journey from April 2010 to a shared movement." },
     { label: "Explore OAK Centre Prime", href: "/programmes/oak-centre-prime", description: "See the ground-breaking milestone and architectural vision." },
-    { label: "Support the vision", href: "/donate", description: "Choose OAK Centre Prime when previewing a gift." },
+    { label: "Support the vision", href: "/donate?purpose=oak-centre", description: "Choose OAK Centre Prime when directing your support." },
   ],
   photos: [
     { src: "/images/oak-centre-prime/masterplan.jpg", alt: "OAK Centre Prime masterplan", caption: "A place planned around dignity, care and community." },

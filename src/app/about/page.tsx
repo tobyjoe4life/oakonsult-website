@@ -21,7 +21,7 @@ export default function AboutPage() {
           { title: "Governance and impact", text: "Read charity information, safeguarding commitments, reports and verified impact highlights.", href: "/impact" },
           { title: "United Kingdom", text: "Parent-carer wellbeing, Project ME, Zumba, inclusive training and community connection.", href: "/uk" },
           { title: "Nigeria", text: "Community support, medical and school outreach, public awareness and OAK Centre Prime.", href: "/nigeria" },
-          { title: "Sierra Leone", text: "Follow OAKonsult’s developing Sierra Leone journey within one shared identity.", href: "/sierra-leone" },
+          { title: "Shared and online support", text: "Parent-carer learning, faith-sensitive resources and connections that are not tied to one event or region.", href: "/what-we-do" },
         ],
         cta: "Find the part of OAKonsult that matters to you",
         ctaText: "Find support, understand the story, explore a programme, partner with the charity or ask a question.",

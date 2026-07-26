@@ -17,7 +17,7 @@ const oakCentrePrime: EditorialPageData = {
   related: [
     { label: "A tribute to Abigail", href: "/abigail", description: "Read about the life and legacy at the heart of this vision." },
     { label: "OAKonsult Nigeria", href: "/nigeria", description: "See community support, outreach and disability inclusion work in Nigeria." },
-    { label: "Support the project", href: "/donate?purpose=oak-centre", description: "Preview a gift directed to OAK Centre Prime." },
+    { label: "Support the project", href: "/donate?purpose=oak-centre", description: "Choose OAK Centre Prime when directing your support." },
   ],
   photos: [
     { src: "/images/oak-centre-prime/administration.jpg", alt: "Architectural rendering of OAK Centre Prime administration building", caption: "Administration and welcome building." },

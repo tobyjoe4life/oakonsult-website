@@ -9,7 +9,7 @@ export default function Page() {
     imageAlt: "OAKonsult team members and community partners",
     sectionEyebrow: "People and roles",
     sectionTitle: "Shared responsibility across the charity.",
-    sectionText: "Roles can change. This page reflects the public organisational information reviewed during the website rebuild; OAKonsult should keep it current as appointments change.",
+    sectionText: "Leadership, governance, programme delivery and volunteering come together around one shared responsibility to families.",
     items: [
       { title: "Olufunke Adeloye", text: "Founder and Chief Executive Officer.", href: "/contact" },
       { title: "Ajisola Adeloye", text: "Co-founder and UK trustee.", href: "/contact" },

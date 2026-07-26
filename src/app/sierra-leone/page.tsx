@@ -9,7 +9,7 @@ export default function Page() {
     imageAlt: "A community partnership gathering",
     sectionEyebrow: "Develop carefully",
     sectionTitle: "Local relationships before public promises.",
-    sectionText: "This page keeps Sierra Leone visible without overstating work that has not yet been publicly verified. Programme, partner, funder and contact details should be added only when the regional team has approved them.",
+    sectionText: "For current information about OAKonsult’s connection with Sierra Leone, contact the team directly.",
     items: [
       { title: "One shared purpose", text: "Dignity, belonging and practical inclusion for disabled people and their families.", href: "/about" },
       { title: "Country-specific evidence", text: "Future activity will retain its own programme, funding, safeguarding and partnership context.", href: "/impact" },

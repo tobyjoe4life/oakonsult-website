@@ -9,7 +9,7 @@ export default function Page() {
     imageAlt: "OAKonsult representatives and community leaders in Nigeria",
     sectionEyebrow: "Our timeline",
     sectionTitle: "The milestones that brought OAKonsult here.",
-    sectionText: "Dates below are drawn from OAKonsult’s current public website and approved organisational story sources.",
+    sectionText: "OAKonsult’s story moves from one family’s disability journey into a growing commitment to parent carers, inclusion and practical hope.",
     items: [
       { title: "2010 - The family journey begins", text: "Abigail sustained profound brain damage at 18 months. The Adeloye family relocated from Nigeria to the UK to seek specialist care.", href: "/our-story" },
       { title: "2014 - From questions to purpose", text: "As Abigail entered palliative care, Olufunke’s faith and lived experience deepened a call to support other families.", href: "/our-story" },
