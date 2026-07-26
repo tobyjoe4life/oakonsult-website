@@ -5,6 +5,7 @@ export default function Page() {
     <InteriorPage
       data={{
         eyebrow: "Find support",
+        mood: "growth",
         title: "Support for parent carers",
         intro: "If you care for a disabled child or family member, you deserve support too. Choose the option that best matches what you need today.",
         image: "/images/parent-carer-community.jpg",

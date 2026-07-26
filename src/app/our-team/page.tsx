@@ -3,6 +3,7 @@ import { InteriorPage } from "@/components/InteriorPage";
 export default function Page() {
   return <InteriorPage data={{
     eyebrow: "About / People",
+    mood: "clay",
     title: "Our team",
     intro: "Trustees, staff and volunteers bring lived experience, governance, programme delivery and community relationships to OAKonsult’s work.",
     image: "/images/current-site-community-partnership.webp",

@@ -11,7 +11,7 @@ const storyImages = [
 
 export default function Stories() {
   return (
-    <div className="editorial-page story-index-page">
+    <div className="editorial-page story-index-page" data-mood="clay">
       <HomeMotion />
       <section className="story-index-hero" aria-labelledby="story-index-title">
         <div className="story-index-hero-copy">

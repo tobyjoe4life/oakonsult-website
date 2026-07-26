@@ -1,0 +1,525 @@
+/* ==========================================================================
+   OAK premium design layer (v6)
+   Page moods, distinct motion choreography and premium chrome on top of the
+   Organic Editorial V4/V5 system. Loads after interior-v5.css.
+
+   Safety rules baked in:
+   - Hidden reveal states only exist behind `.motion-ready` (set by JS) and
+     `:not(.is-visible)`, so content is fully visible when JavaScript fails
+     and component hover transforms return after reveal.
+   - Decorative geometry is rendered with pseudo-elements only, so it is
+     invisible to assistive technology by construction.
+   - Every moving part has a prefers-reduced-motion off switch below.
+   ========================================================================== */
+
+:root {
+  --oak-coral: #f47d59;
+  --oak-clay: #e98a69;
+  --oak-clay-deep: #b85c3e;
+  --oak-sky: #9fcbd0;
+  --oak-teal-deep: #0f4844;
+}
+
+/* --------------------------------------------------------------------------
+   1. Page moods: controlled colour sequences per route family.
+   Each mood recolours masthead stripes, organic ring decor, action bands,
+   list hover states, section numbers and form grounds while the underlying
+   layout system stays identical.
+   -------------------------------------------------------------------------- */
+[data-mood] {
+  --mood-pop: #d7f45b;
+  --mood-deep: #07392f;
+  --mood-soft: #e9f4cf;
+  --mood-accent: #12503e;
+  --mood-warm: #e0c875;
+}
+
+[data-mood="growth"] {
+  --mood-pop: #d7f45b;
+  --mood-deep: #07392f;
+  --mood-soft: #e9f4cf;
+  --mood-accent: #12503e;
+  --mood-warm: #e0c875;
+}
+
+[data-mood="harvest"] {
+  --mood-pop: #f0ce86;
+  --mood-deep: #0a3a2c;
+  --mood-soft: #f7ecd2;
+  --mood-accent: #a97f2e;
+  --mood-warm: #e98a69;
+}
+
+[data-mood="wellbeing"] {
+  --mood-pop: #9fcbd0;
+  --mood-deep: #0f4844;
+  --mood-soft: #e2f0f1;
+  --mood-accent: #2b7d78;
+  --mood-warm: #d7f45b;
+}
+
+[data-mood="clay"] {
+  --mood-pop: #e98a69;
+  --mood-deep: #07392f;
+  --mood-soft: #f9e6db;
+  --mood-accent: #b85c3e;
+  --mood-warm: #f0ce86;
+}
+
+[data-mood="calm"] {
+  --mood-pop: #9fcbd0;
+  --mood-deep: #07392f;
+  --mood-soft: #f8f3e8;
+  --mood-accent: #0b7771;
+  --mood-warm: #d7f45b;
+}
+
+/* --------------------------------------------------------------------------
+   2. Motion choreography. Distinct families instead of one uniform reveal:
+   - directional reveals: left | right | zoom (default stays a rise)
+   - stagger groups: slide | pop | unfold children with --stagger-index
+   - scroll drift: [data-drift] uses the independent `translate` property so
+     it never clobbers rotations or keyframe animations
+   -------------------------------------------------------------------------- */
+.motion-ready [data-reveal],
+.motion-ready [data-reveal-child] {
+  transition:
+    opacity .8s ease,
+    transform .85s cubic-bezier(.2, .75, .25, 1),
+    clip-path .85s cubic-bezier(.2, .75, .25, 1);
+}
+
+.motion-ready [data-reveal]:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, 42px, 0);
+}
+
+.motion-ready [data-reveal="left"]:not(.is-visible) {
+  transform: translate3d(-56px, 0, 0);
+}
+
+.motion-ready [data-reveal="right"]:not(.is-visible) {
+  transform: translate3d(56px, 0, 0);
+}
+
+.motion-ready [data-reveal="zoom"]:not(.is-visible) {
+  transform: scale(.9);
+}
+
+/* Poster funding tile keeps its rotation while revealing */
+.motion-ready .oak-home .oak-poster-funding[data-reveal]:not(.is-visible) {
+  transform: translate3d(0, 48px, 0) rotate(-2deg);
+}
+
+.motion-ready [data-reveal-child] {
+  transition-delay: calc(var(--stagger-index, 0) * 95ms);
+}
+
+.motion-ready [data-reveal-child]:not(.is-visible) {
+  opacity: 0;
+}
+
+.motion-ready [data-reveal-child="slide"]:not(.is-visible) {
+  transform: translate3d(-46px, 0, 0);
+}
+
+.motion-ready [data-reveal-child="pop"]:not(.is-visible) {
+  transform: translate3d(0, 30px, 0) scale(.88);
+}
+
+.motion-ready [data-reveal-child="unfold"]:not(.is-visible) {
+  transform: translate3d(0, 26px, 0) scale(.96);
+  clip-path: inset(0 0 22% 0);
+}
+
+[data-drift] {
+  translate: 0 var(--drift-y, 0px);
+  will-change: translate;
+}
+
+/* --------------------------------------------------------------------------
+   3. Mastheads and heroes: mood stripes, organic growth rings, photo settle.
+   -------------------------------------------------------------------------- */
+@keyframes oak-v6-ring-breathe {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(14deg) scale(1.06); }
+}
+
+@keyframes oak-v6-photo-settle {
+  from { transform: scale(1.07); }
+  to { transform: scale(1); }
+}
+
+/* Editorial detail mastheads */
+.interior-v5 .editorial-masthead::after {
+  height: 14px;
+  background: linear-gradient(90deg, var(--mood-pop) 0 38%, var(--mood-warm) 38% 70%, var(--mood-accent) 70%);
+}
+
+.interior-v5 .editorial-masthead::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -190px;
+  right: -150px;
+  width: 460px;
+  aspect-ratio: 1;
+  border: 52px solid var(--mood-pop);
+  border-radius: 50%;
+  opacity: .13;
+  animation: oak-v6-ring-breathe 16s ease-in-out infinite alternate;
+}
+
+.interior-v5 .editorial-masthead-copy {
+  position: relative;
+  z-index: 1;
+}
+
+/* Shared interior heroes (hubs and form pages) */
+.interior-v5 .interior-hero {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+}
+
+.interior-v5 .interior-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -220px;
+  right: -180px;
+  width: 520px;
+  aspect-ratio: 1;
+  border: 58px solid var(--mood-pop);
+  border-radius: 50%;
+  opacity: .1;
+  animation: oak-v6-ring-breathe 18s ease-in-out infinite alternate;
+}
+
+.interior-v5 .interior-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: 26px;
+  left: clamp(24px, 6vw, 90px);
+  width: 148px;
+  height: 10px;
+  background: linear-gradient(90deg, var(--mood-pop) 0 55%, var(--mood-accent) 55%);
+  border-radius: 99px;
+}
+
+.interior-v5 .interior-hero-image img,
+.interior-v5 .detail-hero-photo img,
+.interior-v5 .gallery-masthead-photo img {
+  animation: oak-v6-photo-settle 1.8s ease-out both;
+}
+
+/* Gallery mastheads */
+.gallery-masthead {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.gallery-masthead::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -160px;
+  bottom: -220px;
+  width: 480px;
+  aspect-ratio: 1;
+  border: 54px solid var(--mood-pop);
+  border-radius: 50%;
+  opacity: .12;
+  animation: oak-v6-ring-breathe 15s ease-in-out infinite alternate;
+}
+
+/* Utility pages keep their calm mood but lose the flatness */
+.utility-mark {
+  background: var(--mood-pop, #e0c875);
+}
+
+.utility-masthead::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 14px;
+  background: linear-gradient(90deg, var(--mood-pop) 0 38%, var(--mood-warm) 38% 70%, var(--mood-accent) 70%);
+}
+
+.utility-masthead {
+  position: relative;
+}
+
+.utility-sections > section > span {
+  color: var(--mood-accent, #0b7771);
+}
+
+.utility-index a {
+  transition: color .2s ease, padding-left .2s ease;
+}
+
+.utility-index a:hover,
+.utility-index a:focus-visible {
+  color: var(--mood-accent, #0b7771);
+  padding-left: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Action bands: full-width mood fields with oversized growth rings.
+   -------------------------------------------------------------------------- */
+.editorial-action-band {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--mood-deep, var(--editorial-teal));
+}
+
+.editorial-action-band::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -130px;
+  bottom: -200px;
+  width: 460px;
+  aspect-ratio: 1;
+  border: 56px solid var(--mood-pop);
+  border-radius: 50%;
+  opacity: .14;
+}
+
+.editorial-action-band::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -60px;
+  left: 8%;
+  width: 170px;
+  aspect-ratio: 1;
+  border: 26px solid var(--mood-warm);
+  border-radius: 50%;
+  opacity: .16;
+}
+
+.editorial-action-band .oak-kicker {
+  color: var(--mood-pop, #f3f7c2);
+}
+
+/* --------------------------------------------------------------------------
+   5. Editorial interior lists and detail sections.
+   -------------------------------------------------------------------------- */
+.interior-v5 .interior-flow {
+  position: relative;
+  isolation: isolate;
+}
+
+.interior-v5 .interior-flow::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0 calc(50% - 50vw);
+  background: linear-gradient(
+    132deg,
+    color-mix(in srgb, var(--mood-soft) 62%, #ffffff) 0 58%,
+    var(--mood-soft) 58% 100%
+  );
+}
+
+.interior-v5 .interior-flow::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: calc(50% - 55vw);
+  top: 6%;
+  width: min(420px, 38vw);
+  aspect-ratio: 1;
+  border: clamp(24px, 3.5vw, 48px) solid var(--mood-pop);
+  border-radius: 50%;
+  opacity: .12;
+  pointer-events: none;
+}
+
+.interior-v5 .interior-list article {
+  margin-inline: -18px;
+  padding-inline: 18px;
+  transition: background-color .25s ease, box-shadow .25s ease;
+}
+
+/* Keep reveal/stagger and hover feedback in the same cascade-safe transition. */
+.motion-ready .interior-v5 .interior-list article[data-reveal-child] {
+  transition:
+    opacity .8s ease,
+    transform .85s cubic-bezier(.2, .75, .25, 1),
+    clip-path .85s cubic-bezier(.2, .75, .25, 1),
+    background-color .25s ease,
+    box-shadow .25s ease;
+  transition-delay:
+    calc(var(--stagger-index, 0) * 95ms),
+    calc(var(--stagger-index, 0) * 95ms),
+    calc(var(--stagger-index, 0) * 95ms),
+    0ms,
+    0ms;
+}
+
+.interior-v5 .interior-list article:hover {
+  background: color-mix(in srgb, var(--mood-pop) 22%, #ffffff);
+  box-shadow: inset 5px 0 0 var(--mood-pop);
+}
+
+.interior-v5 .interior-list article > span.interior-index,
+.interior-v5 .interior-list article > span:first-child {
+  color: var(--mood-accent);
+}
+
+.interior-v5 .detail-section-number {
+  color: var(--mood-accent);
+}
+
+.interior-v5 .detail-section.tone-2 {
+  background: var(--mood-soft);
+}
+
+.interior-v5 .detail-section.tone-3 {
+  background: color-mix(in srgb, var(--mood-pop) 20%, #ffffff);
+}
+
+.interior-v5 .detail-related article {
+  transition: transform .35s cubic-bezier(.2, .75, .25, 1);
+}
+
+.interior-v5 .detail-related article:hover {
+  transform: translateY(-8px);
+}
+
+/* Form pages pick up the mood ground instead of plain cream */
+.interior-v5 .form-section {
+  background: var(--mood-soft);
+}
+
+/* Muted helper copy still meets WCAG AA on every mood ground. */
+.interior-v5 .form-section .field-help {
+  color: #49635a;
+}
+
+/* --------------------------------------------------------------------------
+   6. Header and menu polish (CSS-only; markup keeps its tested structure).
+   -------------------------------------------------------------------------- */
+.header-v4-main-links a {
+  position: relative;
+}
+
+.header-v4-main-links a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 6px;
+  height: 3px;
+  background: var(--oak-growth);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .28s ease;
+}
+
+.header-v4-main-links a:hover::after,
+.header-v4-main-links a.is-active::after {
+  transform: scaleX(1);
+}
+
+@keyframes oak-v6-donate-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(215, 237, 111, .55); }
+  70% { box-shadow: 0 0 0 12px rgba(215, 237, 111, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(215, 237, 111, 0); }
+}
+
+.header-v4 .header-donate {
+  animation: oak-v6-donate-pulse 3.4s ease-out infinite;
+}
+
+@keyframes oak-v6-menu-link-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.menu-v4 nav a {
+  animation: oak-v6-menu-link-in .55s cubic-bezier(.2, .75, .25, 1) both;
+  animation-delay: calc(150ms + var(--link-index, 0) * 65ms);
+}
+
+.menu-v4-region-card {
+  animation: oak-v6-menu-link-in .55s cubic-bezier(.2, .75, .25, 1) both;
+}
+
+.menu-v4-region-card:nth-of-type(1) { animation-delay: 320ms; }
+.menu-v4-region-card:nth-of-type(2) { animation-delay: 400ms; }
+
+/* --------------------------------------------------------------------------
+   7. Footer premium statement.
+   -------------------------------------------------------------------------- */
+.footer-v4-statement {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: clamp(72px, 9vw, 128px) clamp(24px, 6vw, 90px) clamp(8px, 1.4vw, 20px);
+  max-width: 15ch;
+  color: var(--oak-growth);
+  font-family: var(--font-display), sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.7rem, 6.2vw, 6.6rem);
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+
+.footer-v4-statement em {
+  font-style: normal;
+  color: #fff;
+}
+
+/* Partner rails pause on hover so logos stay readable */
+.oak-partner-rail:hover .oak-partner-track,
+.partner-rail-v4:hover .partner-track,
+.logo-marquee:hover .logo-track {
+  animation-play-state: paused;
+}
+
+/* --------------------------------------------------------------------------
+   8. Reduced motion: everything decorative stops, all content stays visible.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  [data-drift] {
+    translate: none !important;
+  }
+
+  .motion-ready [data-reveal],
+  .motion-ready [data-reveal-child] {
+    transition: none;
+  }
+
+  .motion-ready [data-reveal]:not(.is-visible),
+  .motion-ready [data-reveal-child]:not(.is-visible) {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
+
+  .interior-v5 .editorial-masthead::before,
+  .interior-v5 .interior-hero::before,
+  .gallery-masthead::after,
+  .header-v4 .header-donate,
+  .menu-v4 nav a,
+  .menu-v4-region-card,
+  .interior-v5 .interior-hero-image img,
+  .interior-v5 .detail-hero-photo img,
+  .interior-v5 .gallery-masthead-photo img {
+    animation: none !important;
+  }
+}

@@ -64,7 +64,7 @@ const nigeriaPartners = [
 
 export default function Page() {
   return (
-    <div className="oak-home editorial-page partners-page">
+    <div className="oak-home editorial-page partners-page" data-mood="clay">
       <HomeMotion />
       <header className="editorial-masthead partners-masthead">
         <div className="editorial-masthead-copy" data-reveal>

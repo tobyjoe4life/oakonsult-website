@@ -3,6 +3,7 @@ import { InteriorPage } from "@/components/InteriorPage";
 export default function Page() {
   return <InteriorPage data={{
     eyebrow: "Where we work / Sierra Leone",
+    mood: "harvest",
     title: "OAKonsult Sierra Leone",
     intro: "A developing regional journey within OAKonsult’s shared commitment to disability inclusion and family support.",
     image: "/images/current-site-community-partnership.webp",

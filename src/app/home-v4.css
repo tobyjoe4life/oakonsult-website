@@ -1,4 +1,4 @@
-/* OAKonsult V4: Family Action-informed, OAK-owned visual system */
+/* OAKonsult V4: premium editorial, OAK-owned visual system */
 :root {
   --oak-forest: #062c22;
   --oak-deep: #0a3a2c;
@@ -420,10 +420,8 @@ a:hover .oak-arrow { transform: translateX(8px); }
 .region-switch > div { width:min(900px,100%); }
 .region-switch h2 { max-width:14ch; margin:0 auto 38px; color:#fff; }
 
-.motion-ready .oak-home [data-reveal] { opacity: 0; transform: translate3d(0, 42px, 0); transition: opacity .85s ease, transform .9s cubic-bezier(.2,.75,.25,1); }
-.motion-ready .oak-home [data-reveal].is-visible { opacity: 1; transform: translate3d(0,0,0); }
-.motion-ready .oak-home .oak-poster-funding[data-reveal] { transform: translate3d(0,48px,0) rotate(-2deg); }
-.motion-ready .oak-home .oak-poster-funding[data-reveal].is-visible { transform: translate3d(0,0,0) rotate(-2deg); }
+/* Reveal choreography lives in premium-v6.css (gated behind .motion-ready
+   and :not(.is-visible) so hover transforms return after reveal). */
 
 @media (max-width: 1080px) {
   .header-v4-nav { display: none; }

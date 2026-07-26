@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { HomeMotion } from "@/components/HomeMotion";
 
+export type PageMood = "growth" | "harvest" | "wellbeing" | "clay" | "calm";
+
 export type InteriorPageData = {
   eyebrow: string;
   title: string;
@@ -14,6 +16,7 @@ export type InteriorPageData = {
   sectionEyebrow: string;
   sectionTitle: string;
   sectionText: string;
+  mood?: PageMood;
   items: {
     title: string;
     text: string;
@@ -23,16 +26,16 @@ export type InteriorPageData = {
 
 export function InteriorPage({ data }: { data: InteriorPageData }) {
   return (
-    <div className="oak-home editorial-page interior-v5">
+    <div className="oak-home editorial-page interior-v5" data-mood={data.mood ?? "growth"}>
       <HomeMotion />
       <section className="interior-hero" aria-labelledby="interior-title">
-        <div className="interior-hero-copy" data-reveal>
+        <div className="interior-hero-copy" data-reveal="left">
           <nav className="editorial-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><span aria-current="page">{data.title}</span></nav>
           <p className="oak-kicker">{data.eyebrow}</p>
           <h1 id="interior-title">{data.title}</h1>
           <p>{data.intro}</p>
         </div>
-        <div className="interior-hero-image" data-reveal><Image src={data.image} alt={data.imageAlt} fill priority sizes="(max-width: 960px) 100vw, 54vw" /></div>
+        <div className="interior-hero-image" data-reveal="zoom"><Image src={data.image} alt={data.imageAlt} fill priority sizes="(max-width: 960px) 100vw, 54vw" /></div>
       </section>
 
       <section className="interior-flow" aria-labelledby="interior-section-title">
@@ -41,9 +44,9 @@ export function InteriorPage({ data }: { data: InteriorPageData }) {
           <h2 id="interior-section-title">{data.sectionTitle}</h2>
           <p>{data.sectionText}</p>
         </div>
-        <div className="interior-list">
+        <div className="interior-list" data-reveal-group>
           {data.items.map((item, index) => (
-            <article key={item.title} data-reveal>
+            <article key={item.title} data-reveal-child="slide">
               <span className="interior-index">{String(index + 1).padStart(2, "0")}</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>

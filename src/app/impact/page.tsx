@@ -30,7 +30,7 @@ const highlights = [
 
 export default function Page() {
   return (
-    <div className="oak-home editorial-page impact-page">
+    <div className="oak-home editorial-page impact-page" data-mood="wellbeing">
       <HomeMotion />
 
       <section className="impact-masthead" aria-labelledby="impact-title">

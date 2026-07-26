@@ -5,6 +5,7 @@ export default function AboutPage() {
     <InteriorPage
       data={{
         eyebrow: "About OAKonsult / Who we are",
+        mood: "clay",
         title: "Who we are",
         intro: "A Christian disability charity helping parent carers and families move from surviving towards living life abundantly through practical support, inclusive training and community-led outreach.",
         image: "/images/care-in-action.jpeg",

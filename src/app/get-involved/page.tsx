@@ -5,6 +5,7 @@ export default function Page() {
     <InteriorPage
       data={{
         eyebrow: "Get involved",
+        mood: "growth",
         title: "Ways to support OAKonsult",
         intro: "You can volunteer, work with us as a partner or make a donation.",
         image: "/images/care-in-action.jpeg",

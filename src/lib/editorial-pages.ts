@@ -1,3 +1,5 @@
+import type { PageMood } from "@/components/InteriorPage";
+
 export type EditorialSection = {
   eyebrow: string;
   title: string;
@@ -26,11 +28,13 @@ export type EditorialPageData = {
   ctaText: string;
   ctaLabel: string;
   ctaHref: string;
+  mood?: PageMood;
 };
 
 export const editorialPages = {
   projectMe: {
     eyebrow: "UK / Parent-carer wellbeing",
+    mood: "growth",
     title: "Project ME",
     intro: "Project ME is a wellbeing and resilience programme for parent carers. It offers time to reflect, rebuild confidence and meet people who understand.",
     heroImage: "/images/gallery/uk-project-me-session.webp",
@@ -84,6 +88,7 @@ export const editorialPages = {
   },
   parentCarerSupport: {
     eyebrow: "UK / Family support",
+    mood: "growth",
     title: "Support for parent carers",
     intro: "Wellbeing support, peer connection and practical signposting for people caring for disabled children and young people.",
     heroImage: "/images/gallery/uk-parent-carer-community.webp",
@@ -137,6 +142,7 @@ export const editorialPages = {
   },
   churches: {
     eyebrow: "Faith communities / Inclusion",
+    mood: "harvest",
     title: "Support for churches",
     intro: "Faith-rooted training for churches that want to welcome disabled people and support parent carers more effectively.",
     heroImage: "/images/current-site-community-partnership.webp",
@@ -186,6 +192,7 @@ export const editorialPages = {
   },
   oakCentrePrime: {
     eyebrow: "Nigeria / Future development",
+    mood: "harvest",
     title: "OAK Centre Prime",
     intro: "A planned disability-support centre in Oolo Town, Ogbomoso, created in memory of Abigail.",
     heroImage: "/images/gallery/nigeria-oolo-palace.webp",
@@ -239,6 +246,7 @@ export const editorialPages = {
   },
   events: {
     eyebrow: "Events and activities",
+    mood: "growth",
     title: "Come and take part",
     intro: "Find OAKonsult sessions, community activities and programme events. Check the event details before you travel.",
     heroImage: "/images/sharepoint/zumba-action.webp",
@@ -282,6 +290,7 @@ export const editorialPages = {
   },
   impact: {
     eyebrow: "Stories, evidence and accountability",
+    mood: "wellbeing",
     title: "Impact grows from listening",
     intro: "See how OAKonsult reports programme activity, participant feedback, governance and learning across the UK and Nigeria.",
     heroImage: "/images/current-site-community-partnership.webp",

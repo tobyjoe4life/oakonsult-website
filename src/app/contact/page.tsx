@@ -4,7 +4,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { HomeMotion } from "@/components/HomeMotion";
 
 export default function Contact() {
-  return <div className="oak-home editorial-page contact-editorial-page">
+  return <div className="oak-home editorial-page contact-editorial-page" data-mood="growth">
     <HomeMotion />
     <header className="contact-editorial-masthead">
       <div className="contact-editorial-copy" data-reveal>

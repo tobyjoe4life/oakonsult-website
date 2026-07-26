@@ -3,6 +3,7 @@ import { InteriorPage } from "@/components/InteriorPage";
 export default function Page() {
   return <InteriorPage data={{
     eyebrow: "Events and activities",
+    mood: "growth",
     title: "Come and take part",
     intro: "Find current OAKonsult sessions, community activities and programme events. Registration and availability can change, so confirm details before travelling.",
     image: "/images/sharepoint/zumba-action.webp",

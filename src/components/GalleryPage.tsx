@@ -25,10 +25,10 @@ export function GalleryPage({ region }: GalleryPageProps) {
     : "Photographs from parent-carer support, disability-inclusion programmes, community activity and public engagement across the UK and Nigeria.";
 
   return (
-    <div className="oak-home editorial-page gallery-page">
+    <div className="oak-home editorial-page gallery-page" data-mood="wellbeing">
       <HomeMotion />
       <section className="editorial-masthead gallery-masthead" aria-labelledby="gallery-title">
-        <div className="editorial-masthead-copy" data-reveal>
+        <div className="editorial-masthead-copy" data-reveal="left">
           <nav className="editorial-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/impact">Stories &amp; impact</Link><span>/</span><span>{title}</span></nav>
           <p className="oak-kicker">Stories and impact</p>
           <h1 id="gallery-title">{title}</h1>
@@ -39,7 +39,7 @@ export function GalleryPage({ region }: GalleryPageProps) {
             {region === "Nigeria" && <Link href="/media-gallery/uk">Switch to the UK gallery <Arrow /></Link>}
           </div>
         </div>
-        <div className="gallery-masthead-photo" data-reveal>
+        <div className="gallery-masthead-photo" data-reveal="zoom">
           <Image
             src={region === "Nigeria" ? "/images/gallery/nigeria-knowledge-radio.webp" : "/images/gallery/uk-project-me-session.webp"}
             alt={region === "Nigeria" ? "OAKonsult disability-awareness engagement at Knowledge Radio" : "Parent carers taking part in a Project ME session"}
@@ -70,9 +70,9 @@ export function GalleryPage({ region }: GalleryPageProps) {
           <h2 id="gallery-collection-title">The work in pictures.</h2>
           <p>{region ? `Programmes, outreach and community activity in ${region}.` : "Programmes, outreach and community activity in the UK and Nigeria."}</p>
         </div>
-        <div className="gallery-grid">
+        <div className="gallery-grid" data-reveal-group>
           {collectionItems.map((item, index) => (
-            <figure className={`gallery-figure figure-${(index % 4) + 1}`} key={item.slug} data-reveal>
+            <figure className={`gallery-figure figure-${(index % 4) + 1}`} key={item.slug} data-reveal-child="unfold">
               <div className="gallery-image"><Image src={item.src} alt={item.alt} fill sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 33vw" /></div>
               <figcaption><span>{item.region} / {item.theme}</span><h3>{item.title}</h3><p>{item.context}</p></figcaption>
             </figure>

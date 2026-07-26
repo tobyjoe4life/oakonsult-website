@@ -46,7 +46,7 @@ const sharedProgrammes = [
 
 export default function Page() {
   return (
-    <div className="oak-home editorial-page interior-v5 programme-directory">
+    <div className="oak-home editorial-page interior-v5 programme-directory" data-mood="harvest">
       <HomeMotion />
       <section className="interior-hero" aria-labelledby="programme-directory-title">
         <div className="interior-hero-copy" data-reveal>
@@ -55,7 +55,7 @@ export default function Page() {
           <h1 id="programme-directory-title">Programmes by place.</h1>
           <p>Find OAKonsult programmes through the UK and Nigeria hubs, with shared and online support clearly identified.</p>
         </div>
-        <div className="interior-hero-image" data-reveal><Image src="/images/project-me-session.jpg" alt="A Project ME group session" fill priority sizes="(max-width: 960px) 100vw, 54vw" /></div>
+        <div className="interior-hero-image" data-reveal="zoom"><Image src="/images/project-me-session.jpg" alt="A Project ME group session" fill priority sizes="(max-width: 960px) 100vw, 54vw" /></div>
       </section>
 
       <nav className="programme-directory-jump" aria-label="Programme regions">
@@ -76,9 +76,9 @@ export default function Page() {
               <figcaption>{region.imageCaption}</figcaption>
             </figure>
           </div>
-          <div className="programme-region-list">
+          <div className="programme-region-list" data-reveal-group>
             {region.programmes.map((programme, index) => (
-              <article key={`${region.id}-${programme.title}`} data-reveal>
+              <article key={`${region.id}-${programme.title}`} data-reveal-child="slide">
                 <span className="programme-number">{String(index + 1).padStart(2, "0")}</span>
                 <div><h3><Link href={programme.href}>{programme.title}</Link></h3><p>{programme.text}</p></div>
                 <Link className="programme-row-link" href={programme.href} aria-label={`Explore ${programme.title}`}>Explore <span aria-hidden="true">→</span></Link>
@@ -95,9 +95,9 @@ export default function Page() {
           <p>Some learning, inclusion and partnership work can cross regions. Availability, location and eligibility are confirmed by the relevant OAKonsult team.</p>
           <Link href="/contact">Ask about availability <span aria-hidden="true">→</span></Link>
         </div>
-        <div className="programme-region-list">
+        <div className="programme-region-list" data-reveal-group>
           {sharedProgrammes.map((programme, index) => (
-            <article key={programme.title} data-reveal>
+            <article key={programme.title} data-reveal-child="slide">
               <span className="programme-number">{String(index + 1).padStart(2, "0")}</span>
               <div><h3><Link href={programme.href}>{programme.title}</Link></h3><p>{programme.text}</p></div>
               <Link className="programme-row-link" href={programme.href} aria-label={`Explore ${programme.title}`}>Explore <span aria-hidden="true">→</span></Link>

@@ -3,6 +3,7 @@ import type { EditorialPageData } from "@/lib/editorial-pages";
 
 const story: EditorialPageData = {
   eyebrow: "Our founding story",
+  mood: "clay",
   title: "From crisis to calling",
   intro: "OAKonsult grew from one family’s disability journey, a Christian conviction about abundant life and a determination that other families should not walk alone.",
   heroImage: "/images/hero-parent-carers.jpg",

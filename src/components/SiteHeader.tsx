@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 const mainNavigation = [
   { label: "Find support", href: "/find-support" },
@@ -144,7 +144,7 @@ export function SiteHeader() {
             <div className="menu-v4-primary">
               <p className="menu-v4-label">Explore OAKonsult</p>
               <nav aria-label="Main navigation">
-                {mainNavigation.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}><span>{String(index + 1).padStart(2, "0")}</span>{item.label}<i aria-hidden="true">↗</i></Link>)}
+                {mainNavigation.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)} style={{ "--link-index": index } as CSSProperties}><span>{String(index + 1).padStart(2, "0")}</span>{item.label}<i aria-hidden="true">↗</i></Link>)}
               </nav>
             </div>
 

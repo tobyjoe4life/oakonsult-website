@@ -3,6 +3,7 @@ import { InteriorPage } from "@/components/InteriorPage";
 export default function Page() {
   return <InteriorPage data={{
     eyebrow: "About / History",
+    mood: "clay",
     title: "A history shaped by lived experience",
     intro: "From one family’s disability journey to a registered charity working across countries, programmes and communities.",
     image: "/images/sharepoint/oak-centre-dignitaries.webp",

@@ -3,6 +3,7 @@ import type { EditorialPageData } from "@/lib/editorial-pages";
 
 const tribute: EditorialPageData = {
   eyebrow: "In loving memory / 2008-2024",
+  mood: "calm",
   title: "Oluwatoyitan Abigail Chikatara Adeloye",
   intro: "A short but powerfully radiant life. Abigail’s joy, courage and insistence on being included remain at the heart of OAKonsult’s work.",
   heroImage: "/images/oak-centre-prime/children-accommodation.jpg",

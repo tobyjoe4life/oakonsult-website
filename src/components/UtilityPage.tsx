@@ -13,7 +13,7 @@ export type UtilityPageData = {
 };
 
 export function UtilityPage({ data }: { data: UtilityPageData }) {
-  return <article className="oak-home editorial-page utility-page">
+  return <article className="oak-home editorial-page utility-page" data-mood="calm">
     <HomeMotion />
     <header className="utility-masthead">
       <div className="utility-masthead-copy" data-reveal>

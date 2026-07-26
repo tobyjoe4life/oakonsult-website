@@ -3,6 +3,7 @@ import { InteriorPage } from "@/components/InteriorPage";
 export default function Page() {
   return <InteriorPage data={{
     eyebrow: "About / Vision and mission",
+    mood: "clay",
     title: "Living life abundantly",
     intro: "A faith-rooted vision of dignity, flourishing and practical inclusion for disabled children, young people and their families.",
     image: "/images/gallery/uk-parent-carer-community.webp",

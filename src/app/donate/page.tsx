@@ -11,7 +11,7 @@ export default async function Page({ searchParams }: PageProps) {
   const requestedPurpose = Array.isArray(parameters.purpose) ? parameters.purpose[0] : parameters.purpose;
   const initialPurpose = normaliseDonationPurpose(requestedPurpose);
   return (
-    <div className="oak-home editorial-page donation-page">
+    <div className="oak-home editorial-page donation-page" data-mood="harvest">
       <HomeMotion />
       <section className="donation-hero" aria-labelledby="donation-title">
         <div className="donation-hero-copy" data-reveal>

@@ -6,9 +6,9 @@ import { homepageGallery } from "@/lib/gallery";
 
 const Arrow = () => <span className="oak-arrow" aria-hidden="true">→</span>;
 
-function GrowthRings({ className = "" }: { className?: string }) {
+function GrowthRings({ className = "", drift }: { className?: string; drift?: string }) {
   return (
-    <svg className={className} viewBox="0 0 420 420" aria-hidden="true">
+    <svg className={className} data-drift={drift} viewBox="0 0 420 420" aria-hidden="true">
       <path d="M210 31c97 0 176 79 176 176S307 383 210 383 34 304 34 207 113 31 210 31Z" />
       <path d="M210 74c74 0 134 60 134 134s-60 134-134 134S76 282 76 208 136 74 210 74Z" />
       <path d="M210 116c51 0 92 41 92 92s-41 92-92 92-92-41-92-92 41-92 92-92Z" />
@@ -18,9 +18,9 @@ function GrowthRings({ className = "" }: { className?: string }) {
   );
 }
 
-function OakLeaf({ className = "" }: { className?: string }) {
+function OakLeaf({ className = "", drift }: { className?: string; drift?: string }) {
   return (
-    <svg className={className} viewBox="0 0 360 480" aria-hidden="true">
+    <svg className={className} data-drift={drift} viewBox="0 0 360 480" aria-hidden="true">
       <path className="leaf-fill" d="M181 449c-9-61-7-112 6-155-46 27-100 12-122-30 35-8 52-26 58-52-43-3-75-32-78-70 35 9 62 2 82-22-23-28-22-64 3-89 18 24 41 36 69 36 7-29 29-51 58-60 1 31 13 55 37 71 24-13 48-13 70-1-10 29-29 48-56 57 16 23 19 48 10 75-24-14-48-17-73-7 7 28-1 53-24 75-18-18-39-27-64-25 23 48 36 104 40 167h-46Z" />
       <path className="leaf-line" d="M181 449c-4-118 19-220 71-306M182 292l-59-79M205 245l92-69M162 342l-63-73M218 205l-25-122" />
     </svg>
@@ -44,7 +44,7 @@ const partnerLogos = [
 
 export default function Home() {
   return (
-    <div className="oak-home">
+    <div className="oak-home" data-mood="growth">
       <HomeMotion />
 
       <section className="oak-hero" aria-labelledby="home-title">
@@ -67,8 +67,8 @@ export default function Home() {
           />
         </div>
         <div className="oak-hero-scrim" aria-hidden="true" />
-        <GrowthRings className="oak-hero-rings" />
-        <OakLeaf className="oak-hero-leaf" />
+        <GrowthRings className="oak-hero-rings" drift="18" />
+        <OakLeaf className="oak-hero-leaf" drift="30" />
         <div className="oak-hero-field" aria-hidden="true" />
         <div className="oak-hero-content" data-reveal>
           <p className="oak-kicker">Support that starts with listening</p>
@@ -91,7 +91,7 @@ export default function Home() {
         <div className="oak-proof-shell">
           <div className="oak-proof-photo" data-reveal>
             <Image src="/images/current-site-community-partnership.webp" alt="OAKonsult representatives with community partners at a public event" fill sizes="(max-width: 760px) 78vw, 38vw" />
-            <OakLeaf className="oak-proof-leaf" />
+            <OakLeaf className="oak-proof-leaf" drift="26" />
           </div>
           <blockquote data-reveal>
             <span className="oak-quote-marks" aria-hidden="true">“</span>
@@ -102,18 +102,18 @@ export default function Home() {
       </section>
 
       <section className="oak-pathways" id="support-pathways">
-        <GrowthRings className="oak-pathway-rings" />
-        <OakLeaf className="oak-pathway-leaf" />
+        <GrowthRings className="oak-pathway-rings" drift="22" />
+        <OakLeaf className="oak-pathway-leaf" drift="34" />
         <div className="oak-wide-grid">
           <div className="oak-pathway-statement" data-reveal>
             <p className="oak-kicker dark">Start here</p>
             <h2>What would you like to do?</h2>
             <p>Choose the option that best matches what you need today.</p>
           </div>
-          <div className="oak-route-list" data-reveal>
-            <Link href="/find-support"><span>01</span><h3>Do you need support?</h3><p>Find connection, wellbeing support and practical routes forward.</p><b>Get support <Arrow /></b></Link>
-            <Link href="/get-involved"><span>02</span><h3>Can you give support?</h3><p>Donate, volunteer, fundraise or build something with us.</p><b>Give support <Arrow /></b></Link>
-            <Link href="/what-we-do"><span>03</span><h3>Are you a professional or partner?</h3><p>Explore referrals, inclusion training and partnership opportunities.</p><b>Work with us <Arrow /></b></Link>
+          <div className="oak-route-list" data-reveal-group>
+            <Link href="/find-support" data-reveal-child="slide"><span>01</span><h3>Do you need support?</h3><p>Find connection, wellbeing support and practical routes forward.</p><b>Get support <Arrow /></b></Link>
+            <Link href="/get-involved" data-reveal-child="slide"><span>02</span><h3>Can you give support?</h3><p>Donate, volunteer, fundraise or build something with us.</p><b>Give support <Arrow /></b></Link>
+            <Link href="/what-we-do" data-reveal-child="slide"><span>03</span><h3>Are you a professional or partner?</h3><p>Explore referrals, inclusion training and partnership opportunities.</p><b>Work with us <Arrow /></b></Link>
           </div>
         </div>
       </section>
@@ -167,9 +167,9 @@ export default function Home() {
           <div><p className="oak-kicker dark">Evidence snapshot</p><h2 id="impact-title">What our records show.</h2></div>
           <p>Figures from Project ME participant feedback and OAKonsult Nigeria outreach records. Each figure shows its date and source.</p>
         </div>
-        <div className="oak-impact-grid">
+        <div className="oak-impact-grid" data-reveal-group>
           {siteContent.impact.map((item, index) => (
-            <div key={item.value} className={`oak-impact-stat stat-${index + 1}`} data-reveal>
+            <div key={item.value} className={`oak-impact-stat stat-${index + 1}`} data-reveal-child="pop">
               <GrowthRings className="oak-stat-rings" />
               <strong>{item.value}</strong>
               <span>{item.label}</span>
@@ -184,12 +184,12 @@ export default function Home() {
           <p className="oak-kicker dark">Where we work</p>
           <h2 id="regions-title">Across the UK and Nigeria.</h2>
         </div>
-        <div className="oak-region-cards">
-          <Link href="/uk" className="oak-region-card oak-region-uk" data-reveal>
+        <div className="oak-region-cards" data-reveal-group>
+          <Link href="/uk" className="oak-region-card oak-region-uk" data-reveal-child="pop">
             <Image src="/images/sharepoint/zumba-class-2.webp" alt="Parent carers taking part in an OAKonsult Zumba activity in the UK" fill sizes="(max-width: 760px) 94vw, 50vw" />
             <div><span>United Kingdom</span><h3>Support that strengthens parent carers.</h3><b>Explore our UK work <Arrow /></b></div>
           </Link>
-          <Link href="/nigeria" className="oak-region-card oak-region-ng" data-reveal>
+          <Link href="/nigeria" className="oak-region-card oak-region-ng" data-reveal-child="pop">
             <Image src="/images/sharepoint/oak-centre-dignitaries.webp" alt="OAKonsult representatives and guests at the OAK Centre groundbreaking event" fill sizes="(max-width: 760px) 94vw, 50vw" />
             <div><span>Nigeria</span><h3>Community-led disability inclusion.</h3><b>Explore our Nigeria work <Arrow /></b></div>
           </Link>
@@ -201,9 +201,9 @@ export default function Home() {
           <div><p className="oak-kicker dark">Media gallery</p><h2 id="home-gallery-title">OAKonsult in pictures.</h2></div>
           <div><p>Photographs from OAKonsult programmes, outreach and community activities in the UK and Nigeria.</p><Link className="oak-editorial-link dark-link" href="/media-gallery"><span>View the gallery</span><Arrow /></Link></div>
         </div>
-        <div className="oak-gallery-preview-grid">
+        <div className="oak-gallery-preview-grid" data-reveal-group>
           {homepageGallery.map((item, index) => (
-            <Link className={`oak-gallery-preview-item item-${index + 1}`} href={item.region === "UK" ? "/media-gallery/uk" : "/media-gallery/nigeria"} key={item.slug} data-reveal>
+            <Link className={`oak-gallery-preview-item item-${index + 1}`} href={item.region === "UK" ? "/media-gallery/uk" : "/media-gallery/nigeria"} key={item.slug} data-reveal-child="unfold">
               <Image src={item.src} alt={item.alt} fill sizes="(max-width: 760px) 92vw, (max-width: 1100px) 50vw, 33vw" />
               <div><span>{item.region} / {item.theme}</span><strong>{item.title}</strong><i aria-hidden="true">→</i></div>
             </Link>
@@ -225,16 +225,16 @@ export default function Home() {
           <h2 id="stories-title">Read about parent-carer wellbeing and inclusion.</h2>
           <Link className="oak-editorial-link dark-link" href="/stories"><span>View all stories</span><Arrow /></Link>
         </div>
-        <div className="oak-story-collage">
-          <article className="oak-story oak-story-large" data-reveal>
+        <div className="oak-story-collage" data-reveal-group>
+          <article className="oak-story oak-story-large" data-reveal-child="pop">
             <div className="oak-story-image"><Image src="/images/parent-carer-community.jpg" alt="Parent carers connecting during an OAKonsult community activity" fill sizes="(max-width: 760px) 92vw, 52vw" /></div>
             <span>{siteContent.stories[0].tag}</span><h3>{siteContent.stories[0].title}</h3><p>{siteContent.stories[0].summary}</p><Link href="/stories">Read the story <Arrow /></Link>
           </article>
-          <article className="oak-story oak-story-small clay" data-reveal>
+          <article className="oak-story oak-story-small clay" data-reveal-child="pop">
             <div className="oak-story-image"><Image src="/images/sharepoint/press-conference.webp" alt="OAKonsult representatives at a public press event" fill sizes="(max-width: 760px) 78vw, 32vw" /></div>
             <span>{siteContent.stories[1].tag}</span><h3>{siteContent.stories[1].title}</h3><Link href="/stories">Read the story <Arrow /></Link>
           </article>
-          <article className="oak-story oak-story-small teal" data-reveal>
+          <article className="oak-story oak-story-small teal" data-reveal-child="pop">
             <div className="oak-story-image"><Image src="/images/care-in-action.jpeg" alt="A community member sharing a warm moment at an OAKonsult event" fill sizes="(max-width: 760px) 78vw, 30vw" /></div>
             <span>{siteContent.stories[2].tag}</span><h3>{siteContent.stories[2].title}</h3><Link href="/stories">Read the story <Arrow /></Link>
           </article>

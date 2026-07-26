@@ -42,7 +42,7 @@ export type RegionPageData = {
 
 export function RegionPage({ data }: { data: RegionPageData }) {
   return (
-    <div className={`oak-home region-page region-page-${data.slug}`}>
+    <div className={`oak-home region-page region-page-${data.slug}`} data-mood={data.slug === "nigeria" ? "harvest" : "growth"}>
       <HomeMotion />
 
       <section className="region-hero" aria-labelledby="region-title">
@@ -94,9 +94,9 @@ export function RegionPage({ data }: { data: RegionPageData }) {
           <h2 id="region-programmes-title">Our work in {data.country}.</h2>
           <p>Choose a programme or service to find out what is available.</p>
         </div>
-        <div className="region-service-grid">
+        <div className="region-service-grid" data-reveal-group>
           {data.services.map((service, index) => (
-            <article className={`region-service-card card-${index + 1}`} key={service.title} data-reveal>
+            <article className={`region-service-card card-${index + 1}`} key={service.title} data-reveal-child="pop">
               <span>{service.label}</span>
               <h3>{service.title}</h3>
               <p>{service.text}</p>
@@ -113,9 +113,9 @@ export function RegionPage({ data }: { data: RegionPageData }) {
           <h2 id="region-partners-title">{data.partnersTitle}</h2>
           <p>{data.partnersIntro}</p>
         </div>
-        <div className="region-partner-grid">
+        <div className="region-partner-grid" data-reveal-group>
           {data.partners.map((partner) => (
-            <article className="region-partner-card" key={partner.name} data-reveal>
+            <article className="region-partner-card" key={partner.name} data-reveal-child="pop">
               <Image src={partner.logo} alt={`${partner.name} logo`} width={170} height={88} sizes="170px" />
               <span>{partner.name}</span>
             </article>
@@ -130,7 +130,7 @@ export function RegionPage({ data }: { data: RegionPageData }) {
           <p>See photographs from programmes, outreach and community activities in {data.country}.</p>
           <Link className="oak-editorial-link dark-link" href={`/media-gallery/${data.slug}`}><span>View the {data.country} gallery</span><i aria-hidden="true">→</i></Link>
         </div>
-        <div className="region-gallery-images" data-reveal>
+        <div className="region-gallery-images" data-reveal="zoom">
           <div><Image src={data.slug === "uk" ? "/images/gallery/uk-project-me-session.webp" : "/images/gallery/nigeria-knowledge-radio.webp"} alt={data.slug === "uk" ? "Parent carers taking part in a Project ME session" : "OAKonsult disability-awareness engagement at Knowledge Radio"} fill sizes="(max-width:800px) 100vw,34vw" /></div>
           <div><Image src={data.slug === "uk" ? "/images/gallery/uk-project-me-group.webp" : "/images/gallery/nigeria-press-conference.webp"} alt={data.slug === "uk" ? "A group presentation during an OAKonsult Project ME event" : "OAKonsult representatives at a public press conference"} fill sizes="(max-width:800px) 100vw,28vw" /></div>
         </div>

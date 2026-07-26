@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 import "./home-v4.css";
 import "./interior-v5.css";
+import "./premium-v6.css";
 
 const body = DM_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const display = Nunito({ subsets: ["latin"], variable: "--font-display", display: "swap" });

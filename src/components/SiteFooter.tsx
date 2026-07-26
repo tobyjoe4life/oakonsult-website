@@ -24,6 +24,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer footer-v4">
       <div className="footer-v4-rings" aria-hidden="true"><i /><i /><i /><i /></div>
+      <p className="footer-v4-statement" data-reveal>No parent carer <em>should walk alone.</em></p>
       <div className="shell footer-lead">
         <div>
           <p className="eyebrow">A stronger circle of support</p>

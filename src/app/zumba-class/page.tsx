@@ -48,7 +48,7 @@ const photos = [
 
 export default function Page() {
   return (
-    <article className="oak-home editorial-page interior-v5 zumba-page">
+    <article className="oak-home editorial-page interior-v5 zumba-page" data-mood="growth">
       <HomeMotion />
 
       <header className="editorial-masthead">

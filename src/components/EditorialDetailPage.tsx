@@ -9,19 +9,19 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
   const supportingPhotos = data.photos.filter((photo) => photo.src !== data.heroImage);
 
   return (
-    <article className="oak-home editorial-page detail-page">
+    <article className="oak-home editorial-page detail-page" data-mood={data.mood ?? "growth"}>
       <HomeMotion />
       <header className="editorial-masthead detail-masthead">
-        <div className="editorial-masthead-copy" data-reveal>
+        <div className="editorial-masthead-copy" data-reveal="left">
           <nav className="editorial-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/what-we-do">Our work</Link><span aria-hidden="true">/</span><span aria-current="page">{data.title}</span></nav>
           <p className="oak-kicker">{data.eyebrow}</p>
           <h1>{data.title}</h1>
           <p>{data.intro}</p>
           <div className="editorial-location"><span aria-hidden="true">⌖</span><strong>{data.location}</strong></div>
         </div>
-        <div className="detail-hero-photo" data-reveal>
+        <div className="detail-hero-photo" data-reveal="zoom">
           <Image src={data.heroImage} alt={data.heroAlt} fill priority sizes="(max-width: 800px) 100vw, 54vw" />
-          <span className="detail-photo-shape" aria-hidden="true" />
+          <span className="detail-photo-shape" aria-hidden="true" data-drift="18" />
         </div>
       </header>
 
@@ -32,15 +32,15 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
 
       <div className="detail-sections">
         {data.sections.map((section, index) => (
-          <section className={`detail-section tone-${(index % 3) + 1}`} id={`section-${index + 1}`} key={section.title}>
+          <section className={`detail-section tone-${(index % 3) + 1}`} id={`section-${index + 1}`} key={section.title} data-reveal-group>
             <div className="detail-section-number" aria-hidden="true">0{index + 1}</div>
-            <div className="detail-section-copy" data-reveal>
+            <div className="detail-section-copy" data-reveal-child="slide">
               <p className="oak-kicker dark">{section.eyebrow}</p>
               <h2>{section.title}</h2>
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
             {section.points && (
-              <ul className="detail-point-list" data-reveal>
+              <ul className="detail-point-list" data-reveal-child="slide">
                 {section.points.map((point, pointIndex) => <li key={point}><span>{String(pointIndex + 1).padStart(2, "0")}</span>{point}</li>)}
               </ul>
             )}
@@ -50,9 +50,9 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
 
       <section className="detail-photo-journal" aria-labelledby="photo-journal-title">
         <div className="detail-journal-heading" data-reveal><p className="oak-kicker dark">In pictures</p><h2 id="photo-journal-title">{data.photosTitle}</h2><Link href="/media-gallery">View the media gallery <Arrow /></Link></div>
-        <div className="detail-photo-row">
+        <div className="detail-photo-row" data-reveal-group>
           {supportingPhotos.map((photo, index) => (
-            <figure className={`detail-journal-photo photo-${index + 1}`} key={photo.src} data-reveal>
+            <figure className={`detail-journal-photo photo-${index + 1}`} key={photo.src} data-reveal-child="unfold">
               <div><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 760px) 90vw, 33vw" /></div>
               <figcaption>{photo.caption}</figcaption>
             </figure>
@@ -62,9 +62,9 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
 
       <section className="detail-related" aria-labelledby="related-title">
         <div data-reveal><p className="oak-kicker dark">More information</p><h2 id="related-title">Related pages</h2></div>
-        <div className="detail-related-list">
+        <div className="detail-related-list" data-reveal-group>
           {data.related.map((item, index) => (
-            <Link href={item.href} key={item.href} data-reveal>
+            <Link href={item.href} key={item.href} data-reveal-child="slide">
               <span>{String(index + 1).padStart(2, "0")}</span><div><h3>{item.label}</h3><p>{item.description}</p></div><Arrow />
             </Link>
           ))}
