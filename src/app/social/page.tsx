@@ -2,7 +2,7 @@ import Link from "next/link";
 import { HomeMotion } from "@/components/HomeMotion";
 
 const socialChannels = [
-  { name: "YouTube", href: "https://www.youtube.com/@ThePrayingCarerChannel", text: "Stories, worship, webinars, disability awareness and parent-carer encouragement on The Praying Carer Channel." },
+  { name: "YouTube", href: "https://www.youtube.com/@ThePrayingCarerChannel", text: "Stories, webinars, disability awareness, parent-carer encouragement and selected faith content on The Praying Carer Channel." },
   { name: "Facebook", href: "https://www.facebook.com/oakonsultdisabilitiesoutreach", text: "Community updates, programme news, practical encouragement and event highlights." },
   { name: "LinkedIn", href: "https://www.linkedin.com/company/oakonsult-disabilities-outreach/", text: "Professional updates, partnerships, impact learning and disability-inclusion thought leadership." },
 ];
@@ -15,7 +15,7 @@ export default function Page() {
           <nav className="editorial-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><span>Social media</span></nav>
           <p className="oak-kicker">Stories, updates and community</p>
           <h1 id="social-title">Follow the work beyond the website</h1>
-          <p>OAKonsult’s social channels carry programme moments, parent-carer encouragement, disability awareness, faith-sensitive reflection and public updates.</p>
+          <p>OAKonsult’s social channels carry programme moments, parent-carer encouragement, disability awareness and public updates.</p>
         </div>
         <div className="social-hero-colour" aria-hidden="true" data-reveal="zoom"><span>1M+</span><small>social impressions reported across OAKonsult channels in 2026</small></div>
       </section>

@@ -37,9 +37,9 @@ const data: RegionPageData = {
     },
     {
       label: "UK inclusion",
-      title: "Faith-led Support & Inclusion",
-      text: "Faith-shaped support and practical inclusion work that welcomes eligible families of all faiths and none.",
-      details: ["Support for churches", "Inclusive training", "Talking Faith for Parent Carers"],
+      title: "Inclusive Support & Community",
+      text: "Practical inclusion work with churches and community organisations. Family support is open to people of every faith and background, including those with no faith.",
+      details: ["Support for community and faith organisations", "Inclusive training", "Optional Talking Faith resources"],
       href: "/programmes/support-for-churches",
       linkLabel: "Explore church inclusion support",
     },

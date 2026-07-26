@@ -129,7 +129,7 @@ export const editorialPages = {
           "Project ME wellbeing and resilience activity",
           "Parent-carer community and peer connection",
           "Zumba and movement-based wellbeing sessions",
-          "Prayer, reflection and faith-sensitive encouragement",
+          "Optional prayer, reflection or faith-sensitive encouragement for those who request it",
           "Practical signposting to relevant local or specialist services",
         ],
       },
@@ -159,10 +159,10 @@ export const editorialPages = {
     ctaHref: "/contact",
   },
   churches: {
-    eyebrow: "Faith communities / Inclusion",
+    eyebrow: "Churches / Inclusion",
     mood: "harvest",
     title: "Support for churches",
-    intro: "Faith-rooted training for churches that want to welcome disabled people and support parent carers more effectively.",
+    intro: "Practical disability-inclusion training for churches and faith communities. OAKonsult family support is open to everyone, regardless of faith or background.",
     heroImage: "/images/current-site-community-partnership.webp",
     heroAlt: "A welcoming inclusion and support conversation",
     location: "Available online and by arrangement",
@@ -172,18 +172,18 @@ export const editorialPages = {
         title: "Turn compassion into accessible action.",
         paragraphs: ["Training can help leaders and volunteers review language, hospitality, communication, sensory needs, safeguarding awareness and signposting."],
         points: [
-          "People-first language and a theology of dignity",
+          "People-first language and respect for every person’s dignity",
           "Sensory-aware services, visual schedules and quieter spaces",
           "Support for children and young people with additional needs",
           "Accessible hospitality, volunteer preparation and clear boundaries",
         ],
       },
       {
-        eyebrow: "Biblical foundations",
+        eyebrow: "Optional faith-specific learning",
         title: "Beyond Suffering learning routes.",
         paragraphs: [
-          "OAKonsult offers guided learning using Beyond Suffering: A Christian View on Disability Outreach, presented by the Christian Institute on Disability, Joni and Friends, USA.",
-          "The curriculum covers disability outreach, theology of suffering and disability, the church’s role and an introduction to bioethics. Contact the team to confirm the available format.",
+          "Churches that want a faith-specific pathway can ask about guided learning using Beyond Suffering: A Christian View on Disability Outreach, presented by the Christian Institute on Disability, Joni and Friends, USA.",
+          "The curriculum covers disability outreach, theology of suffering and disability, the church’s role and an introduction to bioethics. It is for participating organisations and is not a condition of receiving OAKonsult family support.",
         ],
       },
       {
@@ -193,7 +193,7 @@ export const editorialPages = {
       },
     ],
     related: [
-      { label: "Talking Faith", href: "/stories", description: "Read faith-sensitive stories and reflections." },
+      { label: "Talking Faith", href: "/stories", description: "Explore optional faith-sensitive stories and reflections." },
       { label: "Parent-carer support", href: "/programmes/parent-carer-support", description: "Understand the wider support routes for families." },
       { label: "Partnerships", href: "/funders-partners", description: "See how organisations can work alongside OAKonsult." },
     ],
@@ -232,7 +232,7 @@ export const editorialPages = {
         points: [
           "Inclusive education and specialist therapy",
           "Vocational and life-skills development",
-          "Emotional, social and spiritual support",
+          "Emotional and social support, with optional spiritual support if requested",
           "Short-break and longer-stay accommodation",
           "Community outreach, inclusion and adaptive activity",
         ],

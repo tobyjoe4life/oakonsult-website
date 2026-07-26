@@ -19,7 +19,7 @@ const highlights = [
   {
     label: "Disability inclusion",
     title: "Awareness built through local relationships.",
-    text: "Community engagement, faith-community learning and public advocacy helped keep dignity, participation and practical inclusion in view.",
+    text: "Community learning, partnership work and public advocacy helped keep dignity, participation and practical inclusion in view.",
   },
   {
     label: "Partnership",

@@ -17,7 +17,7 @@ const regions = [
       { title: "Support for Parent Carers", text: "Practical and peer-led support for unpaid parent carers of disabled children and young people.", href: "/programmes/parent-carer-support" },
       { title: "Project ME", text: "Wellbeing, confidence and identity support centred on the person behind the caring role.", href: "/programmes/project-me" },
       { title: "Zumba wellbeing", text: "Free movement and connection sessions for parent carers in Bromley, with a dedicated registration journey.", href: "/zumba-class" },
-      { title: "Faith-led support and inclusion", text: "Practical disability-inclusion work with churches and faith communities, open to eligible families of all faiths and none.", href: "/programmes/support-for-churches" },
+      { title: "Community inclusion support", text: "Practical disability-inclusion work with churches, faith communities and other community organisations. Family support is open to everyone, regardless of faith or background.", href: "/programmes/support-for-churches" },
     ],
   },
   {
@@ -34,14 +34,14 @@ const regions = [
       { title: "OAK Centre Prime", text: "The planned disability-support centre for children, young people and families in Oolo Town, Oyo State.", href: "/programmes/oak-centre-prime" },
       { title: "Project ME Online", text: "Online parent-carer learning connected to the wider Project ME model where appropriate.", href: "/programmes/project-me" },
       { title: "Community support and outreach", text: "Medical outreach, home and school visits, public awareness and local community activity.", href: "/media-gallery/nigeria" },
-      { title: "Faith-led support and awareness", text: "Disability awareness and practical inclusion support for churches, families and communities.", href: "/programmes/support-for-churches" },
+      { title: "Community inclusion and awareness", text: "Disability awareness and practical inclusion support for families, churches and other community organisations.", href: "/programmes/support-for-churches" },
     ],
   },
 ] as const;
 
 const sharedProgrammes = [
   { title: "Project ME resources", text: "Project ME learning can support parent carers through in-person and online activity, depending on availability.", href: "/programmes/project-me" },
-  { title: "Disability-inclusion support", text: "OAKonsult works with churches, community groups and partners to improve understanding, access and participation.", href: "/programmes/support-for-churches" },
+  { title: "Disability-inclusion support", text: "OAKonsult works with community groups, churches and partners to improve understanding, access and participation.", href: "/programmes/support-for-churches" },
 ] as const;
 
 export default function Page() {
@@ -53,7 +53,7 @@ export default function Page() {
           <nav className="editorial-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><span aria-current="page">Programmes</span></nav>
           <p className="oak-kicker">What we do</p>
           <h1 id="programme-directory-title">Programmes by place.</h1>
-          <p>Find OAKonsult programmes through the UK and Nigeria hubs, with shared and online support clearly identified.</p>
+          <p>Find OAKonsult programmes through the UK and Nigeria hubs, with shared and online support clearly identified. Everyone is welcome, regardless of faith or background.</p>
         </div>
         <div className="interior-hero-image" data-reveal="zoom"><Image src="/images/project-me-session.jpg" alt="A Project ME group session" fill priority sizes="(max-width: 960px) 100vw, 54vw" /></div>
       </section>

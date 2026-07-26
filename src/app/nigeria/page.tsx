@@ -37,9 +37,9 @@ const data: RegionPageData = {
     },
     {
       label: "Nigeria inclusion",
-      title: "Faith-led Support & Awareness",
-      text: "Faith-shaped disability awareness and practical inclusion support for churches, families and communities.",
-      details: ["Support for churches", "Beyond Suffering", "Talking Faith for Parent Carers"],
+      title: "Inclusive Support & Awareness",
+      text: "Disability awareness and practical inclusion support for families, churches and other community organisations. Support is open to everyone, regardless of faith or background.",
+      details: ["Community and church inclusion", "Optional Beyond Suffering learning", "Optional Talking Faith resources"],
       href: "/programmes/support-for-churches",
       linkLabel: "Explore inclusion support",
     },
