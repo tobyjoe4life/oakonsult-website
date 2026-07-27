@@ -45,9 +45,8 @@ export function InteriorPage({ data }: { data: InteriorPageData }) {
           <p>{data.sectionText}</p>
         </div>
         <div className="interior-list" data-reveal-group>
-          {data.items.map((item, index) => (
+          {data.items.map((item) => (
             <article key={item.title} data-reveal-child="slide">
-              <span className="interior-index">{String(index + 1).padStart(2, "0")}</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
               <Link href={item.href ?? data.ctaHref}>Learn more <span aria-hidden="true">→</span></Link>

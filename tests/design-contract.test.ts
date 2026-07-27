@@ -73,6 +73,20 @@ test("the approved premium V6 release is the durable recovery baseline", () => {
   }
 });
 
+test("the visitor journey architecture is recorded as part of the shared design contract", () => {
+  const documents: [string, string][] = [
+    ["DESIGN.md", read("DESIGN.md")],
+    ["AGENTS.md", read("AGENTS.md")],
+  ];
+  for (const [name, text] of documents) {
+    for (const journey of ["Get support", "Give support", "Our work and impact", "About OAKonsult", "Work with us"]) {
+      assert.match(text, new RegExp(journey), `${name} must record the ${journey} visitor journey`);
+    }
+    assert.match(text, /Where we work[\s\S]*separate|separate[\s\S]*Where we work/i, `${name} must keep Where we work separate`);
+    assert.match(text, /decorative sequence (numbers|numbering|indexes)/i, `${name} must prohibit decorative sequence numbering`);
+  }
+});
+
 const listRoutePages = (directory: string): string[] =>
   readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const path = join(directory, entry.name);

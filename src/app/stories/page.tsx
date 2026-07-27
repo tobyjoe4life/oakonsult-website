@@ -29,7 +29,7 @@ export default function Stories() {
           <article className="story-index-entry" key={story.title} data-reveal>
             <div className="story-index-image"><Image src={storyImages[index % storyImages.length].src} alt={storyImages[index % storyImages.length].alt} fill sizes="(max-width: 760px) 100vw, 42vw" /></div>
             <div className="story-index-copy">
-              <span>0{index + 1} / {story.tag}</span>
+              <span>{story.tag}</span>
               <h2>{story.title}</h2>
               <p>{story.summary}</p>
               <div><Link href="/impact">See our wider impact <span aria-hidden="true">→</span></Link><Link href="/contact">Talk to OAKonsult</Link></div>

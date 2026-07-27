@@ -1,24 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const groups = [
-  {
-    title: "Support and programmes",
-    links: [["Find support", "/find-support"], ["Project ME", "/programmes/project-me"], ["Parent-carer support", "/programmes/parent-carer-support"], ["Support for churches", "/programmes/support-for-churches"], ["OAK Centre Prime", "/programmes/oak-centre-prime"]],
-  },
-  {
-    title: "Stories and activity",
-    links: [["Our story", "/our-story"], ["Abigail’s tribute", "/abigail"], ["Stories & impact", "/impact"], ["Social media", "/social"], ["Media gallery", "/media-gallery"], ["Events", "/events"]],
-  },
-  {
-    title: "Where we work",
-    links: [["OAKonsult UK", "/uk"], ["UK gallery", "/media-gallery/uk"], ["OAKonsult Nigeria", "/nigeria"], ["Nigeria gallery", "/media-gallery/nigeria"]],
-  },
-  {
-    title: "Take part",
-    links: [["Get involved", "/get-involved"], ["Volunteer", "/volunteer-opportunities"], ["Partner with us", "/partnerships"], ["Donate", "/donate"], ["Funders & partners", "/funders-partners"], ["Contact", "/contact"], ["About us", "/about"], ["History", "/history"], ["Privacy", "/privacy"], ["Accessibility", "/accessibility"]],
-  },
-];
+import { journeyGroups } from "@/lib/site-navigation";
 
 export function SiteFooter() {
   return (
@@ -38,10 +20,10 @@ export function SiteFooter() {
           <p>One OAKonsult, supporting parent carers and advancing disability inclusion through practical, community-rooted work.</p>
           <p>Registered charity in England and Wales, 1204553.</p>
         </div>
-        {groups.map((group) => (
+        {journeyGroups.map((group) => (
           <div key={group.title}>
             <h3>{group.title}</h3>
-            {group.links.map(([label, href]) => <Link key={`${href}-${label}`} href={href}>{label}</Link>)}
+            {group.footerLinks.map(({ label, href }) => <Link key={`${href}-${label}`} href={href}>{label}</Link>)}
           </div>
         ))}
       </div>
@@ -51,7 +33,11 @@ export function SiteFooter() {
       </div>
       <div className="shell footer-bottom">
         <span>&copy; {new Date().getFullYear()} OAKonsult Disabilities Outreach</span>
-        <span>One purpose, with country-specific programmes and funding</span>
+        <nav aria-label="Legal and contact">
+          <Link href="/contact">Contact</Link>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/accessibility">Accessibility</Link>
+        </nav>
       </div>
     </footer>
   );

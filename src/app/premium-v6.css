@@ -254,10 +254,6 @@
   position: relative;
 }
 
-.utility-sections > section > span {
-  color: var(--mood-accent, #0b7771);
-}
-
 .utility-index a {
   transition: color .2s ease, padding-left .2s ease;
 }
@@ -367,15 +363,6 @@
 .interior-v5 .interior-list article:hover {
   background: color-mix(in srgb, var(--mood-pop) 22%, #ffffff);
   box-shadow: inset 5px 0 0 var(--mood-pop);
-}
-
-.interior-v5 .interior-list article > span.interior-index,
-.interior-v5 .interior-list article > span:first-child {
-  color: var(--mood-accent);
-}
-
-.interior-v5 .detail-section-number {
-  color: var(--mood-accent);
 }
 
 .interior-v5 .detail-section.tone-2 {

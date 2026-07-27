@@ -61,7 +61,6 @@ export default function Page() {
         <div className="impact-evidence-grid">
           {siteContent.impact.map((item, index) => (
             <article className={`impact-evidence-stat stat-${index + 1}`} key={item.value} data-reveal>
-              <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{item.value}</strong>
               <h3>{item.label}</h3>
               <dl><div><dt>Period</dt><dd>{item.period}</dd></div><div><dt>Basis</dt><dd>{item.source}</dd></div></dl>
@@ -77,10 +76,10 @@ export default function Page() {
           <p>Impact is not only a headline number. It includes what participants say, what delivery records show and what the charity changes after learning from both.</p>
         </div>
         <ol className="impact-principles-list" data-reveal>
-          <li><span>01</span><div><h3>Start with records.</h3><p>Participation and delivery figures should be tied to a programme, period and source.</p></div></li>
-          <li><span>02</span><div><h3>Add people&apos;s experience.</h3><p>Feedback and stories help explain what changed, with consent and appropriate anonymity.</p></div></li>
-          <li><span>03</span><div><h3>Keep regional context visible.</h3><p>UK and Nigeria activity is reported with its own programmes, partners and funding context.</p></div></li>
-          <li><span>04</span><div><h3>Say what is still developing.</h3><p>Plans, targets and early learning are not presented as completed outcomes.</p></div></li>
+          <li><div><h3>Start with records.</h3><p>Participation and delivery figures should be tied to a programme, period and source.</p></div></li>
+          <li><div><h3>Add people&apos;s experience.</h3><p>Feedback and stories help explain what changed, with consent and appropriate anonymity.</p></div></li>
+          <li><div><h3>Keep regional context visible.</h3><p>UK and Nigeria activity is reported with its own programmes, partners and funding context.</p></div></li>
+          <li><div><h3>Say what is still developing.</h3><p>Plans, targets and early learning are not presented as completed outcomes.</p></div></li>
         </ol>
       </section>
 
@@ -91,9 +90,9 @@ export default function Page() {
           <p>A concise public view of the activity recorded across OAKonsult&apos;s UK and Nigeria work.</p>
         </div>
         <div className="impact-highlight-list">
-          {highlights.map((item, index) => (
+          {highlights.map((item) => (
             <article key={item.label} data-reveal>
-              <span>{String(index + 1).padStart(2, "0")} / {item.label}</span>
+              <span>{item.label}</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
             </article>

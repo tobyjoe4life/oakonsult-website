@@ -27,8 +27,8 @@ export default function Page() {
           <p>These are OAKonsult’s official channels. Social platforms set their own cookie, account and accessibility policies.</p>
         </div>
         <div className="interior-list" data-reveal-group>
-          {socialChannels.map((channel, index) => <article key={channel.name} data-reveal-child="slide">
-            <span className="interior-index">0{index + 1}</span><h3>{channel.name}</h3><p>{channel.text}</p>
+          {socialChannels.map((channel) => <article key={channel.name} data-reveal-child="slide">
+            <h3>{channel.name}</h3><p>{channel.text}</p>
             <a href={channel.href} target="_blank" rel="noreferrer">Visit {channel.name} <span aria-hidden="true">↗</span></a>
           </article>)}
         </div>

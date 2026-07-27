@@ -72,7 +72,7 @@ test("OAK Centre Prime preserves the ground-breaking and public architectural vi
 
 test("social media is a visible, verified website journey", () => {
   const social = read("src/app/social/page.tsx");
-  const footer = read("src/components/SiteFooter.tsx");
+  const footer = `${read("src/components/SiteFooter.tsx")}\n${read("src/lib/site-navigation.ts")}`;
   for (const phrase of ["The Praying Carer Channel", "From a Whisper to a Movement", "Facebook", "LinkedIn", "YouTube"])
     assert.match(social, new RegExp(phrase, "i"));
   assert.match(social, /8p--mGxHwTM/);

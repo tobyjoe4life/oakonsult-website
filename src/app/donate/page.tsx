@@ -56,10 +56,10 @@ export default async function Page({ searchParams }: PageProps) {
       <section className="donation-transparency" aria-labelledby="donation-transparency-title">
         <div data-reveal><p className="oak-kicker dark">Before you donate</p><h2 id="donation-transparency-title">How giving works.</h2></div>
         <div className="donation-transparency-list">
-          <div data-reveal><span>01</span><div><h3>Choose currency and purpose</h3><p>Select GBP or NGN, then choose the area of work you would like to support.</p></div></div>
-          <div data-reveal><span>02</span><div><h3>Marketing is optional</h3><p>You can donate without signing up for news or supporter updates.</p></div></div>
-          <div data-reveal><span>03</span><div><h3>Payment is handled securely</h3><p>When donations go live, Stripe or Paystack will handle card details. OAKonsult will not store them.</p></div></div>
-          <div data-reveal><span>04</span><div><h3>This is a preview</h3><p>No payment or personal information is sent or stored in this preview.</p></div></div>
+          <div data-reveal><div><h3>Choose currency and purpose</h3><p>Select GBP or NGN, then choose the area of work you would like to support.</p></div></div>
+          <div data-reveal><div><h3>Marketing is optional</h3><p>You can donate without signing up for news or supporter updates.</p></div></div>
+          <div data-reveal><div><h3>Payment is handled securely</h3><p>When donations go live, Stripe or Paystack will handle card details. OAKonsult will not store them.</p></div></div>
+          <div data-reveal><div><h3>This is a preview</h3><p>No payment or personal information is sent or stored in this preview.</p></div></div>
         </div>
       </section>
 

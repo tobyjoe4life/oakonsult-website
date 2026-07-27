@@ -4,18 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { isJourneyActive, isRouteActive, journeyGroups } from "@/lib/site-navigation";
 
-const mainNavigation = [
-  { label: "Find support", href: "/find-support" },
-  { label: "Our work", href: "/what-we-do" },
-  { label: "Stories & impact", href: "/impact" },
-  { label: "Social media", href: "/social" },
-  { label: "Media gallery", href: "/media-gallery" },
-  { label: "Events", href: "/events" },
-  { label: "Funders & partners", href: "/funders-partners" },
-  { label: "Get involved", href: "/get-involved" },
-  { label: "About us", href: "/about" },
-] as const;
+const menuStaggerOffsets = journeyGroups.map((_, groupIndex) =>
+  journeyGroups.slice(0, groupIndex).reduce((total, group) => total + group.menuLinks.length, 0),
+);
 
 const regions = [
   {
@@ -114,14 +107,12 @@ export function SiteHeader() {
         <nav className="header-v4-nav" aria-label="Primary navigation">
           <div className="header-v4-nav-inner">
             <div className="header-v4-main-links">
-              <span>Our work</span>
-              <Link className={pathname === "/what-we-do" || pathname.startsWith("/programmes/") ? "is-active" : undefined} href="/what-we-do">Programmes</Link>
-              <Link className={pathname.startsWith("/stories") || pathname === "/impact" ? "is-active" : undefined} href="/stories">Stories</Link>
-              <Link className={pathname === "/social" ? "is-active" : undefined} href="/social">Social</Link>
-              <Link className={pathname.startsWith("/media-gallery") ? "is-active" : undefined} href="/media-gallery">Gallery</Link>
-              <Link className={pathname === "/events" ? "is-active" : undefined} href="/events">Events</Link>
-              <Link className={pathname === "/get-involved" ? "is-active" : undefined} href="/get-involved">Get involved</Link>
-              <Link className={["/about", "/our-story", "/abigail", "/history", "/our-team", "/vision-mission"].some((route) => pathname === route) ? "is-active" : undefined} href="/about">About us</Link>
+              <span>Start here</span>
+              <Link className={isJourneyActive(pathname, journeyGroups[0]) ? "is-active" : undefined} href={journeyGroups[0].href}>Get support</Link>
+              <Link className={isJourneyActive(pathname, journeyGroups[1]) ? "is-active" : undefined} href={journeyGroups[1].href}>Give support</Link>
+              <Link className={isJourneyActive(pathname, journeyGroups[2]) ? "is-active" : undefined} href={journeyGroups[2].href}>Our work &amp; impact</Link>
+              <Link className={isJourneyActive(pathname, journeyGroups[3]) ? "is-active" : undefined} href={journeyGroups[3].href}>About OAKonsult</Link>
+              <Link className={isJourneyActive(pathname, journeyGroups[4]) ? "is-active" : undefined} href={journeyGroups[4].href}>Work with us</Link>
             </div>
             <div className="header-v4-region-links" aria-label="Where we work">
               <span>Where we work</span>
@@ -144,7 +135,24 @@ export function SiteHeader() {
             <div className="menu-v4-primary">
               <p className="menu-v4-label">Explore OAKonsult</p>
               <nav aria-label="Main navigation">
-                {mainNavigation.map((item, index) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)} style={{ "--link-index": index } as CSSProperties}><span>{String(index + 1).padStart(2, "0")}</span>{item.label}<i aria-hidden="true">↗</i></Link>)}
+                {journeyGroups.map((group, groupIndex) => (
+                  <section className="menu-v4-journey" key={group.title} aria-label={group.title}>
+                    <h2 className="menu-v4-label">{group.title}</h2>
+                    <div className="menu-v4-journey-links">
+                      {group.menuLinks.map((item, linkIndex) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          aria-current={isRouteActive(pathname, item.href) ? "page" : undefined}
+                          onClick={() => setOpen(false)}
+                          style={{ "--link-index": menuStaggerOffsets[groupIndex] + linkIndex } as CSSProperties}
+                        >
+                          {item.label}<i aria-hidden="true">↗</i>
+                        </Link>
+                      ))}
+                    </div>
+                  </section>
+                ))}
               </nav>
             </div>
 

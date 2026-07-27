@@ -121,7 +121,7 @@ export default function Page() {
             <p>The group is inclusive and goes at your pace, with daytime and evening options so you can choose what works for your week.</p>
           </div>
           <ul className="detail-point-list" data-reveal>
-            {whyJoin.map((point, index) => <li key={point}><span>{String(index + 1).padStart(2, "0")}</span>{point}</li>)}
+            {whyJoin.map((point) => <li key={point}>{point}</li>)}
           </ul>
         </section>
       </div>

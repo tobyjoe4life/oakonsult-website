@@ -107,7 +107,7 @@ test("decorative drift and stagger hooks appear on real page decorations", () =>
 });
 
 test("footer gains a premium editorial statement while preserving its directory", () => {
-  const footer = read("src/components/SiteFooter.tsx");
+  const footer = `${read("src/components/SiteFooter.tsx")}\n${read("src/lib/site-navigation.ts")}`;
   assert.match(footer, /footer-v4-statement/);
   for (const label of ["Media gallery", "Events", "Funders & partners", "OAK Centre Prime", "Keep in touch"]) {
     assert.match(footer, new RegExp(label));

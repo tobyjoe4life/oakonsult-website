@@ -13,6 +13,7 @@ const cssRule = (css: string, selector: string) => {
 
 test("global navigation preserves the approved identity without promoting individual forms or activities", () => {
   const header = read("src/components/SiteHeader.tsx");
+  const navigation = `${header}\n${read("src/lib/site-navigation.ts")}`;
   for (const href of [
     "/what-we-do",
     "/stories",
@@ -25,21 +26,25 @@ test("global navigation preserves the approved identity without promoting indivi
     "/uk",
     "/nigeria",
   ]) {
-    assert.match(header, new RegExp(`href:\\s*\\?*\"${href.replaceAll("/", "\\/")}\"|href=\"${href.replaceAll("/", "\\/")}\"`));
+    assert.match(navigation, new RegExp(`href:\\s*\\?*\"${href.replaceAll("/", "\\/")}\"|href=\"${href.replaceAll("/", "\\/")}\"`));
   }
   assert.match(header, /oakonsult-logo\.png/);
-  assert.match(header, />Our work</);
+  assert.match(header, />Get support</);
+  assert.match(header, />Give support</);
+  assert.match(header, /Our work &amp; impact/);
+  assert.match(header, /About OAKonsult/);
+  assert.match(header, /Work with us/);
   assert.match(header, />Where we work</);
   assert.doesNotMatch(header, />Zumba</);
   assert.doesNotMatch(header, /Forms & registrations/);
   assert.doesNotMatch(header, /href:\s*\?*"\/forms"|href="\/forms"/);
-  assert.match(header, /String\(index \+ 1\)\.padStart\(2, "0"\)/);
+  assert.doesNotMatch(header, /String\(index \+ 1\)\.padStart\(2, "0"\)/, "visitor menu must not use decorative sequence numbering");
 });
 
 test("homepage preserves the approved editorial sequence and adds a real media gallery", () => {
   const homepage = read("src/app/page.tsx");
   const gallery = read("src/lib/gallery.ts");
-  const sequence = ["oak-hero", "oak-proof", "oak-pathways", "oak-editorial", "oak-project-band", "oak-impact", "oak-regions", "oak-gallery-preview", "oak-home-directory", "oak-stories", "oak-partners", "oak-final-cta"];
+  const sequence = ["oak-hero", "oak-proof", "oak-pathways", "oak-editorial", "oak-project-band", "oak-impact", "oak-regions", "oak-gallery-preview", "oak-stories", "oak-partners", "oak-final-cta"];
   let cursor = -1;
   for (const className of sequence) {
     const next = homepage.indexOf(`className=\"${className}\"`);
@@ -136,7 +141,7 @@ test("form and light-panel kickers keep accessible contrast", () => {
 test("regional, interior and footer journeys retain editorial depth and gallery discoverability", () => {
   const region = read("src/components/RegionPage.tsx");
   const interior = read("src/components/InteriorPage.tsx");
-  const footer = read("src/components/SiteFooter.tsx");
+  const footer = `${read("src/components/SiteFooter.tsx")}\n${read("src/lib/site-navigation.ts")}`;
   assert.match(region, /region-gallery-bridge/);
   assert.match(region, /media-gallery\/\$\{data\.slug\}/);
   assert.match(region, /service\.href/);

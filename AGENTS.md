@@ -35,11 +35,13 @@ The premium, colourful, animated living-site direction recorded in `DESIGN.md` i
 3. Use editorial rhythm, authentic photography, flat route lists, full-width bands and intentional asymmetry. Do not convert pages into repetitive rounded-card grids.
 4. Pills are for genuine buttons and controls. Never place a decorative rounded kicker capsule above or across a rounded text card.
 5. Keep Our work separate from Where we work. Maintain clear UK and Nigeria journeys within one brand.
-6. Preserve support, programme, story, impact, gallery, event, social, organisation, policy and participation routes in header, menu or footer.
-7. Keep the founding story and Abigail tribute permanent and clearly discoverable.
-8. Essential content must remain on the website even when social or YouTube embeds are used.
-9. Use only verified public or consent-cleared photos, quotes, outcomes and beneficiary details. Never invent charity evidence.
-10. Never publish to production without Toby's explicit approval. Development work goes to private staging first.
+6. Preserve one shared visitor journey architecture across the desktop header, full-screen menu and footer: **Get support**, **Give support**, **Our work and impact**, **About OAKonsult** and **Work with us**. Keep **Where we work** separate with direct UK and Nigeria routes.
+7. The homepage opens with the human questions **Do you need support?** and **Can you give support?**, plus a contextual professional or partner route. Do not reintroduce decorative sequence numbering or indexes such as 01, 02 and 03 for navigation, programmes, profiles or content sections.
+8. Preserve support, programme, story, impact, gallery, event, social, organisation, policy and participation routes in header, menu or footer.
+9. Keep the founding story and Abigail tribute permanent and clearly discoverable.
+10. Essential content must remain on the website even when social or YouTube embeds are used.
+11. Use only verified public or consent-cleared photos, quotes, outcomes and beneficiary details. Never invent charity evidence.
+12. Never publish to production without Toby's explicit approval. Development work goes to private staging first.
 
 ## Change workflow
 

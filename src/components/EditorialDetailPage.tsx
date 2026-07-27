@@ -34,7 +34,6 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
       <div className="detail-sections">
         {data.sections.map((section, index) => (
           <section className={`detail-section tone-${(index % 3) + 1}`} id={`section-${index + 1}`} key={section.title} data-reveal-group>
-            <div className="detail-section-number" aria-hidden="true">0{index + 1}</div>
             <div className="detail-section-copy" data-reveal-child="slide">
               <p className="oak-kicker dark">{section.eyebrow}</p>
               <h2>{section.title}</h2>
@@ -42,7 +41,7 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
             </div>
             {section.points && (
               <ul className="detail-point-list" data-reveal-child="slide">
-                {section.points.map((point, pointIndex) => <li key={point}><span>{String(pointIndex + 1).padStart(2, "0")}</span>{point}</li>)}
+                {section.points.map((point) => <li key={point}>{point}</li>)}
               </ul>
             )}
           </section>
@@ -68,9 +67,9 @@ export function EditorialDetailPage({ data }: { data: EditorialPageData }) {
       <section className="detail-related" aria-labelledby="related-title">
         <div data-reveal><p className="oak-kicker dark">More information</p><h2 id="related-title">Related pages</h2></div>
         <div className="detail-related-list" data-reveal-group>
-          {data.related.map((item, index) => (
+          {data.related.map((item) => (
             <Link href={item.href} key={item.href} data-reveal-child="slide">
-              <span>{String(index + 1).padStart(2, "0")}</span><div><h3>{item.label}</h3><p>{item.description}</p></div><Arrow />
+              <div><h3>{item.label}</h3><p>{item.description}</p></div><Arrow />
             </Link>
           ))}
         </div>

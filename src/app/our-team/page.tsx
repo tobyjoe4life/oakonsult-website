@@ -56,17 +56,14 @@ export default function Page() {
         </div>
         <ol className="team-governance-list" data-reveal-group>
           <li data-reveal-child="slide">
-            <span>01</span>
             <h3>Governance</h3>
             <p>Trustees provide oversight, accountability and strategic direction for the charity in each region.</p>
           </li>
           <li data-reveal-child="slide">
-            <span>02</span>
             <h3>Executive leadership</h3>
             <p>The Co-founder and Chief Executive Officer and the Country Director, Nigeria guide vision and delivery.</p>
           </li>
           <li data-reveal-child="slide">
-            <span>03</span>
             <h3>Operations and delivery</h3>
             <p>Operations, administration, learning, volunteering and advocacy staff keep programmes dependable.</p>
           </li>

@@ -88,9 +88,8 @@ export default function Page() {
           <section className={`partner-group partner-group-${groupIndex + 1}`} key={group.title}>
             <header data-reveal><span>{group.region}</span><h2>{group.title}</h2><p>{group.note}</p></header>
             <div className="partner-logo-list">
-              {group.organisations.map(([name, src], index) => (
+              {group.organisations.map(([name, src]) => (
                 <figure key={name} data-reveal>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
                   <div><Image src={src} alt={name} width={184} height={92} /></div>
                   <figcaption>{name}</figcaption>
                 </figure>
@@ -101,9 +100,9 @@ export default function Page() {
 
         <section className="partner-group partner-group-community">
           <header data-reveal><span>Nigeria</span><h2>Partners &amp; supported organisations</h2><p>Schools, charities, faith organisations and specialist services connected through outreach, training and referrals.</p></header>
-          <ol className="partner-name-list">
-            {nigeriaPartners.map((name, index) => <li key={name} data-reveal><span>{String(index + 1).padStart(2, "0")}</span>{name}</li>)}
-          </ol>
+          <ul className="partner-name-list">
+            {nigeriaPartners.map((name) => <li key={name} data-reveal>{name}</li>)}
+          </ul>
         </section>
 
         <section className="partner-endorsement">

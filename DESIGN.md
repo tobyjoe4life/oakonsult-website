@@ -152,8 +152,11 @@ This direction is non-negotiable and governs every new route, every new page fam
 
 - Use long-form editorial rhythm: full-bleed photography, split compositions, flat route lists, image-led programme bands, intentional pauses and generous section spacing.
 - Alternate dense and quiet sections. Do not repeat the same card grid down an entire page.
-- Maintain clear journeys for Find support, Our work, Stories and impact, Media gallery, Events, Get involved, About us, UK and Nigeria.
-- Keep **Our work** distinct from **Where we work**.
+- Maintain one shared visitor journey architecture across the desktop header, full-screen menu and footer: **Get support**, **Give support**, **Our work and impact**, **About OAKonsult** and **Work with us**.
+- Keep **Where we work** separate from those five journeys, with clear UK and Nigeria routes inside one OAKonsult identity.
+- The homepage begins with the human questions **Do you need support?** and **Can you give support?**, plus a contextual professional and partner route. It must not use decorative sequence numbering to label those choices.
+- Route lists use descriptive labels, rules and editorial grouping. Do not bring back decorative sequence numbers or indexes such as 01, 02 and 03 for navigation, programmes, profiles or content sections.
+- Maintain clear destinations for Find support, stories, media, events, programmes, participation, policy and regional content without returning to a flat list of every page in the primary navigation.
 - UK and Nigeria share one identity while retaining country-specific programmes, funders, contacts, galleries and evidence.
 - Desktop layouts may be asymmetric. Mobile must become a coherent single-column story without hiding core content or creating horizontal scrolling.
 

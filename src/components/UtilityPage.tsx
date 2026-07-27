@@ -35,7 +35,6 @@ export function UtilityPage({ data }: { data: UtilityPageData }) {
       </aside>
       <div className="utility-sections">
         {data.sections.map((section, index) => <section id={`utility-${index + 1}`} key={section.title} data-reveal>
-          <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
           <div><h2>{section.title}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
         </section>)}
       </div>

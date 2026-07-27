@@ -77,9 +77,8 @@ export default function Page() {
             </figure>
           </div>
           <div className="programme-region-list" data-reveal-group>
-            {region.programmes.map((programme, index) => (
+            {region.programmes.map((programme) => (
               <article key={`${region.id}-${programme.title}`} data-reveal-child="slide">
-                <span className="programme-number">{String(index + 1).padStart(2, "0")}</span>
                 <div><h3><Link href={programme.href}>{programme.title}</Link></h3><p>{programme.text}</p></div>
                 <Link className="programme-row-link" href={programme.href} aria-label={`Explore ${programme.title}`}>Explore <span aria-hidden="true">→</span></Link>
               </article>
@@ -96,9 +95,8 @@ export default function Page() {
           <Link href="/contact">Ask about availability <span aria-hidden="true">→</span></Link>
         </div>
         <div className="programme-region-list" data-reveal-group>
-          {sharedProgrammes.map((programme, index) => (
+          {sharedProgrammes.map((programme) => (
             <article key={programme.title} data-reveal-child="slide">
-              <span className="programme-number">{String(index + 1).padStart(2, "0")}</span>
               <div><h3><Link href={programme.href}>{programme.title}</Link></h3><p>{programme.text}</p></div>
               <Link className="programme-row-link" href={programme.href} aria-label={`Explore ${programme.title}`}>Explore <span aria-hidden="true">→</span></Link>
             </article>

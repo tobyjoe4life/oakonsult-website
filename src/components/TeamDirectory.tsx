@@ -30,10 +30,9 @@ export function TeamDirectory({
         <p>{intro}</p>
       </div>
       <ol className={`team-directory-list${compact ? " team-directory-compact" : ""}`} data-reveal-group>
-        {members.map((member, index) => (
+        {members.map((member) => (
           <li key={member.slug} data-reveal-child="slide">
             <Link className="team-card" href={`/our-team/${member.slug}`}>
-              <span className="team-card-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
               <span className="team-card-media">
                 <TeamPortrait member={member} sizes="(max-width: 760px) 38vw, 180px" />
               </span>

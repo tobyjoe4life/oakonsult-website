@@ -96,10 +96,11 @@ test("no generic rounded kicker capsule or SaaS card grid language enters team s
   }
 });
 
-test("team governance indices retain accessible contrast", () => {
+test("team directory copy retains accessible contrast without decorative indices", () => {
   const css = read("src/app/interior-v5.css");
-  assert.match(css, /\.team-governance-list li > span \{[^}]*color:var\(--editorial-deep\)/);
-  assert.match(css, /\.team-card-index \{[^}]*color:var\(--editorial-deep\)/);
+  assert.match(css, /\.team-governance-list li h3 \{[^}]*color:var\(--editorial-deep\)/);
+  assert.match(css, /\.team-card-name \{[^}]*color:var\(--editorial-deep\)/);
+  assert.doesNotMatch(read("src/components/TeamDirectory.tsx"), /team-card-index/, "team cards must not use decorative sequence indices");
 });
 
 test("team portraits use verified files only, never the Zoom-grid screenshot", () => {

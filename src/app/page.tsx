@@ -111,10 +111,10 @@ export default function Home() {
             <p>Choose the option that best matches what you need today.</p>
           </div>
           <div className="oak-route-list" data-reveal-group>
-            <Link href="/find-support" data-reveal-child="slide"><span>01</span><h3>Do you need support?</h3><p>Find connection, wellbeing support and practical routes forward.</p><b>Get support <Arrow /></b></Link>
-            <Link href="/get-involved" data-reveal-child="slide"><span>02</span><h3>Can you give support?</h3><p>Donate, volunteer, fundraise or build something with us.</p><b>Give support <Arrow /></b></Link>
-            <Link href="/what-we-do" data-reveal-child="slide"><span>03</span><h3>Are you a professional or partner?</h3><p>Explore referrals, inclusion training and partnership opportunities.</p><b>Work with us <Arrow /></b></Link>
+            <Link href="/find-support" data-reveal-child="slide"><h3>Do you need support?</h3><p>Find connection, wellbeing support and practical routes forward for parent carers and families.</p><b>Get support <Arrow /></b></Link>
+            <Link href="/get-involved" data-reveal-child="slide"><h3>Can you give support?</h3><p>Donate, volunteer, fundraise or build something with us.</p><b>Give support <Arrow /></b></Link>
           </div>
+          <p className="oak-pathway-context" data-reveal>Are you a professional or partner? <Link href="/partnerships">Work with us <Arrow /></Link></p>
         </div>
       </section>
 
@@ -210,14 +210,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <nav className="oak-home-directory" aria-label="More OAKonsult destinations">
-        <span>More from OAKonsult</span>
-        <Link href="/impact"><small>01</small><strong>Stories &amp; impact</strong><Arrow /></Link>
-        <Link href="/events"><small>02</small><strong>Events</strong><Arrow /></Link>
-        <Link href="/funders-partners"><small>03</small><strong>Funders &amp; partners</strong><Arrow /></Link>
-        <Link href="/get-involved"><small>04</small><strong>Get involved</strong><Arrow /></Link>
-      </nav>
 
       <section className="oak-stories" id="latest-stories" aria-labelledby="stories-title">
         <div className="oak-stories-heading" data-reveal>
