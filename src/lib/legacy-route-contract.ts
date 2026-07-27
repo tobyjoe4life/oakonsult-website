@@ -61,7 +61,29 @@ export const legacyRouteContract: LegacyRoute[] = [
   moved("/job-category/community-wellbeing", "/get-involved", "Opportunity taxonomy"),
   moved("/job-type/part-time", "/get-involved", "Opportunity taxonomy"),
   moved("/job-location/bromley", "/get-involved", "Opportunity taxonomy"),
-  ...["olufunke-adeloye", "ajisola-adeloye", "itunuade-iyun", "hadiza-daura", "esther-kehinde", "funmilola-oshin", "lucky-aigbefoh", "bunmi-soji-adeyemo", "bolanle-ajayi", "dayo-balogun", "omobola-oludele", "boluwatife-kehinde", "rev-samuel-ajayi", "amb-eunice-eraye-unokhua", "prince-deji-irawo", "dr-olugbenga-owoeye"].map((slug) => moved(`/${slug}`, "/our-team", "Public team profile retained in the team directory")),
+  ...[
+    ["olufunke-adeloye", "olufunke-adeloye"],
+    ["ajisola-adeloye", "ajisola-adeloye"],
+    ["itunuade-iyun", "itunuade-iyun"],
+    ["hadiza-daura", "hadiza-daura"],
+    ["esther-kehinde", "esther-aderike-kehinde"],
+    ["funmilola-oshin", "oshin-hannah-oluwafunmilayo"],
+    ["lucky-aigbefoh", "lucky-sanni-aigbefoh"],
+    ["bunmi-soji-adeyemo", "modupe-olubunmi-soji-adeyemo"],
+    ["bolanle-ajayi", "bolanle-alice-ajayi"],
+    ["dayo-balogun", "dayo-balogun"],
+    ["omobola-oludele", "omobola-oludele"],
+    ["boluwatife-kehinde", "boluwatife-kehinde"],
+  ].map(([from, to]) => moved(`/${from}`, `/our-team/${to}`, "Public team profile retained at its canonical destination")),
+  ...["rev-samuel-ajayi", "amb-eunice-eraye-unokhua", "prince-deji-irawo", "dr-olugbenga-owoeye"].map((slug) => moved(`/${slug}`, "/our-team", "Former public profile retained in the team directory")),
+  ...[
+    ["ajisola-adeloye", "ajisola-adeloye"],
+    ["hadiza-daura", "hadiza-daura"],
+    ["lucky-aigbefoh", "lucky-sanni-aigbefoh"],
+    ["bunmi-soji-adeyemo", "modupe-olubunmi-soji-adeyemo"],
+    ["bolanle-ajayi", "bolanle-alice-ajayi"],
+    ["esther-kehinde", "esther-aderike-kehinde"],
+  ].map(([from, to]) => moved(`/our-team/${from}`, `/our-team/${to}`, "Team profile consolidated under the verified full name")),
 ];
 
 export const legacyRedirects = legacyRouteContract

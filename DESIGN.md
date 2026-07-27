@@ -120,7 +120,7 @@ The approved direction is OAKonsult's own premium living-site system: a premium,
 
 This direction is non-negotiable and governs every new route, every new page family, every redesign and every site-wide change, whoever or whatever implements it:
 
-1. New pages must join the route mood system and reuse the shared premium page families (InteriorPage, EditorialDetailPage, GalleryPage, RegionPage, UtilityPage, PublicFormPage) instead of inventing one-off layouts.
+1. New pages must join the route mood system and reuse the shared premium page families (InteriorPage, EditorialDetailPage, GalleryPage, RegionPage, UtilityPage, PublicFormPage, TeamRegionPage, TeamProfile) instead of inventing one-off layouts.
 2. Composition must stay varied: editorial rhythm, split layouts, organic shapes and authentic photography. No repetitive rounded-card grids and no generic SaaS patterns.
 3. No capsule or pill kicker decoration. Pills remain reserved for genuine buttons and controls.
 4. No third-party source code, assets, fonts or copied layouts.

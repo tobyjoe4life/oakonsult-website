@@ -14,7 +14,7 @@ export default function Page() {
     items: [
       { title: "2010 - The family journey begins", text: "Abigail sustained profound brain damage at 18 months. The Adeloye family relocated from Nigeria to the UK to seek specialist care.", href: "/our-story" },
       { title: "2014 - From questions to purpose", text: "As Abigail entered palliative care, Olufunke’s faith and lived experience deepened a call to support other families.", href: "/our-story" },
-      { title: "2021 - OAKonsult is founded", text: "Olufunke and Ajisola Adeloye founded OAKonsult Disabilities Outreach and registered the charity in Nigeria.", href: "/about" },
+      { title: "2021 - Founded and registered in Nigeria", text: "Olufunke and Ajisola Adeloye founded OAKonsult Disabilities Outreach in response to their lived experience, and registered the charity in Nigeria.", href: "/about" },
       { title: "2022 - Inclusive church training", text: "The charity expanded disability-inclusion learning with churches and communities in Nigeria.", href: "/programmes/support-for-churches" },
       { title: "2023 - UK charity registration", text: "UK registration widened accountability and partnership, while Project ME began supporting parent carers in Bromley.", href: "/programmes/project-me" },
       { title: "2024 - Remembering Abigail", text: "Abigail died on 3 October 2024. Her joy, courage and insistence on inclusion remain central to OAKonsult’s identity.", href: "/abigail" },

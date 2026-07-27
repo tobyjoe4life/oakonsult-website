@@ -33,7 +33,7 @@ const regions = [
     programmes: [
       { title: "OAK Centre Prime", text: "The planned disability-support centre for children, young people and families in Oolo Town, Oyo State.", href: "/programmes/oak-centre-prime" },
       { title: "Project ME Online", text: "Online parent-carer learning connected to the wider Project ME model where appropriate.", href: "/programmes/project-me" },
-      { title: "Community support and outreach", text: "Medical outreach, home and school visits, public awareness and local community activity.", href: "/media-gallery/nigeria" },
+      { title: "Community support, outreach and rehabilitation", text: "Medical outreach, home and school visits, public awareness and community-based rehabilitation activity rooted in local relationships.", href: "/media-gallery/nigeria" },
       { title: "Community inclusion and awareness", text: "Disability awareness and practical inclusion support for families, churches and other community organisations.", href: "/programmes/support-for-churches" },
     ],
   },

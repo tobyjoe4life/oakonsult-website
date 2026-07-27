@@ -19,6 +19,7 @@ export default function AboutPage() {
           { title: "Our history", text: "A timeline from lived experience, to registration in Nigeria and the UK, to Project ME and OAK Centre Prime.", href: "/history" },
           { title: "Vision, mission and values", text: "Understand the purpose, values and inclusive commitment that guide OAKonsult.", href: "/vision-mission" },
           { title: "Our team", text: "Meet the trustees, staff and volunteers connected with the work in each region.", href: "/our-team" },
+          { title: "Funders and partners", text: "Meet the organisations that fund, support and work alongside OAKonsult in the UK and Nigeria.", href: "/funders-partners" },
           { title: "Governance and impact", text: "Read charity information, safeguarding commitments, reports and verified impact highlights.", href: "/impact" },
           { title: "United Kingdom", text: "Parent-carer wellbeing, Project ME, Zumba, inclusive training and community connection.", href: "/uk" },
           { title: "Nigeria", text: "Community support, medical and school outreach, public awareness and OAK Centre Prime.", href: "/nigeria" },

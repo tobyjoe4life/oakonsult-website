@@ -88,6 +88,8 @@ test("every route page carries an explicit mood or uses an approved shared premi
     "RegionPage",
     "UtilityPage",
     "PublicFormPage",
+    "TeamRegionPage",
+    "TeamProfile",
   ];
   const pages = listRoutePages(join(root, "src", "app"));
   assert.ok(pages.length >= 30, `expected the full route set, found ${pages.length}`);
