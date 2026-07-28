@@ -29,8 +29,9 @@ test("the dynamic profile route statically generates every listed person", () =>
   assert.match(route, /robots:\s*\{\s*index:\s*false,\s*follow:\s*false/);
 });
 
-test("the team hub links both regional directories and the full directory", () => {
+test("the team hub links both regional public directories", () => {
   const source = read("src/app/our-team/page.tsx");
+  const regionalSource = read("src/components/TeamRegionPage.tsx");
   assert.match(source, /interior-v5 team-hub-page/);
   assert.match(source, /href="\/our-team\/uk"/);
   assert.match(source, /\/our-team\/nigeria/);
@@ -38,6 +39,9 @@ test("the team hub links both regional directories and the full directory", () =
   assert.match(source, /ukTeamMembers\.length/);
   assert.match(source, /nigeriaTeamMembers\.length/);
   assert.match(source, /Leadership, governance and delivery/);
+  assert.match(source, /public leadership, trustees and selected delivery team/i);
+  assert.match(regionalSource, /Public profiles connected with/);
+  assert.doesNotMatch(`${source}\n${regionalSource}`, /Everyone on the team|Everyone in|full directory|full team hub|verified biography|Meet the \{members\.length\}/i);
 });
 
 test("regional directories render only their own people", () => {
@@ -64,7 +68,8 @@ test("individual profiles show region, role, biography, related links and contac
     "member.related.map",
     "aria-current=\"page\"",
     "/contact",
-    "officialUkTrusteeNames",
+    "member.boardJurisdiction",
+    "member.operationalRemit",
     "regionDisplayName(member.region)",
   ]) {
     assert.match(profile, new RegExp(marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), `TeamProfile is missing ${marker}`);
@@ -108,7 +113,7 @@ test("team portraits use verified files only, never the Zoom-grid screenshot", (
   assert.match(portrait, /teamInitials/);
   assert.match(portrait, /member\.image/);
   const teamDir = readdirSync(join(root, "public/images/team")).filter((file) => file.endsWith(".webp"));
-  assert.equal(teamDir.length, 9, "exactly the nine verified portraits should be versioned");
+  assert.equal(teamDir.length, 6, "exactly the six corroborated portraits should be versioned");
   assert.ok(!teamDir.some((file) => /zoom|grid|screenshot/i.test(file)), "no Zoom-grid screenshot may be used as a profile image");
 });
 

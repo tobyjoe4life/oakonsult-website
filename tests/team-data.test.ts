@@ -6,6 +6,7 @@ import {
   nigeriaTeamMembers,
   officialUkTrusteeNames,
   regionDisplayName,
+  teamByBoardJurisdiction,
   teamByRegion,
   teamBySlug,
   teamInitials,
@@ -27,8 +28,8 @@ test("team directory uses unique slugs and names", () => {
 
 test("team directory contains exactly the twelve current people", () => {
   assert.equal(teamMembers.length, 12);
-  assert.equal(ukTeamMembers.length, 7);
-  assert.equal(nigeriaTeamMembers.length, 5);
+  assert.equal(ukTeamMembers.length, 6);
+  assert.equal(nigeriaTeamMembers.length, 6);
 });
 
 test("static profile parameters exactly match the canonical team slugs", () => {
@@ -54,6 +55,14 @@ test("Omobola Oludele is in Nigeria, not the United Kingdom", () => {
   assert.ok(!ukTeamMembers.some((member) => member.slug === "omobola-oludele"), "Omobola must never appear on the UK team");
 });
 
+test("Dayo Balogun follows the current Nigeria workforce structure", () => {
+  const dayo = teamBySlug("dayo-balogun");
+  assert.ok(dayo, "Dayo Balogun must exist in the directory");
+  assert.equal(dayo.region, "nigeria");
+  assert.equal(dayo.operationalRemit, "nigeria");
+  assert.ok(!ukTeamMembers.some((member) => member.slug === "dayo-balogun"), "Dayo must not remain in the UK directory");
+});
+
 test("the UK trustee roster matches the official Charity Commission register exactly", () => {
   assert.deepEqual(
     [...officialUkTrusteeNames].sort(),
@@ -75,6 +84,55 @@ test("verified names are used, including full forms and familiar names", () => {
   assert.equal(teamBySlug("ajisola-adeloye")?.familiarName, "Aji");
   assert.equal(teamBySlug("itunuade-iyun")?.name, "Itunuade Iyun");
   assert.ok(!teamMembers.some((member) => /Itunade\b/.test(member.name)), "the older misspelling Itunade must not be used");
+});
+
+test("current approved biographies replace the disputed staging career histories", () => {
+  const ajisola = JSON.stringify(teamBySlug("ajisola-adeloye"));
+  const modupe = JSON.stringify(teamBySlug("modupe-olubunmi-soji-adeyemo"));
+  const hadiza = JSON.stringify(teamBySlug("hadiza-daura"));
+  const lucky = JSON.stringify(teamBySlug("lucky-sanni-aigbefoh"));
+  const itunuade = JSON.stringify(teamBySlug("itunuade-iyun"));
+  const oshin = teamBySlug("oshin-hannah-oluwafunmilayo");
+
+  assert.match(ajisola, /Church of England priest/i);
+  assert.match(ajisola, /real estate and facilities management/i);
+  assert.match(modupe, /Nurse Practitioner/i);
+  assert.match(hadiza, /Cooperative Management/i);
+  assert.match(lucky, /Certified Scrum Master/i);
+  assert.match(itunuade, /International Law and Diplomacy/i);
+  assert.equal(oshin?.role, "Nigeria trustee");
+
+  const serialised = JSON.stringify(teamMembers);
+  for (const unsupported of [
+    /preventable medical error/i,
+    /MPhil in Theology/i,
+    /founding Registrar/i,
+    /32 years of service to the seminary/i,
+    /broadcast media/i,
+    /Sky TV/i,
+    /Buckingham Palace/i,
+    /Foreign and Commonwealth Office/i,
+    /more than 30 years in the NHS/i,
+    /PwC/i,
+    /Chief Financial Officer/i,
+    /ACCA/i,
+    /Modern Montessori/i,
+    /Five Hearts Siblings/i,
+    /21 years of teaching/i,
+  ]) {
+    assert.doesNotMatch(serialised, unsupported, `team data must not retain unsupported copy matching ${unsupported}`);
+  }
+});
+
+test("board jurisdiction, operational remit and public directory grouping are separate facts", () => {
+  for (const member of teamMembers) {
+    assert.ok(["uk", "nigeria", "cross-regional"].includes(member.operationalRemit), `${member.slug} needs an operational remit`);
+  }
+  for (const trustee of ukTrustees) assert.equal(trustee.boardJurisdiction, "uk");
+  assert.equal(teamBySlug("olufunke-adeloye")?.operationalRemit, "cross-regional");
+  assert.equal(teamBySlug("bolanle-alice-ajayi")?.operationalRemit, "cross-regional");
+  assert.equal(teamBySlug("oshin-hannah-oluwafunmilayo")?.boardJurisdiction, "nigeria");
+  assert.deepEqual(teamByBoardJurisdiction("uk").map((member) => member.name).sort(), [...officialUkTrusteeNames].sort());
 });
 
 test("every profile carries mandatory factual fields", () => {
@@ -125,8 +183,8 @@ test("only verified portraits are referenced, and monograms cover the rest", () 
   }
   assert.deepEqual(
     withoutImages.map((member) => member.slug).sort(),
-    ["boluwatife-kehinde", "esther-aderike-kehinde", "itunuade-iyun"],
-    "only Itunuade, Esther and Boluwatife should use the monogram treatment",
+    ["boluwatife-kehinde", "dayo-balogun", "esther-aderike-kehinde", "hadiza-daura", "itunuade-iyun", "lucky-sanni-aigbefoh"],
+    "people without independently corroborated portraits must use the monogram treatment",
   );
   for (const member of withoutImages) assert.match(teamInitials(member.name), /^[A-Z]{2}$/, `${member.slug} monogram initials must be clean`);
 });
@@ -142,7 +200,7 @@ test("region display names and initials helper behave predictably", () => {
 test("team lookup helpers resolve consistently", () => {
   assert.equal(teamBySlug("olufunke-adeloye")?.role, "Co-founder and Chief Executive Officer");
   assert.equal(teamBySlug("itunuade-iyun")?.role, "Country Director, Nigeria");
-  assert.equal(teamByRegion("uk").length, 7);
-  assert.equal(teamByRegion("nigeria").length, 5);
+  assert.equal(teamByRegion("uk").length, 6);
+  assert.equal(teamByRegion("nigeria").length, 6);
   assert.equal(teamBySlug("not-a-person"), undefined);
 });

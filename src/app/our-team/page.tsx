@@ -74,7 +74,7 @@ export default function Page() {
         <div className="team-region-choice-heading" data-reveal>
           <p className="oak-kicker dark">Two regions, one team</p>
           <h2 id="team-region-choice-title">Choose a regional directory.</h2>
-          <p>Each directory card links to a factual individual profile with a verified biography and contact route.</p>
+          <p>Each card opens a current public profile and the shared contact route.</p>
         </div>
         <div className="team-region-choice-grid" data-reveal-group>
           <Link className="team-region-card team-region-card-uk" href="/our-team/uk" data-reveal-child="pop">
@@ -93,8 +93,8 @@ export default function Page() {
       </section>
 
       <TeamDirectory
-        title="Everyone on the team."
-        intro="The full directory across both regions. Select any person to read their factual profile."
+        title="Public leadership, trustees and selected delivery team."
+        intro="A curated public directory across both regions. Select any person to read their current profile."
       />
 
       <section className="editorial-action-band">

@@ -33,8 +33,7 @@ export function TeamRegionPage({ region }: { region: TeamRegion }) {
           <p className="oak-kicker">Our team / {display}</p>
           <h1 id="team-region-title">The {display} team</h1>
           <p>
-            Meet the {members.length} people serving OAKonsult in {display === "United Kingdom" ? "the United Kingdom" : "Nigeria"},
-            across governance, leadership and programme delivery.
+            Public profiles connected with OAKonsult’s {display} governance, leadership, operations and programme delivery.
           </p>
         </div>
         <div className="interior-hero-image" data-reveal="zoom">
@@ -50,8 +49,8 @@ export function TeamRegionPage({ region }: { region: TeamRegion }) {
 
       <TeamDirectory
         compact
-        title={`Everyone in ${display === "United Kingdom" ? "the United Kingdom" : "Nigeria"}.`}
-        intro={`Trustees, leadership and delivery colleagues connected with OAKonsult’s ${display} work.`}
+        title={`Public profiles connected with ${display === "United Kingdom" ? "the United Kingdom" : "Nigeria"}.`}
+        intro={`A selected public directory of trustees, leadership and delivery colleagues connected with OAKonsult’s ${display} work.`}
         members={members}
       />
 
@@ -59,7 +58,7 @@ export function TeamRegionPage({ region }: { region: TeamRegion }) {
         <div data-reveal>
           <p className="oak-kicker">OAKonsult in another region</p>
           <h2>Looking for the {otherDisplay} team?</h2>
-          <p>Explore the {otherDisplay} directory or return to the full team hub.</p>
+          <p>Explore the {otherDisplay} directory or return to the main team hub.</p>
         </div>
         <div className="editorial-route-links light-links" data-reveal>
           <Link href={`/our-team/${other}`}>Meet the {otherDisplay} team <Arrow /></Link>

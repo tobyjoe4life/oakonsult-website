@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { HomeMotion } from "@/components/HomeMotion";
 import { TeamPortrait } from "@/components/TeamPortrait";
-import { officialUkTrusteeNames, regionDisplayName, teamByRegion, type TeamMember } from "@/lib/team";
+import { regionDisplayName, teamByRegion, type TeamMember } from "@/lib/team";
 
 const Arrow = () => <span aria-hidden="true">→</span>;
 
@@ -14,7 +14,10 @@ const Arrow = () => <span aria-hidden="true">→</span>;
 export function TeamProfile({ member }: { member: TeamMember }) {
   const region = regionDisplayName(member.region);
   const colleagues = teamByRegion(member.region).filter((person) => person.slug !== member.slug).slice(0, 3);
-  const isUkTrustee = officialUkTrusteeNames.includes(member.name as (typeof officialUkTrusteeNames)[number]);
+  const boardJurisdiction = member.boardJurisdiction ? regionDisplayName(member.boardJurisdiction) : null;
+  const operationalRemit = member.operationalRemit === "cross-regional"
+    ? "United Kingdom and Nigeria work"
+    : `${regionDisplayName(member.operationalRemit)} work`;
 
   return (
     <article className="oak-home editorial-page team-profile-page" data-mood={member.region === "nigeria" ? "harvest" : "growth"}>
@@ -35,8 +38,9 @@ export function TeamProfile({ member }: { member: TeamMember }) {
           <p className="team-profile-role">{member.role}{member.familiarName ? ` · known as ${member.familiarName}` : ""}</p>
           <p>{member.summary}</p>
           <div className="team-profile-tags">
-            <span className="team-profile-tag">{region}</span>
-            {isUkTrustee ? <span className="team-profile-tag">Current UK trustee</span> : null}
+            <span className="team-profile-tag">{region} public directory</span>
+            {boardJurisdiction ? <span className="team-profile-tag">{boardJurisdiction} trustee</span> : null}
+            <span className="team-profile-tag">{operationalRemit}</span>
           </div>
         </div>
         <div className="team-profile-hero">

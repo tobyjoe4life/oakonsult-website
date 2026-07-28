@@ -8,6 +8,8 @@
 
 export type TeamRegion = "uk" | "nigeria";
 
+export type TeamOperationalRemit = TeamRegion | "cross-regional";
+
 export type TeamGroup = "trustee" | "executive" | "operations";
 
 export type TeamSection = {
@@ -22,7 +24,12 @@ export type TeamMember = {
   /** Optional familiar name shown clearly beside the full verified name. */
   familiarName?: string;
   role: string;
+  /** Public directory grouping. This is not a board-jurisdiction field. */
   region: TeamRegion;
+  /** Legal or governance jurisdiction for a trustee role, where applicable. */
+  boardJurisdiction?: TeamRegion;
+  /** Geographic scope of the person's operational work. */
+  operationalRemit: TeamOperationalRemit;
   group: TeamGroup;
   /** One-line summary used on directory listings. */
   summary: string;
@@ -46,23 +53,24 @@ export const teamMembers: TeamMember[] = [
     name: "Olufunke Adeloye",
     role: "Co-founder and Chief Executive Officer",
     region: "uk",
+    operationalRemit: "cross-regional",
     group: "executive",
     summary:
-      "Co-founder and Chief Executive Officer. OAKonsult grew from her family’s experience caring for their daughter Abigail after she sustained profound brain damage in Nigeria in 2010.",
+      "Co-founder and Chief Executive Officer. OAKonsult grew from her family’s experience after their daughter Abigail sustained profound brain damage following medical mismanagement in Nigeria.",
     biography: [
       {
         eyebrow: "Lived experience",
         title: "A calling shaped by Abigail’s life.",
         paragraphs: [
-          "In 2010, when she was 18 months old, Olufunke and Ajisola Adeloye’s daughter Abigail suffered catastrophic brain damage caused by a preventable medical error in Nigeria. The family moved to the United Kingdom so Abigail could receive the specialist care she needed.",
-          "Years of hospital corridors, sleepless nights and uncertainty became a determination that no other family should face the disability journey alone. From that fierce love, Olufunke and Ajisola co-founded OAKonsult Disabilities Outreach as a place of compassion, training and practical support for families raising children with disabilities.",
+          "In 2010, when she was 18 months old, Olufunke and Ajisola Adeloye’s daughter Abigail sustained profound brain damage following medical mismanagement in Nigeria. The family moved to the United Kingdom so Abigail could receive specialist care.",
+          "Their experience of caring for Abigail and navigating disability services led Olufunke and Ajisola to co-found OAKonsult Disabilities Outreach, offering practical support, training and connection for families raising children with disabilities.",
         ],
       },
       {
         eyebrow: "Chief Executive Officer",
         title: "Turning personal pain into shared purpose.",
         paragraphs: [
-          "Olufunke leads OAKonsult across the United Kingdom and Nigeria, guiding parent-carer support, inclusive training and community outreach shaped by lived experience. Abigail died on 3 October 2024, aged 16. Her legacy of resilience continues to inspire every family the charity serves.",
+          "Olufunke leads OAKonsult across the United Kingdom and Nigeria, guiding parent-carer support, inclusive training and community outreach shaped by lived experience. Abigail died on 3 October 2024, aged 16, and her life remains central to OAKonsult’s story.",
         ],
       },
     ],
@@ -84,23 +92,25 @@ export const teamMembers: TeamMember[] = [
     familiarName: "Aji",
     role: "Co-founder and UK trustee",
     region: "uk",
+    boardJurisdiction: "uk",
+    operationalRemit: "cross-regional",
     group: "trustee",
     summary:
-      "Co-founder and UK trustee. A theologian and pioneering seminary administrator who served for 32 years at the Nigerian Baptist Theological Seminary, Ogbomoso.",
+      "Co-founder and UK trustee. A Church of England priest, parent carer and experienced leader in real estate, facilities management, youth ministry and advocacy.",
     biography: [
       {
         eyebrow: "Background",
-        title: "A theologian and pioneering seminary administrator.",
+        title: "Ministry, leadership and lived experience.",
         paragraphs: [
-          "Ajisola Adeola Adeloye co-founded OAKonsult Disabilities Outreach with Olufunke Adeloye and is a UK trustee. He holds an MPhil in Theology.",
-          "From Fiditi in Oyo State, Nigeria, he was the founding Registrar of the Nigerian Baptist Theological Seminary in Ogbomoso and gave 32 years of service to the seminary, helping to build its administration and strengthen theological education.",
+          "Reverend Ajisola Adeola Adeloye is a Church of England priest serving in St Paul’s Cray, Orpington. He brings lived experience as a parent carer and leadership experience in real estate and facilities management.",
+          "His work also includes more than two decades of youth ministry and advocacy, supporting young people, families and communities.",
         ],
       },
       {
         eyebrow: "At OAKonsult",
         title: "Foundational vision and steady governance.",
         paragraphs: [
-          "As co-founder, Ajisola supports the strategic growth and foundational vision of the charity. He contributes to organisational development, partnerships and governance alongside fellow trustees.",
+          "Ajisola co-founded OAKonsult Disabilities Outreach with Olufunke Adeloye and is a UK trustee. He contributes to organisational development, partnerships, governance and the charity’s long-term direction.",
         ],
       },
     ],
@@ -122,23 +132,25 @@ export const teamMembers: TeamMember[] = [
     familiarName: "Bunmi",
     role: "Chair of the Board of Trustees",
     region: "uk",
+    boardJurisdiction: "uk",
+    operationalRemit: "uk",
     group: "trustee",
     summary:
-      "Chair of the Board of Trustees. More than 25 years in broadcast media, including freelance production for Sky TV and the BBC.",
+      "Chair of the Board of Trustees. A Nurse Practitioner with more than two decades of clinical experience and a commitment to inclusive, people-centred support.",
     biography: [
       {
         eyebrow: "Background",
-        title: "A career in broadcast media and public communication.",
+        title: "Clinical experience and people-centred leadership.",
         paragraphs: [
-          "Modupe Olubunmi Soji-Adeyemo, known familiarly as Bunmi, brings more than 25 years of broadcast media experience to OAKonsult. She worked as a freelance producer for Sky TV and the BBC, and gained experience with the Press Secretary’s Office at Buckingham Palace and the Foreign and Commonwealth Office.",
-          "Her background spans communications and public diplomacy, giving the board a strong understanding of public messaging, reputation and stakeholder relationships.",
+          "Modupe Olubunmi Soji-Adeyemo, known familiarly as Bunmi, is a Nurse Practitioner with more than two decades of clinical experience.",
+          "Her healthcare background brings a practical understanding of care, inclusion and the importance of listening to disabled people and their families.",
         ],
       },
       {
         eyebrow: "Chair of the Board of Trustees",
         title: "Leading with inclusion, service and community impact.",
         paragraphs: [
-          "As Chair of the Board of Trustees of OAKonsult in the United Kingdom, she provides strategic oversight and governance support so the charity remains faithful to its mission and values. She leads with a focus on inclusion, service and community impact, supporting initiatives that empower parent carers and promote the inclusion of disabled people.",
+          "As Chair of OAKonsult’s Board of Trustees in the United Kingdom, Bunmi provides strategic leadership and governance oversight. She supports inclusive healthcare and disability advocacy, community outreach and constructive relationships with partners and stakeholders.",
         ],
       },
     ],
@@ -152,30 +164,32 @@ export const teamMembers: TeamMember[] = [
       position: "50% 18%",
     },
     ctaTitle: "Talk to the UK team",
-    ctaText: "For governance, communications or partnership enquiries, contact OAKonsult through the shared contact route.",
+    ctaText: "For governance, healthcare-inclusion or partnership enquiries, contact OAKonsult through the shared contact route.",
   },
   {
     slug: "hadiza-daura",
     name: "Hadiza Daura",
     role: "UK trustee",
     region: "uk",
+    boardJurisdiction: "uk",
+    operationalRemit: "uk",
     group: "trustee",
     summary:
-      "UK trustee. More than 30 years in the NHS, a trained counsellor and a parent carer with deep experience of disability advocacy and fundraising.",
+      "UK trustee, parent carer, disability advocate and Project ME Champion, with qualifications in Cooperative Management and Accounting and Auditing.",
     biography: [
       {
         eyebrow: "Background",
-        title: "Three decades of NHS service and counselling.",
+        title: "Professional and lived experience.",
         paragraphs: [
-          "Hadiza Daura graduated with a BSc in Business Studies in 1988 and joined the NHS in 1989, building more than 30 years of administrative and leadership experience across the health service. She is also a trained counsellor.",
-          "Her professional life sits alongside charity fundraising and disability advocacy, informed by her own lived experience as a parent carer and of serious illness, which she carries with characteristic steadiness and dignity.",
+          "Hadiza Daura holds qualifications in Cooperative Management and Accounting and Auditing. Her professional experience includes work connected with the Abuja Geographical Information System.",
+          "She also brings lived experience as a parent carer, alongside a sustained commitment to disability advocacy, fundraising and community participation.",
         ],
       },
       {
         eyebrow: "UK trustee",
         title: "Governance grounded in lived experience.",
         paragraphs: [
-          "As a trustee of OAKonsult in the United Kingdom, Hadiza helps keep the charity’s programmes grounded in the realities families face. A graduate and Champion of the Project ME programme, she brings both professional discipline and personal understanding to the board.",
+          "As a UK trustee, Hadiza helps keep OAKonsult’s programmes grounded in the realities families face. She is a graduate and Champion of Project ME and brings professional, cultural and lived-experience insight to co-production and governance.",
         ],
       },
     ],
@@ -183,11 +197,6 @@ export const teamMembers: TeamMember[] = [
       { label: "Project ME", href: "/programmes/project-me", description: "Learn about the wellbeing programme Hadiza champions." },
       { label: "Find support", href: "/find-support", description: "Start with what your family needs today." },
     ],
-    image: {
-      src: "/images/team/hadiza-daura.webp",
-      alt: "Portrait of Hadiza Daura, UK trustee of OAKonsult",
-      position: "50% 18%",
-    },
     ctaTitle: "Talk to the UK team",
     ctaText: "For governance, programme or support enquiries, contact OAKonsult through the shared contact route.",
   },
@@ -196,23 +205,25 @@ export const teamMembers: TeamMember[] = [
     name: "Lucky Sanni Aigbefoh",
     role: "UK trustee",
     region: "uk",
+    boardJurisdiction: "uk",
+    operationalRemit: "uk",
     group: "trustee",
     summary:
-      "UK trustee. More than 20 years of finance and accounting experience across the UK and Nigeria, including tax, audit and financial management at PwC and EY.",
+      "UK trustee, Senior Project Manager and Certified Scrum Master with more than a decade of experience delivering complex organisational change.",
     biography: [
       {
         eyebrow: "Background",
-        title: "Two decades of finance and accounting leadership.",
+        title: "Project leadership and organisational change.",
         paragraphs: [
-          "Lucky Sanni Aigbefoh is a finance and accounting professional with more than 20 years of experience across the United Kingdom and Nigeria. His background covers tax, audit and financial management, including work at PwC and EY.",
-          "He previously served as a Chief Financial Officer in Nigerian telecommunications. He is a member of ACCA and holds an MSc in Finance Management and a BA in Accounting and Finance.",
+          "Lucky Sanni Aigbefoh is a Senior Project Manager and Certified Scrum Master with more than a decade of experience delivering complex projects.",
+          "His work spans HR, payroll, infrastructure, implementation and business transformation, with strengths in agile delivery, stakeholder engagement, risk management and global-team leadership.",
         ],
       },
       {
         eyebrow: "UK trustee",
-        title: "Financial stewardship for sustainable impact.",
+        title: "Governance shaped by delivery experience.",
         paragraphs: [
-          "As a trustee of OAKonsult in the United Kingdom, Lucky strengthens the charity’s financial governance, accountability and strategic planning, helping the board steward resources well for the families the charity serves.",
+          "As a UK trustee, Lucky contributes project-delivery, governance, risk-management and organisational-change experience to the board’s oversight and strategic planning.",
         ],
       },
     ],
@@ -220,36 +231,33 @@ export const teamMembers: TeamMember[] = [
       { label: "Impact and accountability", href: "/impact", description: "See how OAKonsult reports activity and learns from evidence." },
       { label: "Funders and partners", href: "/funders-partners", description: "Meet the organisations that support the work." },
     ],
-    image: {
-      src: "/images/team/lucky-aigbefoh.webp",
-      alt: "Portrait of Lucky Sanni Aigbefoh, UK trustee of OAKonsult",
-      position: "50% 18%",
-    },
     ctaTitle: "Talk to the UK team",
-    ctaText: "For governance, finance or funding enquiries, contact OAKonsult through the shared contact route.",
+    ctaText: "For governance, project or partnership enquiries, contact OAKonsult through the shared contact route.",
   },
   {
     slug: "bolanle-alice-ajayi",
     name: "Bolanle Alice Ajayi",
     role: "Operations Manager and UK trustee",
     region: "uk",
+    boardJurisdiction: "uk",
+    operationalRemit: "cross-regional",
     group: "trustee",
     summary:
-      "Operations Manager and UK trustee. Involved with OAKonsult for about a decade since 2014, covering HR strategy, people management, operations, compliance support and DBS coordination.",
+      "Operations Manager and UK trustee, bringing procurement, strategy, operations and supplier-management experience from her work at EY Ireland.",
     biography: [
       {
         eyebrow: "Background",
-        title: "A decade of service alongside OAKonsult.",
+        title: "Procurement, strategy and operations.",
         paragraphs: [
-          "Bolanle Alice Ajayi has been involved with OAKonsult for about a decade, beginning in 2014. Over those years she has supported the charity’s growth from an early outreach into a structured organisation.",
-          "Her contribution spans HR strategy and people management, the smooth running of day-to-day operations, financial and compliance support, and DBS coordination that keeps volunteer processes safe and orderly.",
+          "Bolanle Alice Ajayi is a Procurement Manager at EY Ireland with experience in strategy, operations, supplier management and service improvement.",
+          "At OAKonsult, her contribution covers HR, operational systems, staff welfare, compliance and practical support for programme delivery.",
         ],
       },
       {
         eyebrow: "Operations Manager and UK trustee",
         title: "Where governance meets day-to-day delivery.",
         paragraphs: [
-          "As Operations Manager and a trustee of OAKonsult in the United Kingdom, Bolanle works at the intersection of governance and operations. She helps oversee organisational processes, strengthen systems and support service quality so families experience dependable, well-run support.",
+          "As Operations Manager and a UK trustee, Bolanle works across governance and operations. She strengthens organisational processes and supports dependable, well-run services for families and communities.",
         ],
       },
     ],
@@ -269,7 +277,8 @@ export const teamMembers: TeamMember[] = [
     slug: "dayo-balogun",
     name: "Dayo Balogun",
     role: "Volunteer Manager",
-    region: "uk",
+    region: "nigeria",
+    operationalRemit: "nigeria",
     group: "operations",
     summary:
       "Volunteer Manager. Leads volunteer documentation and processes, recruitment and training coordination, skills mapping and volunteer recognition.",
@@ -294,11 +303,6 @@ export const teamMembers: TeamMember[] = [
       { label: "Volunteer opportunities", href: "/volunteer-opportunities", description: "Explore current ways to volunteer with OAKonsult." },
       { label: "Get involved", href: "/get-involved", description: "Find other ways to take part in the work." },
     ],
-    image: {
-      src: "/images/team/dayo-balogun.webp",
-      alt: "Portrait of Dayo Balogun, Volunteer Manager of OAKonsult",
-      position: "50% 18%",
-    },
     ctaTitle: "Ask about volunteering",
     ctaText: "For volunteering enquiries, contact OAKonsult through the shared contact route or visit the volunteer page.",
   },
@@ -307,23 +311,24 @@ export const teamMembers: TeamMember[] = [
     name: "Itunuade Iyun",
     role: "Country Director, Nigeria",
     region: "nigeria",
+    operationalRemit: "nigeria",
     group: "executive",
     summary:
-      "Country Director, Nigeria. More than 20 years in education, including 12 years as Head of School at Modern Montessori International School, Lagos. Joined OAKonsult in 2022.",
+      "Country Director, Nigeria, with experience across media, non-governmental organisations, development work, counselling, mentoring and enterprise.",
     biography: [
       {
         eyebrow: "Background",
-        title: "Over two decades in education leadership.",
+        title: "Communication, development and counselling.",
         paragraphs: [
-          "Itunuade Iyun brings more than 20 years of experience in education, spanning teaching and school management. She served for 12 years as Head of School at Modern Montessori International School in Lagos and remains a consultant to the school.",
-          "Her expertise covers early-years and primary curriculum leadership, teacher development and day-to-day school operations, grounding OAKonsult’s work in credible educational practice.",
+          "Itunuade Iyun holds a BSc (Hons) in Mass Communication and a master’s degree in International Law and Diplomacy from the University of Lagos. She is also a certified counsellor with Love, Dating and Marriage Ministry.",
+          "Her experience spans media, local and international non-governmental organisations, development work, counselling, mentoring, ministry support and enterprise.",
         ],
       },
       {
         eyebrow: "Country Director, Nigeria",
         title: "Leading Nigeria operations and programme delivery.",
         paragraphs: [
-          "Itunuade joined OAKonsult in 2022 and became Country Director in 2023. She leads Nigeria operations and local programme execution, overseeing community outreach, stakeholder relationships and the delivery of initiatives at the national level.",
+          "As Country Director, Itunuade leads OAKonsult’s Nigeria operations, programmes and stakeholder engagement. Her work includes disability-inclusion initiatives, parent-carer empowerment and the development of OAK Centre Prime.",
         ],
       },
     ],
@@ -332,13 +337,15 @@ export const teamMembers: TeamMember[] = [
       { label: "OAK Centre Prime", href: "/programmes/oak-centre-prime", description: "See the planned centre Itunuade helps move forward." },
     ],
     ctaTitle: "Talk to the Nigeria team",
-    ctaText: "For Nigeria programme, school or partnership enquiries, contact OAKonsult through the shared contact route.",
+    ctaText: "For Nigeria programme or partnership enquiries, contact OAKonsult through the shared contact route.",
   },
   {
     slug: "esther-aderike-kehinde",
     name: "Esther Aderike Kehinde",
     role: "Nigeria trustee",
     region: "nigeria",
+    boardJurisdiction: "nigeria",
+    operationalRemit: "nigeria",
     group: "trustee",
     summary:
       "Nigeria trustee. A career across education and public administration, including more than three decades at NEC, now INEC, before retiring from civil service in April 2020.",
@@ -369,25 +376,28 @@ export const teamMembers: TeamMember[] = [
   {
     slug: "oshin-hannah-oluwafunmilayo",
     name: "Oshin Hannah Oluwafunmilayo",
-    role: "Nigeria support and advocacy",
+    familiarName: "Funmi Oshin",
+    role: "Nigeria trustee",
     region: "nigeria",
-    group: "operations",
+    boardJurisdiction: "nigeria",
+    operationalRemit: "nigeria",
+    group: "trustee",
     summary:
-      "Nigeria support and advocacy. A parent and sibling-support advocate and founder of Five Hearts Siblings, which supports siblings of children with disabilities.",
+      "Nigeria trustee with hands-on experience supporting parents and families of children with diverse needs through training, advocacy and community outreach.",
     biography: [
       {
-        eyebrow: "Lived experience",
-        title: "Advocacy born from family life.",
+        eyebrow: "Family support",
+        title: "Practical experience alongside families.",
         paragraphs: [
-          "Oshin Hannah Oluwafunmilayo is a parent and sibling-support advocate whose commitment grows out of lived experience. After the death of her daughter following illness, she channelled her understanding of family life with disability into standing with other parents, carers and siblings.",
-          "She founded Five Hearts Siblings, a non-profit supporting siblings of children with disabilities, recognising that brothers and sisters also carry questions, responsibilities and hopes that deserve attention.",
+          "Oshin Hannah Oluwafunmilayo, also known as Funmi Oshin, has hands-on experience supporting parents and families of children with autism, cerebral palsy, ADHD, dyslexia and visual impairment.",
+          "Her contribution includes family support, disability inclusion, community engagement, training and outreach with parents, churches, schools and local communities.",
         ],
       },
       {
-        eyebrow: "Support and advocacy",
-        title: "For inclusive schools, stronger families, sustainable communities.",
+        eyebrow: "Nigeria trustee",
+        title: "Governance informed by community experience.",
         paragraphs: [
-          "Hannah brings longstanding board and advisory service to her advocacy. She supports parent carers, helps with training for churches and schools, and takes part in advocacy and community outreaches. Her focus is inclusive schools, stronger family support and sustainable communities where every person is valued without discrimination.",
+          "As a Nigeria trustee, Funmi contributes family-support and disability-community insight to governance, advocacy and the development of inclusive programmes.",
         ],
       },
     ],
@@ -397,34 +407,35 @@ export const teamMembers: TeamMember[] = [
     ],
     image: {
       src: "/images/team/oshin-hannah-oluwafunmilayo.webp",
-      alt: "Portrait of Oshin Hannah Oluwafunmilayo, Nigeria support and advocacy",
+      alt: "Portrait of Oshin Hannah Oluwafunmilayo, Nigeria trustee of OAKonsult",
       position: "50% 22%",
     },
     ctaTitle: "Talk to the Nigeria team",
-    ctaText: "For family support or advocacy enquiries, contact OAKonsult through the shared contact route.",
+    ctaText: "For governance, family-support or advocacy enquiries, contact OAKonsult through the shared contact route.",
   },
   {
     slug: "omobola-oludele",
     name: "Omobola Oludele",
     role: "Learning and Development Manager, Nigeria",
     region: "nigeria",
+    operationalRemit: "nigeria",
     group: "operations",
     summary:
-      "Learning and Development Manager, Nigeria. 21 years of teaching experience and a trained Montessori directress and Mathematics teacher. Joined OAKonsult as a volunteer more than 10 years ago.",
+      "Learning and Development Manager, Nigeria. Leads capacity-building, training and learning interventions for staff, volunteers and community programmes.",
     biography: [
       {
-        eyebrow: "Background",
-        title: "A teacher at heart, for 21 years and counting.",
+        eyebrow: "Learning and development",
+        title: "Building skills for dependable support.",
         paragraphs: [
-          "Omobola Oludele has 21 years of teaching experience. She is a trained Montessori directress and Mathematics teacher with strengths in curriculum planning, adult learning, volunteer engagement, teacher coaching and learning innovation.",
-          "She joined OAKonsult as a volunteer more than 10 years ago and has continued to contribute to training, advocacy and community outreach ever since.",
+          "Omobola Oludele leads capacity-building, training programmes and learning interventions for OAKonsult in Nigeria.",
+          "Her role includes statutory learning for volunteers and practical support for advocacy, community outreach and inclusive programme delivery.",
         ],
       },
       {
         eyebrow: "Learning and Development Manager, Nigeria",
         title: "Building the charity’s capacity to teach and include.",
         paragraphs: [
-          "As Learning and Development Manager in Nigeria, Omobola leads capacity-building initiatives, training programmes and learning interventions. She supports volunteers’ statutory training and helps connect OAKonsult with training partners, including the link with Joni and Friends for the Beyond Suffering programme.",
+          "Omobola supports OAKonsult’s work with Joni and Friends and the Beyond Suffering programme, helping the team strengthen disability awareness and inclusive practice.",
         ],
       },
     ],
@@ -445,6 +456,7 @@ export const teamMembers: TeamMember[] = [
     name: "Boluwatife Kehinde",
     role: "Head of Administration, Nigeria",
     region: "nigeria",
+    operationalRemit: "nigeria",
     group: "operations",
     summary:
       "Head of Administration, Nigeria. Coordinates administration, volunteer skills-gap work and programme-budget preparation across the charity’s Nigeria work.",
@@ -489,6 +501,9 @@ export const teamBySlug = (slug: string): TeamMember | undefined =>
 export const teamByRegion = (region: TeamRegion): TeamMember[] =>
   teamMembers.filter((member) => member.region === region);
 
+export const teamByBoardJurisdiction = (region: TeamRegion): TeamMember[] =>
+  teamMembers.filter((member) => member.boardJurisdiction === region);
+
 /** Canonical static parameters consumed directly by the App Router profile route. */
 export const teamProfileStaticParams = (): { slug: string }[] =>
   teamMembers.map((member) => ({ slug: member.slug }));
@@ -496,8 +511,8 @@ export const teamProfileStaticParams = (): { slug: string }[] =>
 export const ukTeamMembers = teamByRegion("uk");
 export const nigeriaTeamMembers = teamByRegion("nigeria");
 
-export const ukTrustees = teamMembers.filter(
-  (member) => member.region === "uk" && officialUkTrusteeNames.includes(member.name as (typeof officialUkTrusteeNames)[number]),
+export const ukTrustees = teamByBoardJurisdiction("uk").filter(
+  (member) => officialUkTrusteeNames.includes(member.name as (typeof officialUkTrusteeNames)[number]),
 );
 
 export const regionDisplayName = (region: TeamRegion): string =>

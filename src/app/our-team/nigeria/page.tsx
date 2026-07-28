@@ -4,7 +4,7 @@ import { TeamRegionPage } from "@/components/TeamRegionPage";
 export const metadata: Metadata = {
   title: "The Nigeria team",
   description:
-    "Meet the country leadership, trustees and delivery team of OAKonsult Disabilities Outreach in Nigeria.",
+    "Public profiles of trustees, leadership and selected delivery colleagues connected with OAKonsult Disabilities Outreach in Nigeria.",
   robots: { index: false, follow: false, nocache: true },
 };
 
