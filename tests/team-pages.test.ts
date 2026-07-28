@@ -108,12 +108,12 @@ test("team directory copy retains accessible contrast without decorative indices
   assert.doesNotMatch(read("src/components/TeamDirectory.tsx"), /team-card-index/, "team cards must not use decorative sequence indices");
 });
 
-test("team portraits use verified files only, never the Zoom-grid screenshot", () => {
+test("team portraits use source-attributed files only, never the Zoom-grid screenshot", () => {
   const portrait = read("src/components/TeamPortrait.tsx");
   assert.match(portrait, /teamInitials/);
   assert.match(portrait, /member\.image/);
   const teamDir = readdirSync(join(root, "public/images/team")).filter((file) => file.endsWith(".webp"));
-  assert.equal(teamDir.length, 6, "exactly the six corroborated portraits should be versioned");
+  assert.equal(teamDir.length, 12, "all twelve source-attributed portraits should be versioned");
   assert.ok(!teamDir.some((file) => /zoom|grid|screenshot/i.test(file)), "no Zoom-grid screenshot may be used as a profile image");
 });
 

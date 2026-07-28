@@ -172,7 +172,7 @@ test("no prohibited copy or process leakage appears in team data", () => {
   }
 });
 
-test("only verified portraits are referenced, and monograms cover the rest", () => {
+test("every public team profile uses a source-attributed portrait", () => {
   const withImages = teamMembers.filter((member) => member.image);
   const withoutImages = teamMembers.filter((member) => !member.image);
   for (const member of withImages) {
@@ -181,12 +181,8 @@ test("only verified portraits are referenced, and monograms cover the rest", () 
     assert.ok(member.image!.alt.length > 10, `${member.slug} portrait needs meaningful alt text`);
     assert.doesNotMatch(member.image!.alt, /zoom|grid|screenshot/i, `${member.slug} alt must not reference the Zoom-grid screenshot`);
   }
-  assert.deepEqual(
-    withoutImages.map((member) => member.slug).sort(),
-    ["boluwatife-kehinde", "dayo-balogun", "esther-aderike-kehinde", "hadiza-daura", "itunuade-iyun", "lucky-sanni-aigbefoh"],
-    "people without independently corroborated portraits must use the monogram treatment",
-  );
-  for (const member of withoutImages) assert.match(teamInitials(member.name), /^[A-Z]{2}$/, `${member.slug} monogram initials must be clean`);
+  assert.equal(withImages.length, 12, "all twelve public profiles should carry their current source-attributed portrait");
+  assert.deepEqual(withoutImages, [], "no public profile should fall back to a monogram while an attributed portrait is available");
 });
 
 test("region display names and initials helper behave predictably", () => {
