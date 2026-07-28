@@ -15,12 +15,6 @@ const browser = await chromium.launch({ headless: true });
 const report = [];
 for (const entry of cases) {
   const context = await browser.newContext({ viewport: entry.viewport, locale: "en-GB", colorScheme: "light" });
-  await context.addInitScript(() => {
-    if (!sessionStorage.getItem("gallery-picture-book-qa-initialised")) {
-      localStorage.clear();
-      sessionStorage.setItem("gallery-picture-book-qa-initialised", "true");
-    }
-  });
   const page = await context.newPage();
   const consoleErrors = [];
   const responseErrors = [];
@@ -61,13 +55,7 @@ for (const entry of cases) {
   }));
 
   const firstOpen = page.locator(".picture-book-open").first();
-  const firstFavourite = page.locator(".picture-book-favourite").first();
-  await firstFavourite.click();
-  if ((await firstFavourite.getAttribute("aria-pressed")) !== "true") throw new Error(`${entry.name}: favourite did not activate`);
-  await page.reload({ waitUntil: "networkidle" });
-  const restoredFavourite = page.locator(".picture-book-favourite").first();
-  await page.waitForFunction(() => document.querySelector(".picture-book-favourite")?.getAttribute("aria-pressed") === "true");
-  if ((await restoredFavourite.getAttribute("aria-pressed")) !== "true") throw new Error(`${entry.name}: favourite did not persist`);
+  if (await page.locator(".picture-book-favourite").count()) throw new Error(`${entry.name}: like control is still present`);
   await firstOpen.click();
   const dialog = page.getByRole("dialog");
   await dialog.waitFor({ state: "visible" });
@@ -78,7 +66,6 @@ for (const entry of cases) {
   await page.keyboard.press("Escape");
   await dialog.waitFor({ state: "detached" });
   if (!(await firstOpen.evaluate((element) => element === document.activeElement))) throw new Error(`${entry.name}: viewer focus was not restored`);
-  await restoredFavourite.click();
 
   for (let index = 0; index < figureCount; index += 1) {
     await figures.nth(index).scrollIntoViewIfNeeded();

@@ -4,8 +4,6 @@ import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { galleryBookFor, type GalleryRegion } from "@/lib/gallery";
 
-const FAVOURITES_KEY = "oakonsult-picture-book-favourites";
-
 type PictureBookGalleryProps = {
   region: GalleryRegion;
 };
@@ -26,7 +24,6 @@ export function PictureBookGallery({ region }: PictureBookGalleryProps) {
     return map;
   }, [photographs]);
 
-  const [favourites, setFavourites] = useState<string[]>([]);
   const [active, setActive] = useState<number | null>(null);
   const isOpen = active !== null;
 
@@ -35,42 +32,6 @@ export function PictureBookGallery({ region }: PictureBookGalleryProps) {
   const wasOpen = useRef(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-
-  // Restore any favourites the visitor saved on this device during earlier visits.
-  // Deferred to a microtask so the first render matches the server output.
-  useEffect(() => {
-    let cancelled = false;
-    void Promise.resolve().then(() => {
-      if (cancelled) return;
-      try {
-        const stored = window.localStorage.getItem(FAVOURITES_KEY);
-        if (!stored) return;
-        const parsed: unknown = JSON.parse(stored);
-        if (Array.isArray(parsed)) {
-          setFavourites(parsed.filter((entry): entry is string => typeof entry === "string"));
-        }
-      } catch {
-        // localStorage may be unavailable; favourites simply stay unsaved.
-      }
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const toggleFavourite = useCallback((slug: string) => {
-    setFavourites((current) => {
-      const next = current.includes(slug)
-        ? current.filter((entry) => entry !== slug)
-        : [...current, slug];
-      try {
-        window.localStorage.setItem(FAVOURITES_KEY, JSON.stringify(next));
-      } catch {
-        // localStorage may be unavailable; keep the in-memory state only.
-      }
-      return next;
-    });
-  }, []);
 
   const openViewer = (index: number) => {
     lastTrigger.current = index;
@@ -134,38 +95,20 @@ export function PictureBookGallery({ region }: PictureBookGalleryProps) {
   const current = active === null ? null : photographs[active];
 
   return (
-    <section className="picture-book" aria-labelledby="picture-book-heading">
-      <div className="picture-book-heading" data-reveal>
-        <p className="oak-kicker dark">A book to browse slowly</p>
-        <h2 id="picture-book-heading">
-          {region === "UK"
-            ? "Parent-carer support and community wellbeing in the UK."
-            : "Outreach, awareness and community partnership in Nigeria."}
-        </h2>
-        <p>
-          Scroll through each chapter, open any photograph for a closer look and save the moments
-          that matter to you with the heart control.
-        </p>
-        <p className="picture-book-note">
-          Photographs you like are saved on this device only. They are not shared
-          with OAKonsult or anyone else, and clearing your browser storage removes them.
-        </p>
-      </div>
-
+    <section className="picture-book" aria-label={`${region} media picture book`}>
       {chapters.map((chapter, chapterIndex) => (
         <section
           className="picture-book-chapter"
           key={chapter.title}
-          aria-labelledby={`picture-book-chapter-${chapterIndex}`}
+          aria-labelledby={`picture-book-chapter-${region}-${chapterIndex}`}
         >
           <div className="picture-book-chapter-intro" data-reveal>
-            <h3 id={`picture-book-chapter-${chapterIndex}`}>{chapter.title}</h3>
+            <h2 id={`picture-book-chapter-${region}-${chapterIndex}`}>{chapter.title}</h2>
             <p>{chapter.intro}</p>
           </div>
           <div className="picture-book-flow" data-reveal-group>
             {chapter.items.map((item) => {
               const index = indexBySlug.get(item.slug) ?? 0;
-              const saved = favourites.includes(item.slug);
               return (
                 <figure
                   className="picture-book-figure"
@@ -198,31 +141,6 @@ export function PictureBookGallery({ region }: PictureBookGalleryProps) {
                   </button>
                   <figcaption className="picture-book-caption">
                     <p>{item.caption}</p>
-                    <button
-                      type="button"
-                      className="picture-book-favourite"
-                      aria-pressed={saved}
-                      aria-label={
-                        saved
-                          ? `Remove your like from this photograph: ${item.title}`
-                          : `Like this photograph: ${item.title}`
-                      }
-                      onClick={() => toggleFavourite(item.slug)}
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="16"
-                        height="16"
-                        fill={saved ? "currentColor" : "none"}
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        aria-hidden="true"
-                        focusable="false"
-                      >
-                        <path d="M12 20.5c-.4 0-.8-.14-1.1-.42C7.4 16.9 3 13.3 3 9.6 3 7.02 5.02 5 7.6 5c1.54 0 3.04.75 4.4 2.1C13.36 5.75 14.86 5 16.4 5 18.98 5 21 7.02 21 9.6c0 3.7-4.4 7.3-7.9 10.48-.3.28-.7.42-1.1.42Z" />
-                      </svg>
-                      <span>{saved ? "Liked" : "Like"}</span>
-                    </button>
                   </figcaption>
                 </figure>
               );

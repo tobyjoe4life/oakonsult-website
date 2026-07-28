@@ -785,9 +785,8 @@
 
 /* --------------------------------------------------------------------------
    10. Media picture book: editorial photo-essay chapters with an accessible
-   viewer and per-device favourites. Chapter introductions stay sticky on
-   desktop while photographs flow in asymmetric, naturally proportioned
-   rhythms; full-prominence images create occasional full-bleed moments.
+   viewer. Chapter introductions stay sticky on desktop while photographs flow
+   in asymmetric, naturally proportioned rhythms.
    -------------------------------------------------------------------------- */
 .picture-book {
   position: relative;
@@ -823,40 +822,6 @@
   opacity: .07;
 }
 
-.picture-book-heading {
-  max-width: 760px;
-  margin-bottom: clamp(56px, 7vw, 88px);
-}
-
-.picture-book-heading h2 {
-  margin: 0 0 18px;
-  color: var(--mood-deep, #0f4844);
-  font-family: var(--font-display), sans-serif;
-  font-weight: 900;
-  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
-  line-height: 1;
-  letter-spacing: -.03em;
-}
-
-.picture-book-heading > p:not(.oak-kicker):not(.picture-book-note) {
-  margin: 0;
-  max-width: 58ch;
-  color: #335048;
-  font-size: 1.08rem;
-  line-height: 1.6;
-}
-
-.picture-book-note {
-  margin: 22px 0 0;
-  max-width: 58ch;
-  padding-left: 18px;
-  border-left: 3px solid var(--mood-accent, #2b7d78);
-  color: #335048;
-  font-size: .95rem;
-  font-weight: 700;
-  line-height: 1.55;
-}
-
 .picture-book-chapter {
   display: grid;
   grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
@@ -866,13 +831,17 @@
   border-top: 2px solid rgba(15, 72, 68, .16);
 }
 
+.picture-book > .picture-book-chapter:first-of-type {
+  margin-top: 0;
+}
+
 .picture-book-chapter-intro {
   position: sticky;
   top: 104px;
   align-self: start;
 }
 
-.picture-book-chapter-intro h3 {
+.picture-book-chapter-intro h2 {
   margin: 0 0 14px;
   color: var(--mood-deep, #0f4844);
   font-family: var(--font-display), sans-serif;
@@ -963,55 +932,15 @@
 }
 
 .picture-book-caption {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 14px;
   padding-top: 12px;
 }
 
 .picture-book-caption p {
   margin: 0;
-  flex: 1 1 auto;
   color: #335048;
   font-size: .95rem;
   font-weight: 700;
   line-height: 1.45;
-}
-
-.picture-book-favourite {
-  display: inline-flex;
-  flex: 0 0 auto;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 10px 2px 7px;
-  border: 0;
-  border-bottom: 2px solid var(--mood-accent, #2b7d78);
-  border-radius: 0;
-  background: transparent;
-  color: var(--mood-deep, #0f4844);
-  font-size: .82rem;
-  font-weight: 800;
-  letter-spacing: .04em;
-  cursor: pointer;
-  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
-}
-
-.picture-book-favourite:hover {
-  color: var(--mood-accent, #2b7d78);
-  border-color: var(--mood-deep, #0f4844);
-}
-
-.picture-book-favourite[aria-pressed="true"] {
-  background: transparent;
-  border-color: var(--mood-accent, #2b7d78);
-  color: var(--mood-accent, #2b7d78);
-}
-
-.picture-book-favourite:focus-visible {
-  outline: 3px solid var(--mood-accent, #2b7d78);
-  outline-offset: 3px;
 }
 
 .picture-book-viewer {
@@ -1104,91 +1033,6 @@
 .picture-book-viewer-prev { left: 18px; }
 .picture-book-viewer-next { right: 18px; }
 
-/* Gateway: flat ruled chapter index into the two regional picture books */
-.picture-book-gateway {
-  padding: 110px max(24px, calc((100vw - 1340px) / 2));
-  background: #fffdf7;
-}
-
-.picture-book-gateway-heading {
-  max-width: 760px;
-  margin-bottom: clamp(48px, 6vw, 72px);
-}
-
-.picture-book-gateway-heading h2 {
-  margin: 0 0 16px;
-  color: var(--mood-deep, #0f4844);
-  font-family: var(--font-display), sans-serif;
-  font-weight: 900;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.02;
-  letter-spacing: -.03em;
-}
-
-.picture-book-gateway-heading > p:not(.oak-kicker) {
-  margin: 0;
-  max-width: 56ch;
-  color: #335048;
-  font-size: 1.08rem;
-  line-height: 1.6;
-}
-
-.picture-book-gateway-lists {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(32px, 5vw, 72px);
-}
-
-.picture-book-gateway-list {
-  border-top: 3px solid var(--mood-accent, #2b7d78);
-  padding-top: 22px;
-}
-
-.picture-book-gateway-list h3 {
-  margin: 0 0 10px;
-  color: var(--mood-deep, #0f4844);
-  font-family: var(--font-display), sans-serif;
-  font-weight: 900;
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
-  line-height: 1.08;
-  letter-spacing: -.02em;
-}
-
-.picture-book-gateway-list > p {
-  margin: 0 0 22px;
-  max-width: 46ch;
-  color: #335048;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.picture-book-gateway-list ul {
-  list-style: none;
-  margin: 0 0 26px;
-  padding: 0;
-}
-
-.picture-book-gateway-list li {
-  padding: 16px 0;
-  border-top: 1px solid rgba(15, 72, 68, .16);
-}
-
-.picture-book-gateway-list li span {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--mood-deep, #0f4844);
-  font-weight: 900;
-  font-size: .98rem;
-  letter-spacing: .01em;
-}
-
-.picture-book-gateway-list li p {
-  margin: 0;
-  color: #335048;
-  font-size: .92rem;
-  line-height: 1.5;
-}
-
 @media (max-width: 1100px) {
   .picture-book-chapter {
     grid-template-columns: minmax(0, 1fr);
@@ -1236,23 +1080,6 @@
   .picture-book-figure[data-prominence="standard"]:nth-of-type(3n),
   .picture-book-figure[data-prominence="portrait"]:nth-of-type(odd) {
     grid-column: 1 / -1;
-  }
-
-  .picture-book-caption {
-    flex-wrap: wrap;
-  }
-
-  .picture-book-favourite {
-    min-height: 48px;
-    padding: 12px 2px 7px;
-  }
-
-  .picture-book-gateway {
-    padding: 72px 20px;
-  }
-
-  .picture-book-gateway-lists {
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .picture-book-viewer button {
@@ -1319,8 +1146,7 @@
     animation: none !important;
   }
 
-  .picture-book-open img,
-  .picture-book-favourite {
+  .picture-book-open img {
     transition: none;
   }
 }

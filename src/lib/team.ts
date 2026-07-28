@@ -92,7 +92,7 @@ export const teamMembers: TeamMember[] = [
         eyebrow: "Background",
         title: "A theologian and pioneering seminary administrator.",
         paragraphs: [
-          "Ajisola Adeola Adeloye co-founded OAKonsult Disabilities Outreach with Olufunke Adeloye and serves as a trustee of the charity in the United Kingdom. He holds an MPhil in Theology.",
+          "Ajisola Adeola Adeloye co-founded OAKonsult Disabilities Outreach with Olufunke Adeloye and is a UK trustee. He holds an MPhil in Theology.",
           "From Fiditi in Oyo State, Nigeria, he was the founding Registrar of the Nigerian Baptist Theological Seminary in Ogbomoso and gave 32 years of service to the seminary, helping to build its administration and strengthen theological education.",
         ],
       },
@@ -278,7 +278,7 @@ export const teamMembers: TeamMember[] = [
         eyebrow: "Volunteer leadership",
         title: "Building a well-supported volunteer network.",
         paragraphs: [
-          "Dayo Balogun serves as OAKonsult’s Volunteer Manager, looking after the people who give their time to the charity’s programmes and outreach.",
+          "Dayo Balogun is OAKonsult’s Volunteer Manager. He supports the people who give their time to the charity’s programmes and outreach.",
           "His work covers volunteer documentation and processes, the coordination of recruitment and training, skills mapping across the volunteer network and volunteer recognition, so every volunteer is known, prepared and appreciated.",
         ],
       },
@@ -355,7 +355,7 @@ export const teamMembers: TeamMember[] = [
         eyebrow: "Nigeria trustee",
         title: "Governance as stewardship.",
         paragraphs: [
-          "As a trustee of OAKonsult in Nigeria, Esther serves as a steward of the charity’s mission and values. She provides strategic oversight, supports accountability and helps uphold the integrity of the charity’s work within the disability community.",
+          "Esther is a trustee of OAKonsult in Nigeria. She provides strategic oversight, supports accountability and helps uphold the integrity of the charity’s work within the disability community.",
         ],
       },
     ],
@@ -453,7 +453,7 @@ export const teamMembers: TeamMember[] = [
         eyebrow: "Administration",
         title: "Keeping Nigeria operations coordinated.",
         paragraphs: [
-          "Boluwatife Kehinde serves as Head of Administration in Nigeria, helping the charity’s day-to-day work stay organised, documented and well prepared.",
+          "Boluwatife Kehinde is Head of Administration in Nigeria. She keeps the charity’s day-to-day work organised, documented and prepared.",
           "The role supports administrative coordination across the team, volunteer skills-gap analysis that informs recruitment and training, and programme-budget preparation that helps outreach and community activity run responsibly.",
         ],
       },

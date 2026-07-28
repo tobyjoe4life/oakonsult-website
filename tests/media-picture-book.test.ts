@@ -60,18 +60,16 @@ test("UK and Nigeria remain separate editorial picture books with meaningful cha
   assert.match(nigeriaPage, /region="Nigeria"/);
 });
 
-test("the gallery is an accessible progressive-enhancement picture book, not a card grid", () => {
+test("the gallery is an accessible progressive-enhancement picture book without engagement tracking", () => {
   const componentPath = join(root, "src", "components", "PictureBookGallery.tsx");
   assert.ok(existsSync(componentPath), "PictureBookGallery client component is required");
   const component = read("src/components/PictureBookGallery.tsx");
   assert.match(component, /^"use client";/);
-  assert.match(component, /aria-pressed=/);
   assert.match(component, /type="button"/);
-  assert.match(component, /localStorage/);
   assert.match(component, /role="dialog"|<dialog/);
   assert.match(component, /Escape/);
   assert.match(component, /aria-label=/);
-  assert.doesNotMatch(component, /Math\.random|fake|globalLikes|likeCount/i, "do not invent public like counts");
+  assert.doesNotMatch(component, /localStorage|sessionStorage|FAVOURITES_KEY|favourites|toggleFavourite|aria-pressed|picture-book-favourite|\bLiked?\b/i);
 });
 
 test("picture-book styling is editorial, responsive and reduced-motion safe", () => {
@@ -83,8 +81,7 @@ test("picture-book styling is editorial, responsive and reduced-motion safe", ()
   assert.match(premium, /scroll-snap|position:\s*sticky/);
   assert.match(premium, /\.picture-book-figure\[data-prominence="portrait"\]:nth-of-type\(odd\)\s*\{\s*grid-column:\s*2\s*\/\s*span\s+5;/);
   assert.doesNotMatch(premium, /\.picture-book-figure\[data-prominence="portrait"\]:nth-of-type\(odd\)\s*\{\s*grid-column-start:/);
-  const favouriteBlock = premium.match(/\.picture-book-favourite\s*\{[\s\S]*?\}/)?.[0] ?? "";
-  assert.doesNotMatch(favouriteBlock, /border-radius:\s*999px/);
+  assert.doesNotMatch(premium, /\.picture-book-favourite/);
   assert.match(premium, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.doesNotMatch(component, /0\{index\s*\+\s*1\}|padStart\s*\(/, "decorative sequence numbers are prohibited");
 });
