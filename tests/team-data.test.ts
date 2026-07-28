@@ -86,6 +86,27 @@ test("verified names are used, including full forms and familiar names", () => {
   assert.ok(!teamMembers.some((member) => /Itunade\b/.test(member.name)), "the older misspelling Itunade must not be used");
 });
 
+test("Lucky and Esther use their requested public names without middle names", () => {
+  const lucky = teamBySlug("lucky-sanni-aigbefoh");
+  const esther = teamBySlug("esther-aderike-kehinde");
+
+  assert.equal(lucky?.name, "Lucky Aigbefoh");
+  assert.equal(esther?.name, "Esther Kehinde");
+
+  const visibleProfileText = (member: NonNullable<typeof lucky>) =>
+    JSON.stringify({
+      name: member.name,
+      summary: member.summary,
+      biography: member.biography,
+      imageAlt: member.image?.alt,
+      ctaTitle: member.ctaTitle,
+      ctaText: member.ctaText,
+    });
+
+  assert.doesNotMatch(visibleProfileText(lucky!), /\bSanni\b/);
+  assert.doesNotMatch(visibleProfileText(esther!), /\bAderike\b/);
+});
+
 test("current approved biographies replace the disputed staging career histories", () => {
   const ajisola = JSON.stringify(teamBySlug("ajisola-adeloye"));
   const modupe = JSON.stringify(teamBySlug("modupe-olubunmi-soji-adeyemo"));
@@ -132,7 +153,10 @@ test("board jurisdiction, operational remit and public directory grouping are se
   assert.equal(teamBySlug("olufunke-adeloye")?.operationalRemit, "cross-regional");
   assert.equal(teamBySlug("bolanle-alice-ajayi")?.operationalRemit, "cross-regional");
   assert.equal(teamBySlug("oshin-hannah-oluwafunmilayo")?.boardJurisdiction, "nigeria");
-  assert.deepEqual(teamByBoardJurisdiction("uk").map((member) => member.name).sort(), [...officialUkTrusteeNames].sort());
+  assert.deepEqual(
+    teamByBoardJurisdiction("uk").map((member) => member.registeredName ?? member.name).sort(),
+    [...officialUkTrusteeNames].sort(),
+  );
 });
 
 test("every profile carries mandatory factual fields", () => {

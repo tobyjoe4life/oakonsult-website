@@ -21,6 +21,8 @@ export type TeamSection = {
 export type TeamMember = {
   slug: string;
   name: string;
+  /** Exact registered name retained for governance matching, not public display. */
+  registeredName?: string;
   /** Optional familiar name shown clearly beside the full verified name. */
   familiarName?: string;
   role: string;
@@ -207,7 +209,8 @@ export const teamMembers: TeamMember[] = [
   },
   {
     slug: "lucky-sanni-aigbefoh",
-    name: "Lucky Sanni Aigbefoh",
+    name: "Lucky Aigbefoh",
+    registeredName: "Lucky Sanni Aigbefoh",
     role: "UK trustee",
     region: "uk",
     boardJurisdiction: "uk",
@@ -220,7 +223,7 @@ export const teamMembers: TeamMember[] = [
         eyebrow: "Background",
         title: "Project leadership and organisational change.",
         paragraphs: [
-          "Lucky Sanni Aigbefoh is a Senior Project Manager and Certified Scrum Master with more than a decade of experience delivering complex projects.",
+          "Lucky Aigbefoh is a Senior Project Manager and Certified Scrum Master with more than a decade of experience delivering complex projects.",
           "His work spans HR, payroll, infrastructure, implementation and business transformation, with strengths in agile delivery, stakeholder engagement, risk management and global-team leadership.",
         ],
       },
@@ -238,7 +241,7 @@ export const teamMembers: TeamMember[] = [
     ],
     image: {
       src: "/images/team/lucky-aigbefoh.webp",
-      alt: "Portrait of Lucky Sanni Aigbefoh, UK trustee of OAKonsult",
+      alt: "Portrait of Lucky Aigbefoh, UK trustee of OAKonsult",
       position: "50% 18%",
     },
     ctaTitle: "Talk to the UK team",
@@ -361,7 +364,8 @@ export const teamMembers: TeamMember[] = [
   },
   {
     slug: "esther-aderike-kehinde",
-    name: "Esther Aderike Kehinde",
+    name: "Esther Kehinde",
+    registeredName: "Esther Aderike Kehinde",
     role: "Nigeria trustee",
     region: "nigeria",
     boardJurisdiction: "nigeria",
@@ -374,7 +378,7 @@ export const teamMembers: TeamMember[] = [
         eyebrow: "Background",
         title: "A career in education and public administration.",
         paragraphs: [
-          "Esther Aderike Kehinde earned her NCE in 1986, a Higher Diploma in Public Administration in 1997, a postgraduate diploma in Public Administration in 2013 and a Master of Public Administration in 2015.",
+          "Esther Kehinde earned her NCE in 1986, a Higher Diploma in Public Administration in 1997, a postgraduate diploma in Public Administration in 2013 and a Master of Public Administration in 2015.",
           "She joined NEC, now INEC, in 1989 and served the institution for more than three decades before retiring from active civil service in April 2020. Alongside her professional life, she has held community and church leadership roles.",
         ],
       },
@@ -392,7 +396,7 @@ export const teamMembers: TeamMember[] = [
     ],
     image: {
       src: "/images/team/esther-aderike-kehinde.webp",
-      alt: "Portrait of Esther Aderike Kehinde, Nigeria trustee of OAKonsult",
+      alt: "Portrait of Esther Kehinde, Nigeria trustee of OAKonsult",
       position: "50% 17%",
     },
     ctaTitle: "Talk to the Nigeria team",
@@ -542,7 +546,7 @@ export const ukTeamMembers = teamByRegion("uk");
 export const nigeriaTeamMembers = teamByRegion("nigeria");
 
 export const ukTrustees = teamByBoardJurisdiction("uk").filter(
-  (member) => officialUkTrusteeNames.includes(member.name as (typeof officialUkTrusteeNames)[number]),
+  (member) => officialUkTrusteeNames.includes((member.registeredName ?? member.name) as (typeof officialUkTrusteeNames)[number]),
 );
 
 export const regionDisplayName = (region: TeamRegion): string =>
